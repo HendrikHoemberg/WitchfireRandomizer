@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loadout Randomizer - Witchfire Companion</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/htmx.min.js"></script>
+    <script defer src="/js/alpine.min.js"></script>
+</head>
+<body>
+    <div th:replace="~{fragments/navigation :: navbar('randomizer')}"></div>
+
+    <main class="container" x-data="{
+        locks: {
+            primaryWeapon: false,
+            secondaryWeapon: false,
+            demonicWeapon: false,
+            meleeWeapon: false,
+            lightSpell: false,
+            heavySpell: false,
+            relic: false,
+            fetish: false,
+            ring: false
+        },
+        beadStats: {
+            Flesh: 100,
+            Blood: 100,
+            Mind: 100,
+            Witchery: 100,
+            Arsenal: 100,
+            Faith: 100
+        },
+        beadSlotCount: 5,
+        showBeadModal: false,
+        showToast: false,
+        toastMessage: '',
+        copyShareLink() {
+            const params = new URLSearchParams();
+            const inputs = document.querySelectorAll('#randomizer-form input[name^=\'currentSlotItemIds\']');
+            inputs.forEach(input => {
+                const match = input.name.match(/\[(\w+)\]/);
+                if (match && input.value) {
+                    params.set(match[1], input.value);
+                }
+            });
+            const url = window.location.origin + '/randomizer?' + params.toString();
+            navigator.clipboard.writeText(url).then(() => {
+                this.toastMessage = 'Share link copied to clipboard!';
+                this.showToast = true;
+                setTimeout(() => { this.showToast = false; }, 3000);
+            });
+        }
+    }">
+        <form id="randomizer-form" hx-post="/randomizer/reroll" hx-target="#loadout-grid" hx-swap="outerHTML">
+            <!-- Top Controls Bar -->
+            <div class="controls-bar">
+                <div style="display: flex; gap: 1rem; align-items: center;">
+                    <button type="submit" class="btn btn-primary" title="Reroll unlocked slots">
+                        🎲 Reroll Loadout
+                    </button>
+                    <button type="button" class="btn btn-secondary" @click="showBeadModal = true">
+                        ⚙ Bead Settings
+                    </button>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-secondary" @click="copyShareLink()">
+                        🔗 Share Loadout
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modal for Bead Constraints -->
+            <div th:replace="~{randomizer/fragments/bead-settings-modal :: beadModal}"></div>
+
+            <!-- Loadout Grid -->
+            <div th:replace="~{randomizer/fragments/loadout-grid :: loadoutGrid}"></div>
+        </form>
+
+        <!-- Toast Notice -->
+        <div x-show="showToast" x-transition class="toast-notice" style="display: none;" x-cloak>
+            <span x-text="toastMessage"></span>
+        </div>
+    </main>
+</body>
+</html>
