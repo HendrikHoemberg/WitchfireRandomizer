@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${pageTitle != null ? pageTitle + ' - Witchfire' : 'Witchfire Companion'}">Witchfire Companion</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/htmx.min.js"></script>
+    <script defer src="/js/alpine.min.js"></script>
+</head>
+<body>
+    <div th:replace="~{fragments/navigation :: navbar(${activeTab})}"></div>
+
+    <main class="container">
+        <div th:replace="${content}"></div>
+    </main>
+</body>
+</html>

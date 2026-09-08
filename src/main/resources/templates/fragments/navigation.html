@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<nav th:fragment="navbar(activeTab)" class="header-nav">
+    <div class="container" style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 0; width: 100%;">
+        <a href="/" class="nav-brand">
+            <img src="/images/wf-logo2.webP" alt="Witchfire" class="nav-logo" />
+            <span class="nav-title">Witchfire Companion</span>
+        </a>
+        <div class="nav-links">
+            <a href="/" th:classappend="${activeTab == 'randomizer' ? 'active' : ''}" class="nav-link">Randomizer</a>
+            <a href="/wiki" th:classappend="${activeTab == 'wiki' ? 'active' : ''}" class="nav-link">Item Wiki</a>
+        </div>
+    </div>
+</nav>
+</body>
+</html>
