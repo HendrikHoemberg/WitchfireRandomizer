@@ -1,0 +1,40 @@
+# Current Tasks: Witchfire Randomizer & Wiki Rewrite
+
+- [ ] **Task 1: Scraper Script & Static Seed Assets**
+  - [ ] Write `scripts/scrape_wiki.py`
+  - [ ] Copy base textures and icons from old project
+  - [ ] Run scraper to generate `src/main/resources/data/items.json` and download missing icons
+  - [ ] Commit
+- [ ] **Task 2: Domain Model**
+  - [ ] Write failing `ModelTest`
+  - [ ] Implement domain models (`Item`, `Weapon`, `MeleeWeapon`, `Bead`, `Loadout`, etc.)
+  - [ ] Verify `ModelTest` passes
+  - [ ] Commit
+- [ ] **Task 3: Item Repository**
+  - [ ] Write failing `ItemRepositoryTest`
+  - [ ] Implement `ItemRepository`
+  - [ ] Verify `ItemRepositoryTest` passes
+  - [ ] Commit
+- [ ] **Task 4: Randomizer Service**
+  - [ ] Write failing `RandomizerServiceTest`
+  - [ ] Implement `RandomizerService`
+  - [ ] Verify `RandomizerServiceTest` passes
+  - [ ] Commit
+- [ ] **Task 5: Custom Dark Fantasy CSS & Base Layout**
+  - [ ] Vendor HTMX and Alpine.js locally
+  - [ ] Create `src/main/resources/static/css/main.css`
+  - [ ] Create base Thymeleaf template and navigation fragments
+  - [ ] Commit
+- [ ] **Task 6: Item Wiki Web Layer**
+  - [ ] Write failing `WikiControllerTest`
+  - [ ] Implement `WikiController` and Thymeleaf wiki templates
+  - [ ] Verify `WikiControllerTest` passes
+  - [ ] Commit
+- [ ] **Task 7: Randomizer Web Layer**
+  - [ ] Write failing `RandomizerControllerTest`
+  - [ ] Implement `RandomizerController` and Thymeleaf randomizer templates
+  - [ ] Verify `RandomizerControllerTest` passes
+  - [ ] Commit
+- [ ] **Task 8: Verification & Polish**
+  - [ ] Full suite run `./mvnw test`
+  - [ ] Commit and final report

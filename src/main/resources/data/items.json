@@ -1,0 +1,4476 @@
+[
+  {
+    "id": "w-all-seeing-eye",
+    "name": "All-Seeing Eye",
+    "category": "WEAPON",
+    "rangeCategory": "Long Range Weapon",
+    "weaponFamily": "Bolt Action Rifle",
+    "element": "Earth",
+    "description": "Critical hits hurt all enemies inside the All-Seeing Eye.",
+    "damage": 38,
+    "criticalDamage": 134,
+    "stunPower": "low",
+    "adsRange": 32.0,
+    "hipfireRange": 18.0,
+    "rateOfFire": 1.0,
+    "reloadSpeed": 4.0,
+    "stability": "high",
+    "mobility": "low",
+    "magSize": 6,
+    "ammoReserves": 96,
+    "fireMode": "Single Shot",
+    "location": "",
+    "iconUrl": "/images/items/w-all-seeing-eye.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Increased damage against enemies with more than 75% HP or less than 25% HP.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "A magical circle appears on Critical hits, dealing damage to all enemies it frames, regardless of distance.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "First Mysterium actions: 75",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "If the Critical hit dealt increased damage, the circle also applies Decay.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 190",
+          "Second Mysterium actions: 100",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-angelus",
+    "name": "Angelus",
+    "category": "WEAPON",
+    "rangeCategory": "Medium Range Weapon",
+    "weaponFamily": "Auto Rifle",
+    "element": null,
+    "description": "Turns defense into devastating counterattacks.",
+    "damage": 13,
+    "criticalDamage": 118,
+    "stunPower": "average",
+    "adsRange": 21.0,
+    "hipfireRange": 18.0,
+    "rateOfFire": 8.3,
+    "reloadSpeed": 4.0,
+    "stability": "low",
+    "mobility": "medium",
+    "magSize": 70,
+    "ammoReserves": 420,
+    "fireMode": "Auto",
+    "location": "",
+    "iconUrl": "/images/items/w-angelus.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Aiming down sights conjures ethereal shield wings.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Successful blocks briefly grant reduced fire rate with massively increased damage.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 75",
+          "First Mysterium actions: 25",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Last-moment blocking reduces shield cooldown and stuns melee attackers.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "Second Mysterium actions: 35",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-basilisk",
+    "name": "Basilisk",
+    "category": "WEAPON",
+    "rangeCategory": "Long Range Weapon",
+    "weaponFamily": "Sniper Rifle",
+    "element": "Fire",
+    "description": "When ignited, the scope burns enemies. Uses Stamina.",
+    "damage": 60,
+    "criticalDamage": 140,
+    "stunPower": "average",
+    "adsRange": 36.0,
+    "hipfireRange": 20.0,
+    "rateOfFire": 1.1,
+    "reloadSpeed": 4.0,
+    "stability": "high",
+    "mobility": "low",
+    "magSize": 10,
+    "ammoReserves": 40,
+    "fireMode": "Single Shot",
+    "location": "",
+    "iconUrl": "/images/items/w-basilisk.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Critical hits ignite the scope for a few seconds, causing enemies viewed through the fiery scope to Burn.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Shooting a burning enemy extends the Burn duration.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 50",
+          "First Mysterium actions: 25",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Killing a burning enemy with a critical hit triggers an enhanced fiery scope that continuously damages enemies.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "Second Mysterium actions: 100",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-corpse-eater",
+    "name": "Corpse Eater",
+    "category": "WEAPON",
+    "rangeCategory": "Medium Range Weapon",
+    "weaponFamily": "Hand Cannon",
+    "element": "Earth",
+    "description": "Aimed critical hits apply Decay. Hip-fired shots deal increased damage to decaying enemies.",
+    "damage": 25,
+    "criticalDamage": 114,
+    "stunPower": "average",
+    "adsRange": 14.0,
+    "hipfireRange": 10.0,
+    "rateOfFire": 3.6,
+    "reloadSpeed": 2.2,
+    "stability": "average",
+    "mobility": "very high",
+    "magSize": 12,
+    "ammoReserves": 168,
+    "fireMode": "Auto",
+    "location": "Outskirts Vault",
+    "iconUrl": "/images/items/w-corpse-eater.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Aimed critical hits apply Decay to the target. Hipfire shots devour the Decay for bonus damage.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Subsequent aimed critical hits on the same target apply stronger Decay. Subsequent hipfire hits on a {{Decay|Decaying}} target deal increased damage.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 75",
+          "First Mysterium actions: 100",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Hipfire shots on a {{Decay|Decaying}} enemy can contaminate another nearby enemy.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 125",
+          "Second Mysterium actions: 100",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-cricket",
+    "name": "Cricket",
+    "category": "WEAPON",
+    "rangeCategory": "Close Range Weapon",
+    "weaponFamily": "Machine Pistol",
+    "element": null,
+    "description": "Dash after a kill reloads and boosts the gun.",
+    "damage": 17,
+    "criticalDamage": 110,
+    "stunPower": "very low",
+    "adsRange": 9.0,
+    "hipfireRange": 9.0,
+    "rateOfFire": 10.0,
+    "reloadSpeed": 3.0,
+    "stability": "low",
+    "mobility": "very high",
+    "magSize": 30,
+    "ammoReserves": 330,
+    "fireMode": "Auto",
+    "location": "",
+    "iconUrl": "/images/items/w-cricket.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Boosts Stamina and spell recharge on kills.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Dashing right after the kill reloads the firearm.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "First Mysterium actions: 60",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Dashing right after the kill temporarily boosts the firearm's damage. Consecutive kills and dashes increase the damage boost.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 190",
+          "Second Mysterium actions: 80",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-duelist",
+    "name": "Duelist",
+    "category": "WEAPON",
+    "rangeCategory": "Medium Range Weapon",
+    "weaponFamily": "Hand Cannon",
+    "element": "Fire",
+    "description": "Rewards duel victory with bullets that ignite enemies.",
+    "damage": 25,
+    "criticalDamage": 114,
+    "stunPower": "low",
+    "adsRange": 18.0,
+    "hipfireRange": 15.0,
+    "rateOfFire": 4.1,
+    "reloadSpeed": 2.5,
+    "stability": "high",
+    "mobility": "medium",
+    "magSize": 12,
+    "ammoReserves": 168,
+    "fireMode": "Auto",
+    "location": "",
+    "iconUrl": "/images/items/w-duelist.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "After any kill, a Duel can be initiated by shooting an enemy while aiming down sights. Landing a critical hit {{Color|highlight",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Duel victory also reloads the gun, adds Burn to bullets and quickens the reload while the empowerement lasts.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "First Mysterium actions:25",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Killing enemies extends the empowerement duration.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 190",
+          "Second Mysterium actions: 40",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-echo",
+    "name": "Echo",
+    "category": "WEAPON",
+    "rangeCategory": "Close Range Weapon",
+    "weaponFamily": "Shotgun",
+    "element": "Fire",
+    "description": "Pellets explode and ignite targets. Uses Stamina.",
+    "damage": 95,
+    "criticalDamage": 110,
+    "stunPower": "average",
+    "adsRange": 7.0,
+    "hipfireRange": 7.0,
+    "rateOfFire": 1.7,
+    "reloadSpeed": 0.6,
+    "stability": "low",
+    "mobility": "very high",
+    "magSize": 6,
+    "ammoReserves": 40,
+    "fireMode": "Semi-Auto",
+    "location": "",
+    "iconUrl": "/images/items/w-echo.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Pellets have a delayed explosion that applies Burn. Lethal shots push enemies back with great force.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Lethal pellet explosion has more range and applies Burn to nearby enemies.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 70",
+          "First Mysterium actions: 80",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Sliding reloads two shells and temporarily increases damage.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 120",
+          "Second Mysterium actions: 100",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-falling-star",
+    "name": "Falling Star",
+    "category": "DEMONIC_WEAPON",
+    "rangeCategory": "Demonic Weapon",
+    "weaponFamily": "Grenade Launcher",
+    "element": null,
+    "description": "When fired while aiming down sights, grenades home in onto the tagged enemy. The longer the grenades travel, the higher their damage.",
+    "damage": 250,
+    "criticalDamage": 100,
+    "stunPower": "average",
+    "adsRange": 30.0,
+    "hipfireRange": 30.0,
+    "rateOfFire": 1.0,
+    "reloadSpeed": 2.7,
+    "stability": "average",
+    "mobility": "low",
+    "magSize": 6,
+    "ammoReserves": 14,
+    "fireMode": "Semi-Auto",
+    "location": "",
+    "iconUrl": "/images/items/w-falling-star.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "w-fatum",
+    "name": "Fatum",
+    "category": "WEAPON",
+    "rangeCategory": "Close Range Weapon",
+    "weaponFamily": "Machine Pistol",
+    "element": "Fire",
+    "description": "Transforms combat into a lethal wager, spinning its elemental rings to reward the fortunate.",
+    "damage": 10,
+    "criticalDamage": 121,
+    "stunPower": "very low",
+    "adsRange": 9.0,
+    "hipfireRange": 9.0,
+    "rateOfFire": 15.1,
+    "reloadSpeed": 2.5,
+    "stability": "very low",
+    "mobility": "very high",
+    "magSize": 60,
+    "ammoReserves": 460,
+    "fireMode": "Auto",
+    "location": "Irongate Castle",
+    "iconUrl": "/images/items/w-fatum.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Reloading after a kill spins the barrel rings. Active rings increase weapon damage.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Rings now cycle through elements. Matching two colors grants bullets a chance to apply the rolled element.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 75",
+          "First Mysterium actions: 25",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "A triple match grants infinite Stamina, ammo, or Light Spell charges. Kills increase the odds of a perfect spin.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "Second Mysterium actions: 25",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-frostbite",
+    "name": "Frostbite",
+    "category": "WEAPON",
+    "rangeCategory": "Long Range Weapon",
+    "weaponFamily": "Bolt Action Rifle",
+    "element": "Water",
+    "description": "Perfect reloading rhythm imbues shots with freezing power.",
+    "damage": 77,
+    "criticalDamage": 124,
+    "stunPower": "high",
+    "adsRange": 46.0,
+    "hipfireRange": 26.0,
+    "rateOfFire": 0.8,
+    "reloadSpeed": 3.5,
+    "stability": "low",
+    "mobility": "medium",
+    "magSize": 6,
+    "ammoReserves": 84,
+    "fireMode": "Single Shot",
+    "location": "",
+    "iconUrl": "/images/items/w-frostbite.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Well-timed secondary reload boosts damage for three shots.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Perfect Reload adds Freeze, duration scales with shots fired before reloading. Chaining Perfect Reload further boosts Mysterium I damage.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 75",
+          "First Mysterium actions: 25",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Three consecutive perfect reloads empower next shot with double damage and {{Freeze|Freezing}} trail.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "Second Mysterium actions: 50",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-hailstorm",
+    "name": "Hailstorm",
+    "category": "WEAPON",
+    "rangeCategory": "Long Range Weapon",
+    "weaponFamily": "Sniper Rifle",
+    "element": "Water",
+    "description": "Reloads bullets for Critical Hits. Uses Stamina.",
+    "damage": 160,
+    "criticalDamage": 140,
+    "stunPower": "average",
+    "adsRange": 67.0,
+    "hipfireRange": 15.0,
+    "rateOfFire": 0.8,
+    "reloadSpeed": 4.8,
+    "stability": "very low",
+    "mobility": "very low",
+    "magSize": 5,
+    "ammoReserves": 20,
+    "fireMode": "Single Shot",
+    "location": "",
+    "iconUrl": "/images/items/w-hailstorm.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Every third consecutive Critical hit recharges the magazine with two extra bullets.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Consecutive Critical hits decrease zoom and flinch and increase handling and bullet bending. Mistakes or reloading reset the buff.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 50",
+          "First Mysterium actions: 20",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Every third consecutive Critical hit makes the target explode with a {{Freeze|Freezing}} shockwave.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "Second Mysterium actions: 75",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-hangfire",
+    "name": "Hangfire",
+    "category": "WEAPON",
+    "rangeCategory": "Medium Range Weapon",
+    "weaponFamily": "Hand Cannon",
+    "element": "Fire",
+    "description": "Fires slugs that detonate on command with a reload.",
+    "damage": 38,
+    "criticalDamage": 110,
+    "stunPower": "average",
+    "adsRange": 19.0,
+    "hipfireRange": 15.0,
+    "rateOfFire": 2.2,
+    "reloadSpeed": 3.0,
+    "stability": "low",
+    "mobility": "very high",
+    "magSize": 6,
+    "ammoReserves": 84,
+    "fireMode": "Semi Auto",
+    "location": "",
+    "iconUrl": "/images/items/w-hangfire.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Bullets lodge into enemies or the environment and explode on reload.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "The more enemies with lodged bullets, the bigger the damage of each bullet explosion.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "First Mysterium actions: 50",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Bullet explosions Burn enemies. Bullets lodged in the environment have significantly increased explosion range.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "Second Mysterium actions: 75",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-heart-eater",
+    "name": "Heart Eater",
+    "category": "WEAPON",
+    "rangeCategory": "Medium Range Weapon",
+    "weaponFamily": "Hand Cannon",
+    "element": "Air",
+    "description": "Critical hits expose a weak spot on the target. Shots that strike the weak spot deal increased damage.",
+    "damage": 53,
+    "criticalDamage": 114,
+    "stunPower": "very high",
+    "adsRange": 19.0,
+    "hipfireRange": 14.0,
+    "rateOfFire": 1.8,
+    "reloadSpeed": 2.5,
+    "stability": "average",
+    "mobility": "very high",
+    "magSize": 6,
+    "ammoReserves": 84,
+    "fireMode": "Semi-Auto",
+    "location": "",
+    "iconUrl": "/images/items/w-heart-eater.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Critical hits spawn a Weakspot on the enemy. Weakspot shots deal extra damage.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Weakspot hits can spawn additional Weakspots.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 75",
+          "First Mysterium actions: 40",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Three Weakspot hits charge a Chain Lightning shot that deals bonus damage and spawns more Weakspots.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 125",
+          "Second Mysterium actions: 30",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-hunger",
+    "name": "Hunger",
+    "category": "WEAPON",
+    "rangeCategory": "Medium Range Weapon",
+    "weaponFamily": "Hand Cannon",
+    "element": "Water",
+    "description": "Rewards perfect aim with increasingly potent bullets.",
+    "damage": 38,
+    "criticalDamage": 114,
+    "stunPower": "very high",
+    "adsRange": 21.0,
+    "hipfireRange": 15.0,
+    "rateOfFire": 2.8,
+    "reloadSpeed": 2.3,
+    "stability": "low",
+    "mobility": "very high",
+    "magSize": 6,
+    "ammoReserves": 84,
+    "fireMode": "Semi-Auto",
+    "location": "",
+    "iconUrl": "/images/items/w-hunger.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Reloading grants one Charged bullet for each Critical hit before the reload. Charged bullets deal increased damage.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "The more Critical hits before reload, the more powerful each Charged bullet after.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "First Mysterium actions: 50",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "The first body shot after reload counts as Critical hit. Reloading grants Freeze for the first bullet if every shot was a Critical hit.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 190",
+          "Second Mysterium actions: 75",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-hypnosis",
+    "name": "Hypnosis",
+    "category": "WEAPON",
+    "rangeCategory": "Long Range Weapon",
+    "weaponFamily": "Bolt Action Rifle",
+    "element": "Air",
+    "description": "Rewards a patient marksman with increased damage.",
+    "damage": 40,
+    "criticalDamage": 128,
+    "stunPower": "average",
+    "adsRange": 36.0,
+    "hipfireRange": 20.0,
+    "rateOfFire": 0.9,
+    "reloadSpeed": 4.0,
+    "stability": "low",
+    "mobility": "medium",
+    "magSize": 10,
+    "ammoReserves": 78,
+    "fireMode": "Single Shot",
+    "location": "",
+    "iconUrl": "/images/items/w-hypnosis.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Aiming down sights slowly charges the bullet with bonus damage.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Increased damage is weighted towards the end of the time window. A shot perfectly timed at the end of it inflicts even more damage.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "First Mysterium actions: 80",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "After the third Perfect Shot in a row, Perfect Shots deal {{Shock|Lightning}} damage.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 190",
+          "Second Mysterium actions: 120",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-judgment",
+    "name": "Judgment",
+    "category": "WEAPON",
+    "rangeCategory": "Close Range Weapon",
+    "weaponFamily": "Shotgun",
+    "element": "Earth",
+    "description": "Hard-hitting weapon with two firing modes. Both can be charged for extra damage.",
+    "damage": 140,
+    "criticalDamage": 110,
+    "stunPower": "high",
+    "adsRange": 7.0,
+    "hipfireRange": 7.0,
+    "rateOfFire": 1.3,
+    "reloadSpeed": 0.6,
+    "stability": "low",
+    "mobility": "medium",
+    "magSize": 6,
+    "ammoReserves": 24,
+    "fireMode": "Semi-Auto / Charged",
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/w-judgment.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Aiming down sights fires a slow-moving, long-range projectile.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Shots can be charged to increase power and projectile speed.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 75",
+          "First Mysterium actions: 40",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Shots can be charged longer to apply Decay when hipfired, or Freeze when aiming down sights.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 120",
+          "Second Mysterium actions: 60",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-koschei",
+    "name": "Koschei",
+    "category": "WEAPON",
+    "rangeCategory": "Medium Range Weapon",
+    "weaponFamily": "Auto Rifle",
+    "element": "Earth",
+    "description": "A heavy rifle of cursed bones, unleashing a decaying swarm upon its prey.",
+    "damage": 20,
+    "criticalDamage": 120,
+    "stunPower": "low",
+    "adsRange": 18.0,
+    "hipfireRange": 14.0,
+    "rateOfFire": 6.3,
+    "reloadSpeed": 1.0,
+    "stability": "average",
+    "mobility": "medium",
+    "magSize": 36,
+    "ammoReserves": 396,
+    "fireMode": "Burst Fire",
+    "location": "Velmorne",
+    "iconUrl": "/images/items/w-koschei.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "At the cost of Stamina, reloading unleashes bone shards that Decay enemies. Recharges every three kills.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Taking damage also recharges the swarm. Shooting decaying enemies prolongs their Decay.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 75",
+          "First Mysterium actions: 30",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "After killing six enemies, unleashing the swarm launches more bone shards with enhanced Decay power.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "Second Mysterium actions: 50",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-martyr",
+    "name": "Martyr",
+    "category": "WEAPON",
+    "rangeCategory": "Medium Range Weapon",
+    "weaponFamily": "Impaler",
+    "element": null,
+    "description": "Marks a victim for penance, causing every fired nail to find its way to their flesh.",
+    "damage": 20,
+    "criticalDamage": 120,
+    "stunPower": "low",
+    "adsRange": 45.0,
+    "hipfireRange": 30.0,
+    "rateOfFire": 5.0,
+    "reloadSpeed": 2.4,
+    "stability": "average",
+    "mobility": "medium",
+    "magSize": 16,
+    "ammoReserves": 224,
+    "fireMode": "Auto / Charged",
+    "location": "Velmorne Vault",
+    "iconUrl": "/images/items/w-martyr.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Shots fired while Aiming Down Sights Magnetize the target. In-flight nails curve towards Magnetized enemies.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Magnetizing an enemy now summons all nearby nails. Nails can strike multiple targets before shattering.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 50",
+          "First Mysterium actions: 20",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Environment can now be Magnetized, pulling all nearby nails to the impact point. Ripping out nails damages the enemy they are stuck in.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "Second Mysterium actions: 75",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-midas",
+    "name": "Midas",
+    "category": "WEAPON",
+    "rangeCategory": "Medium Range Weapon",
+    "weaponFamily": "Auto Rifle",
+    "element": "Fire",
+    "description": "Heats bullets, boosting damage or igniting enemies.",
+    "damage": 11,
+    "criticalDamage": 120,
+    "stunPower": "very low",
+    "adsRange": 25.0,
+    "hipfireRange": 17.0,
+    "rateOfFire": 11.1,
+    "reloadSpeed": 4.0,
+    "stability": "average",
+    "mobility": "medium",
+    "magSize": 60,
+    "ammoReserves": 540,
+    "fireMode": "Auto",
+    "location": "",
+    "iconUrl": "/images/items/w-midas.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Continous fire heats up the weapon. Bullets deal more damage when Heated and less when Overheated.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Overheated bullets apply Burn to enemies.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 75",
+          "First Mysterium actions: 75",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Reloading while Overheated damages Burning enemies. Very fast reload when the gun is Overheated.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 190",
+          "Second Mysterium actions: 50",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-nemesis",
+    "name": "Nemesis",
+    "category": "WEAPON",
+    "rangeCategory": "Medium Range Weapon",
+    "weaponFamily": "Lever Action Rifle",
+    "element": "Fire",
+    "description": "A lever-action rifle that chains deadly marks, punishing foes with fire and vengeance.",
+    "damage": 70,
+    "criticalDamage": 134,
+    "stunPower": "average",
+    "adsRange": 32.0,
+    "hipfireRange": 18.0,
+    "rateOfFire": 1.2,
+    "reloadSpeed": 0.6,
+    "stability": "average",
+    "mobility": "medium",
+    "magSize": 8,
+    "ammoReserves": 80,
+    "fireMode": "Single Shot",
+    "location": "",
+    "iconUrl": "/images/items/w-nemesis.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Critical hits may mark nearby enemies. Marked enemies take increased critical damage.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "The original target may also be marked. Killing a marked enemy with a critical hit instantly marks another.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "First Mysterium actions: 40",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Marking an enemy {{Burn|Burns}} them. Killing a marked enemy with a critical hit triggers a fiery shockwave, knocking back and Burning nearby enemies.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 190",
+          "Second Mysterium actions: 60",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-oracle",
+    "name": "Oracle",
+    "category": "WEAPON",
+    "rangeCategory": "Long Range Weapon",
+    "weaponFamily": "Sniper Rifle",
+    "element": null,
+    "description": "A sniper rifle able to kill enemies hidden from sight.",
+    "damage": 160,
+    "criticalDamage": 140,
+    "stunPower": "high",
+    "adsRange": 67.0,
+    "hipfireRange": 15.0,
+    "rateOfFire": 0.8,
+    "reloadSpeed": 2.0,
+    "stability": "low",
+    "mobility": "very low",
+    "magSize": 5,
+    "ammoReserves": 20,
+    "fireMode": "Single Shot",
+    "location": "Velmorne",
+    "iconUrl": "/images/items/w-oracle.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Killing enemies charges the scope, enabling sight and shots through walls. Each kill grants one powered shot.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Scoped enemies are slowed.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 50",
+          "First Mysterium actions: 25",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Looking through a scope without firing for a moment increases damage.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "Second Mysterium actions: 100",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-psychopomp",
+    "name": "Psychopomp",
+    "category": "WEAPON",
+    "rangeCategory": "Close Range Weapon",
+    "weaponFamily": "Shotgun",
+    "element": null,
+    "description": "Fast firing, regenerates more than ammo. Uses Stamina.",
+    "damage": 90,
+    "criticalDamage": 110,
+    "stunPower": "low",
+    "adsRange": 9.0,
+    "hipfireRange": 9.0,
+    "rateOfFire": 4.3,
+    "reloadSpeed": 0.6,
+    "stability": "very low",
+    "mobility": "very high",
+    "magSize": 10,
+    "ammoReserves": 40,
+    "fireMode": "Auto",
+    "location": "",
+    "iconUrl": "/images/items/w-psychopomp.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Kills with a charged melee regenerate up to half a magazine.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Consecutive shots at the same target deal increased damage.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 60",
+          "First Mysterium actions: 40",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Kills recharge the melee attack.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 120",
+          "Second Mysterium actions: 240",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-ricochet",
+    "name": "Ricochet",
+    "category": "WEAPON",
+    "rangeCategory": "Medium Range Weapon",
+    "weaponFamily": "Auto Rifle",
+    "element": "Air",
+    "description": "Bullets ricochet among marked enemies.",
+    "damage": 16,
+    "criticalDamage": 120,
+    "stunPower": "high",
+    "adsRange": 26.0,
+    "hipfireRange": 20.0,
+    "rateOfFire": 6.6,
+    "reloadSpeed": 3.4,
+    "stability": "average",
+    "mobility": "medium",
+    "magSize": 30,
+    "ammoReserves": 270,
+    "fireMode": "Auto",
+    "location": "",
+    "iconUrl": "/images/items/w-ricochet.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Up to three enemies can be tagged while aiming down sights. Shooting one ricochets the bullet to the others. The link breaks on reload or when all targets die.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "The first shot on a tagged enemy deals massively increased stun damage.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 75",
+          "First Mysterium actions: 50",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "A powerful Lightning appears each time an enemy is hit with seven ricocheted bullets.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "Second Mysterium actions: 50",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-rotweaver",
+    "name": "Rotweaver",
+    "category": "WEAPON",
+    "rangeCategory": "Close Range Weapon",
+    "weaponFamily": "Machine Pistol",
+    "element": "Earth",
+    "description": "Designed for crowd control, spreads Decay among attacking hordes.",
+    "damage": 8,
+    "criticalDamage": 110,
+    "stunPower": "low",
+    "adsRange": 11.0,
+    "hipfireRange": 10.0,
+    "rateOfFire": 15.1,
+    "reloadSpeed": 3.3,
+    "stability": "low",
+    "mobility": "very high",
+    "magSize": 60,
+    "ammoReserves": 480,
+    "fireMode": "Auto",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/items/w-rotweaver.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Shots apply Decay. The longer the burst, the more powerful the curse. The effect wanes when the gun is not in use.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "When an enemy dies from Decay, a few bullets are regenerated in the magazine.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "First Mysterium actions: 50",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "After a few seconds, cysts form on decaying enemies. When shot, these cysts explode, spreading Decay to nearby enemies.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 190",
+          "Second Mysterium actions: 75",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-soul-eater",
+    "name": "Soul Eater",
+    "category": "DEMONIC_WEAPON",
+    "rangeCategory": "Demonic Weapon",
+    "weaponFamily": "Hand Cannon",
+    "element": null,
+    "description": "Reveals the Soul Sigil of every nearby enemy at all times, allowing them to be stunned on demand.",
+    "damage": 145,
+    "criticalDamage": 114,
+    "stunPower": "high",
+    "adsRange": 19.0,
+    "hipfireRange": 14.0,
+    "rateOfFire": 2.7,
+    "reloadSpeed": 2.0,
+    "stability": "average",
+    "mobility": "very high",
+    "magSize": 12,
+    "ammoReserves": 24,
+    "fireMode": "Semi-Auto",
+    "location": "",
+    "iconUrl": "/images/items/w-soul-eater.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "w-striga",
+    "name": "Striga",
+    "category": "WEAPON",
+    "rangeCategory": "Medium Range Weapon",
+    "weaponFamily": "Impaler",
+    "element": "Fire",
+    "description": "A dual-element stake gun that impales targets or shatters them on impact.",
+    "damage": 80,
+    "criticalDamage": 140,
+    "stunPower": "high",
+    "adsRange": 30.0,
+    "hipfireRange": 30.0,
+    "rateOfFire": 0.6,
+    "reloadSpeed": 3.6,
+    "stability": "high",
+    "mobility": "very high",
+    "magSize": 7,
+    "ammoReserves": 43,
+    "fireMode": "Single Shot",
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/w-striga.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Deals bonus damage to stunned enemies.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "The stake ignites after traveling a set distance, triggering a Burn shockwave on impact.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 50",
+          "First Mysterium actions: 20",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Critical hits Shock all nearby foes.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 100",
+          "Second Mysterium actions: 75",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-tempest",
+    "name": "Tempest",
+    "category": "DEMONIC_WEAPON",
+    "rangeCategory": "Demonic Weapon",
+    "weaponFamily": "Ray Gun",
+    "element": "Air",
+    "description": "Brass-throated, demon-fed. Fires beams of shock and decay. Aimed, the throat opens wide — a single burst, all of it at once.",
+    "damage": 13,
+    "criticalDamage": 130,
+    "stunPower": "very low",
+    "adsRange": 24.0,
+    "hipfireRange": 20.0,
+    "rateOfFire": 10.0,
+    "reloadSpeed": 2.5,
+    "stability": "very high",
+    "mobility": "very low",
+    "magSize": 40,
+    "ammoReserves": 120,
+    "fireMode": "Auto / Charged",
+    "location": "",
+    "iconUrl": "/images/items/w-tempest.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "w-tribunal",
+    "name": "Tribunal",
+    "category": "WEAPON",
+    "rangeCategory": "Close Range Weapon",
+    "weaponFamily": "Shotgun",
+    "element": "Air",
+    "description": "Harnesses momentum to deliver a triple-barreled verdict of Shock.",
+    "damage": 160,
+    "criticalDamage": 110,
+    "stunPower": "very high",
+    "adsRange": 7.0,
+    "hipfireRange": 7.0,
+    "rateOfFire": 1.6,
+    "reloadSpeed": 2.5,
+    "stability": "low",
+    "mobility": "very high",
+    "magSize": 3,
+    "ammoReserves": 42,
+    "fireMode": "Semi-Auto",
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/w-tribunal.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Dashing or sliding charges the next shot with Shock. Stacks up to three times.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 25"
+        ]
+      },
+      {
+        "level": 2,
+        "effect": "Manual reloads also charge the next shot with Shock.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 75",
+          "First Mysterium actions: 40",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": "Charged overkills trigger a Shock explosion.",
+        "charismata": null,
+        "requirements": [
+          "Enemies killed: 120",
+          "Second Mysterium actions: 60",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "w-vulture",
+    "name": "Vulture",
+    "category": "DEMONIC_WEAPON",
+    "rangeCategory": "Demonic Weapon",
+    "weaponFamily": "Crossbow",
+    "element": null,
+    "description": "Fires a difficult to satiate arrow that actively seeks the next target after wounding one.",
+    "damage": 200,
+    "criticalDamage": 150,
+    "stunPower": "high",
+    "adsRange": 24.0,
+    "hipfireRange": 20.0,
+    "rateOfFire": 1.0,
+    "reloadSpeed": 1.5,
+    "stability": "high",
+    "mobility": "medium",
+    "magSize": 5,
+    "ammoReserves": 10,
+    "fireMode": "Single Shot",
+    "location": "",
+    "iconUrl": "/images/items/w-vulture.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "w-whisper",
+    "name": "Whisper",
+    "category": "DEMONIC_WEAPON",
+    "rangeCategory": "Demonic Weapon",
+    "weaponFamily": "Stun Gun",
+    "element": null,
+    "description": "A device capable of stunning almost any enemy.",
+    "damage": 220,
+    "criticalDamage": 100,
+    "stunPower": "very high",
+    "adsRange": 20.0,
+    "hipfireRange": 20.0,
+    "rateOfFire": 1.2,
+    "reloadSpeed": 2.7,
+    "stability": "very high",
+    "mobility": "very high",
+    "magSize": 3,
+    "ammoReserves": 17,
+    "fireMode": "Semi-Auto",
+    "location": "",
+    "iconUrl": "/images/items/w-whisper.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "mw-buckler",
+    "name": "Buckler",
+    "category": "MELEE_WEAPON",
+    "element": null,
+    "description": "Hold Melee to block all frontal damage.",
+    "baseDamage": 20,
+    "chargedDamage": 30,
+    "specialAttack": "Block just before impact to Parry and fire a retaliation projectile.",
+    "specialDamage": "60",
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/mw-buckler.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "mw-fist",
+    "name": "Fist",
+    "category": "MELEE_WEAPON",
+    "element": null,
+    "description": "A brutal, close-quarters straight punch.",
+    "baseDamage": 20,
+    "chargedDamage": 70,
+    "specialAttack": "Attack again mid-swing to chain into a rising uppercut.",
+    "specialDamage": "50",
+    "location": "",
+    "iconUrl": "/images/items/mw-fist.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "mw-katar",
+    "name": "Katar",
+    "category": "MELEE_WEAPON",
+    "element": null,
+    "description": "A precise, medium-range piercing strike.",
+    "baseDamage": 20,
+    "chargedDamage": 100,
+    "specialAttack": "Attack while sliding to perform a long-range predatory leap.",
+    "specialDamage": "100",
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/mw-katar.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "mw-morning-star",
+    "name": "Morning Star",
+    "category": "MELEE_WEAPON",
+    "element": null,
+    "description": "A wide swing that knocks enemies back.",
+    "baseDamage": 20,
+    "chargedDamage": 200,
+    "specialAttack": "Crouch in mid-air to execute a ground slam shockwave.",
+    "specialDamage": "60 - 200",
+    "location": "Velmorne Vault",
+    "iconUrl": "/images/items/mw-morning-star.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "mw-sacring-bell",
+    "name": "Sacring Bell",
+    "category": "MELEE_WEAPON",
+    "element": null,
+    "description": "A heavy, short-range bludgeoning strike.",
+    "baseDamage": 20,
+    "chargedDamage": 100,
+    "specialAttack": "Hold charged melee to toll a stunning shockwave.",
+    "specialDamage": "15",
+    "location": "Marshland",
+    "iconUrl": "/images/items/mw-sacring-bell.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "mw-zweihander",
+    "name": "Zweihander",
+    "category": "MELEE_WEAPON",
+    "element": "Fire",
+    "description": "A quick pommel strike.",
+    "baseDamage": 20,
+    "chargedDamage": 50,
+    "specialAttack": "Hold melee for a heavier blow. Hold longer to release a forward fire shockwave.",
+    "specialDamage": "180, 120",
+    "location": "Irongate Castle",
+    "iconUrl": "/images/items/mw-zweihander.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "s-blight-cyst",
+    "name": "Blight Cyst",
+    "category": "LIGHT_SPELL",
+    "element": "Earth",
+    "description": "A cyst that attaches to the environment or enemies. Explodes after a while, but can be shot for a more powerful explosion.",
+    "charges": 1,
+    "recharge": "20",
+    "location": "",
+    "iconUrl": "/images/items/s-blight-cyst.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Auto-explosion range: 8m",
+          "Forced explosion range: 12m"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Auto-explosion range: 10m",
+          "Forced explosion range: 14m",
+          "The cyst grows even bigger, allowing for easier targeting"
+        ],
+        "requirements": [
+          "Enemies hexed: 70",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Auto-explosion range: 12m",
+          "Forced explosion range: 16m",
+          "The cyst grows even bigger, allowing for easier targeting",
+          "Chance to regrow: 50%"
+        ],
+        "requirements": [
+          "Enemies hexed: 150",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-burning-stake",
+    "name": "Burning Stake",
+    "category": "HEAVY_SPELL",
+    "element": "Fire",
+    "description": "Summons a burning stake that ignites enemies. Damaging them charges the stake. Fully charged, the stake releases a fiery explosion.",
+    "charges": 1,
+    "recharge": "60",
+    "location": "Irongate Castle",
+    "iconUrl": "/images/items/s-burning-stake.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Duration: 25s",
+          "Range: 20m"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Duration: 30s",
+          "Range: 25m",
+          "Inferno {{Burn|burn}} damage boost: +25%"
+        ],
+        "requirements": [
+          "Enemies hexed: 50",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Duration: 35s",
+          "Range: 30m",
+          "Inferno bonus|+50%",
+          "Killed enemies also partially charge the stake"
+        ],
+        "requirements": [
+          "Enemies hexed: 100",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-cornucopia",
+    "name": "Cornucopia",
+    "category": "HEAVY_SPELL",
+    "element": null,
+    "description": "The last bullet regenerates right after firing. Manual reload can still be executed. Does not work with Demonic Weapons.",
+    "charges": 1,
+    "recharge": "100",
+    "location": "",
+    "iconUrl": "/images/items/s-cornucopia.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Duration: 12s",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Duration: 16s",
+          "Improved handling, stability and reload"
+        ],
+        "requirements": [
+          "Spell casts: 20",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Duration: 20s",
+          "Improved handling, stability and reload",
+          "Duration extended per kill: +1s"
+        ],
+        "requirements": [
+          "Spell casts: 40",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-cursed-bell",
+    "name": "Cursed Bell",
+    "category": "HEAVY_SPELL",
+    "element": null,
+    "description": "Summons a cursed bell. Firing at the bell tolls it, stunning all nearby Minor enemies.",
+    "charges": 1,
+    "recharge": "65",
+    "location": "",
+    "iconUrl": "/images/items/s-cursed-bell.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Shockwave range: 30m",
+          "Duration: 20s"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Shockwave range: 35m",
+          "Duration: 25s",
+          "Recharge speed reduction: 1s"
+        ],
+        "requirements": [
+          "Enemies hexed: 50",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Shockwave range: 40m",
+          "Duration: 30s",
+          "Recharge speed reduction: 2s",
+          "The final toll also stuns Major enemies"
+        ],
+        "requirements": [
+          "Enemies hexed: 100",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-fireballs",
+    "name": "Fireballs",
+    "category": "LIGHT_SPELL",
+    "element": "Fire",
+    "description": "Three fireballs homing in onto multiple enemies.",
+    "charges": 2,
+    "recharge": "25",
+    "location": "",
+    "iconUrl": "/images/items/s-fireballs.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Direct hit damage: 35",
+          "Explosion range: 4m"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Direct hit damage: 45",
+          "Explosion range: 5m",
+          "Extra charge"
+        ],
+        "requirements": [
+          "Enemies hexed: 70",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Direct hit damage: 50",
+          "Explosion range: 6m",
+          "Extra charge",
+          "Casting when in ADS focuses fireballs on a single target"
+        ],
+        "requirements": [
+          "Enemies hexed: 150",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-firebreath",
+    "name": "Firebreath",
+    "category": "LIGHT_SPELL",
+    "element": "Fire",
+    "description": "A fire breather's trick turned deadly, damaging enemies and recharging Melee.",
+    "charges": 1,
+    "recharge": "20",
+    "location": "Island of the Damned",
+    "iconUrl": "/images/items/s-firebreath.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Range: 4m",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Range: 5m",
+          "Deals bonus damage to already {{Burn|burning}} enemies"
+        ],
+        "requirements": [
+          "Enemies hexed: 25",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Range: 6m",
+          "Deals bonus damage to already burning enemies",
+          "Killing an enemy with the spell instantly recharges Melee"
+        ],
+        "requirements": [
+          "Enemies hexed: 50",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-frost-cone",
+    "name": "Frost Cone",
+    "category": "LIGHT_SPELL",
+    "element": "Water",
+    "description": "An icy cloud that freezes any enemies in its path.",
+    "charges": 1,
+    "recharge": "22",
+    "location": "",
+    "iconUrl": "/images/items/s-frost-cone.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Damage: 20",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Damage: 30",
+          "Affecting three enemies or more instantly refills the mag from reserves"
+        ],
+        "requirements": [
+          "Enemies hexed: 50",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Damage: 40",
+          "Affecting three enemies or more instantly refills the mag from reserves",
+          "Affecting five enemies or more instantly recharges the spell"
+        ],
+        "requirements": [
+          "Enemies hexed: 100",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-ice-sphere",
+    "name": "Ice Sphere",
+    "category": "HEAVY_SPELL",
+    "element": "Water",
+    "description": "Conjures an icy sphere that protects the caster from damage and freezes any enemy that gets inside it.",
+    "charges": 1,
+    "recharge": "60",
+    "location": "",
+    "iconUrl": "/images/items/s-ice-sphere.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Sphere HP: 300",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Sphere HP: 400",
+          "Double range for all weapons when inside the sphere"
+        ],
+        "requirements": [
+          "Enemies hexed: 50",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Sphere HP: 500",
+          "Double range for all weapons when inside the sphere",
+          "Double reload speed for all weapons when inside the sphere"
+        ],
+        "requirements": [
+          "Enemies hexed: 100",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-ice-stiletto",
+    "name": "Ice Stiletto",
+    "category": "LIGHT_SPELL",
+    "element": "Water",
+    "description": "An icy stiletto that freezes the targeted enemy.",
+    "charges": 2,
+    "recharge": "18",
+    "location": "",
+    "iconUrl": "/images/items/s-ice-stiletto.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Damage: 20",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Damage: 30",
+          "Critical hit with the stiletto doubles the damage and {{Freeze|freeze}} time"
+        ],
+        "requirements": [
+          "Enemies hexed: 25",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Damage: 40",
+          "Critical hit with the stiletto doubles the damage and {{Freeze|freeze}} time",
+          "Instant spell recharge rate if the stiletto did not hit any enemy"
+        ],
+        "requirements": [
+          "Enemies hexed: 50",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-iron-cross",
+    "name": "Iron Cross",
+    "category": "HEAVY_SPELL",
+    "element": "Air",
+    "description": "Summons an iron cross with lightning bolts that bind all nearby enemies to it.",
+    "charges": 1,
+    "recharge": "100",
+    "location": "",
+    "iconUrl": "/images/items/s-iron-cross.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Range: 10m",
+          "Duration: +7s"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Range: 15m",
+          "Duration: +10s",
+          "Shock duration: +50%"
+        ],
+        "requirements": [
+          "Enemies hexed: 50",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Range: 20m",
+          "Duration: +13s",
+          "Shock duration: +100%",
+          "When finished, the cross {{Shock|Shocks}} all enemies in its range"
+        ],
+        "requirements": [
+          "Enemies hexed: 100",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-lightning-bolt",
+    "name": "Lightning Bolt",
+    "category": "LIGHT_SPELL",
+    "element": "Air",
+    "description": "A lightning bolt that knocks back and shocks enemies.",
+    "charges": 1,
+    "recharge": "17",
+    "location": "",
+    "iconUrl": "/images/items/s-lightning-bolt.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Enemies affected: 3",
+          "Range: 16m"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Enemies affected: 4",
+          "Range: 18m",
+          "Damage: 20"
+        ],
+        "requirements": [
+          "Enemies hexed: 100",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Enemies affected: 5",
+          "Range: 20m",
+          "Damage: 40",
+          "The initial bolt stuns any Minor enemy at full health"
+        ],
+        "requirements": [
+          "Enemies hexed: 200",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-miasma",
+    "name": "Miasma",
+    "category": "HEAVY_SPELL",
+    "element": "Earth",
+    "description": "Summons a swinging incense burner that decays nearby enemies. Shooting the burner before it stops prolongs its duration.",
+    "charges": 1,
+    "recharge": "65",
+    "location": "Witch Mountain",
+    "iconUrl": "/images/items/s-miasma.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Radius: 15m",
+          "Duration: 35s",
+          "Enemies take increasing damage the longer they remain in the deadly cloud"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Radius: 15m",
+          "Duration: 10s",
+          "Enemies take increasing damage the longer they remain in the deadly cloud",
+          "Burner spills acid when in full swing"
+        ],
+        "requirements": [
+          "Enemies hexed: 125",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Radius: 15m",
+          "Duration: 45s",
+          "Enemies take increasing damage the longer they remain in the deadly cloud",
+          "Burner spills acid when in full swing",
+          "Burner explodes with Decay upon expiration"
+        ],
+        "requirements": [
+          "Enemies hexed: 200",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-pyre-skull",
+    "name": "Pyre Skull",
+    "category": "LIGHT_SPELL",
+    "element": "Fire",
+    "description": "A burning skull that bursts on impact and rises again as a turret of flame.",
+    "charges": 1,
+    "recharge": "0",
+    "location": "Marshland",
+    "iconUrl": "/images/items/s-pyre-skull.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Increased range",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Increased range",
+          "Killing the skull's prey extends its lifetime"
+        ],
+        "requirements": [
+          "Enemies hexed: 25",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Increased range",
+          "Killing the skull's prey extends its lifetime",
+          "Killing the skull's prey increases its damage"
+        ],
+        "requirements": [
+          "Enemies hexed: 50",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-rotten-fiend",
+    "name": "Rotten Fiend",
+    "category": "HEAVY_SPELL",
+    "element": "Fire",
+    "description": "Resurrects a Grenadier who now attacks his former allies with incredible ferocity.",
+    "charges": 1,
+    "recharge": "55",
+    "location": "",
+    "iconUrl": "/images/items/s-rotten-fiend.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Grenadier HP: 200",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Grenadier HP: 300",
+          "Decay Aura around the Fiend. Affects all nearby enemies"
+        ],
+        "requirements": [
+          "Enemies hexed: 50",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Grenadier HP: 400",
+          "Decay Aura around the Fiend. Affects all nearby enemies",
+          "Taunts all nearby enemies when spawned"
+        ],
+        "requirements": [
+          "Enemies hexed: 100",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-shockwave",
+    "name": "Shockwave",
+    "category": "LIGHT_SPELL",
+    "element": null,
+    "description": "A shockwave that stuns nearby Minor enemies and exhausted Major ones.",
+    "charges": 1,
+    "recharge": "15",
+    "location": "",
+    "iconUrl": "/images/items/s-shockwave.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Range: 10m",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Range: 12m",
+          "Damage: 20"
+        ],
+        "requirements": [
+          "Enemies hexed: 50",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Range: 14m",
+          "Damage: 40",
+          "Instant recharge per enemy affected: +10%"
+        ],
+        "requirements": [
+          "Enemies hexed: 100",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-stigma-diabolicum",
+    "name": "Stigma Diabolicum",
+    "category": "LIGHT_SPELL",
+    "element": "Earth",
+    "description": "A cyst that attaches to enemies, becoming an additional weak spot.",
+    "charges": 3,
+    "recharge": "15",
+    "location": "Scarlet Coast",
+    "iconUrl": "/images/items/s-stigma-diabolicum.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Damage Modifier: x1.25",
+          "Duration: 20s"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Damage Modifier: x1.29",
+          "Duration: 25s",
+          "Applies Decay on contact"
+        ],
+        "requirements": [
+          "Enemies hexed: 25",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Damage Modifier: x1.35",
+          "Duration: 30s",
+          "Applies Decay on contact",
+          "Killing an enemy with {{Decay|decay}} or a shot with the cyst partially regenerates the spell"
+        ],
+        "requirements": [
+          "Enemies hexed: 50",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-stormball",
+    "name": "Stormball",
+    "category": "LIGHT_SPELL",
+    "element": "Air",
+    "description": "A ball of lightning that shocks any enemy near its path.",
+    "charges": 1,
+    "recharge": "35",
+    "location": "",
+    "iconUrl": "/images/items/s-stormball.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Range: 5m",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Range: 6m",
+          "After two seconds, the spell grows in power and range"
+        ],
+        "requirements": [
+          "Enemies hexed: 25",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Range: 7m",
+          "After two seconds, the spell grows in power and range",
+          "The ball explodes upon hitting an obstacle"
+        ],
+        "requirements": [
+          "Enemies hexed: 50",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-twinshade",
+    "name": "Twinshade",
+    "category": "LIGHT_SPELL",
+    "element": null,
+    "description": "Strikes with a spectral sword or hammer, changing weapons based on enemy health.",
+    "charges": 2,
+    "recharge": "20",
+    "location": "Witch Mountain",
+    "iconUrl": "/images/items/s-twinshade.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Summon the Sword when enemy is below: 60 HP",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Summon the Sword when enemy is below: 75 HP",
+          "Summon the Sword and deal double damage when the enemy is stunned"
+        ],
+        "requirements": [
+          "Enemies hexed: 30",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Summon the Sword when enemy is below: 90 HP",
+          "Summon the Sword and deal double damage when the enemy is stunned",
+          "If the spell kills an enemy, part of the charge is refunded"
+        ],
+        "requirements": [
+          "Enemies hexed: 60",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "s-winter-nail",
+    "name": "Winter Nail",
+    "category": "HEAVY_SPELL",
+    "element": "Water",
+    "description": "Calls down a flight of icicles. They freeze nearby enemies on impact and lodge in the ground where they fall.",
+    "charges": 1,
+    "recharge": "0",
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/s-winter-nail.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Icicles: 5",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Icicles: 5",
+          "Shooting a lodged icicle releases a freezing shockwave"
+        ],
+        "requirements": [
+          "Enemies hexed: 50",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Icicles: 5",
+          "Shooting a lodged icicle releases a freezing shockwave",
+          "Striking a lodged icicle with melee launches it forward, freezing the first enemy it hits"
+        ],
+        "requirements": [
+          "Enemies hexed: 100",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-balewort",
+    "name": "Balewort",
+    "category": "FETISH",
+    "element": null,
+    "description": "Kills release healing witchfire orbs. The closer to death, the more often they appear and the more they restore.",
+    "location": "",
+    "iconUrl": "/images/items/m-balewort.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Drop chance: 30%",
+          "Essence time to live: 4s"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Drop chance: 35%",
+          "Essence time to live: 5s",
+          "Pickup range: +2m"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Drop chance: 40%",
+          "Essence time to live: 6s",
+          "Pickup range: +3m",
+          "Spell recharge per essence: 20%"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-belladonna",
+    "name": "Belladonna",
+    "category": "FETISH",
+    "element": null,
+    "description": "A regenerating aura that fully shields against minor damage but allows any stronger attack to penetrate.",
+    "location": "",
+    "iconUrl": "/images/items/m-belladonna.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Damage threshold: 15 HP",
+          "Shield cooldown: 80s"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Damage threshold: 20 HP",
+          "Shield cooldown: 70s",
+          "Getting hit shortens the shield's cooldown: -6s"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Damage threshold: 25 HP",
+          "Shield cooldown: 60s",
+          "Getting hit shortens the shield's cooldown: -12s",
+          "Drinking an Elixir instantly recharges the shield"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-biting-tongue",
+    "name": "Biting Tongue",
+    "category": "RELIC",
+    "element": "Water",
+    "description": "Barrier breaks release a freezing shockwave.",
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/m-biting-tongue.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Shockwave range: 4m",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Shockwave range: 5m",
+          "Barrier breaks instantly reload the wielded weapon"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Shockwave range: 6m",
+          "Barrier breaks instantly reload the wielded weapon",
+          "Dashing after a barrier break releases a second shockwave"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-bittersweet-nightshade",
+    "name": "Bittersweet Nightshade",
+    "category": "FETISH",
+    "element": null,
+    "description": "Any damage taken makes the fetish release a powerful shockwave.",
+    "location": "",
+    "iconUrl": "/images/items/m-bittersweet-nightshade.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Shockwave range: 40m",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Shockwave range: 50m",
+          "Shockwave damage: 20"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Shockwave range: 60m",
+          "Shockwave damage: 30",
+          "When low on health, shockwave stuns enemies",
+          "Health threshold: 40%"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-blood-of-a-banshee",
+    "name": "Blood of a Banshee",
+    "category": "RELIC",
+    "element": "Fire",
+    "description": "Blood spilled by fire and lead. Overkill causes the victim to explode, igniting nearby enemies.",
+    "location": "",
+    "iconUrl": "/images/items/m-blood-of-a-banshee.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Explosion range: 6m",
+          "Overkill value: 60 HP"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Explosion range: 8m",
+          "Overkill value: 55 HP",
+          "Explosion damage: 20"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Explosion range: 10m",
+          "Overkill value: 50 HP",
+          "Explosion damage: 30",
+          "The explosion knocks back Minor enemies"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-book-of-serpents",
+    "name": "Book of Serpents",
+    "category": "RELIC",
+    "element": "Earth",
+    "description": "A powerful talisman as well as a grimoire. Anyone who hurts its owner is cursed with Decay.",
+    "location": "",
+    "iconUrl": "/images/items/m-book-of-serpents.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Minor enemies can die instantly: 8%",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Minor enemies can die instantly: 10%",
+          "Major enemies can die instantly: 6%"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Minor enemies can die instantly: 12%",
+          "Major enemies can die instantly: 6%",
+          "The curse {{Stagger|stuns}} Minor enemies"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-braid-of-a-seductress",
+    "name": "Braid of a Seductress",
+    "category": "RELIC",
+    "element": "Water",
+    "description": "Radiates an Aura that freezes any Minor enemy who wounds the owner of the relic with a melee attack.",
+    "location": "Irongate Castle",
+    "iconUrl": "/images/items/m-braid-of-a-seductress.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Melee damage reduction: -20%",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Melee damage reduction: -25%",
+          "Killing the {{Freeze|frozen}} attacker restores lost health: 25%"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Melee damage reduction: -30%",
+          "Killing the {{Freeze|frozen}} attacker restores lost health: 50%",
+          "The aura also works against Major enemies"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-crown-of-fire",
+    "name": "Crown of Fire",
+    "category": "RING",
+    "element": "Fire",
+    "description": "Dash applies the Fire elemental to a weapon for a short time.",
+    "location": "",
+    "iconUrl": "/images/items/m-crown-of-fire.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Duration: 1s",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Duration: 1.1s",
+          "{{Burn|Igniting}} an enemy partially reloads the magazine"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Duration: 1.2s",
+          "Igniting an enemy partially reloads the magazine",
+          "Double dash triples the duration"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-dynamo-ring",
+    "name": "Dynamo Ring",
+    "category": "RING",
+    "element": "Air",
+    "description": "Dashing electrocutes the last enemy damaged by firearms.",
+    "location": "",
+    "iconUrl": "/images/items/m-dynamo-ring.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Damage: 15",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Damage: 20",
+          "Killing enemies temporarily powers up the discharge. This effect stacks.",
+          "Max kill stacks: 3"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Damage: 25",
+          "Killing enemies temporarily powers up the discharge. This effect stacks.",
+          "Max kill stacks: 6",
+          "Enemies killed by the discharge explode"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-eye-of-the-madwoman",
+    "name": "Eye of the Madwoman",
+    "category": "RELIC",
+    "element": "Air",
+    "description": "An eye inked with the infant blood. The relic strikes any near death enemy with a heavenly lightning.",
+    "location": "",
+    "iconUrl": "/images/items/m-eye-of-the-madwoman.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Lightning damage: 50",
+          "Health threshold: 10%"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Lightning damage: 60",
+          "Health threshold: 10%",
+          "Major enemy threshold: 20%"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Lightning damage: 70",
+          "Health threshold: 10%",
+          "Major enemy threshold: 30%",
+          "Bonus effect: {{Stagger|Stun}}"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-henbane",
+    "name": "Henbane",
+    "category": "FETISH",
+    "element": null,
+    "description": "Significantly increases the effectiveness of healing elixirs.",
+    "location": "",
+    "iconUrl": "/images/items/m-henbane.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Healing: +50%",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Healing: +60%",
+          "Damage reduction after consuming an elixir: +40%",
+          "Damage reduction duration: 6s"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Healing: +70%",
+          "Damage reduction after consuming an elixir: +50%",
+          "Damage reduction duration: 8s",
+          "Healing duration: -50%"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-kirfane",
+    "name": "Kirfane",
+    "category": "RELIC",
+    "element": "Air",
+    "description": "After landing multiple shots, a bolt of lightning arcs between nearby enemies.",
+    "location": "Island of the Damned Vault",
+    "iconUrl": "/images/items/m-kirfane.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Shots to trigger {{color|air",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Shots to trigger {{color|air",
+          "Chance per shot to trigger {{color|air"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Shots to trigger {{color|air",
+          "Chance per shot to trigger {{color|air",
+          "Casting a Light Spell guarantees a {{color|air"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-mandrake",
+    "name": "Mandrake",
+    "category": "FETISH",
+    "element": null,
+    "description": "Prevents fatal damage once per expedition. Activated, restores some health, fully recharges spells, and grants a few seconds of immunity to any incoming damage.",
+    "location": "Scarlet Coast",
+    "iconUrl": "/images/items/m-mandrake.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Health on resurrection: 50%",
+          "Immunity: 5s"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Health on resurrection: 75%",
+          "Immunity: 6s",
+          "While immune, Light Spell recharges instantly"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Health on resurrection: 100%",
+          "Immunity: 7s",
+          "While immune, Light Spell recharges instantly",
+          "Weapon damage while immune: +100%"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-meteor-ring",
+    "name": "Meteor Ring",
+    "category": "RING",
+    "element": "Fire",
+    "description": "Slides are longer and create a damaging fire trail that burns enemies.",
+    "location": "Irongate Castle",
+    "iconUrl": "/images/items/m-meteor-ring.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Slide length: +0m",
+          "Tick damage: 6"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Slide length: +2m",
+          "Tick damage: 8",
+          "Collisions with enemies deal damage: 40"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Slide length: +3m",
+          "Tick damage: 10",
+          "Collisions with enemies deal damage: 50",
+          "Sliding past enemies {{Burn|burns}} them"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-monkshood",
+    "name": "Monkshood",
+    "category": "FETISH",
+    "element": null,
+    "description": "Absorbing a Manifestation crystal adds a magical shield that neutralizes any damage once and then dissipates.",
+    "location": "Irongate Castle Vault",
+    "iconUrl": "/images/items/m-monkshood.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Maximum shield layers: 3",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Maximum shield layers: 4",
+          "Extra shield chance: 50%"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Maximum shield layers: 5",
+          "Extra shield chance: 70%",
+          "Chance for a shield to hold: 25%"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-painted-tooth",
+    "name": "Painted Tooth",
+    "category": "RELIC",
+    "element": "Fire",
+    "description": "A tooth found among witch's ashes. Critical shots on full health enemies ignite them.",
+    "location": "",
+    "iconUrl": "/images/items/m-painted-tooth.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Bonus {{Burn|ignition}} damage: 5",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Bonus ignition damage: 20",
+          "Bonus ignition damage to Major enemies: +50"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Bonus ignition damage: 30",
+          "Bonus ignition damage to Major enemies: +70",
+          "Chance to {{Stagger|stun}}: 10%"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-parasite",
+    "name": "Parasite",
+    "category": "RELIC",
+    "element": "Earth",
+    "description": "Curses the nearest enemy with Decay.",
+    "location": "Velmorne",
+    "iconUrl": "/images/items/m-parasite.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Range: 10m",
+          "Effect cooldown: 10s"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Range: 12m",
+          "Effect cooldown: 8s",
+          "When an afflicted enemy dies, their ailment jumps to the nearest foe with increased potency"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Range: 15m",
+          "Effect cooldown: 6s",
+          "When an afflicted enemy dies, their ailment jumps to the nearest foe with increased potency",
+          "Upon target's death, the effect may chain to two nearby foes: 30%"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-ring-of-excreta",
+    "name": "Ring of Excreta",
+    "category": "RING",
+    "element": "Earth",
+    "description": "Dash leaves behind a delayed bomb that damages and knocks back enemies.",
+    "location": "",
+    "iconUrl": "/images/items/m-ring-of-excreta.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Explosion range: 5m",
+          "Bomb damage: 20"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Explosion range: 6m",
+          "Bomb damage: 25",
+          "Dash distance: 2m"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Explosion range: 7m",
+          "Bomb damage: 30",
+          "Dash distance: 3m",
+          "The bomb applies a Decay curse"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-ring-of-obedience",
+    "name": "Ring of Obedience",
+    "category": "RING",
+    "element": null,
+    "description": "Dashing while looking at the last wounded enemy pushes them in the direction of the Dash.",
+    "location": "",
+    "iconUrl": "/images/items/m-ring-of-obedience.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Push damage: 20",
+          "Activation distance: 20m"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Push damage: 30",
+          "Activation distance: 25m",
+          "Stamina regenerated on push kills: 25"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Push damage: 40",
+          "Activation distance: 30m",
+          "Stamina regenerated on push kills: 50",
+          "Three consecutive pushes stun minor enemies"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-ring-of-thorns",
+    "name": "Ring of Thorns",
+    "category": "RING",
+    "element": "Water",
+    "description": "Dodging a melee attack with Dash freezes the attacker. Killing them before they thaw occasionally creates an ammo-replenishing orb.",
+    "location": "",
+    "iconUrl": "/images/items/m-ring-of-thorns.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Chance to drop an ammo-replenishing orb",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Chance to drop an ammo-replenishing orb",
+          "The orb fully regenerates Stamina"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Chance to drop an ammo-replenishing orb",
+          "The orb fully regenerates Stamina",
+          "The orb fully recharges the Light Spell"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-ring-of-wings",
+    "name": "Ring of Wings",
+    "category": "RING",
+    "element": null,
+    "description": "Allows to Dash mid-air.",
+    "location": "Scarlet Coast Vault",
+    "iconUrl": "/images/items/m-ring-of-wings.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Airborne jump Stamina cost: -10%",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Airborne jump Stamina cost: -20%",
+          "Dashing after double-jumping costs less Stamina"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Airborne jump Stamina cost: -30%",
+          "Dashing after double-jumping costs less Stamina",
+          "Improved mid-air directional control",
+          "No fall damage"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-scourge",
+    "name": "Scourge",
+    "category": "RELIC",
+    "element": null,
+    "description": "Prevents a fatal hit, removing bonus Stamina instead. Refreshes on regaining Focus.",
+    "location": "",
+    "iconUrl": "/images/items/m-scourge.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Stamina stacks removed: 10",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Stamina stacks removed: 9",
+          "Getting hit triggers a damage bonus that is inversly proportional to remaining health"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Stamina stacks removed: 8",
+          "Getting hit triggers a damage bonus that is inversly proportional to remaining health",
+          "Improved healing effects when below 25% health"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-severed-ear",
+    "name": "Severed Ear",
+    "category": "RELIC",
+    "element": null,
+    "description": "Reloading releases a shockwave that knocks back nearby enemies.",
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/m-severed-ear.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Shockwave range: 7m",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Shockwave range: 8m",
+          "Reload: -15%"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Shockwave range: 9m",
+          "Reload: -20%",
+          "The shockwave damages enemies affected by Decay"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-shadowmist-ring",
+    "name": "Shadowmist Ring",
+    "category": "RING",
+    "element": "Water",
+    "description": "Dashing turns the ring bearer into a shadow mist that can pass through enemies.",
+    "location": "",
+    "iconUrl": "/images/items/m-shadowmist-ring.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Activation distance: 9m",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Activation distance: 10m",
+          "Enemy health taken: 25"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Activation distance: 11m",
+          "Enemy health taken: 35",
+          "Chance to {{Freeze|freeze}}: 50%"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-static-ring",
+    "name": "Static Ring",
+    "category": "RING",
+    "element": "Air",
+    "description": "Sliding leaves behind a lightning mote that shocks nearby enemies.",
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/m-static-ring.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": null,
+        "charismata": [
+          "Radius: 6m",
+          "Bonus slide distance: +2m"
+        ],
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Radius: 7m",
+          "Bonus slide distance: +2.5m",
+          "Slows enemies for: 1.5s"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Radius: 8m",
+          "Bonus slide distance: +3m",
+          "Slows enemies for: 2s",
+          "Shooting the mote detonates it"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "m-yew",
+    "name": "Yew",
+    "category": "FETISH",
+    "element": null,
+    "description": "Collecting shield orbs sometimes dropped by enemies grants a temporary shield.",
+    "location": "Witch Mountain",
+    "iconUrl": "/images/items/m-yew.png",
+    "mysteriumTiers": [
+      {
+        "level": 1,
+        "effect": "Shield duration: 8s",
+        "charismata": null,
+        "requirements": []
+      },
+      {
+        "level": 2,
+        "effect": null,
+        "charismata": [
+          "Shield duration: 10s",
+          "Collecting an orb purges all ailments",
+          "Reload time while the shield is active: -25%"
+        ],
+        "requirements": [
+          "Kills with item equipped: 150",
+          "Second Mysterium Incantation x1"
+        ]
+      },
+      {
+        "level": 3,
+        "effect": null,
+        "charismata": [
+          "Shield duration: 12s",
+          "Collecting an orb purges all ailments",
+          "Reload time while the shield is active: -35%",
+          "Collecting an orb knocks back nearby enemies and grants a brief speed burst"
+        ],
+        "requirements": [
+          "Kills with item equipped: 250",
+          "Third Mysterium Incantation x1"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "b-acute-ailment-bead",
+    "name": "Acute Ailment Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Ailments have shorter duration but are more powerful",
+    "requirements": [
+      {
+        "stat": "Witchery",
+        "value": 30
+      }
+    ],
+    "location": "Velmorne",
+    "iconUrl": "/images/items/b-acute-ailment-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-adrenaline-bead",
+    "name": "Adrenaline Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Taking damage with empty Stamina fully restores it",
+    "requirements": [
+      {
+        "stat": "Flesh",
+        "value": 25
+      },
+      {
+        "stat": "Blood",
+        "value": 20
+      }
+    ],
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/b-adrenaline-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-ailment-immunity-bead",
+    "name": "Ailment Immunity Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Ailment Immunity",
+    "requirements": [
+      {
+        "stat": "Flesh",
+        "value": 30
+      },
+      {
+        "stat": "Witchery",
+        "value": 30
+      }
+    ],
+    "location": "Velmorne",
+    "iconUrl": "/images/items/b-ailment-immunity-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-ailment-power-bead-i",
+    "name": "Ailment Power Bead I",
+    "category": "BEAD",
+    "element": null,
+    "description": "Ailment Power: +25%",
+    "requirements": [
+      {
+        "stat": "Witchery",
+        "value": 15
+      }
+    ],
+    "location": "Island of the Damned",
+    "iconUrl": "/images/items/b-ailment-power-bead-i.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-ammo-preservation-bead",
+    "name": "Ammo Preservation Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Firing occasionally doesn't consume ammo",
+    "requirements": [
+      {
+        "stat": "Arsenal",
+        "value": 15
+      },
+      {
+        "stat": "Faith",
+        "value": 30
+      }
+    ],
+    "location": "Outskirts",
+    "iconUrl": "/images/items/b-ammo-preservation-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-ammo-reserves-bead-i",
+    "name": "Ammo Reserves Bead I",
+    "category": "BEAD",
+    "element": null,
+    "description": "Ammo Reserves: +20%",
+    "requirements": [
+      {
+        "stat": "Arsenal",
+        "value": 20
+      }
+    ],
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/b-ammo-reserves-bead-i.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-bead-of-barachiel",
+    "name": "Bead of Barachiel",
+    "category": "BEAD",
+    "element": null,
+    "description": "25% damage boost on ammo pickup: up to 9s Ammo from small ammo pickups: up to +30% The bead's power grows with Arsenal",
+    "requirements": [],
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/b-bead-of-barachiel.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-bead-of-cain",
+    "name": "Bead of Cain",
+    "category": "BEAD",
+    "element": null,
+    "description": "Damage to powerful enemies: up to +25% Damage from powerful enemies: up to -30% The bead's power grows with Faith",
+    "requirements": [],
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/b-bead-of-cain.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-bead-of-elias",
+    "name": "Bead of Elias",
+    "category": "BEAD",
+    "element": null,
+    "description": "Reduced damage from Madness: up to -70% Madness recovery delay: up to -75% The bead's power grows with Mind",
+    "requirements": [],
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/b-bead-of-elias.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-bead-of-goliath",
+    "name": "Bead of Goliath",
+    "category": "BEAD",
+    "element": null,
+    "description": "Nearby enemies scale resistance (up to 5) Bonus resistance per enemy: up to +7% The bead's power grows with Flesh",
+    "requirements": [],
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/b-bead-of-goliath.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-bead-of-mammon",
+    "name": "Bead of Mammon",
+    "category": "BEAD",
+    "element": null,
+    "description": "Increased item drop chances: up to +50% Increased witchfire gains: up to +25% The bead's power grows with Witchery",
+    "requirements": [],
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/b-bead-of-mammon.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-bead-of-orion",
+    "name": "Bead of Orion",
+    "category": "BEAD",
+    "element": null,
+    "description": "Increased entry portal duration: up to +100% Reduced return portal delay: up to -60% The bead's power grows with Faith",
+    "requirements": [],
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/b-bead-of-orion.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-bead-of-sefer",
+    "name": "Bead of Sefer",
+    "category": "BEAD",
+    "element": null,
+    "description": "Trap activation delay: up to +0.6s The bead's power grows with Blood",
+    "requirements": [],
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/b-bead-of-sefer.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-blessed-aim-bead-i",
+    "name": "Blessed Aim Bead I",
+    "category": "BEAD",
+    "element": null,
+    "description": "Blessed Aim: +15%",
+    "requirements": [
+      {
+        "stat": "Faith",
+        "value": 15
+      }
+    ],
+    "location": "Scarlet Coast",
+    "iconUrl": "/images/items/b-blessed-aim-bead-i.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-blessed-aim-bead-ii",
+    "name": "Blessed Aim Bead II",
+    "category": "BEAD",
+    "element": null,
+    "description": "Blessed Aim: +20%",
+    "requirements": [
+      {
+        "stat": "Faith",
+        "value": 30
+      }
+    ],
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/b-blessed-aim-bead-ii.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-blessed-fire-bead",
+    "name": "Blessed Fire Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Blessed Aim hits set enemies on fire",
+    "requirements": [
+      {
+        "stat": "Arsenal",
+        "value": 20
+      },
+      {
+        "stat": "Faith",
+        "value": 30
+      }
+    ],
+    "location": "Velmorne Vault",
+    "iconUrl": "/images/items/b-blessed-fire-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-blessed-hits-bead",
+    "name": "Blessed Hits Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Blessed Aim hits deal 50% more damage",
+    "requirements": [
+      {
+        "stat": "Arsenal",
+        "value": 20
+      },
+      {
+        "stat": "Faith",
+        "value": 40
+      }
+    ],
+    "location": "Island of the Damned Scarlet Coast Velmorne Irongate Castle",
+    "iconUrl": "/images/items/b-blessed-hits-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-brawler-bead",
+    "name": "Brawler Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Drastically increases uncharged punch damage",
+    "requirements": [
+      {
+        "stat": "Flesh",
+        "value": 20
+      }
+    ],
+    "location": "Island of the Damned",
+    "iconUrl": "/images/items/b-brawler-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-crystal-spell-bead",
+    "name": "Crystal Spell Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Witchfire crystals recharge spells by size",
+    "requirements": [
+      {
+        "stat": "Witchery",
+        "value": 25
+      }
+    ],
+    "location": "Scarlet Coast",
+    "iconUrl": "/images/items/b-crystal-spell-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-dash-range-bead",
+    "name": "Dash Range Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Dash distance: +50%",
+    "requirements": [
+      {
+        "stat": "Flesh",
+        "value": 15
+      },
+      {
+        "stat": "Blood",
+        "value": 30
+      }
+    ],
+    "location": "Velmorne",
+    "iconUrl": "/images/items/b-dash-range-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-dash-stamina-bead",
+    "name": "Dash Stamina Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Consecutive dashes drain less Stamina",
+    "requirements": [
+      {
+        "stat": "Flesh",
+        "value": 20
+      },
+      {
+        "stat": "Blood",
+        "value": 30
+      }
+    ],
+    "location": "Scarlet Coast",
+    "iconUrl": "/images/items/b-dash-stamina-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-demonic-ammo-bead",
+    "name": "Demonic Ammo Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Expedition begins with two mags of Demonic Ammo",
+    "requirements": [
+      {
+        "stat": "Arsenal",
+        "value": 30
+      },
+      {
+        "stat": "Faith",
+        "value": 15
+      }
+    ],
+    "location": "Irongate Castle",
+    "iconUrl": "/images/items/b-demonic-ammo-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-divine-intervention-bead-i",
+    "name": "Divine Intervention Bead I",
+    "category": "BEAD",
+    "element": null,
+    "description": "Divine Intervention: +20%",
+    "requirements": [
+      {
+        "stat": "Faith",
+        "value": 15
+      }
+    ],
+    "location": "Irongate Castle",
+    "iconUrl": "/images/items/b-divine-intervention-bead-i.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-elemental-duration-bead-i",
+    "name": "Elemental Duration Bead I",
+    "category": "BEAD",
+    "element": null,
+    "description": "Elemental Duration: +25%",
+    "requirements": [
+      {
+        "stat": "Witchery",
+        "value": 25
+      }
+    ],
+    "location": "Scarlet Coast",
+    "iconUrl": "/images/items/b-elemental-duration-bead-i.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-elixir-bead-i",
+    "name": "Elixir Bead I",
+    "category": "BEAD",
+    "element": null,
+    "description": "Elixir slots: +1",
+    "requirements": [
+      {
+        "stat": "Mind",
+        "value": 20
+      }
+    ],
+    "location": "Scarlet Coast Velmorne Irongate Castle",
+    "iconUrl": "/images/items/b-elixir-bead-i.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-elixir-bead-ii",
+    "name": "Elixir Bead II",
+    "category": "BEAD",
+    "element": null,
+    "description": "Elixir slots: +2",
+    "requirements": [
+      {
+        "stat": "Mind",
+        "value": 40
+      }
+    ],
+    "location": "Witch Mountain",
+    "iconUrl": "/images/items/b-elixir-bead-ii.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-forager-bead",
+    "name": "Forager Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Mushrooms grant spell regeneration and increased healing",
+    "requirements": [
+      {
+        "stat": "Mind",
+        "value": 18
+      },
+      {
+        "stat": "Witchery",
+        "value": 18
+      }
+    ],
+    "location": "Marshland",
+    "iconUrl": "/images/items/b-forager-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-free-arcana-bead",
+    "name": "Free Arcana Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Unveiling Arcana has no cost",
+    "requirements": [
+      {
+        "stat": "Mind",
+        "value": 40
+      },
+      {
+        "stat": "Witchery",
+        "value": 20
+      }
+    ],
+    "location": "Island of the Damned Vault",
+    "iconUrl": "/images/items/b-free-arcana-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-healing-bead-i",
+    "name": "Healing Bead I",
+    "category": "BEAD",
+    "element": null,
+    "description": "Healing: +25%",
+    "requirements": [
+      {
+        "stat": "Mind",
+        "value": 15
+      }
+    ],
+    "location": "Island of the Damned",
+    "iconUrl": "/images/items/b-healing-bead-i.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-health-bead-i",
+    "name": "Health Bead I",
+    "category": "BEAD",
+    "element": null,
+    "description": "Health: +10%",
+    "requirements": [],
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/b-health-bead-i.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-health-bead-ii",
+    "name": "Health Bead II",
+    "category": "BEAD",
+    "element": null,
+    "description": "Health: +20%",
+    "requirements": [
+      {
+        "stat": "Flesh",
+        "value": 25
+      }
+    ],
+    "location": "Island of the Damned Scarlet Coast Velmorne Irongate Castle",
+    "iconUrl": "/images/items/b-health-bead-ii.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-immune-dash-bead",
+    "name": "Immune Dash Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Dashing costs more Stamina but grants damage immunity",
+    "requirements": [
+      {
+        "stat": "Blood",
+        "value": 30
+      },
+      {
+        "stat": "Faith",
+        "value": 15
+      }
+    ],
+    "location": "Irongate Castle",
+    "iconUrl": "/images/items/b-immune-dash-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-incense-bead-i",
+    "name": "Incense Bead I",
+    "category": "BEAD",
+    "element": null,
+    "description": "Incense activation chance and power: +15%",
+    "requirements": [
+      {
+        "stat": "Flesh",
+        "value": 15
+      },
+      {
+        "stat": "Mind",
+        "value": 25
+      }
+    ],
+    "location": "Witch Mountain",
+    "iconUrl": "/images/items/b-incense-bead-i.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-light-spell-charge-bead",
+    "name": "Light Spell Charge Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Extra Light Spell charge",
+    "requirements": [
+      {
+        "stat": "Blood",
+        "value": 15
+      },
+      {
+        "stat": "Witchery",
+        "value": 35
+      }
+    ],
+    "location": "Scarlet Coast Vault",
+    "iconUrl": "/images/items/b-light-spell-charge-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-long-range-bead",
+    "name": "Long Range Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Sniper rifles are no longer unwieldy",
+    "requirements": [
+      {
+        "stat": "Blood",
+        "value": 20
+      },
+      {
+        "stat": "Arsenal",
+        "value": 40
+      }
+    ],
+    "location": "Velmorne",
+    "iconUrl": "/images/items/b-long-range-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-long-slide-bead",
+    "name": "Long Slide Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Increased slide distance",
+    "requirements": [
+      {
+        "stat": "Blood",
+        "value": 17
+      }
+    ],
+    "location": "Marshland",
+    "iconUrl": "/images/items/b-long-slide-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-madness-bead-i",
+    "name": "Madness Bead I",
+    "category": "BEAD",
+    "element": null,
+    "description": "Madness Resistance: +25%",
+    "requirements": [
+      {
+        "stat": "Mind",
+        "value": 15
+      }
+    ],
+    "location": "Island of the Damned Scarlet Coast Velmorne Irongate Castle",
+    "iconUrl": "/images/items/b-madness-bead-i.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-melee-charge-bead",
+    "name": "Melee Charge Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Extra melee charge with reduced regeneration speed",
+    "requirements": [
+      {
+        "stat": "Flesh",
+        "value": 25
+      }
+    ],
+    "location": "Irongate Castle Vault",
+    "iconUrl": "/images/items/b-melee-charge-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-melee-recharge-bead-i",
+    "name": "Melee Recharge Bead I",
+    "category": "BEAD",
+    "element": null,
+    "description": "Melee Recharge: +25%",
+    "requirements": [
+      {
+        "stat": "Flesh",
+        "value": 15
+      }
+    ],
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/b-melee-recharge-bead-i.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-metanoia-bead-i",
+    "name": "Metanoia Bead I",
+    "category": "BEAD",
+    "element": null,
+    "description": "Metanoia: +25%",
+    "requirements": [
+      {
+        "stat": "Witchery",
+        "value": 15
+      }
+    ],
+    "location": "Velmorne",
+    "iconUrl": "/images/items/b-metanoia-bead-i.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-plunder-bead",
+    "name": "Plunder Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Opening chests regenerates health",
+    "requirements": [
+      {
+        "stat": "Flesh",
+        "value": 13
+      },
+      {
+        "stat": "Faith",
+        "value": 24
+      }
+    ],
+    "location": "Marshland",
+    "iconUrl": "/images/items/b-plunder-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-providence-bead-i",
+    "name": "Providence Bead I",
+    "category": "BEAD",
+    "element": null,
+    "description": "Providence: +20%",
+    "requirements": [
+      {
+        "stat": "Faith",
+        "value": 20
+      }
+    ],
+    "location": "Island of the Damned Scarlet Coast Velmorne Irongate Castle",
+    "iconUrl": "/images/items/b-providence-bead-i.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-quickdraw-bead",
+    "name": "Quickdraw Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Greatly increased weapon swap speed",
+    "requirements": [
+      {
+        "stat": "Arsenal",
+        "value": 25
+      }
+    ],
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/items/b-quickdraw-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-resistance-bead",
+    "name": "Resistance Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Damage resistance (+20%) at low Health (<50%)",
+    "requirements": [
+      {
+        "stat": "Flesh",
+        "value": 30
+      },
+      {
+        "stat": "Blood",
+        "value": 20
+      }
+    ],
+    "location": "Island of the Damned Scarlet Coast Velmorne Irongate Castle",
+    "iconUrl": "/images/items/b-resistance-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-short-range-bead",
+    "name": "Short Range Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Shotguns are no longer unwieldy",
+    "requirements": [
+      {
+        "stat": "Blood",
+        "value": 15
+      },
+      {
+        "stat": "Arsenal",
+        "value": 30
+      }
+    ],
+    "location": "Irongate Castle",
+    "iconUrl": "/images/items/b-short-range-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-sigil-slide-bead",
+    "name": "Sigil Slide Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Souls Sigils also appear after sliding",
+    "requirements": [
+      {
+        "stat": "Witchery",
+        "value": 18
+      }
+    ],
+    "location": "Outskirts Vault",
+    "iconUrl": "/images/items/b-sigil-slide-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-spell-recharge-bead-i",
+    "name": "Spell Recharge Bead I",
+    "category": "BEAD",
+    "element": null,
+    "description": "Spell Recharge: +20%",
+    "requirements": [
+      {
+        "stat": "Witchery",
+        "value": 15
+      }
+    ],
+    "location": "Scarlet Coast",
+    "iconUrl": "/images/items/b-spell-recharge-bead-i.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-sprint-bead",
+    "name": "Sprint Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Sprinting doesn't drain Stamina",
+    "requirements": [
+      {
+        "stat": "Blood",
+        "value": 40
+      }
+    ],
+    "location": "Irongate Castle",
+    "iconUrl": "/images/items/b-sprint-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-stamina-bead-i",
+    "name": "Stamina Bead I",
+    "category": "BEAD",
+    "element": null,
+    "description": "Stamina: +20%",
+    "requirements": [
+      {
+        "stat": "Blood",
+        "value": 15
+      }
+    ],
+    "location": "Island of the Damned",
+    "iconUrl": "/images/items/b-stamina-bead-i.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-stamina-sigil-bead",
+    "name": "Stamina Sigil Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Destroying a Soul Sigil restores Stamina",
+    "requirements": [
+      {
+        "stat": "Blood",
+        "value": 25
+      }
+    ],
+    "location": "Island of the Damned Scarlet Coast Velmorne Irongate Castle",
+    "iconUrl": "/images/items/b-stamina-sigil-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-traps-bead",
+    "name": "Traps Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Traps are visible on the minimap",
+    "requirements": [
+      {
+        "stat": "Mind",
+        "value": 30
+      },
+      {
+        "stat": "Witchery",
+        "value": 20
+      }
+    ],
+    "location": "Velmorne",
+    "iconUrl": "/images/items/b-traps-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-triple-reward-bead",
+    "name": "Triple Reward Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Providence may yield triple rewards",
+    "requirements": [
+      {
+        "stat": "Faith",
+        "value": 20
+      }
+    ],
+    "location": "Island of the Damned",
+    "iconUrl": "/images/items/b-triple-reward-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-unbroken-reload-bead",
+    "name": "Unbroken Reload Bead",
+    "category": "BEAD",
+    "element": null,
+    "description": "Dashing no longer interrupts reloading",
+    "requirements": [
+      {
+        "stat": "Blood",
+        "value": 18
+      },
+      {
+        "stat": "Arsenal",
+        "value": 26
+      }
+    ],
+    "location": "Marshland",
+    "iconUrl": "/images/items/b-unbroken-reload-bead.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-vigor-bead-i",
+    "name": "Vigor Bead I",
+    "category": "BEAD",
+    "element": null,
+    "description": "Vigor: +25%",
+    "requirements": [
+      {
+        "stat": "Blood",
+        "value": 20
+      }
+    ],
+    "location": "Irongate Castle",
+    "iconUrl": "/images/items/b-vigor-bead-i.png",
+    "mysteriumTiers": []
+  },
+  {
+    "id": "b-weapon-range-bead-i",
+    "name": "Weapon Range Bead I",
+    "category": "BEAD",
+    "element": null,
+    "description": "Weapon Range: +10%",
+    "requirements": [
+      {
+        "stat": "Arsenal",
+        "value": 15
+      }
+    ],
+    "location": "Scarlet Coast",
+    "iconUrl": "/images/items/b-weapon-range-bead-i.png",
+    "mysteriumTiers": []
+  }
+]
