@@ -21,14 +21,8 @@ public class RandomizerService {
         Loadout loadout = new Loadout();
         RandomizerRequest req = request != null ? request : new RandomizerRequest();
 
-        // 1. Primary Weapon
-        Weapon primary = resolveSlot(
-                "primaryWeapon",
-                req,
-                ItemCategory.WEAPON,
-                Collections.emptySet(),
-                Weapon.class
-        );
+        // 1. Primary Weapon (Guaranteed)
+        Weapon primary = resolveSlot("primaryWeapon", req, ItemCategory.WEAPON, Collections.emptySet(), Weapon.class, false);
         loadout.setPrimaryWeapon(primary);
 
         // 2. Secondary Weapon (cannot duplicate primary)
@@ -36,83 +30,35 @@ public class RandomizerService {
         if (primary != null) {
             excludeForSecondary.add(primary.getId());
         }
-        Weapon secondary = resolveSlotWithCustomExclusions(
-                "secondaryWeapon",
-                req,
-                ItemCategory.WEAPON,
-                excludeForSecondary,
-                Weapon.class
-        );
+        Weapon secondary = resolveSlot("secondaryWeapon", req, ItemCategory.WEAPON, excludeForSecondary, Weapon.class, req.isEmptySlotMode());
         loadout.setSecondaryWeapon(secondary);
 
         // 3. Demonic Weapon
-        Weapon demonic = resolveSlot(
-                "demonicWeapon",
-                req,
-                ItemCategory.DEMONIC_WEAPON,
-                Collections.emptySet(),
-                Weapon.class
-        );
+        Weapon demonic = resolveSlot("demonicWeapon", req, ItemCategory.DEMONIC_WEAPON, Collections.emptySet(), Weapon.class, req.isEmptySlotMode());
         loadout.setDemonicWeapon(demonic);
 
         // 4. Melee Weapon
-        MeleeWeapon melee = resolveSlot(
-                "meleeWeapon",
-                req,
-                ItemCategory.MELEE_WEAPON,
-                Collections.emptySet(),
-                MeleeWeapon.class
-        );
+        MeleeWeapon melee = resolveSlot("meleeWeapon", req, ItemCategory.MELEE_WEAPON, Collections.emptySet(), MeleeWeapon.class, req.isEmptySlotMode());
         loadout.setMeleeWeapon(melee);
 
         // 5. Light Spell
-        Spell lightSpell = resolveSlot(
-                "lightSpell",
-                req,
-                ItemCategory.LIGHT_SPELL,
-                Collections.emptySet(),
-                Spell.class
-        );
+        Spell lightSpell = resolveSlot("lightSpell", req, ItemCategory.LIGHT_SPELL, Collections.emptySet(), Spell.class, req.isEmptySlotMode());
         loadout.setLightSpell(lightSpell);
 
         // 6. Heavy Spell
-        Spell heavySpell = resolveSlot(
-                "heavySpell",
-                req,
-                ItemCategory.HEAVY_SPELL,
-                Collections.emptySet(),
-                Spell.class
-        );
+        Spell heavySpell = resolveSlot("heavySpell", req, ItemCategory.HEAVY_SPELL, Collections.emptySet(), Spell.class, req.isEmptySlotMode());
         loadout.setHeavySpell(heavySpell);
 
         // 7. Relic
-        MagicalItem relic = resolveSlot(
-                "relic",
-                req,
-                ItemCategory.RELIC,
-                Collections.emptySet(),
-                MagicalItem.class
-        );
+        MagicalItem relic = resolveSlot("relic", req, ItemCategory.RELIC, Collections.emptySet(), MagicalItem.class, req.isEmptySlotMode());
         loadout.setRelic(relic);
 
         // 8. Fetish
-        MagicalItem fetish = resolveSlot(
-                "fetish",
-                req,
-                ItemCategory.FETISH,
-                Collections.emptySet(),
-                MagicalItem.class
-        );
+        MagicalItem fetish = resolveSlot("fetish", req, ItemCategory.FETISH, Collections.emptySet(), MagicalItem.class, req.isEmptySlotMode());
         loadout.setFetish(fetish);
 
         // 9. Ring
-        MagicalItem ring = resolveSlot(
-                "ring",
-                req,
-                ItemCategory.RING,
-                Collections.emptySet(),
-                MagicalItem.class
-        );
+        MagicalItem ring = resolveSlot("ring", req, ItemCategory.RING, Collections.emptySet(), MagicalItem.class, req.isEmptySlotMode());
         loadout.setRing(ring);
 
         // 10. Beads
@@ -142,24 +88,14 @@ public class RandomizerService {
         };
     }
 
+    @SuppressWarnings("unchecked")
     private <T extends Item> T resolveSlot(
             String slotName,
             RandomizerRequest req,
             ItemCategory category,
             Set<String> extraExclusions,
-            Class<T> type) {
-        Set<String> exclusions = new HashSet<>(req.getExcludedItemIds());
-        exclusions.addAll(extraExclusions);
-        return resolveSlotWithCustomExclusions(slotName, req, category, exclusions, type);
-    }
-
-    @SuppressWarnings("unchecked")
-    private <T extends Item> T resolveSlotWithCustomExclusions(
-            String slotName,
-            RandomizerRequest req,
-            ItemCategory category,
-            Set<String> exclusions,
-            Class<T> type) {
+            Class<T> type,
+            boolean canBeEmpty) {
         boolean isLocked = Boolean.TRUE.equals(req.getLocks().get(slotName));
         String currentId = req.getCurrentSlotItemIds().get(slotName);
 
@@ -170,6 +106,12 @@ public class RandomizerService {
             }
         }
 
+        if (canBeEmpty && ThreadLocalRandom.current().nextDouble() < 0.35) {
+            return null;
+        }
+
+        Set<String> exclusions = new HashSet<>(req.getExcludedItemIds());
+        exclusions.addAll(extraExclusions);
         Item picked = pickRandomItem(category, req.getPreferredElements(), exclusions, null);
         return type.isInstance(picked) ? (T) picked : null;
     }
@@ -184,14 +126,12 @@ public class RandomizerService {
             return null;
         }
 
-        // Apply candidate pool restriction if any
         if (candidateIds != null && !candidateIds.isEmpty()) {
             candidates = candidates.stream()
                     .filter(i -> candidateIds.contains(i.getId()))
                     .collect(Collectors.toList());
         }
 
-        // Apply exclusions (only if it doesn't eliminate all candidates)
         if (excludedIds != null && !excludedIds.isEmpty()) {
             List<Item> nonExcluded = candidates.stream()
                     .filter(i -> !excludedIds.contains(i.getId()))
@@ -201,7 +141,6 @@ public class RandomizerService {
             }
         }
 
-        // Apply preferred elements (if any candidate matches)
         if (preferredElements != null && !preferredElements.isEmpty()) {
             List<Item> preferred = candidates.stream()
                     .filter(i -> i.getElement() != null && preferredElements.contains(i.getElement()))
@@ -219,7 +158,6 @@ public class RandomizerService {
         int count = Math.max(1, Math.min(5, req.getBeadSlotCount()));
         List<Bead> eligible = new ArrayList<>(itemRepository.findEligibleBeads(req.getBeadUserStats()));
 
-        // Filter exclusions if possible
         if (!req.getExcludedItemIds().isEmpty()) {
             List<Bead> nonExcluded = eligible.stream()
                     .filter(b -> !req.getExcludedItemIds().contains(b.getId()))
@@ -230,6 +168,16 @@ public class RandomizerService {
         }
 
         Collections.shuffle(eligible);
-        return eligible.stream().limit(count).collect(Collectors.toList());
+        List<Bead> picked = new ArrayList<>();
+        for (int i = 0; i < count; i++) {
+            if (req.isEmptySlotMode() && ThreadLocalRandom.current().nextDouble() < 0.35) {
+                picked.add(null);
+            } else if (i < eligible.size()) {
+                picked.add(eligible.get(i));
+            } else {
+                picked.add(null);
+            }
+        }
+        return picked;
     }
 }

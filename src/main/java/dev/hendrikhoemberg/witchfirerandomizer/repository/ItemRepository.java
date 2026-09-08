@@ -62,9 +62,18 @@ public class ItemRepository {
     }
 
     public List<Item> search(ItemCategory category, Element element, String query) {
-        return items.stream()
+        return search(category, element, false, query, "category");
+    }
+
+    public List<Item> search(ItemCategory category, Element element, Boolean noElement, String query, String sort) {
+        List<Item> result = items.stream()
                 .filter(i -> category == null || i.getCategory() == category)
-                .filter(i -> element == null || i.getElement() == element)
+                .filter(i -> {
+                    if (Boolean.TRUE.equals(noElement)) {
+                        return i.getElement() == null;
+                    }
+                    return element == null || i.getElement() == element;
+                })
                 .filter(i -> {
                     if (query == null || query.isBlank()) return true;
                     String q = query.trim().toLowerCase();
@@ -72,6 +81,24 @@ public class ItemRepository {
                             || (i.getDescription() != null && i.getDescription().toLowerCase().contains(q));
                 })
                 .collect(Collectors.toList());
+
+        if (sort == null || sort.equals("category")) {
+            result.sort(Comparator.comparingInt((Item i) -> i.getCategory().ordinal())
+                    .thenComparing(Item::getName, String.CASE_INSENSITIVE_ORDER));
+        } else if ("name-asc".equalsIgnoreCase(sort)) {
+            result.sort(Comparator.comparing(Item::getName, String.CASE_INSENSITIVE_ORDER));
+        } else if ("name-desc".equalsIgnoreCase(sort)) {
+            result.sort(Comparator.comparing(Item::getName, String.CASE_INSENSITIVE_ORDER).reversed());
+        } else if ("element-asc".equalsIgnoreCase(sort)) {
+            result.sort(Comparator.comparing((Item i) -> i.getElement() != null ? i.getElement().name() : "ZZZ")
+                    .thenComparing(Item::getName, String.CASE_INSENSITIVE_ORDER));
+        } else if ("element-desc".equalsIgnoreCase(sort)) {
+            result.sort(Comparator.comparing((Item i) -> i.getElement() != null ? i.getElement().name() : "")
+                    .reversed()
+                    .thenComparing(Item::getName, String.CASE_INSENSITIVE_ORDER));
+        }
+
+        return result;
     }
 
     public List<Bead> findEligibleBeads(Map<String, Integer> userStats) {

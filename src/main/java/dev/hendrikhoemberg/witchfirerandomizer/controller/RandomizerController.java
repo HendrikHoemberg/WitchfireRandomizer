@@ -38,7 +38,7 @@ public class RandomizerController {
         if (primary != null || melee != null || light != null) {
             loadout = restoreLoadoutFromParams(primary, secondary, demonic, melee, light, heavy, relic, fetish, ring, beads);
         } else {
-            loadout = randomizerService.generateRandomLoadout(new RandomizerRequest());
+            loadout = new Loadout();
         }
 
         model.addAttribute("loadout", loadout);
@@ -46,6 +46,9 @@ public class RandomizerController {
         model.addAttribute("pageTitle", "Loadout Randomizer");
         model.addAttribute("elements", Element.values());
         model.addAttribute("allCategories", ItemCategory.values());
+        model.addAttribute("statRequirements", calculateStatRequirements(loadout.getBeads()));
+        model.addAttribute("activeElements", calculateActiveElements(loadout));
+        model.addAttribute("allItems", itemRepository.findAll());
         return "randomizer/index";
     }
 
@@ -53,6 +56,19 @@ public class RandomizerController {
     public String reroll(@ModelAttribute RandomizerRequest request, Model model) {
         Loadout loadout = randomizerService.generateRandomLoadout(request);
         model.addAttribute("loadout", loadout);
+        model.addAttribute("elements", Element.values());
+        model.addAttribute("statRequirements", calculateStatRequirements(loadout.getBeads()));
+        model.addAttribute("activeElements", calculateActiveElements(loadout));
+        return "randomizer/fragments/loadout-grid :: loadoutGrid";
+    }
+
+    @PostMapping("/randomizer/clear")
+    public String clear(Model model) {
+        Loadout loadout = new Loadout();
+        model.addAttribute("loadout", loadout);
+        model.addAttribute("elements", Element.values());
+        model.addAttribute("statRequirements", calculateStatRequirements(Collections.emptyList()));
+        model.addAttribute("activeElements", Collections.emptySet());
         return "randomizer/fragments/loadout-grid :: loadoutGrid";
     }
 
@@ -67,6 +83,54 @@ public class RandomizerController {
         model.addAttribute("slotLabel", slotLabel);
         model.addAttribute("item", item);
         return "randomizer/fragments/slot-card :: slotCardFragment";
+    }
+
+    public static Set<Element> calculateActiveElements(Loadout loadout) {
+        Set<Element> active = new HashSet<>();
+        if (loadout == null) return active;
+        List<Item> items = Arrays.asList(
+                loadout.getPrimaryWeapon(),
+                loadout.getSecondaryWeapon(),
+                loadout.getDemonicWeapon(),
+                loadout.getMeleeWeapon(),
+                loadout.getLightSpell(),
+                loadout.getHeavySpell(),
+                loadout.getRelic(),
+                loadout.getFetish(),
+                loadout.getRing()
+        );
+        for (Item i : items) {
+            if (i != null && i.getElement() != null) {
+                active.add(i.getElement());
+            }
+        }
+        return active;
+    }
+
+    public static Map<String, Integer> calculateStatRequirements(List<Bead> beads) {
+        Map<String, Integer> reqs = new LinkedHashMap<>();
+        reqs.put("Flesh", 0);
+        reqs.put("Blood", 0);
+        reqs.put("Mind", 0);
+        reqs.put("Witchery", 0);
+        reqs.put("Arsenal", 0);
+        reqs.put("Faith", 0);
+        if (beads != null) {
+            for (Bead bead : beads) {
+                if (bead != null && bead.getRequirements() != null) {
+                    for (BeadRequirement sr : bead.getRequirements()) {
+                        String s = sr.stat();
+                        if (s != null && !s.isBlank()) {
+                            String statName = s.substring(0, 1).toUpperCase() + s.substring(1).toLowerCase();
+                            if (reqs.containsKey(statName)) {
+                                reqs.put(statName, Math.max(reqs.get(statName), sr.value()));
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return reqs;
     }
 
     private Loadout restoreLoadoutFromParams(

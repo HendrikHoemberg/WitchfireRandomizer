@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("/wiki")
@@ -21,13 +21,26 @@ public class WikiController {
     }
 
     @GetMapping
-    public String index(Model model) {
+    public String index(
+            @RequestParam(required = false) ItemCategory category,
+            @RequestParam(required = false) Element element,
+            @RequestParam(required = false) Boolean noElement,
+            @RequestParam(required = false) String search,
+            @RequestParam(required = false, defaultValue = "category") String sort,
+            Model model) {
         model.addAttribute("activeTab", "wiki");
         model.addAttribute("pageTitle", "Item Wiki");
         model.addAttribute("categories", ItemCategory.values());
         model.addAttribute("elements", Element.values());
-        model.addAttribute("selectedCategory", ItemCategory.WEAPON);
-        model.addAttribute("items", itemRepository.findByCategory(ItemCategory.WEAPON));
+        model.addAttribute("selectedCategory", category);
+        model.addAttribute("selectedElement", element);
+        model.addAttribute("noElement", noElement);
+        model.addAttribute("searchQuery", search != null ? search : "");
+        model.addAttribute("sortCriteria", sort);
+
+        List<Item> items = itemRepository.search(category, element, noElement, search, sort);
+        model.addAttribute("items", items);
+        model.addAttribute("groupedItems", groupByCategory(items));
         return "wiki/index";
     }
 
@@ -35,11 +48,27 @@ public class WikiController {
     public String getItems(
             @RequestParam(required = false) ItemCategory category,
             @RequestParam(required = false) Element element,
+            @RequestParam(required = false) Boolean noElement,
             @RequestParam(required = false) String search,
+            @RequestParam(required = false, defaultValue = "category") String sort,
             Model model) {
-        List<Item> filtered = itemRepository.search(category, element, search);
+        List<Item> filtered = itemRepository.search(category, element, noElement, search, sort);
         model.addAttribute("items", filtered);
+        model.addAttribute("selectedCategory", category);
+        model.addAttribute("sortCriteria", sort);
+        model.addAttribute("groupedItems", groupByCategory(filtered));
         return "wiki/fragments/item-grid :: itemGrid";
+    }
+
+    private Map<ItemCategory, List<Item>> groupByCategory(List<Item> items) {
+        Map<ItemCategory, List<Item>> grouped = new LinkedHashMap<>();
+        for (ItemCategory cat : ItemCategory.values()) {
+            List<Item> catItems = items.stream().filter(i -> i.getCategory() == cat).toList();
+            if (!catItems.isEmpty()) {
+                grouped.put(cat, catItems);
+            }
+        }
+        return grouped;
     }
 
     @GetMapping("/item/{id}")

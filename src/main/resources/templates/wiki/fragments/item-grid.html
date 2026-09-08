@@ -1,12 +1,62 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<div id="wiki-items-grid" class="wiki-items-grid animate-flash" th:fragment="itemGrid">
-    <th:block th:each="item : ${items}">
-        <div th:replace="~{wiki/fragments/item-card :: itemCard(${item})}"></div>
+<div id="wiki-items-grid" class="wiki-results-container" th:fragment="itemGrid">
+    <!-- Results Header -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <div style="font-size: 0.95rem; color: #ffffff;">
+            Showing <span th:text="${items.size()}">0</span> <span th:text="${items.size() == 1 ? 'item' : 'items'}">items</span>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <label for="sort-select" style="font-size: 0.9rem; color: #ffffff; font-weight: 500;">Sort By:</label>
+            <select id="sort-select"
+                    class="wiki-sort-select"
+                    x-model="sortCriteria"
+                    @change="updateFilters()">
+                <option value="category" th:selected="${sortCriteria == null or sortCriteria == 'category'}">By Category</option>
+                <option value="name-asc" th:selected="${sortCriteria == 'name-asc'}">Name (A-Z)</option>
+                <option value="name-desc" th:selected="${sortCriteria == 'name-desc'}">Name (Z-A)</option>
+                <option value="element-asc" th:selected="${sortCriteria == 'element-asc'}">Element (A-Z)</option>
+                <option value="element-desc" th:selected="${sortCriteria == 'element-desc'}">Element (Z-A)</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Category-grouped view when "By Category" is chosen and "All Categories" is active -->
+    <th:block th:if="${(sortCriteria == null or sortCriteria == 'category') and (selectedCategory == null or selectedCategory == '')}">
+        <div th:each="entry : ${groupedItems}" style="margin-bottom: 2.5rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 700; color: #ffffff; margin-bottom: 1rem; border-bottom: 1px solid #818181; padding-bottom: 0.5rem;"
+                th:text="${entry.key.displayName}">
+                Category Name
+            </h2>
+            <div class="wiki-cards-list">
+                <th:block th:each="item : ${entry.value}">
+                    <div th:id="${#strings.toLowerCase(#strings.replace(item.name, ' ', '-'))}">
+                        <div th:replace="~{wiki/fragments/item-card :: itemCard(${item})}"></div>
+                    </div>
+                </th:block>
+            </div>
+        </div>
     </th:block>
-    <div th:if="${#lists.isEmpty(items)}" style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--wf-text-muted);">
-        <p style="font-size: 1.2rem; font-weight: 600;">No items found matching criteria.</p>
+
+    <!-- Standard flat view when specific category or other sort order is active -->
+    <th:block th:unless="${(sortCriteria == null or sortCriteria == 'category') and (selectedCategory == null or selectedCategory == '')}">
+        <div th:if="${!#lists.isEmpty(items)}" class="wiki-cards-list">
+            <th:block th:each="item : ${items}">
+                <div th:id="${#strings.toLowerCase(#strings.replace(item.name, ' ', '-'))}">
+                    <div th:replace="~{wiki/fragments/item-card :: itemCard(${item})}"></div>
+                </div>
+            </th:block>
+        </div>
+    </th:block>
+
+    <!-- Empty State -->
+    <div th:if="${#lists.isEmpty(items)}" class="wiki-empty-box texture-box" style="padding: 2rem; text-align: center;">
+        <p style="color: #ffffff; font-size: 1.1rem; margin-bottom: 1rem;">No items found matching your filters.</p>
+        <button type="button" class="btn-gray" @click="clearAllFilters()">
+            Clear All Filters
+        </button>
     </div>
 </div>
 </body>

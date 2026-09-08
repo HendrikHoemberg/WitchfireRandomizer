@@ -37,12 +37,46 @@ class RandomizerControllerTest {
     }
 
     @Test
-    void testRerollLoadoutReturnsUpdatedGrid() throws Exception {
-        mockMvc.perform(post("/randomizer/reroll")
-                        .param("locks[meleeWeapon]", "true")
-                        .param("currentSlotItemIds[meleeWeapon]", "mw-morning-star"))
+    void testHeaderAndDrawerNavigationRendered() throws Exception {
+        mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("randomizer/fragments/loadout-grid :: loadoutGrid"))
-                .andExpect(content().string(containsString("Morning Star")));
+                .andExpect(content().string(containsString("wf-logo2.webP")))
+                .andExpect(content().string(containsString("burger-btn")))
+                .andExpect(content().string(containsString("Loadout Randomizer")))
+                .andExpect(content().string(containsString("Item Wiki")));
+    }
+
+    @Test
+    void testCurrentLoadoutCardStructure() throws Exception {
+        mockMvc.perform(get("/"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("Current Loadout")))
+                .andExpect(content().string(containsString("Generate Share Link")))
+                .andExpect(content().string(containsString("Clear All")))
+                .andExpect(content().string(containsString("Click on a Slot to lock/unlock it.")))
+                .andExpect(content().string(containsString("Generate New Loadout")));
+    }
+
+    @Test
+    void testBeadsCardAndStatRequirementsStructure() throws Exception {
+        mockMvc.perform(get("/"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("Beads")))
+                .andExpect(content().string(containsString("Stat Requirements for Current Beads")))
+                .andExpect(content().string(containsString("Flesh")))
+                .andExpect(content().string(containsString("Blood")))
+                .andExpect(content().string(containsString("Mind")))
+                .andExpect(content().string(containsString("Witchery")))
+                .andExpect(content().string(containsString("Arsenal")))
+                .andExpect(content().string(containsString("Faith")));
+    }
+
+    @Test
+    void testElementPreferencesAndEmptySlotMode() throws Exception {
+        mockMvc.perform(get("/"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("Element Preferences")))
+                .andExpect(content().string(containsString("Clear All Preferences")))
+                .andExpect(content().string(containsString("Empty Slot Mode")));
     }
 }

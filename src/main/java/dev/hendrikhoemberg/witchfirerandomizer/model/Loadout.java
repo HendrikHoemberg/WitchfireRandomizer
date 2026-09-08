@@ -1,7 +1,6 @@
 package dev.hendrikhoemberg.witchfirerandomizer.model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Loadout {
     private Weapon primaryWeapon;
@@ -44,4 +43,38 @@ public class Loadout {
 
     public List<Bead> getBeads() { return beads; }
     public void setBeads(List<Bead> beads) { this.beads = beads != null ? beads : new ArrayList<>(); }
+
+    public List<Element> getActiveElements() {
+        Set<Element> active = new LinkedHashSet<>();
+        List<Item> items = Arrays.asList(primaryWeapon, secondaryWeapon, demonicWeapon, meleeWeapon, lightSpell, heavySpell, relic, fetish, ring);
+        for (Item i : items) {
+            if (i != null && i.getElement() != null) {
+                active.add(i.getElement());
+            }
+        }
+        return new ArrayList<>(active);
+    }
+
+    public Map<String, Integer> getStatRequirements() {
+        Map<String, Integer> reqs = new LinkedHashMap<>();
+        reqs.put("Flesh", 0);
+        reqs.put("Blood", 0);
+        reqs.put("Mind", 0);
+        reqs.put("Witchery", 0);
+        reqs.put("Arsenal", 0);
+        reqs.put("Faith", 0);
+        if (beads != null) {
+            for (Bead b : beads) {
+                if (b != null && b.getRequirements() != null) {
+                    for (BeadRequirement br : b.getRequirements()) {
+                        String stat = br.stat();
+                        if (reqs.containsKey(stat)) {
+                            reqs.put(stat, Math.max(reqs.get(stat), br.value()));
+                        }
+                    }
+                }
+            }
+        }
+        return reqs;
+    }
 }

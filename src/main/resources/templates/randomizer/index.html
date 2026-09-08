@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loadout Randomizer - Witchfire Companion</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/htmx.min.js"></script>
     <script defer src="/js/alpine.min.js"></script>
@@ -17,13 +18,24 @@
             secondaryWeapon: false,
             demonicWeapon: false,
             meleeWeapon: false,
-            lightSpell: false,
-            heavySpell: false,
             relic: false,
             fetish: false,
-            ring: false
+            ring: false,
+            lightSpell: false,
+            heavySpell: false
         },
-        beadStats: {
+        beadLocks: {
+            bead1: false,
+            bead2: false,
+            bead3: false,
+            bead4: false,
+            bead5: false
+        },
+        preferredElements: [],
+        emptySlotMode: false,
+        excludedItems: [],
+        excludeTab: 'WEAPON',
+        userStats: {
             Flesh: 100,
             Blood: 100,
             Mind: 100,
@@ -32,10 +44,56 @@
             Faith: 100
         },
         beadSlotCount: 5,
-        showBeadModal: false,
-        showToast: false,
-        toastMessage: '',
-        copyShareLink() {
+        hoveredSlot: null,
+        showBeadSettings: false,
+        showItemModal: false,
+        modalItemId: null,
+        shareCopied: false,
+        showTooltip: false,
+
+        init() {
+            const savedStats = localStorage.getItem('beadUserStats');
+            if (savedStats) {
+                try {
+                    const parsed = JSON.parse(savedStats);
+                    this.userStats = parsed.stats || this.userStats;
+                    this.beadSlotCount = parsed.slots || this.beadSlotCount;
+                } catch (e) {}
+            }
+        },
+        saveBeadSettings() {
+            localStorage.setItem('beadUserStats', JSON.stringify({
+                stats: this.userStats,
+                slots: this.beadSlotCount
+            }));
+            this.showBeadSettings = false;
+        },
+        toggleLock(slotKey) {
+            this.locks[slotKey] = !this.locks[slotKey];
+        },
+        toggleBeadLock(slotKey) {
+            this.beadLocks[slotKey] = !this.beadLocks[slotKey];
+        },
+        togglePreferredElement(elem) {
+            if (this.preferredElements.includes(elem)) {
+                this.preferredElements = this.preferredElements.filter(e => e !== elem);
+            } else {
+                this.preferredElements.push(elem);
+            }
+        },
+        toggleExcludedItem(id) {
+            if (this.excludedItems.includes(id)) {
+                this.excludedItems = this.excludedItems.filter(i => i !== id);
+            } else {
+                this.excludedItems.push(id);
+            }
+        },
+        openItemModal(itemId) {
+            this.modalItemId = itemId;
+            this.showItemModal = true;
+            htmx.ajax('GET', '/wiki/item/' + itemId, { target: '#item-modal-dialog', swap: 'innerHTML' });
+        },
+        generateShareLink() {
             const params = new URLSearchParams();
             const inputs = document.querySelectorAll('#randomizer-form input[name^=\'currentSlotItemIds\']');
             inputs.forEach(input => {
@@ -44,42 +102,237 @@
                     params.set(match[1], input.value);
                 }
             });
-            const url = window.location.origin + '/randomizer?' + params.toString();
+            const url = window.location.origin + '/?' + params.toString();
             navigator.clipboard.writeText(url).then(() => {
-                this.toastMessage = 'Share link copied to clipboard!';
-                this.showToast = true;
-                setTimeout(() => { this.showToast = false; }, 3000);
+                this.shareCopied = true;
+                setTimeout(() => { this.shareCopied = false; }, 1500);
             });
+        },
+        clearLoadoutSlots() {
+            htmx.ajax('POST', '/randomizer/clear', { target: '#loadout-grid', swap: 'outerHTML' });
+        },
+        clearBeadSlots() {
+            this.beadLocks = { bead1: false, bead2: false, bead3: false, bead4: false, bead5: false };
+            htmx.ajax('POST', '/randomizer/clear', { target: '#loadout-grid', swap: 'outerHTML' });
         }
     }">
-        <form id="randomizer-form" hx-post="/randomizer/reroll" hx-target="#loadout-grid" hx-swap="outerHTML">
-            <!-- Top Controls Bar -->
-            <div class="controls-bar">
-                <div style="display: flex; gap: 1rem; align-items: center;">
-                    <button type="submit" class="btn btn-primary" title="Reroll unlocked slots">
-                        🎲 Reroll Loadout
-                    </button>
-                    <button type="button" class="btn btn-secondary" @click="showBeadModal = true">
-                        ⚙ Bead Settings
-                    </button>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-secondary" @click="copyShareLink()">
-                        🔗 Share Loadout
-                    </button>
-                </div>
-            </div>
+        <!-- Centered Witchfire Logo -->
+        <div class="logo-container">
+            <a href="/">
+                <img src="/images/wf-logo2.webP" alt="Witchfire" class="page-logo">
+            </a>
+        </div>
 
-            <!-- Modal for Bead Constraints -->
-            <div th:replace="~{randomizer/fragments/bead-settings-modal :: beadModal}"></div>
+        <form id="randomizer-form"
+              hx-post="/randomizer/reroll"
+              hx-target="#loadout-grid"
+              hx-swap="outerHTML">
 
-            <!-- Loadout Grid -->
+            <!-- Hidden inputs for Alpine client settings -->
+            <input type="hidden" name="emptySlotMode" :value="emptySlotMode ? 'true' : 'false'">
+            <input type="hidden" name="beadSlotCount" :value="beadSlotCount">
+            <input type="hidden" name="beadUserStats[Flesh]" :value="userStats.Flesh">
+            <input type="hidden" name="beadUserStats[Blood]" :value="userStats.Blood">
+            <input type="hidden" name="beadUserStats[Mind]" :value="userStats.Mind">
+            <input type="hidden" name="beadUserStats[Witchery]" :value="userStats.Witchery">
+            <input type="hidden" name="beadUserStats[Arsenal]" :value="userStats.Arsenal">
+            <input type="hidden" name="beadUserStats[Faith]" :value="userStats.Faith">
+
+            <template x-for="elem in preferredElements">
+                <input type="hidden" name="preferredElements" :value="elem">
+            </template>
+            <template x-for="id in excludedItems">
+                <input type="hidden" name="excludedItemIds" :value="id">
+            </template>
+
+            <!-- Loadout Grid Fragment (Loadout Card, Generate Button, Beads Card) -->
             <div th:replace="~{randomizer/fragments/loadout-grid :: loadoutGrid}"></div>
         </form>
 
-        <!-- Toast Notice -->
-        <div x-show="showToast" x-transition class="toast-notice" style="display: none;" x-cloak>
-            <span x-text="toastMessage"></span>
+        <!-- 4. Element Preferences Card -->
+        <div class="texture-box" style="padding: 1.5rem; margin-bottom: 2rem; text-align: center;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+                <h2 style="font-size: 1.25rem; font-weight: 600; color: #ffffff;">Element Preferences</h2>
+                <button type="button"
+                        class="btn-gray btn-danger"
+                        @click="preferredElements = []">
+                    Clear All Preferences
+                </button>
+            </div>
+
+            <!-- Element Buttons Row -->
+            <div class="element-buttons-row">
+                <button type="button"
+                        class="element-pref-btn"
+                        :class="preferredElements.includes('Fire') ? 'selected' : ''"
+                        @click="togglePreferredElement('Fire')">
+                    <div class="dot-indicator" style="background-color: #ff4d4d;"></div>
+                    <span>Fire</span>
+                </button>
+                <button type="button"
+                        class="element-pref-btn"
+                        :class="preferredElements.includes('Water') ? 'selected' : ''"
+                        @click="togglePreferredElement('Water')">
+                    <div class="dot-indicator" style="background-color: #4da6ff;"></div>
+                    <span>Water</span>
+                </button>
+                <button type="button"
+                        class="element-pref-btn"
+                        :class="preferredElements.includes('Air') ? 'selected' : ''"
+                        @click="togglePreferredElement('Air')">
+                    <div class="dot-indicator" style="background-color: #ffcc00;"></div>
+                    <span>Air</span>
+                </button>
+                <button type="button"
+                        class="element-pref-btn"
+                        :class="preferredElements.includes('Earth') ? 'selected' : ''"
+                        @click="togglePreferredElement('Earth')">
+                    <div class="dot-indicator" style="background-color: #66cc66;"></div>
+                    <span>Earth</span>
+                </button>
+            </div>
+
+            <p style="font-size: 0.875rem; color: #d1d5db; margin-top: 0.5rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.5;">
+                Select elements that you want in your loadout. Every slot will try to use an item with your selected elements.
+                All selected elements are guaranteed to be included at least once.
+            </p>
+
+            <!-- Empty Slot Mode Toggle -->
+            <div class="switch-container">
+                <label class="toggle-switch">
+                    <input type="checkbox" x-model="emptySlotMode">
+                    <span class="slider"></span>
+                </label>
+                <span style="font-size: 0.875rem; font-weight: 500; color: #ffffff;">Empty Slot Mode</span>
+                <span style="color: #9ca3af; cursor: help; font-size: 0.875rem; font-weight: bold; margin-left: 0.25rem;"
+                      @click="showTooltip = !showTooltip"
+                      title="Activating this mode will lead to slots being randomly empty (Primary Weapon is guaranteed)">
+                    ?
+                </span>
+            </div>
+            <div x-show="showTooltip"
+                 x-cloak
+                 style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.5rem;"
+                 @click.away="showTooltip = false">
+                Activating this mode will lead to slots being randomly empty (Primary Weapon is guaranteed)
+            </div>
+        </div>
+
+        <!-- 5. Exclude Items Card -->
+        <div class="texture-box" style="padding: 1.5rem; margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;">
+                <h2 style="font-size: 1.25rem; font-weight: 600; color: #ffffff;">Exclude Items</h2>
+                <button type="button"
+                        class="btn-gray btn-danger"
+                        @click="excludedItems = []">
+                    Clear All Exclusions
+                </button>
+            </div>
+
+            <!-- Category Tabs -->
+            <div class="filter-pills-row" style="margin-bottom: 1.25rem;">
+                <button th:each="cat : ${allCategories}"
+                        type="button"
+                        class="filter-pill-btn"
+                        th:data-cat="${cat.name()}"
+                        th:text="${cat.displayName}"
+                        :class="excludeTab === $el.dataset.cat ? 'active' : ''"
+                        @click="excludeTab = $el.dataset.cat">
+                    Category
+                </button>
+            </div>
+
+            <!-- Items List for Exclusion -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 0.75rem; max-height: 380px; overflow-y: auto; padding: 0.5rem; background-color: rgba(26, 26, 26, 0.6); border-radius: 0.375rem;">
+                <div th:each="item : ${allItems}"
+                     th:data-cat="${item.category.name()}"
+                     th:data-item-id="${item.id}"
+                     x-show="excludeTab === $el.dataset.cat"
+                     @click="toggleExcludedItem($el.dataset.itemId)"
+                     class="slot-box"
+                     style="width: 100px; height: 100px; cursor: pointer;"
+                     :style="excludedItems.includes($el.dataset.itemId) ? 'border: 2px solid #dc2626; opacity: 0.6; background-color: rgba(127, 29, 29, 0.3);' : ''">
+                    <div class="slot-icon-area" style="padding-top: 0.25rem;">
+                        <div class="slot-icon-square" style="width: 60px; height: 60px;">
+                            <img th:if="${item.iconUrl != null}" th:src="${item.iconUrl}" th:alt="${item.name}" class="slot-icon-img" />
+                        </div>
+                    </div>
+                    <div class="slot-name-label"
+                         :style="excludedItems.includes($el.dataset.itemId) ? 'color: #ef4444;' : 'color: #ffffff;'"
+                         th:text="${item.name}">
+                        Name
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bead Settings Modal -->
+        <div class="detail-modal-overlay"
+             x-show="showBeadSettings"
+             x-cloak
+             style="display: none;"
+             @keydown.escape.window="showBeadSettings = false">
+            <div class="detail-modal-box texture-box" style="padding: 1.5rem;" @click.stop>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                    <h3 style="font-size: 1.25rem; font-weight: 600; color: #ffffff;">Bead Settings</h3>
+                    <button type="button"
+                            @click="showBeadSettings = false"
+                            style="background: none; border: none; font-size: 1.5rem; color: #9ca3af; cursor: pointer;">
+                        &times;
+                    </button>
+                </div>
+                <p style="font-size: 0.85rem; color: #d1d5db; margin-bottom: 1.25rem;">
+                    Enter your character stats to determine available beads and slot count.
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.5rem;">
+                    <div th:each="st : ${ {'Flesh', 'Blood', 'Mind', 'Witchery', 'Arsenal', 'Faith'} }"
+                         style="display: flex; justify-content: space-between; align-items: center;">
+                        <label style="color: #e5e7eb; font-weight: 500; font-size: 0.9rem;" th:text="${st} + ':'">Stat:</label>
+                        <input type="number"
+                               min="0"
+                               max="100"
+                               x-model.number="userStats['__${st}__']"
+                               style="width: 5rem; padding: 0.35rem 0.5rem; background-color: #404040; border: 1px solid #606060; border-radius: 0.375rem; color: #fff; text-align: center;" />
+                    </div>
+                </div>
+
+                <div style="padding-top: 1rem; border-top: 1px solid #606060; display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <label style="color: #e5e7eb; font-weight: 500; font-size: 0.9rem;">Available Bead Slots:</label>
+                    <input type="number"
+                           min="1"
+                           max="5"
+                           x-model.number="beadSlotCount"
+                           style="width: 5rem; padding: 0.35rem 0.5rem; background-color: #404040; border: 1px solid #606060; border-radius: 0.375rem; color: #fff; text-align: center;" />
+                </div>
+
+                <div style="display: flex; justify-content: flex-end; gap: 0.75rem;">
+                    <button type="button" class="btn-gray" @click="showBeadSettings = false">Cancel</button>
+                    <button type="button" class="btn-generate" style="padding: 0.4rem 1.25rem; font-size: 0.9rem;" @click="saveBeadSettings()">Save Settings</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Item Detail Modal Overlay -->
+        <div class="detail-modal-overlay"
+             x-show="showItemModal"
+             x-cloak
+             style="display: none;"
+             @click="showItemModal = false"
+             @keydown.escape.window="showItemModal = false">
+            <div class="detail-modal-box texture-box"
+                 style="position: relative;"
+                 @click.stop>
+                <button type="button"
+                        @click="showItemModal = false"
+                        style="position: absolute; top: 0.75rem; right: 0.75rem; background: none; border: none; font-size: 1.75rem; color: #9ca3af; cursor: pointer; z-index: 20;"
+                        title="Close">
+                    &times;
+                </button>
+                <div id="item-modal-dialog">
+                    <p style="padding: 2rem; text-align: center; color: #9ca3af;">Loading details...</p>
+                </div>
+            </div>
         </div>
     </main>
 </body>

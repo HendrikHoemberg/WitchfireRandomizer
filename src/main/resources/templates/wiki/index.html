@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Item Wiki - Witchfire Companion</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/htmx.min.js"></script>
     <script defer src="/js/alpine.min.js"></script>
@@ -11,44 +12,113 @@
 <body>
     <div th:replace="~{fragments/navigation :: navbar('wiki')}"></div>
 
-    <main class="container" x-data="{ currentCategory: 'WEAPON', currentElement: '', searchQuery: '' }">
-        <div style="margin-bottom: 2rem;">
-            <h1 style="font-size: 2rem; font-weight: 800; color: #fff; text-shadow: 0 0 15px var(--wf-gold-glow); margin-bottom: 0.5rem;">
-                Item Wiki
-            </h1>
-            <p style="color: var(--wf-text-muted);">
-                Explore all weapons, melee weaponry, spells, magical items, and beads from Witchfire.
-            </p>
+    <main class="container" x-data="{
+        selectedCategory: '',
+        selectedElement: '',
+        noElement: false,
+        searchQuery: '',
+        sortCriteria: 'category',
+        updateFilters() {
+            htmx.ajax('GET', '/wiki/items', {
+                target: '#wiki-items-grid',
+                swap: 'outerHTML',
+                values: {
+                    category: this.selectedCategory,
+                    element: this.selectedElement,
+                    noElement: this.noElement,
+                    search: this.searchQuery,
+                    sort: this.sortCriteria
+                }
+            });
+        },
+        clearAllFilters() {
+            this.selectedCategory = '';
+            this.selectedElement = '';
+            this.noElement = false;
+            this.searchQuery = '';
+            this.sortCriteria = 'category';
+            this.updateFilters();
+        }
+    }">
+        <!-- Centered Witchfire Logo -->
+        <div class="logo-container">
+            <a href="/">
+                <img src="/images/wf-logo2.webP" alt="Witchfire" class="page-logo">
+            </a>
         </div>
 
-        <!-- Category Tabs -->
-        <div class="wiki-tabs">
-            <button th:each="cat : ${categories}"
-                    type="button"
-                    class="tab-btn"
-                    th:classappend="${cat == selectedCategory ? 'active' : ''}"
-                    th:text="${cat.displayName}"
-                    th:data-cat="${cat.name()}"
-                    @click="currentCategory = $el.dataset.cat; document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); $el.classList.add('active');"
-                    hx-get="/wiki/items"
-                    hx-target="#wiki-items-grid"
-                    hx-include="#wiki-filters"
-                    hx-trigger="click">
-                Category
-            </button>
+        <!-- Search and Filters Box -->
+        <div class="wiki-filter-box texture-box">
+            <div class="search-input-wrapper" style="position: relative; margin-bottom: 1.25rem;">
+                <input type="text"
+                       class="wiki-search-input"
+                       placeholder="Search items..."
+                       x-model="searchQuery"
+                       @input.debounce.300ms="updateFilters()" />
+                <button type="button"
+                        x-show="searchQuery.length > 0"
+                        @click="searchQuery = ''; updateFilters()"
+                        class="search-clear-btn"
+                        style="position: absolute; right: 0.75rem; top: 35%; transform: translateY(-50%); background: none; border: none; color: #9ca3af; font-size: 1.25rem; cursor: pointer;"
+                        title="Clear search">
+                    &times;
+                </button>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                <!-- Category Filter -->
+                <div>
+                    <h3 class="filter-section-title">Filter by Category</h3>
+                    <div class="filter-pills-row">
+                        <button type="button"
+                                class="filter-pill-btn"
+                                :class="selectedCategory === '' ? 'active' : ''"
+                                @click="selectedCategory = ''; updateFilters()">
+                            All Categories
+                        </button>
+                        <button th:each="cat : ${categories}"
+                                type="button"
+                                class="filter-pill-btn"
+                                th:data-cat="${cat.name()}"
+                                th:text="${cat.displayName}"
+                                :class="selectedCategory === $el.dataset.cat ? 'active' : ''"
+                                @click="selectedCategory = $el.dataset.cat; updateFilters()">
+                            Category
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Element Filter -->
+                <div>
+                    <h3 class="filter-section-title">Filter by Element</h3>
+                    <div class="filter-pills-row">
+                        <button type="button"
+                                class="filter-pill-btn"
+                                :class="(selectedElement === '' && !noElement) ? 'active' : ''"
+                                @click="selectedElement = ''; noElement = false; updateFilters()">
+                            All Elements
+                        </button>
+                        <button th:each="elem : ${elements}"
+                                type="button"
+                                class="filter-pill-btn"
+                                th:data-elem="${elem.name()}"
+                                th:text="${elem.name()}"
+                                :class="(selectedElement === $el.dataset.elem && !noElement) ? 'active' : ''"
+                                @click="selectedElement = $el.dataset.elem; noElement = false; updateFilters()">
+                            Fire
+                        </button>
+                        <button type="button"
+                                class="filter-pill-btn"
+                                :class="noElement ? 'active' : ''"
+                                @click="selectedElement = ''; noElement = true; updateFilters()">
+                            No Element
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Search & Filter Form -->
-        <form id="wiki-filters" class="wiki-search-bar" hx-get="/wiki/items" hx-target="#wiki-items-grid" hx-trigger="submit, keyup changed delay:250ms from:#search-box, change from:#element-select">
-            <input type="hidden" name="category" :value="currentCategory" />
-            <input id="search-box" type="text" name="search" class="search-input" placeholder="Search items by name or description..." />
-            <select id="element-select" name="element" class="search-input" style="max-width: 180px; cursor: pointer;">
-                <option value="">All Elements</option>
-                <option th:each="elem : ${elements}" th:value="${elem.name()}" th:text="${elem.name()}">Fire</option>
-            </select>
-        </form>
-
-        <!-- Dynamic Grid -->
+        <!-- Dynamic Results Header and Grid -->
         <div th:replace="~{wiki/fragments/item-grid :: itemGrid}"></div>
     </main>
 </body>

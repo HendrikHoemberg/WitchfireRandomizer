@@ -12,6 +12,7 @@ public class RandomizerRequest {
     private Set<String> excludedItemIds = new HashSet<>();
     private Map<String, Integer> beadUserStats = new HashMap<>();
     private int beadSlotCount = 5;
+    private boolean emptySlotMode = false;
 
     public Map<String, Boolean> getLocks() { return locks; }
     public void setLocks(Map<String, Boolean> locks) { this.locks = locks != null ? locks : new HashMap<>(); }
@@ -30,4 +31,7 @@ public class RandomizerRequest {
 
     public int getBeadSlotCount() { return beadSlotCount; }
     public void setBeadSlotCount(int beadSlotCount) { this.beadSlotCount = beadSlotCount; }
+
+    public boolean isEmptySlotMode() { return emptySlotMode; }
+    public void setEmptySlotMode(boolean emptySlotMode) { this.emptySlotMode = emptySlotMode; }
 }

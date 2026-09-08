@@ -2,39 +2,117 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 <div id="loadout-grid" th:fragment="loadoutGrid">
-    <!-- Main 9 Equipment Slots -->
-    <div class="loadout-grid">
-        <div th:replace="~{randomizer/fragments/slot-card :: slotCard('primaryWeapon', 'Primary Weapon', ${loadout.primaryWeapon})}"></div>
-        <div th:replace="~{randomizer/fragments/slot-card :: slotCard('secondaryWeapon', 'Secondary Weapon', ${loadout.secondaryWeapon})}"></div>
-        <div th:replace="~{randomizer/fragments/slot-card :: slotCard('demonicWeapon', 'Demonic Weapon', ${loadout.demonicWeapon})}"></div>
-        <div th:replace="~{randomizer/fragments/slot-card :: slotCard('meleeWeapon', 'Melee Weapon', ${loadout.meleeWeapon})}"></div>
-        <div th:replace="~{randomizer/fragments/slot-card :: slotCard('lightSpell', 'Light Spell', ${loadout.lightSpell})}"></div>
-        <div th:replace="~{randomizer/fragments/slot-card :: slotCard('heavySpell', 'Heavy Spell', ${loadout.heavySpell})}"></div>
-        <div th:replace="~{randomizer/fragments/slot-card :: slotCard('relic', 'Relic', ${loadout.relic})}"></div>
-        <div th:replace="~{randomizer/fragments/slot-card :: slotCard('fetish', 'Fetish', ${loadout.fetish})}"></div>
-        <div th:replace="~{randomizer/fragments/slot-card :: slotCard('ring', 'Ring', ${loadout.ring})}"></div>
+    <!-- 1. Current Loadout Card -->
+    <div class="texture-box" style="padding: 1.5rem; margin-bottom: 2rem;">
+        <!-- Card Header -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem;">
+            <h2 style="font-size: 1.25rem; font-weight: 600; color: #ffffff;">Current Loadout</h2>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <button type="button"
+                        class="btn-gray"
+                        :class="shareCopied ? 'bg-green-600' : ''"
+                        @click="generateShareLink()"
+                        x-text="shareCopied ? 'Link copied to clipboard' : 'Generate Share Link'">
+                    Generate Share Link
+                </button>
+                <button type="button"
+                        class="btn-gray btn-danger"
+                        @click="clearLoadoutSlots()">
+                    Clear All
+                </button>
+            </div>
+        </div>
+
+        <!-- 9 Equipment Slots Container (Square Boxes) -->
+        <div class="slots-container">
+            <div th:replace="~{randomizer/fragments/slot-card :: slotCard('primaryWeapon', 'Primary Weapon', ${loadout.primaryWeapon})}"></div>
+            <div th:replace="~{randomizer/fragments/slot-card :: slotCard('secondaryWeapon', 'Secondary Weapon', ${loadout.secondaryWeapon})}"></div>
+            <div th:replace="~{randomizer/fragments/slot-card :: slotCard('demonicWeapon', 'Demonic Weapon', ${loadout.demonicWeapon})}"></div>
+            <div th:replace="~{randomizer/fragments/slot-card :: slotCard('meleeWeapon', 'Melee Weapon', ${loadout.meleeWeapon})}"></div>
+            <div th:replace="~{randomizer/fragments/slot-card :: slotCard('relic', 'Relic', ${loadout.relic})}"></div>
+            <div th:replace="~{randomizer/fragments/slot-card :: slotCard('fetish', 'Fetish', ${loadout.fetish})}"></div>
+            <div th:replace="~{randomizer/fragments/slot-card :: slotCard('ring', 'Ring', ${loadout.ring})}"></div>
+            <div th:replace="~{randomizer/fragments/slot-card :: slotCard('lightSpell', 'Light Spell', ${loadout.lightSpell})}"></div>
+            <div th:replace="~{randomizer/fragments/slot-card :: slotCard('heavySpell', 'Heavy Spell', ${loadout.heavySpell})}"></div>
+        </div>
+
+        <!-- Active Elements Row -->
+        <div class="active-elements-row">
+            <div th:each="elem : ${T(dev.hendrikhoemberg.witchfirerandomizer.model.Element).values()}"
+                 class="active-element-pill"
+                 th:classappend="${activeElements != null and activeElements.contains(elem) ? 'active' : 'inactive'}">
+                <div class="dot-indicator" th:style="'background-color: ' + ${elem.color}"></div>
+                <span th:text="${elem.name()}">Fire</span>
+            </div>
+        </div>
+
+        <!-- Helper Notice -->
+        <div style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid #555555; text-align: center;">
+            <p style="font-size: 0.8rem; color: #9ca3af;">Click on a Slot to lock/unlock it.</p>
+        </div>
     </div>
 
-    <!-- Equipped Beads Section -->
-    <div class="beads-section texture-bg">
-        <div class="beads-header">
-            <h3 style="color: var(--wf-gold-bright); font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.05em;">
-                Equipped Rosary Beads
-            </h3>
-            <button type="button" class="btn btn-secondary btn-sm" @click="showBeadModal = true">
-                ⚙ Bead Settings
-            </button>
-        </div>
-        <div class="beads-grid">
-            <div th:each="bead : ${loadout.beads}" class="bead-card">
-                <img th:if="${bead.iconUrl != null}" th:src="${bead.iconUrl}" th:alt="${bead.name}" class="bead-icon" />
-                <div class="bead-info">
-                    <div class="bead-name" th:text="${bead.name}">Bead Name</div>
-                    <div class="bead-desc" th:text="${bead.description}">Description</div>
-                </div>
+    <!-- 2. Prominent Center Generate Button -->
+    <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+        <button type="submit"
+                class="btn-generate"
+                title="Generate New Loadout">
+            Generate New Loadout
+        </button>
+    </div>
+
+    <!-- 3. Beads Card -->
+    <div class="texture-box" style="padding: 1.5rem; margin-bottom: 2rem;">
+        <!-- Card Header -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem;">
+            <h2 style="font-size: 1.25rem; font-weight: 600; color: #ffffff;">Beads</h2>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <button type="button"
+                        class="btn-gray"
+                        @click="showBeadSettings = true">
+                    Settings
+                </button>
+                <button type="button"
+                        class="btn-gray btn-danger"
+                        @click="clearBeadSlots()">
+                    Clear All
+                </button>
             </div>
-            <div th:if="${#lists.isEmpty(loadout.beads)}" style="grid-column: 1 / -1; color: var(--wf-text-muted); font-size: 0.85rem;">
-                No beads equipped matching stat requirements.
+        </div>
+
+        <!-- Bead Slots Container -->
+        <div class="slots-container">
+            <th:block th:each="i : ${#numbers.sequence(1, 5)}">
+                <div th:if="${i <= 5}"
+                     x-show="beadSlotCount >= [[${i}]]"
+                     style="display: contents;">
+                    <div th:replace="~{randomizer/fragments/bead-slots :: beadSlot('bead' + ${i}, 'Bead ' + ${i}, ${loadout.beads != null and loadout.beads.size() >= i ? loadout.beads.get(i - 1) : null}, ${i})}"></div>
+                </div>
+            </th:block>
+        </div>
+
+        <!-- Stat Requirements for Current Beads Table -->
+        <div class="bead-requirements-box">
+            <h3 style="font-size: 0.95rem; font-weight: 600; color: #ffffff; margin-bottom: 0.75rem; text-align: left;">
+                Stat Requirements for Current Beads
+            </h3>
+            <div class="requirements-grid">
+                <div th:each="entry : ${statRequirements}" class="requirement-item">
+                    <span style="color: #d1d5db; font-size: 0.85rem; font-weight: 500;" th:text="${entry.key} + ':'">Flesh:</span>
+                    <div style="display: flex; align-items: center; gap: 0.35rem;">
+                        <span style="font-size: 0.85rem; font-weight: 700;"
+                              th:classappend="${entry.value == 0 ? 'text-gray-500' : 'text-white'}"
+                              th:text="${entry.value == 0 ? 'N/A' : entry.value}">
+                            N/A
+                        </span>
+                        <span th:if="${entry.value > 0}"
+                              style="font-size: 0.75rem; padding: 0.1rem 0.35rem; border-radius: 0.25rem; font-weight: 700;"
+                              :class="userStats['__${entry.key}__'] >= [[${entry.value}]] ? 'bg-green-900 text-green-200' : 'bg-red-900 text-red-200'"
+                              x-text="userStats['__${entry.key}__'] >= [[${entry.value}]] ? '✓' : '✗'">
+                            ✓
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

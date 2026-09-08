@@ -1,8 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<div id="item-modal-content" th:fragment="itemModalContent">
+<div id="item-modal-content" th:fragment="itemModalContent" style="padding: 0.5rem;">
     <div th:replace="~{wiki/fragments/item-card :: itemCard(${item})}"></div>
+    <div style="padding: 0.75rem 0; text-align: center;">
+        <a th:href="@{/wiki(search=${item.name})}"
+           class="btn-generate"
+           target="_blank"
+           style="display: inline-block; text-decoration: none; padding: 0.6rem 1.5rem; font-size: 0.9rem;"
+           title="Open item wiki page with search">
+            Show item in wiki
+        </a>
+    </div>
 </div>
 </body>
 </html>
