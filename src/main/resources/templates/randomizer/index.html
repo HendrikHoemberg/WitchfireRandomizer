@@ -109,6 +109,17 @@
             });
         },
         clearLoadoutSlots() {
+            this.locks = {
+                primaryWeapon: false,
+                secondaryWeapon: false,
+                demonicWeapon: false,
+                meleeWeapon: false,
+                relic: false,
+                fetish: false,
+                ring: false,
+                lightSpell: false,
+                heavySpell: false
+            };
             htmx.ajax('POST', '/randomizer/clear', { target: '#loadout-grid', swap: 'outerHTML' });
         },
         clearBeadSlots() {
@@ -335,5 +346,12 @@
             </div>
         </div>
     </main>
+    <script>
+        document.addEventListener('htmx:afterSwap', function (evt) {
+            if (window.Alpine && evt.detail.target) {
+                Alpine.initTree(evt.detail.target);
+            }
+        });
+    </script>
 </body>
 </html>

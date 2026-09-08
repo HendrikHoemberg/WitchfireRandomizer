@@ -5,13 +5,14 @@
      class="slot-box"
      th:classappend="${bead == null ? 'empty' : ''}"
      th:id="'slot-' + ${slotKey}"
-     :class="{ 'locked': beadLocks['__${slotKey}__'] }"
-     @click="toggleBeadLock('__${slotKey}__')"
-     @mouseenter="hoveredSlot = '__${slotKey}__'"
-     @mouseleave="if (hoveredSlot === '__${slotKey}__') hoveredSlot = null">
+     th:data-slot-key="${slotKey}"
+     :class="{ 'locked': beadLocks[$el.dataset.slotKey] }"
+     @click="toggleBeadLock($el.dataset.slotKey)"
+     @mouseenter="hoveredSlot = $el.dataset.slotKey"
+     @mouseleave="if (hoveredSlot === $el.dataset.slotKey) hoveredSlot = null">
 
     <input type="hidden" th:name="'currentSlotItemIds[' + ${slotKey} + ']'" th:value="${bead != null ? bead.id : ''}" />
-    <input type="hidden" th:name="'locks[' + ${slotKey} + ']'" :value="beadLocks['__${slotKey}__'] ? 'true' : 'false'" />
+    <input type="hidden" th:name="'locks[' + ${slotKey} + ']'" :value="beadLocks[$el.closest('.slot-box').dataset.slotKey] ? 'true' : 'false'" />
 
     <!-- Populated Bead State -->
     <th:block th:if="${bead != null}">
@@ -36,14 +37,13 @@
         </div>
 
         <div class="slot-name-label"
-             :class="{ 'locked-text': beadLocks['__${slotKey}__'] }"
              th:text="${bead.name}">
             Bead Name
         </div>
 
         <!-- Desktop Hover Popup -->
         <div class="item-card-popup"
-             x-show="hoveredSlot === '__${slotKey}__'"
+             x-show="hoveredSlot === $el.closest('.slot-box').dataset.slotKey"
              x-cloak
              style="display: none; top: 0; left: 140px; text-align: left;"
              @click.stop>
@@ -77,7 +77,6 @@
             </div>
         </div>
         <div class="slot-name-label"
-             :class="{ 'locked-text': beadLocks['__${slotKey}__'] }"
              th:text="${slotLabel}">
             Bead Slot
         </div>

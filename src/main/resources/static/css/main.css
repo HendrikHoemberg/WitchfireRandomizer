@@ -302,8 +302,9 @@ body {
   text-overflow: ellipsis;
   width: 100%;
 }
-.slot-name-label.locked-text {
-  color: #b91c1c;
+.slot-name-label.locked-text,
+.slot-box.locked .slot-name-label {
+  color: #b91c1c !important;
   font-weight: 600;
 }
 

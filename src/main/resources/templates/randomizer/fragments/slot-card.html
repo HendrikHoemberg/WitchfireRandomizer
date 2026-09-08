@@ -5,14 +5,15 @@
      class="slot-box"
      th:classappend="${item == null ? 'empty' : ''}"
      th:id="'slot-' + ${slotKey}"
-     :class="{ 'locked': locks['__${slotKey}__'] }"
-     @click="toggleLock('__${slotKey}__')"
-     @mouseenter="hoveredSlot = '__${slotKey}__'"
-     @mouseleave="if (hoveredSlot === '__${slotKey}__') hoveredSlot = null">
+     th:data-slot-key="${slotKey}"
+     :class="{ 'locked': locks[$el.dataset.slotKey] }"
+     @click="toggleLock($el.dataset.slotKey)"
+     @mouseenter="hoveredSlot = $el.dataset.slotKey"
+     @mouseleave="if (hoveredSlot === $el.dataset.slotKey) hoveredSlot = null">
 
     <!-- Hidden state inputs for form serialization -->
     <input type="hidden" th:name="'currentSlotItemIds[' + ${slotKey} + ']'" th:value="${item != null ? item.id : ''}" />
-    <input type="hidden" th:name="'locks[' + ${slotKey} + ']'" :value="locks['__${slotKey}__'] ? 'true' : 'false'" />
+    <input type="hidden" th:name="'locks[' + ${slotKey} + ']'" :value="locks[$el.closest('.slot-box').dataset.slotKey] ? 'true' : 'false'" />
 
     <!-- Populated Item State -->
     <th:block th:if="${item != null}">
@@ -47,14 +48,13 @@
 
         <!-- Bottom Name Label -->
         <div class="slot-name-label"
-             :class="{ 'locked-text': locks['__${slotKey}__'] }"
              th:text="${item.name}">
             Item Name
         </div>
 
         <!-- Desktop Hover Popup -->
         <div class="item-card-popup"
-             x-show="hoveredSlot === '__${slotKey}__'"
+             x-show="hoveredSlot === $el.closest('.slot-box').dataset.slotKey"
              x-cloak
              style="display: none; top: 0; left: 140px; text-align: left;"
              @click.stop>
@@ -99,7 +99,6 @@
             </div>
         </div>
         <div class="slot-name-label"
-             :class="{ 'locked-text': locks['__${slotKey}__'] }"
              th:text="${slotLabel}">
             Slot Name
         </div>

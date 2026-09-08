@@ -84,7 +84,7 @@
         <div class="slots-container">
             <th:block th:each="i : ${#numbers.sequence(1, 5)}">
                 <div th:if="${i <= 5}"
-                     x-show="beadSlotCount >= [[${i}]]"
+                     th:attr="x-show='beadSlotCount >= ' + ${i}"
                      style="display: contents;">
                     <div th:replace="~{randomizer/fragments/bead-slots :: beadSlot('bead' + ${i}, 'Bead ' + ${i}, ${loadout.beads != null and loadout.beads.size() >= i ? loadout.beads.get(i - 1) : null}, ${i})}"></div>
                 </div>
@@ -97,7 +97,7 @@
                 Stat Requirements for Current Beads
             </h3>
             <div class="requirements-grid">
-                <div th:each="entry : ${statRequirements}" class="requirement-item">
+                <div th:each="entry : ${statRequirements}" class="requirement-item" th:data-stat="${entry.key}" th:data-required="${entry.value}">
                     <span style="color: #d1d5db; font-size: 0.85rem; font-weight: 500;" th:text="${entry.key} + ':'">Flesh:</span>
                     <div style="display: flex; align-items: center; gap: 0.35rem;">
                         <span style="font-size: 0.85rem; font-weight: 700;"
@@ -107,8 +107,8 @@
                         </span>
                         <span th:if="${entry.value > 0}"
                               style="font-size: 0.75rem; padding: 0.1rem 0.35rem; border-radius: 0.25rem; font-weight: 700;"
-                              :class="userStats['__${entry.key}__'] >= [[${entry.value}]] ? 'bg-green-900 text-green-200' : 'bg-red-900 text-red-200'"
-                              x-text="userStats['__${entry.key}__'] >= [[${entry.value}]] ? '✓' : '✗'">
+                              :class="userStats[$el.closest('.requirement-item').dataset.stat] >= Number($el.closest('.requirement-item').dataset.required) ? 'bg-green-900 text-green-200' : 'bg-red-900 text-red-200'"
+                              x-text="userStats[$el.closest('.requirement-item').dataset.stat] >= Number($el.closest('.requirement-item').dataset.required) ? '✓' : '✗'">
                             ✓
                         </span>
                     </div>
