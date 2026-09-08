@@ -56,6 +56,7 @@ public class RandomizerController {
     public String reroll(@ModelAttribute RandomizerRequest request, Model model) {
         Loadout loadout = randomizerService.generateRandomLoadout(request);
         model.addAttribute("loadout", loadout);
+        model.addAttribute("request", request);
         model.addAttribute("elements", Element.values());
         model.addAttribute("statRequirements", calculateStatRequirements(loadout.getBeads()));
         model.addAttribute("activeElements", calculateActiveElements(loadout));

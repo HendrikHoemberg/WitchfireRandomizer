@@ -281,7 +281,6 @@
         <div class="detail-modal-overlay"
              x-show="showBeadSettings"
              x-cloak
-             style="display: none;"
              @keydown.escape.window="showBeadSettings = false">
             <div class="detail-modal-box texture-box" style="padding: 1.5rem;" @click.stop>
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
@@ -328,7 +327,6 @@
         <div class="detail-modal-overlay"
              x-show="showItemModal"
              x-cloak
-             style="display: none;"
              @click="showItemModal = false"
              @keydown.escape.window="showItemModal = false">
             <div class="detail-modal-box texture-box"
@@ -347,9 +345,9 @@
         </div>
     </main>
     <script>
-        document.addEventListener('htmx:afterSwap', function (evt) {
-            if (window.Alpine && evt.detail.target) {
-                Alpine.initTree(evt.detail.target);
+        document.addEventListener('htmx:load', function (evt) {
+            if (window.Alpine && evt.detail.elt) {
+                Alpine.initTree(evt.detail.elt);
             }
         });
     </script>

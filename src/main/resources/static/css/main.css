@@ -16,6 +16,10 @@
   --wf-font: Arial, Helvetica, sans-serif;
 }
 
+[x-cloak] {
+  display: none !important;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -54,9 +58,14 @@ body {
   background-image: url('/images/texture-transparent.PNG');
   background-size: cover;
   opacity: 0.20;
-  pointer-events-none;
+  pointer-events: none;
   z-index: 0;
   border-radius: inherit;
+}
+
+.texture-box > * {
+  position: relative;
+  z-index: 1;
 }
 
 .container {

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<div th:fragment="slotCard(slotKey, slotLabel, item)"
+<div th:fragment="slotCard(slotKey, slotLabel, item, isLocked)"
      class="slot-box"
-     th:classappend="${item == null ? 'empty' : ''}"
+     th:classappend="${(item == null ? 'empty ' : '') + (isLocked == true ? 'locked ' : '')}"
      th:id="'slot-' + ${slotKey}"
      th:data-slot-key="${slotKey}"
      :class="{ 'locked': locks[$el.dataset.slotKey] }"
@@ -13,7 +13,7 @@
 
     <!-- Hidden state inputs for form serialization -->
     <input type="hidden" th:name="'currentSlotItemIds[' + ${slotKey} + ']'" th:value="${item != null ? item.id : ''}" />
-    <input type="hidden" th:name="'locks[' + ${slotKey} + ']'" :value="locks[$el.closest('.slot-box').dataset.slotKey] ? 'true' : 'false'" />
+    <input type="hidden" th:name="'locks[' + ${slotKey} + ']'" :value="locks[$el.closest('.slot-box').dataset.slotKey] ? 'true' : 'false'" value="false" />
 
     <!-- Populated Item State -->
     <th:block th:if="${item != null}">
@@ -56,7 +56,7 @@
         <div class="item-card-popup"
              x-show="hoveredSlot === $el.closest('.slot-box').dataset.slotKey"
              x-cloak
-             style="display: none; top: 0; left: 140px; text-align: left;"
+             style="top: 0; left: 140px; text-align: left;"
              @click.stop>
             <div style="padding: 0.5rem 0.75rem; background-color: rgba(92, 91, 91, 0.72); display: flex; align-items: center; gap: 0.5rem;">
                 <div style="width: 2.5rem; height: 2.5rem; background-color: #000; border-radius: 0.25rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
@@ -106,7 +106,7 @@
 </div>
 
 <th:block th:fragment="slotCardFragment">
-    <div th:replace="~{randomizer/fragments/slot-card :: slotCard(${slotKey}, ${slotLabel}, ${item})}"></div>
+    <div th:replace="~{randomizer/fragments/slot-card :: slotCard(${slotKey}, ${slotLabel}, ${item}, ${request != null and request.locks != null and request.locks.get(slotKey) == true})}"></div>
 </th:block>
 </body>
 </html>

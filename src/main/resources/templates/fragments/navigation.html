@@ -9,7 +9,7 @@
         <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center;">
             <button type="button"
                     class="burger-btn"
-                    @click="isSidebarOpen = !isSidebarOpen"
+                    @click.stop="isSidebarOpen = !isSidebarOpen"
                     aria-label="Toggle navigation menu">
                 <span class="burger-bar" :class="isSidebarOpen ? 'rotate-45 translate-y-2' : ''"></span>
                 <span class="burger-bar" :class="isSidebarOpen ? 'opacity-0' : 'opacity-100'"></span>
@@ -46,7 +46,6 @@
     <div class="sidebar-backdrop"
          x-show="isSidebarOpen"
          @click="isSidebarOpen = false"
-         style="display: none;"
          x-cloak></div>
 </div>
 </body>

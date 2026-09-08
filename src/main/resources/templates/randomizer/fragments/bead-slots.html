@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<div th:fragment="beadSlot(slotKey, slotLabel, bead, index)"
+<div th:fragment="beadSlot(slotKey, slotLabel, bead, index, isLocked)"
      class="slot-box"
-     th:classappend="${bead == null ? 'empty' : ''}"
+     th:classappend="${(bead == null ? 'empty ' : '') + (isLocked == true ? 'locked ' : '')}"
      th:id="'slot-' + ${slotKey}"
      th:data-slot-key="${slotKey}"
      :class="{ 'locked': beadLocks[$el.dataset.slotKey] }"
@@ -12,7 +12,7 @@
      @mouseleave="if (hoveredSlot === $el.dataset.slotKey) hoveredSlot = null">
 
     <input type="hidden" th:name="'currentSlotItemIds[' + ${slotKey} + ']'" th:value="${bead != null ? bead.id : ''}" />
-    <input type="hidden" th:name="'locks[' + ${slotKey} + ']'" :value="beadLocks[$el.closest('.slot-box').dataset.slotKey] ? 'true' : 'false'" />
+    <input type="hidden" th:name="'locks[' + ${slotKey} + ']'" :value="beadLocks[$el.closest('.slot-box').dataset.slotKey] ? 'true' : 'false'" value="false" />
 
     <!-- Populated Bead State -->
     <th:block th:if="${bead != null}">
@@ -45,7 +45,7 @@
         <div class="item-card-popup"
              x-show="hoveredSlot === $el.closest('.slot-box').dataset.slotKey"
              x-cloak
-             style="display: none; top: 0; left: 140px; text-align: left;"
+             style="top: 0; left: 140px; text-align: left;"
              @click.stop>
             <div style="padding: 0.5rem 0.75rem; background-color: rgba(92, 91, 91, 0.72); display: flex; align-items: center; gap: 0.5rem;">
                 <div style="width: 2.5rem; height: 2.5rem; background-color: #000; border-radius: 0.25rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
