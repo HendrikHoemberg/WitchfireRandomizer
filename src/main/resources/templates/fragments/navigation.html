@@ -3,24 +3,23 @@
 <body>
 <div th:fragment="navbar(activeTab)" x-data="{ isSidebarOpen: false }" @keydown.escape.window="isSidebarOpen = false">
     <!-- Fixed Top Bar with Burger Button -->
-    <nav class="fixed top-0 left-0 right-0 z-50 py-4 px-6 transition-colors duration-150"
-         :class="isSidebarOpen ? 'bg-[#1a1a1a]' : 'bg-[#1a1a1abb]'"
-         style="backdrop-filter: blur(8px); border-bottom: 1px solid rgba(129, 129, 129, 0.2);">
-        <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center;">
+    <nav class="navbar-fixed"
+         :class="isSidebarOpen ? 'sidebar-open' : ''">
+        <div class="navbar-container">
             <button type="button"
                     class="burger-btn"
                     @click.stop="isSidebarOpen = !isSidebarOpen"
                     aria-label="Toggle navigation menu">
-                <span class="burger-bar" :class="isSidebarOpen ? 'rotate-45 translate-y-2' : ''"></span>
-                <span class="burger-bar" :class="isSidebarOpen ? 'opacity-0' : 'opacity-100'"></span>
-                <span class="burger-bar" :class="isSidebarOpen ? '-rotate-45 -translate-y-2' : ''"></span>
+                <span class="burger-bar" :class="isSidebarOpen ? 'bar-top-open' : ''"></span>
+                <span class="burger-bar" :class="isSidebarOpen ? 'bar-mid-open' : ''"></span>
+                <span class="burger-bar" :class="isSidebarOpen ? 'bar-bot-open' : ''"></span>
             </button>
         </div>
     </nav>
 
     <!-- Slide-in Sidebar Drawer -->
     <div class="sidebar-drawer"
-         :class="isSidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+         :class="isSidebarOpen ? 'translate-x-0' : ''"
          @click.away="isSidebarOpen = false">
         <div style="padding-top: 5rem; padding-bottom: 2rem; padding-left: 1.5rem; padding-right: 1.5rem;">
             <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.75rem;">
