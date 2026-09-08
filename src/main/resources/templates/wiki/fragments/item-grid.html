@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div id="wiki-items-grid" class="wiki-items-grid animate-flash" th:fragment="itemGrid">
+    <th:block th:each="item : ${items}">
+        <div th:replace="~{wiki/fragments/item-card :: itemCard(${item})}"></div>
+    </th:block>
+    <div th:if="${#lists.isEmpty(items)}" style="grid-column: 1 / -1; text-align: center; padding: 4rem 1rem; color: var(--wf-text-muted);">
+        <p style="font-size: 1.2rem; font-weight: 600;">No items found matching criteria.</p>
+    </div>
+</div>
+</body>
+</html>

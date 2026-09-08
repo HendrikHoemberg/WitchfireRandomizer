@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div id="item-modal-content" th:fragment="itemModalContent">
+    <div th:replace="~{wiki/fragments/item-card :: itemCard(${item})}"></div>
+</div>
+</body>
+</html>

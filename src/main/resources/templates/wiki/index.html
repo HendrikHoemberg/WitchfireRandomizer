@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Wiki - Witchfire Companion</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/htmx.min.js"></script>
+    <script defer src="/js/alpine.min.js"></script>
+</head>
+<body>
+    <div th:replace="~{fragments/navigation :: navbar('wiki')}"></div>
+
+    <main class="container" x-data="{ currentCategory: 'WEAPON', currentElement: '', searchQuery: '' }">
+        <div style="margin-bottom: 2rem;">
+            <h1 style="font-size: 2rem; font-weight: 800; color: #fff; text-shadow: 0 0 15px var(--wf-gold-glow); margin-bottom: 0.5rem;">
+                Item Wiki
+            </h1>
+            <p style="color: var(--wf-text-muted);">
+                Explore all weapons, melee weaponry, spells, magical items, and beads from Witchfire.
+            </p>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="wiki-tabs">
+            <button th:each="cat : ${categories}"
+                    type="button"
+                    class="tab-btn"
+                    th:classappend="${cat == selectedCategory ? 'active' : ''}"
+                    th:text="${cat.displayName}"
+                    th:data-cat="${cat.name()}"
+                    @click="currentCategory = $el.dataset.cat; document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active')); $el.classList.add('active');"
+                    hx-get="/wiki/items"
+                    hx-target="#wiki-items-grid"
+                    hx-include="#wiki-filters"
+                    hx-trigger="click">
+                Category
+            </button>
+        </div>
+
+        <!-- Search & Filter Form -->
+        <form id="wiki-filters" class="wiki-search-bar" hx-get="/wiki/items" hx-target="#wiki-items-grid" hx-trigger="submit, keyup changed delay:250ms from:#search-box, change from:#element-select">
+            <input type="hidden" name="category" :value="currentCategory" />
+            <input id="search-box" type="text" name="search" class="search-input" placeholder="Search items by name or description..." />
+            <select id="element-select" name="element" class="search-input" style="max-width: 180px; cursor: pointer;">
+                <option value="">All Elements</option>
+                <option th:each="elem : ${elements}" th:value="${elem.name()}" th:text="${elem.name()}">Fire</option>
+            </select>
+        </form>
+
+        <!-- Dynamic Grid -->
+        <div th:replace="~{wiki/fragments/item-grid :: itemGrid}"></div>
+    </main>
+</body>
+</html>

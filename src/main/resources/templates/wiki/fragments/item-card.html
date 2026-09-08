@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="itemCard(item)" class="item-card texture-bg" x-data="{ expandedLevels: [] }">
+    <!-- Item Header -->
+    <div class="item-header">
+        <div class="item-icon-wrap">
+            <img th:if="${item.iconUrl != null}" th:src="${item.iconUrl}" th:alt="${item.name}" class="item-icon-img" loading="lazy" />
+        </div>
+        <div class="item-info">
+            <h3 class="item-title" th:text="${item.name}">Item Name</h3>
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.25rem;">
+                <span style="font-size: 0.85rem; color: var(--wf-text-muted);" th:text="${item.category.displayName}">Category</span>
+                <span th:if="${item.element != null}" class="element-pill">
+                    <span class="element-dot" th:style="'background-color: ' + ${item.element.color}"></span>
+                    <span th:text="${item.element.name()}" th:style="'color: ' + ${item.element.color}">Element</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Weapon Stats -->
+    <div th:if="${item instanceof T(dev.hendrikhoemberg.witchfirerandomizer.model.Weapon)}" class="item-stats-table">
+        <div><span class="item-stat-label">Damage:</span><span class="item-stat-val" th:text="${item.damage}">0</span></div>
+        <div><span class="item-stat-label">Stun Power:</span><span class="item-stat-val" th:text="${item.stunPower}">low</span></div>
+        <div><span class="item-stat-label">Hipfire:</span><span class="item-stat-val" th:text="${item.hipfireRange + 'm'}">0m</span></div>
+        <div><span class="item-stat-label">ADS:</span><span class="item-stat-val" th:text="${item.adsRange + 'm'}">0m</span></div>
+        <div><span class="item-stat-label">Fire Rate:</span><span class="item-stat-val" th:text="${item.rateOfFire}">0</span></div>
+        <div><span class="item-stat-label">Mag Size:</span><span class="item-stat-val" th:text="${item.magSize}">0</span></div>
+    </div>
+
+    <!-- Melee Weapon Stats -->
+    <div th:if="${item instanceof T(dev.hendrikhoemberg.witchfirerandomizer.model.MeleeWeapon)}" class="item-stats-table">
+        <div><span class="item-stat-label">Base Damage:</span><span class="item-stat-val" th:text="${item.baseDamage}">0</span></div>
+        <div><span class="item-stat-label">Charged Damage:</span><span class="item-stat-val" th:text="${item.chargedDamage}">0</span></div>
+        <div th:if="${item.specialDamage != null and !item.specialDamage.isEmpty()}" style="grid-column: span 2;">
+            <span class="item-stat-label">Special Damage:</span><span class="item-stat-val" th:text="${item.specialDamage}">0</span>
+        </div>
+        <div th:if="${item.specialAttack != null and !item.specialAttack.isEmpty()}" style="grid-column: span 2;">
+            <span class="item-stat-label">Special Attack:</span><span class="item-stat-val" th:text="${item.specialAttack}">Attack</span>
+        </div>
+    </div>
+
+    <!-- Bead Requirements -->
+    <div th:if="${item instanceof T(dev.hendrikhoemberg.witchfirerandomizer.model.Bead) and !item.requirements.isEmpty()}" class="item-stats-table" style="grid-template-columns: 1fr;">
+        <div>
+            <span class="item-stat-label">Requirements:</span>
+            <span class="item-stat-val" th:each="req, iter : ${item.requirements}"
+                  th:text="${req.stat + ' ' + req.value + (iter.last ? '' : ', ')}">Stat 10</span>
+        </div>
+    </div>
+
+    <!-- Description -->
+    <div th:if="${item.description != null and !item.description.isEmpty()}" class="item-desc">
+        <p th:text="${item.description}">Description text goes here</p>
+    </div>
+
+    <!-- Mysterium Levels -->
+    <div th:if="${!item.mysteriumTiers.isEmpty()}" class="mysterium-container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+            <span style="font-size: 0.85rem; font-weight: 700; color: #fff; text-transform: uppercase;">Mysterium</span>
+            <button type="button" class="btn btn-secondary btn-sm"
+                    @click="expandedLevels = expandedLevels.length === 3 ? [] : [1, 2, 3]"
+                    x-text="expandedLevels.length === 3 ? 'Collapse' : 'Expand'">Expand</button>
+        </div>
+
+        <div th:each="tier : ${item.mysteriumTiers}" style="margin-bottom: 0.35rem;">
+            <div class="mysterium-tier-header"
+                 th:data-level="${tier.level}"
+                 @click="expandedLevels.includes(Number($el.dataset.level)) ? expandedLevels = expandedLevels.filter(l => l !== Number($el.dataset.level)) : expandedLevels.push(Number($el.dataset.level))">
+                <span th:text="'Mysterium ' + ${tier.level}">Mysterium 1</span>
+                <span x-text="expandedLevels.includes(Number($el.parentElement.querySelector('.mysterium-tier-header').dataset.level)) ? '−' : '+'">+</span>
+            </div>
+            <div class="mysterium-content"
+                 th:data-level="${tier.level}"
+                 x-show="expandedLevels.includes(Number($el.dataset.level))" x-cloak>
+                <div th:if="${tier.effect != null}" class="mysterium-effect" th:text="${tier.effect}">Effect</div>
+                <div th:if="${tier.charismata != null and !tier.charismata.isEmpty()}" class="mysterium-effect">
+                    <ul style="padding-left: 1.2rem;">
+                        <li th:each="c : ${tier.charismata}" th:text="${c}">Charisma</li>
+                    </ul>
+                </div>
+                <div th:if="${tier.requirements != null and !tier.requirements.isEmpty()}" class="mysterium-reqs">
+                    <strong style="color: var(--wf-gold);">Requirements:</strong>
+                    <ul style="padding-left: 1.2rem; margin-top: 2px;">
+                        <li th:each="r : ${tier.requirements}" th:text="${r}">Requirement</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
