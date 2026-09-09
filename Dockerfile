@@ -10,7 +10,8 @@ FROM eclipse-temurin:25-jre
 WORKDIR /app
 
 # Run as non-root user for security (explicit UID/GID 1000 for standard host mapping)
-RUN groupadd -g 1000 spring && useradd -u 1000 -g spring -m spring
+RUN userdel -r ubuntu 2>/dev/null || true; \
+    groupadd -g 1000 spring && useradd -u 1000 -g spring -m spring
 RUN mkdir -p /app/logs && chown -R spring:spring /app/logs
 USER spring:spring
 
