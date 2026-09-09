@@ -55,8 +55,19 @@
         modalItemId: null,
         shareCopied: false,
         showTooltip: false,
+        isGenerating: false,
+        isFadingOut: false,
+
+        isSlotGenerating(slotKey, type) {
+            if (!this.isGenerating && !this.isFadingOut) return false;
+            if (type === 'bead') {
+                return !this.beadLocks[slotKey];
+            }
+            return !this.locks[slotKey];
+        },
 
         showPopup(targetEl) {
+            if (this.isGenerating || this.isFadingOut) return;
             const template = targetEl ? targetEl.querySelector('.popup-template') : null;
             if (!template) {
                 this.hidePopup();
@@ -119,9 +130,11 @@
             this.showBeadSettings = false;
         },
         toggleLock(slotKey) {
+            if (this.isGenerating || this.isFadingOut) return;
             this.locks[slotKey] = !this.locks[slotKey];
         },
         toggleBeadLock(slotKey) {
+            if (this.isGenerating || this.isFadingOut) return;
             this.beadLocks[slotKey] = !this.beadLocks[slotKey];
         },
         togglePreferredElement(elem) {
@@ -159,6 +172,7 @@
             });
         },
         clearLoadoutSlots() {
+            if (this.isGenerating || this.isFadingOut) return;
             this.locks = {
                 primaryWeapon: false,
                 secondaryWeapon: false,
@@ -173,8 +187,66 @@
             htmx.ajax('POST', '/randomizer/clear', { target: '#loadout-grid', swap: 'outerHTML' });
         },
         clearBeadSlots() {
+            if (this.isGenerating || this.isFadingOut) return;
             this.beadLocks = { bead1: false, bead2: false, bead3: false, bead4: false, bead5: false };
             htmx.ajax('POST', '/randomizer/clear', { target: '#loadout-grid', swap: 'outerHTML' });
+        },
+        async generateLoadout() {
+            if (this.isGenerating || this.isFadingOut) return;
+
+            const unlockedEquipment = Object.keys(this.locks).some(k => !this.locks[k]);
+            const unlockedBeads = Object.keys(this.beadLocks).slice(0, this.beadSlotCount).some(k => !this.beadLocks[k]);
+            if (!unlockedEquipment && !unlockedBeads) {
+                return;
+            }
+
+            this.hidePopup();
+            this.isGenerating = true;
+            this.isFadingOut = false;
+
+            const startTime = Date.now();
+            const form = document.getElementById('randomizer-form');
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch('/randomizer/reroll', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'HX-Request': 'true'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Server error: ' + response.status);
+                }
+
+                const html = await response.text();
+
+                const elapsed = Date.now() - startTime;
+                const delay = Math.max(0, 800 - elapsed);
+
+                setTimeout(() => {
+                    this.isFadingOut = true;
+                    const grid = document.getElementById('loadout-grid');
+                    if (grid) {
+                        grid.outerHTML = html;
+                        const newGrid = document.getElementById('loadout-grid');
+                        if (newGrid) {
+                            htmx.process(newGrid);
+                        }
+                    }
+
+                    setTimeout(() => {
+                        this.isGenerating = false;
+                        this.isFadingOut = false;
+                    }, 200);
+                }, delay);
+            } catch (err) {
+                console.error(err);
+                this.isGenerating = false;
+                this.isFadingOut = false;
+            }
         }
     }">
         <!-- Centered Witchfire Logo -->
@@ -185,9 +257,7 @@
         </div>
 
         <form id="randomizer-form"
-              hx-post="/randomizer/reroll"
-              hx-target="#loadout-grid"
-              hx-swap="outerHTML">
+              @submit.prevent="generateLoadout()">
 
             <!-- Hidden inputs for Alpine client settings -->
             <input type="hidden" name="emptySlotMode" :value="emptySlotMode ? 'true' : 'false'">

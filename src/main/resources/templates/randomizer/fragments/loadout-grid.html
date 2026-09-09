@@ -56,7 +56,10 @@
     <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
         <button type="submit"
                 class="btn-generate"
-                title="Generate New Loadout">
+                :disabled="isGenerating || isFadingOut"
+                @click.prevent="generateLoadout()"
+                title="Generate New Loadout"
+                x-text="isGenerating || isFadingOut ? 'Generating...' : 'Generate New Loadout'">
             Generate New Loadout
         </button>
     </div>

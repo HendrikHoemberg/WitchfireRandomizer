@@ -103,5 +103,21 @@ class RandomizerControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("<span class=\"element-dot\"")));
     }
+
+    @Test
+    void testSlotCardIncludesWhiteFillOverlayAndGlow() throws Exception {
+        mockMvc.perform(get("/"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("slot-white-overlay")))
+                .andExpect(content().string(containsString("animate-glow-pulse shadow-glow")));
+    }
+
+    @Test
+    void testRerollFragmentIncludesWhiteFillOverlayAndGlow() throws Exception {
+        mockMvc.perform(post("/randomizer/reroll"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("slot-white-overlay")))
+                .andExpect(content().string(containsString("animate-glow-pulse shadow-glow")));
+    }
 }
 

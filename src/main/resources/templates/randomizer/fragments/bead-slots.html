@@ -6,13 +6,19 @@
      th:classappend="${(bead == null ? 'empty ' : '') + (isLocked == true ? 'locked ' : '')}"
      th:id="'slot-' + ${slotKey}"
      th:data-slot-key="${slotKey}"
-     :class="{ 'locked': beadLocks[$el.dataset.slotKey] }"
+     :class="{ 'locked': beadLocks[$el.dataset.slotKey], 'animate-glow-pulse shadow-glow': isSlotGenerating($el.dataset.slotKey, 'bead') }"
      @click="toggleBeadLock($el.dataset.slotKey)"
      @mouseenter="showPopup($el)"
      @mouseleave="hidePopup()">
 
     <input type="hidden" th:name="'currentSlotItemIds[' + ${slotKey} + ']'" th:value="${bead != null ? bead.id : ''}" />
     <input type="hidden" th:name="'locks[' + ${slotKey} + ']'" :value="beadLocks[$el.closest('.slot-box').dataset.slotKey] ? 'true' : 'false'" value="false" />
+
+    <!-- White fill overlay for generation animation -->
+    <div class="slot-white-overlay"
+         :class="{ 'white-fill-in': isSlotGenerating($el.closest('.slot-box').dataset.slotKey, 'bead') && !isFadingOut, 'white-fill-out': isSlotGenerating($el.closest('.slot-box').dataset.slotKey, 'bead') && isFadingOut }"
+         x-show="isSlotGenerating($el.closest('.slot-box').dataset.slotKey, 'bead')">
+    </div>
 
     <!-- Populated Bead State -->
     <th:block th:if="${bead != null}">
