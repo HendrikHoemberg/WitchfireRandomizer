@@ -310,20 +310,65 @@ main.container {
   100% { opacity: 0; }
 }
 
+/* Volatile occult energy charging shake */
+@keyframes slot-charge-shake {
+  0%, 25% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  30% { transform: translate3d(-0.35px, 0.3px, 0) rotate(-0.08deg); }
+  38% { transform: translate3d(0.4px, -0.3px, 0) rotate(0.08deg); }
+  46% { transform: translate3d(-0.55px, -0.4px, 0) rotate(-0.12deg); }
+  54% { transform: translate3d(0.6px, 0.4px, 0) rotate(0.12deg); }
+  62% { transform: translate3d(-0.75px, 0.55px, 0) rotate(-0.18deg); }
+  70% { transform: translate3d(0.85px, -0.6px, 0) rotate(0.2deg); }
+  78% { transform: translate3d(-0.95px, -0.65px, 0) rotate(-0.22deg); }
+  85% { transform: translate3d(1.05px, 0.7px, 0) rotate(0.25deg); }
+  92% { transform: translate3d(-1.1px, 0.75px, 0) rotate(-0.26deg); }
+  96% { transform: translate3d(1.15px, -0.8px, 0) rotate(0.27deg); }
+  100% {
+    transform: translate3d(-1.05px, 0.7px, 0) rotate(-0.25deg);
+  }
+}
+
+/* Sustained peak energy hum for cards waiting their turn in the reveal wave */
+@keyframes slot-peak-shake {
+  0% { transform: translate3d(-1.05px, 0.7px, 0) rotate(-0.25deg); }
+  25% { transform: translate3d(1.15px, -0.8px, 0) rotate(0.27deg); }
+  50% { transform: translate3d(-1.1px, 0.75px, 0) rotate(-0.26deg); }
+  75% { transform: translate3d(1.05px, 0.7px, 0) rotate(0.25deg); }
+  100% { transform: translate3d(-1.05px, 0.7px, 0) rotate(-0.25deg); }
+}
+
+/* Snappy release pop when the veil breaks */
+@keyframes slot-reveal-pop {
+  0% {
+    transform: scale(0.98) translate3d(0, 0, 0) rotate(0deg);
+  }
+  35% {
+    transform: scale(1.026) translate3d(0, -0.75px, 0) rotate(0deg);
+  }
+  70% {
+    transform: scale(0.996) translate3d(0, 0, 0) rotate(0deg);
+  }
+  100% {
+    transform: scale(1) translate3d(0, 0, 0) rotate(0deg);
+  }
+}
+
 .animate-glow-pulse {
-  animation: glow-pulse 1s ease-in-out infinite;
+  animation: glow-pulse 1.3s ease-in-out infinite, slot-charge-shake 1.3s cubic-bezier(0.36, 0.07, 0.19, 0.97) infinite;
   transition: none;
-  will-change: box-shadow, border-color;
+  will-change: box-shadow, border-color, transform;
 }
 .shadow-glow {
   box-shadow: 0 0 10px 2px rgba(221, 175, 122, 0.4);
 }
 .white-fill-in {
-  animation: white-fill-in 650ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation: white-fill-in 850ms cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 .white-fill-out {
-  animation: white-fill-out 400ms ease-out both;
-  animation-delay: calc(var(--slot-index, 0) * 95ms);
+  animation: white-fill-out 300ms ease-out both;
+  animation-delay: calc(var(--slot-index, 0) * 50ms);
 }
 
 /* Golden glow dissipate animation for graceful reveal finish */
@@ -343,10 +388,13 @@ main.container {
 }
 
 .slot-box.glow-dissipating {
-  animation: glow-dissipate 400ms cubic-bezier(0.25, 1, 0.5, 1) both;
-  animation-delay: calc(var(--slot-index, 0) * 95ms);
+  animation: 
+    glow-dissipate 300ms cubic-bezier(0.25, 1, 0.5, 1) calc(var(--slot-index, 0) * 50ms) both,
+    slot-peak-shake 80ms linear infinite,
+    slot-reveal-pop 300ms cubic-bezier(0.2, 0.9, 0.3, 1) calc(var(--slot-index, 0) * 50ms) forwards;
   transition: none;
-  will-change: box-shadow, border-color;
+  will-change: box-shadow, border-color, transform;
+  z-index: 5;
 }
 
 .slot-white-overlay {
@@ -368,6 +416,7 @@ main.container {
 .slot-box.locked.glow-dissipating {
   animation: none !important;
   box-shadow: none !important;
+  transform: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
