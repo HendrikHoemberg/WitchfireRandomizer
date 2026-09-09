@@ -11,12 +11,16 @@ jobs:
     steps:
       - name: Deploy application via SSH
         env:
-          SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          SSH_KEY_RAW: ${{ secrets.VPS_SSH_KEY }}
           HOST: ${{ secrets.VPS_HOST }}
           USER: ${{ secrets.VPS_USERNAME }}
         run: |
           mkdir -p ~/.ssh
-          printf "%s\n" "$SSH_KEY" > ~/.ssh/deploy_key
+          if echo "$SSH_KEY_RAW" | grep -q "BEGIN"; then
+            printf "%s\n" "$SSH_KEY_RAW" > ~/.ssh/deploy_key
+          else
+            echo "$SSH_KEY_RAW" | tr -d ' \n\r' | base64 -d > ~/.ssh/deploy_key
+          fi
           chmod 600 ~/.ssh/deploy_key
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no -p 22 "$USER@$HOST" << 'EOF'
             cd /root/WitchfireRandomizer
