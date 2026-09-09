@@ -41,21 +41,21 @@
         </div>
     </div>
 
-    <!-- Rosary Bead Description & Requirements -->
-    <th:block th:if="${item instanceof T(dev.hendrikhoemberg.witchfirerandomizer.model.Bead)}">
-        <div th:if="${item.description != null and !item.description.isEmpty()}" style="padding: 0.65rem 1rem; border-top: 1px solid #555; font-size: 0.875rem; color: #d1d5db; line-height: 1.45;">
-            <p th:text="${item.description}">Description</p>
-        </div>
-        <div th:if="${!item.requirements.isEmpty()}" style="padding: 0.65rem 1rem; border-top: 1px solid #555;">
-            <div style="font-size: 0.85rem; color: var(--wf-gold); font-weight: 700; margin-bottom: 0.35rem;">Requirements:</div>
-            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-                <div th:each="req : ${item.requirements}" style="background-color: #2a2a2a; border: 1px solid #444; border-radius: 0.25rem; padding: 0.2rem 0.5rem; font-size: 0.8rem;">
-                    <span style="color: #d1d5db;" th:text="${req.stat} + ': '">Flesh: </span>
-                    <strong style="color: #fff;" th:text="${req.value}">10</strong>
-                </div>
+    <!-- Rosary Bead Requirements -->
+    <div th:if="${item instanceof T(dev.hendrikhoemberg.witchfirerandomizer.model.Bead) and !item.requirements.isEmpty()}" style="padding: 0.65rem 1rem; border-top: 1px solid #555;">
+        <div style="font-size: 0.85rem; color: var(--wf-gold); font-weight: 700; margin-bottom: 0.35rem;">Requirements:</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            <div th:each="req : ${item.requirements}" style="background-color: #2a2a2a; border: 1px solid #444; border-radius: 0.25rem; padding: 0.2rem 0.5rem; font-size: 0.8rem;">
+                <span style="color: #d1d5db;" th:text="${req.stat} + ': '">Flesh: </span>
+                <strong style="color: #fff;" th:text="${req.value}">10</strong>
             </div>
         </div>
-    </th:block>
+    </div>
+
+    <!-- Description -->
+    <div th:if="${item.description != null and !item.description.isEmpty()}" class="item-popup-description" style="padding: 0.65rem 1rem; border-top: 1px solid #555; font-size: 0.875rem; color: #d1d5db; line-height: 1.45;">
+        <p th:text="${item.description}">Description</p>
+    </div>
 
     <!-- Mysterium Levels -->
     <div th:if="${!(item instanceof T(dev.hendrikhoemberg.witchfirerandomizer.model.Bead)) and !item.mysteriumTiers.isEmpty()}" style="padding: 0.65rem 1rem; border-top: 1px solid #555;">

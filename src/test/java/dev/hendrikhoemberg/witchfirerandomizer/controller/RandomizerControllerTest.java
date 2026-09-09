@@ -141,5 +141,20 @@ class RandomizerControllerTest {
                 .andExpect(content().string(containsString("id=\"slot-primaryWeapon\"")))
                 .andExpect(content().string(containsString("slot-box empty locked")));
     }
+
+    @Test
+    void testItemPopupIncludesItemDescription() throws Exception {
+        mockMvc.perform(get("/"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("class=\"item-popup-description\"")))
+                .andExpect(content().string(containsString("Critical hits hurt all enemies inside the All-Seeing Eye.")));
+    }
+
+    @Test
+    void testRerollLoadoutItemPopupIncludesDescription() throws Exception {
+        mockMvc.perform(post("/randomizer/reroll"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("class=\"item-popup-description\"")));
+    }
 }
 
