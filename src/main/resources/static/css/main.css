@@ -262,6 +262,22 @@ body {
   cursor: not-allowed;
 }
 
+/* Slot Stagger Indices for Wave Animation */
+#slot-primaryWeapon   { --slot-index: 0; }
+#slot-secondaryWeapon { --slot-index: 1; }
+#slot-demonicWeapon   { --slot-index: 2; }
+#slot-meleeWeapon     { --slot-index: 3; }
+#slot-relic           { --slot-index: 4; }
+#slot-fetish          { --slot-index: 5; }
+#slot-ring            { --slot-index: 6; }
+#slot-lightSpell      { --slot-index: 7; }
+#slot-heavySpell      { --slot-index: 8; }
+#slot-bead1           { --slot-index: 9; }
+#slot-bead2           { --slot-index: 10; }
+#slot-bead3           { --slot-index: 11; }
+#slot-bead4           { --slot-index: 12; }
+#slot-bead5           { --slot-index: 13; }
+
 /* Animations */
 @keyframes glow-pulse {
   0% { 
@@ -291,6 +307,7 @@ body {
 
 .animate-glow-pulse {
   animation: glow-pulse 1s ease-in-out infinite;
+  animation-delay: calc(var(--slot-index, 0) * 25ms);
   transition: none;
   will-change: box-shadow, border-color;
 }
@@ -298,10 +315,35 @@ body {
   box-shadow: 0 0 10px 2px rgba(221, 175, 122, 0.4);
 }
 .white-fill-in {
-  animation: white-fill-in 800ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: white-fill-in 650ms cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation-delay: calc(var(--slot-index, 0) * 25ms);
 }
 .white-fill-out {
-  animation: white-fill-out 200ms ease-out forwards;
+  animation: white-fill-out 400ms ease-out both;
+  animation-delay: calc(var(--slot-index, 0) * 95ms);
+}
+
+/* Golden glow dissipate animation for graceful reveal finish */
+@keyframes glow-dissipate {
+  0% {
+    border-color: #ffcb8aff;
+    box-shadow: 0 0 20px 4px rgba(255, 203, 138, 0.7), 0 0 10px 2px rgba(221, 175, 122, 0.4);
+  }
+  40% {
+    border-color: #ffcb8aff;
+    box-shadow: 0 0 18px 4px rgba(255, 203, 138, 0.6), 0 0 8px 2px rgba(221, 175, 122, 0.35);
+  }
+  100% {
+    border-color: var(--wf-border);
+    box-shadow: 0 0 0 0 rgba(221, 175, 122, 0);
+  }
+}
+
+.slot-box.glow-dissipating {
+  animation: glow-dissipate 1000ms cubic-bezier(0.25, 1, 0.5, 1) both;
+  animation-delay: calc(var(--slot-index, 0) * 95ms);
+  transition: none;
+  will-change: box-shadow, border-color;
 }
 
 .slot-white-overlay {
@@ -319,13 +361,15 @@ body {
   will-change: opacity;
 }
 
-.slot-box.locked.animate-glow-pulse {
+.slot-box.locked.animate-glow-pulse,
+.slot-box.locked.glow-dissipating {
   animation: none !important;
   box-shadow: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-glow-pulse {
+  .animate-glow-pulse,
+  .slot-box.glow-dissipating {
     animation: none !important;
   }
   .white-fill-in,

@@ -224,7 +224,7 @@
                 const html = await response.text();
 
                 const elapsed = Date.now() - startTime;
-                const delay = Math.max(0, 800 - elapsed);
+                const delay = Math.max(0, 1000 - elapsed);
 
                 setTimeout(() => {
                     this.isFadingOut = true;
@@ -240,7 +240,7 @@
                     setTimeout(() => {
                         this.isGenerating = false;
                         this.isFadingOut = false;
-                    }, 200);
+                    }, 2400);
                 }, delay);
             } catch (err) {
                 console.error(err);
