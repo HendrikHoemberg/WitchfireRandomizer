@@ -156,5 +156,15 @@ class RandomizerControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("class=\"item-popup-description\"")));
     }
+
+    @Test
+    void testItemModalOverlayAndDialogRendered() throws Exception {
+        mockMvc.perform(get("/"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("class=\"detail-modal-overlay\"")))
+                .andExpect(content().string(containsString("id=\"item-modal-dialog\"")))
+                .andExpect(content().string(containsString("openItemModal(itemId) {")))
+                .andExpect(content().string(containsString("this.hidePopup();")));
+    }
 }
 

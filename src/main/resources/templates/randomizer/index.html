@@ -152,6 +152,7 @@
             }
         },
         openItemModal(itemId) {
+            this.hidePopup();
             this.modalItemId = itemId;
             this.showItemModal = true;
             htmx.ajax('GET', '/wiki/item/' + itemId, { target: '#item-modal-dialog', swap: 'innerHTML' });
