@@ -158,14 +158,34 @@
             htmx.ajax('GET', '/wiki/item/' + itemId, { target: '#item-modal-dialog', swap: 'innerHTML' });
         },
         generateShareLink() {
+            const slotParamMap = {
+                primaryWeapon: 'primary',
+                secondaryWeapon: 'secondary',
+                demonicWeapon: 'demonic',
+                meleeWeapon: 'melee',
+                lightSpell: 'light',
+                heavySpell: 'heavy',
+                relic: 'relic',
+                fetish: 'fetish',
+                ring: 'ring'
+            };
             const params = new URLSearchParams();
+            const beads = [];
             const inputs = document.querySelectorAll('#randomizer-form input[name^=\'currentSlotItemIds\']');
             inputs.forEach(input => {
                 const match = input.name.match(/\[(\w+)\]/);
                 if (match && input.value) {
-                    params.set(match[1], input.value);
+                    const slotKey = match[1];
+                    if (slotKey.startsWith('bead')) {
+                        beads.push(input.value);
+                    } else if (slotParamMap[slotKey]) {
+                        params.set(slotParamMap[slotKey], input.value);
+                    }
                 }
             });
+            if (beads.length > 0) {
+                params.set('beads', beads.join(','));
+            }
             const url = window.location.origin + '/?' + params.toString();
             navigator.clipboard.writeText(url).then(() => {
                 this.shareCopied = true;
@@ -261,6 +281,7 @@
         </div>
 
         <form id="randomizer-form"
+              onsubmit="return false;"
               @submit.prevent="generateLoadout()">
 
             <!-- Hidden inputs for Alpine client settings -->

@@ -224,5 +224,14 @@ class RandomizerControllerTest {
                 .andExpect(content().string(containsString("href=\"/privacy\"")))
                 .andExpect(content().string(containsString("href=\"/impressum\"")));
     }
+
+    @Test
+    void testRandomizerFormPreventsNativeSubmitAndButtonIsTypeButton() throws Exception {
+        mockMvc.perform(get("/"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("id=\"randomizer-form\"")))
+                .andExpect(content().string(containsString("onsubmit=\"return false;\"")))
+                .andExpect(content().string(containsString("<button type=\"button\"")));
+    }
 }
 
