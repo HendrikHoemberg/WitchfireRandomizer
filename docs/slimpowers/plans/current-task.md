@@ -1,22 +1,22 @@
 # Current Task: Request Logging & Host-Level Rotating Log Files
 
-- [ ] Task 1: RequestLoggingFilter and Unit Tests
-  - [ ] Step 1: Write failing test (`RequestLoggingFilterTest`)
-  - [ ] Step 2: Run test, verify failure
-  - [ ] Step 3: Implement `RequestLoggingFilter`
-  - [ ] Step 4: Run test, verify pass
-  - [ ] Step 5: Git commit
-- [ ] Task 2: Dataset Loading and Startup Summary Logging
-  - [ ] Step 1: Write failing test in `ItemRepositoryTest`
-  - [ ] Step 2: Run test, verify failure
-  - [ ] Step 3: Implement logging in `ItemRepository`
-  - [ ] Step 4: Run test, verify pass
-  - [ ] Step 5: Git commit
-- [ ] Task 3: Rolling File Logback Configuration and Gitignore
-  - [ ] Step 1: Update `.gitignore` with `logs/` and `*.log`
-  - [ ] Step 2: Configure rolling log file properties with `${LOG_PATH:logs}`
-  - [ ] Step 3: Run all tests to verify logback configuration
-  - [ ] Step 4: Git commit
+- [x] Task 1: RequestLoggingFilter and Unit Tests
+  - [x] Step 1: Write failing test (`RequestLoggingFilterTest`)
+  - [x] Step 2: Run test, verify failure
+  - [x] Step 3: Implement `RequestLoggingFilter`
+  - [x] Step 4: Run test, verify pass
+  - [x] Step 5: Git commit
+- [x] Task 2: Dataset Loading and Startup Summary Logging
+  - [x] Step 1: Write failing test in `ItemRepositoryTest`
+  - [x] Step 2: Run test, verify failure
+  - [x] Step 3: Implement logging in `ItemRepository`
+  - [x] Step 4: Run test, verify pass
+  - [x] Step 5: Git commit
+- [x] Task 3: Rolling File Logback Configuration and Gitignore
+  - [x] Step 1: Update `.gitignore` with `logs/` and `*.log`
+  - [x] Step 2: Configure rolling log file properties with `${LOG_PATH:logs}`
+  - [x] Step 3: Run all tests to verify logback configuration
+  - [x] Step 4: Git commit
 - [ ] Task 4: Docker, Docker Compose, and VPS Runbook Updates
   - [ ] Step 1: Update `Dockerfile` (predictable non-root UID 1000 & `/app/logs`)
   - [ ] Step 2: Update `docker-compose.yml` (volume mount `/var/log/witchfire:/app/logs` & `LOG_PATH`)

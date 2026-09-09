@@ -114,9 +114,14 @@ SSH into your VPS (`ssh ${VPS_USER}@${VPS_IP}`) and run:
   sudo chown root:root /opt/witchfirerandomizer/witchfirerandomizer.jar
   sudo chmod 644 /opt/witchfirerandomizer/witchfirerandomizer.jar
 
-  # Logs directory (owned and writable only by witchfire)
+  # Logs directory (systemd deployment)
   sudo chown -R witchfire:witchfire /opt/witchfirerandomizer/logs
   sudo chmod 750 /opt/witchfirerandomizer/logs
+
+  # Logs directory (Docker compose volume deployment: /var/log/witchfire mounted to /app/logs)
+  sudo mkdir -p /var/log/witchfire
+  sudo chown -R 1000:1000 /var/log/witchfire
+  sudo chmod 750 /var/log/witchfire
 
   # Caddy log directory
   sudo chown -R caddy:caddy /var/log/caddy
@@ -203,7 +208,13 @@ Perform these verification checks from your local machine or terminal:
 
 - [ ] **4. Check live service logs**
   ```bash
-  # Application logs (Spring Boot)
+  # Application request & error logs (physical rotating file from Docker volume):
+  sudo tail -f /var/log/witchfire/witchfire.log
+
+  # Alternatively, via Docker compose:
+  docker compose logs -f app
+
+  # Or if deployed via systemd service:
   sudo journalctl -u witchfire.service -n 50 --no-pager
 
   # Caddy access logs

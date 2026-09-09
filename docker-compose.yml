@@ -7,6 +7,9 @@ services:
       SPRING_PROFILES_ACTIVE: prod
       SERVER_ADDRESS: 0.0.0.0
       SERVER_PORT: 9090
+      LOG_PATH: /app/logs
+    volumes:
+      - /var/log/witchfire:/app/logs
     networks:
       - studyhelper_proxy
 
