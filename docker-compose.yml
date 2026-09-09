@@ -1,0 +1,15 @@
+services:
+  app:
+    container_name: witchfire-app
+    build: .
+    restart: always
+    environment:
+      SPRING_PROFILES_ACTIVE: prod
+      SERVER_ADDRESS: 0.0.0.0
+      SERVER_PORT: 9090
+    networks:
+      - studyhelper_proxy
+
+networks:
+  studyhelper_proxy:
+    external: true
