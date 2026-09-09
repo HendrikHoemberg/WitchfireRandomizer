@@ -8,6 +8,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.Logger;
+import ch.qos.logback.classic.spi.ILoggingEvent;
+import ch.qos.logback.core.read.ListAppender;
+import org.slf4j.LoggerFactory;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ItemRepositoryTest {
@@ -82,5 +88,27 @@ class ItemRepositoryTest {
         );
         List<Bead> noReqBeads = repository.findEligibleBeads(zeroStats);
         assertTrue(noReqBeads.stream().allMatch(b -> b.getRequirements().isEmpty()));
+    }
+
+    @Test
+    void testInitLogsDatasetSummary() {
+        Logger repoLogger = (Logger) LoggerFactory.getLogger(ItemRepository.class);
+        ListAppender<ILoggingEvent> listAppender = new ListAppender<>();
+        listAppender.start();
+        repoLogger.addAppender(listAppender);
+
+        try {
+            ItemRepository newRepo = new ItemRepository();
+            newRepo.init();
+
+            assertFalse(listAppender.list.isEmpty(), "Expected init() to produce log output");
+            ILoggingEvent event = listAppender.list.get(0);
+            assertEquals(Level.INFO, event.getLevel());
+            String message = event.getFormattedMessage();
+            assertTrue(message.contains("Loaded"));
+            assertTrue(message.contains("items"));
+        } finally {
+            repoLogger.detachAppender(listAppender);
+        }
     }
 }

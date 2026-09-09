@@ -2,6 +2,8 @@ package dev.hendrikhoemberg.witchfirerandomizer.repository;
 
 import dev.hendrikhoemberg.witchfirerandomizer.model.*;
 import jakarta.annotation.PostConstruct;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import tools.jackson.core.type.TypeReference;
 import tools.jackson.databind.ObjectMapper;
@@ -13,6 +15,8 @@ import java.util.stream.Collectors;
 
 @Repository
 public class ItemRepository {
+
+    private static final Logger logger = LoggerFactory.getLogger(ItemRepository.class);
 
     private final ObjectMapper objectMapper;
     private List<Item> items = new ArrayList<>();
@@ -39,7 +43,16 @@ public class ItemRepository {
                 map.put(item.getId(), item);
             }
             this.itemsById = Collections.unmodifiableMap(map);
+
+            long weapons = loadedItems.stream().filter(i -> i.getCategory() == ItemCategory.WEAPON || i.getCategory() == ItemCategory.DEMONIC_WEAPON || i.getCategory() == ItemCategory.MELEE_WEAPON).count();
+            long spells = loadedItems.stream().filter(i -> i.getCategory() == ItemCategory.LIGHT_SPELL || i.getCategory() == ItemCategory.HEAVY_SPELL).count();
+            long magicalItems = loadedItems.stream().filter(i -> i.getCategory() == ItemCategory.RELIC || i.getCategory() == ItemCategory.FETISH || i.getCategory() == ItemCategory.RING).count();
+            long beads = loadedItems.stream().filter(i -> i.getCategory() == ItemCategory.BEAD).count();
+
+            logger.info("Loaded {} items from /data/items.json ({} weapons, {} spells, {} magical items, {} beads)",
+                    loadedItems.size(), weapons, spells, magicalItems, beads);
         } catch (Exception e) {
+            logger.error("Failed to load /data/items.json", e);
             throw new RuntimeException("Failed to load /data/items.json", e);
         }
     }
