@@ -1,0 +1,38 @@
+[Unit]
+Description=Witchfire Randomizer Web Application
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=witchfire
+Group=witchfire
+WorkingDirectory=/opt/witchfirerandomizer
+ExecStart=/usr/bin/java -XX:MaxRAMPercentage=75.0 -jar /opt/witchfirerandomizer/witchfirerandomizer.jar
+SuccessExitStatus=143
+Restart=always
+RestartSec=10
+
+# Environment
+Environment=SPRING_PROFILES_ACTIVE=prod
+
+# Security & Sandbox Hardening
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=true
+LockPersonality=true
+# HotSpot JVM JIT compilation requires memory allocation with W^X transitions
+MemoryDenyWriteExecute=false
+ReadWritePaths=/opt/witchfirerandomizer/logs
+
+# Resource limits
+LimitNOFILE=65535
+
+[Install]
+WantedBy=multi-user.target

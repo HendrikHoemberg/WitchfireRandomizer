@@ -4,9 +4,11 @@ import dev.hendrikhoemberg.witchfirerandomizer.model.Element;
 import dev.hendrikhoemberg.witchfirerandomizer.model.Item;
 import dev.hendrikhoemberg.witchfirerandomizer.model.ItemCategory;
 import dev.hendrikhoemberg.witchfirerandomizer.repository.ItemRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.*;
 
@@ -73,7 +75,8 @@ public class WikiController {
 
     @GetMapping("/item/{id}")
     public String getItemModal(@PathVariable String id, Model model) {
-        Item item = itemRepository.findById(id).orElseThrow();
+        Item item = itemRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Item not found: " + id));
         model.addAttribute("item", item);
         return "wiki/fragments/item-modal :: itemModalContent";
     }

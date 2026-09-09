@@ -35,7 +35,8 @@ public class RandomizerController {
             Model model) {
 
         Loadout loadout;
-        if (primary != null || melee != null || light != null) {
+        if (primary != null || secondary != null || demonic != null || melee != null ||
+                light != null || heavy != null || relic != null || fetish != null || ring != null || beads != null) {
             loadout = restoreLoadoutFromParams(primary, secondary, demonic, melee, light, heavy, relic, fetish, ring, beads);
         } else {
             loadout = new Loadout();
@@ -150,8 +151,11 @@ public class RandomizerController {
 
         if (beadsParam != null && !beadsParam.isBlank()) {
             List<Bead> beads = new ArrayList<>();
-            for (String bId : beadsParam.split(",")) {
-                itemRepository.findById(bId.trim()).filter(i -> i instanceof Bead).ifPresent(i -> beads.add((Bead) i));
+            String[] parts = beadsParam.split(",");
+            for (int i = 0; i < parts.length && beads.size() < 5; i++) {
+                itemRepository.findById(parts[i].trim())
+                        .filter(item -> item instanceof Bead)
+                        .ifPresent(item -> beads.add((Bead) item));
             }
             loadout.setBeads(beads);
         }

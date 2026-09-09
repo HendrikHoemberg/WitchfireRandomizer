@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - Witchfire Companion</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <div th:replace="~{fragments/navigation :: navbar(null)}"></div>
+
+    <main class="container" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center;">
+        <div style="background: var(--wf-box-bg); border: 1px solid var(--wf-border); border-radius: 8px; padding: 2.5rem; max-width: 500px; width: 100%;">
+            <h1 style="color: var(--wf-gold); font-size: 2.5rem; margin-bottom: 0.5rem;" th:text="${status != null ? status : 'Error'}">Error</h1>
+            <h2 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--wf-text);">Something went wrong</h2>
+            <p style="color: var(--wf-text-muted); margin-bottom: 2rem;">An unexpected error occurred. Please try again later.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <a href="/randomizer" class="primary-btn" style="text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 4px; display: inline-block;">Loadout Randomizer</a>
+                <a href="/wiki" class="secondary-btn" style="text-decoration: none; padding: 0.6rem 1.2rem; border-radius: 4px; display: inline-block;">Item Wiki</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

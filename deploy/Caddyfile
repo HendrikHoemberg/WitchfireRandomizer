@@ -1,0 +1,66 @@
+# Caddyfile for Witchfire Randomizer
+# Replace yourdomain.com with your actual domain or VPS IP / hostname
+
+yourdomain.com {
+    # Reverse proxy to local Spring Boot application
+    reverse_proxy 127.0.0.1:9090 {
+        header_up Host {host}
+        header_up X-Real-IP {remote_host}
+        header_up X-Forwarded-For {remote_host}
+        header_up X-Forwarded-Proto {scheme}
+    }
+
+    # Security Headers
+    header {
+        # Prevent MIME type sniffing
+        X-Content-Type-Options "nosniff"
+
+        # Prevent clickjacking / frame embedding
+        X-Frame-Options "DENY"
+
+        # Referrer policy
+        Referrer-Policy "strict-origin-when-cross-origin"
+
+        # HTTP Strict Transport Security (1 year)
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+        # Restrict browser features
+        Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+
+        # Content Security Policy
+        # Note: Alpine.js requires 'unsafe-eval' for directives; dynamic tooltip styling uses 'unsafe-inline'.
+        # If strict CSP without 'unsafe-eval' is desired in future, migrate to @alpinejs/csp build.
+        Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self';"
+
+        # Remove server header disclosure
+        -Server
+    }
+
+    # Request body limit to prevent request payload flooding
+    request_body {
+        max_size 1MB
+    }
+
+    # Rate limiting configuration (requires Caddy compiled with caddy-ratelimit plugin):
+    # xcaddy build --with github.com/mholt/caddy-ratelimit
+    # Uncomment the block below if using caddy-ratelimit:
+    # rate_limit {
+    #     zone reroll_limit {
+    #         key {remote_host}
+    #         events 20
+    #         window 5s
+    #     }
+    # }
+    # Alternatively, protect against volumetric floods using fail2ban on /var/log/caddy/witchfire_access.log
+
+    # Compression
+    encode zstd gzip
+
+    # Access logging
+    log {
+        output file /var/log/caddy/witchfire_access.log {
+            roll_size 10mb
+            roll_keep 5
+        }
+    }
+}

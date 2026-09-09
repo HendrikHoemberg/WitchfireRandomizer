@@ -49,4 +49,10 @@ class WikiControllerTest {
                 .andExpect(content().string(containsString("Cricket")))
                 .andExpect(content().string(containsString("Mysterium")));
     }
+
+    @Test
+    void testWikiItemModalReturnsNotFoundForUnknownId() throws Exception {
+        mockMvc.perform(get("/wiki/item/non-existent-id"))
+                .andExpect(status().isNotFound());
+    }
 }

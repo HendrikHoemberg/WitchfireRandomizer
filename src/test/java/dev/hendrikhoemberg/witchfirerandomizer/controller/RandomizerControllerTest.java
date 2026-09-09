@@ -7,6 +7,8 @@ import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.Matchers.hasSize;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -165,6 +167,22 @@ class RandomizerControllerTest {
                 .andExpect(content().string(containsString("id=\"item-modal-dialog\"")))
                 .andExpect(content().string(containsString("openItemModal(itemId) {")))
                 .andExpect(content().string(containsString("this.hidePopup();")));
+    }
+
+    @Test
+    void testRandomizerCapsBeadsParameterToMaximumFive() throws Exception {
+        String sevenBeads = "b-acute-ailment-bead,b-adrenaline-bead,b-ailment-immunity-bead,b-ailment-power-bead-i,b-ammo-preservation-bead,b-ammo-reserves-bead-i,b-bead-of-barachiel";
+        mockMvc.perform(get("/").param("primary", "w-all-seeing-eye").param("beads", sevenBeads))
+                .andExpect(status().isOk())
+                .andExpect(model().attribute("loadout", hasProperty("beads", hasSize(5))));
+    }
+
+    @Test
+    void testRandomizerRestoresLoadoutWhenOnlyBeadsParamProvided() throws Exception {
+        String twoBeads = "b-acute-ailment-bead,b-adrenaline-bead";
+        mockMvc.perform(get("/").param("beads", twoBeads))
+                .andExpect(status().isOk())
+                .andExpect(model().attribute("loadout", hasProperty("beads", hasSize(2))));
     }
 }
 
