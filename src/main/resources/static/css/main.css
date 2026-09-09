@@ -40,7 +40,7 @@ body {
   color: var(--wf-text);
   font-family: var(--wf-font);
   min-height: 100vh;
-  padding-top: 5rem;
+  padding-top: 3.5rem;
   display: flex;
   flex-direction: column;
 }
@@ -111,7 +111,7 @@ main.container {
   left: 0;
   right: 0;
   z-index: 50;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   background-color: rgba(26, 26, 26, 0.733);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -217,10 +217,10 @@ main.container {
 .logo-container {
   display: flex;
   justify-content: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 .page-logo {
-  max-width: 480px;
+  max-width: 360px;
   width: 100%;
   height: auto;
   object-fit: contain;
