@@ -79,4 +79,29 @@ class RandomizerControllerTest {
                 .andExpect(content().string(containsString("Clear All Preferences")))
                 .andExpect(content().string(containsString("Empty Slot Mode")));
     }
+
+    @Test
+    void testItemPopupTemplatesRendered() throws Exception {
+        mockMvc.perform(get("/"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("class=\"item-card-popup-inner\"")))
+                .andExpect(content().string(containsString("popup-template")))
+                .andExpect(content().string(containsString("id=\"hover-item-popup\"")));
+    }
+
+    @Test
+    void testRerollLoadoutIncludesPopupTemplates() throws Exception {
+        mockMvc.perform(post("/randomizer/reroll"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("popup-template")))
+                .andExpect(content().string(containsString("item-card-popup-inner")));
+    }
+
+    @Test
+    void testPopupIncludesElementDot() throws Exception {
+        mockMvc.perform(get("/"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("<span class=\"element-dot\"")));
+    }
 }
+

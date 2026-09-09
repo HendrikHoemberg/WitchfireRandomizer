@@ -12,7 +12,9 @@
 <body>
     <div th:replace="~{fragments/navigation :: navbar('randomizer')}"></div>
 
-    <main class="container" x-data="{
+    <main class="container"
+          @scroll.window="hidePopup()"
+          x-data="{
         locks: {
             primaryWeapon: false,
             secondaryWeapon: false,
@@ -46,11 +48,58 @@
         },
         beadSlotCount: 5,
         hoveredSlot: null,
+        hoveredItemHtml: null,
+        popupStyle: 'display: none;',
         showBeadSettings: false,
         showItemModal: false,
         modalItemId: null,
         shareCopied: false,
         showTooltip: false,
+
+        showPopup(targetEl) {
+            const template = targetEl ? targetEl.querySelector('.popup-template') : null;
+            if (!template) {
+                this.hidePopup();
+                return;
+            }
+            this.hoveredItemHtml = template.innerHTML;
+            this.popupStyle = 'opacity: 0; display: block; position: fixed; top: -9999px; left: -9999px;';
+            this.$nextTick(() => {
+                this.positionPopup(targetEl);
+            });
+        },
+        hidePopup() {
+            this.hoveredItemHtml = null;
+            this.popupStyle = 'display: none;';
+        },
+        positionPopup(targetEl) {
+            const popup = document.getElementById('hover-item-popup');
+            if (!popup || !targetEl) return;
+            const targetRect = targetEl.getBoundingClientRect();
+            const popupRect = popup.getBoundingClientRect();
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const margin = 12;
+            const gap = 8;
+
+            let left = targetRect.right + gap;
+            if (left + popupRect.width > viewportWidth - margin) {
+                left = targetRect.left - gap - popupRect.width;
+            }
+            if (left < margin) {
+                left = Math.max(margin, Math.min(viewportWidth - popupRect.width - margin, (viewportWidth - popupRect.width) / 2));
+            }
+
+            let top = targetRect.top;
+            if (top + popupRect.height > viewportHeight - margin) {
+                top = viewportHeight - margin - popupRect.height;
+            }
+            if (top < margin) {
+                top = margin;
+            }
+
+            this.popupStyle = 'top: ' + Math.round(top) + 'px; left: ' + Math.round(left) + 'px; display: block; opacity: 1;';
+        },
 
         init() {
             const savedStats = localStorage.getItem('beadUserStats');
@@ -276,6 +325,8 @@
                      th:data-item-name="${#strings.toLowerCase(item.name)}"
                      x-show="excludeTab === $el.dataset.cat && (!excludeSearch || $el.dataset.itemName.includes(excludeSearch.toLowerCase().trim()))"
                      @click="toggleExcludedItem($el.dataset.itemId)"
+                     @mouseenter="showPopup($el)"
+                     @mouseleave="hidePopup()"
                      class="exclude-card"
                      :class="excludedItems.includes($el.dataset.itemId) ? 'excluded' : ''">
 
@@ -300,6 +351,11 @@
                         <span th:if="${item.iconUrl == null}" th:text="${#strings.substring(item.name, 0, 1)}" style="font-size: 1.5rem; color: #fff;">?</span>
                     </div>
                     <span class="exclude-card-name" th:text="${item.name}">Name</span>
+
+                    <!-- Item Popup Template -->
+                    <template class="popup-template">
+                        <div th:replace="~{randomizer/fragments/item-popup :: itemPopup(${item})}"></div>
+                    </template>
                 </div>
             </div>
         </div>
@@ -369,6 +425,15 @@
                     <p style="padding: 2rem; text-align: center; color: #9ca3af;">Loading details...</p>
                 </div>
             </div>
+        </div>
+
+        <!-- Floating Hover Popup Portal -->
+        <div id="hover-item-popup"
+             x-show="hoveredItemHtml !== null"
+             x-cloak
+             class="item-card-popup floating-popup"
+             :style="popupStyle"
+             x-html="hoveredItemHtml">
         </div>
     </main>
     <script>

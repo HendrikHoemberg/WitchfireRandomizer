@@ -422,15 +422,21 @@ body {
 
 /* Hover Popup */
 .item-card-popup {
-  position: absolute;
-  z-index: 50;
-  width: 18rem;
+  width: 22rem;
   background-color: #1A1A1A;
   border: 1px solid var(--wf-border);
   border-radius: 0.5rem;
   overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
-  pointer-events: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.85);
+}
+
+.item-card-popup.floating-popup {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  max-height: calc(100vh - 24px);
+  overflow-y: auto;
+  transition: opacity 0.1s ease-out;
 }
 
 /* Active elements indicator */
@@ -467,6 +473,21 @@ body {
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 9999px;
+}
+
+.element-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+}
+
+.element-dot {
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 9999px;
+  flex-shrink: 0;
 }
 
 /* Stat Requirements Table */
