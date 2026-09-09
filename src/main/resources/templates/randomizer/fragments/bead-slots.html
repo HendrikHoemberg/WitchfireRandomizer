@@ -5,7 +5,8 @@
      class="slot-box"
      th:classappend="${(bead == null ? 'empty ' : '') + (isLocked == true ? 'locked ' : '')}"
      th:id="'slot-' + ${slotKey}"
-     :class="{ 'locked': beadLocks[$el.dataset.slotKey], 'animate-glow-pulse shadow-glow': isSlotGenerating($el.dataset.slotKey, 'bead'), 'card-revealing': isSlotGenerating($el.dataset.slotKey, 'bead') && isFadingOut }"
+     th:data-slot-key="${slotKey}"
+     :class="{ 'locked': beadLocks[$el.dataset.slotKey], 'animate-glow-pulse shadow-glow': isSlotGenerating($el.dataset.slotKey, 'bead') }"
      @click="toggleBeadLock($el.dataset.slotKey)"
      @mouseenter="showPopup($el)"
      @mouseleave="hidePopup()">

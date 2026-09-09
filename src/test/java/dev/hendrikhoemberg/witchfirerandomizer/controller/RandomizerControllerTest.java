@@ -109,8 +109,7 @@ class RandomizerControllerTest {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("slot-white-overlay")))
-                .andExpect(content().string(containsString("animate-glow-pulse shadow-glow")))
-                .andExpect(content().string(containsString("card-revealing")));
+                .andExpect(content().string(containsString("animate-glow-pulse shadow-glow")));
     }
 
     @Test
@@ -118,8 +117,7 @@ class RandomizerControllerTest {
         mockMvc.perform(post("/randomizer/reroll"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("slot-white-overlay")))
-                .andExpect(content().string(containsString("animate-glow-pulse shadow-glow")))
-                .andExpect(content().string(containsString("card-revealing")));
+                .andExpect(content().string(containsString("animate-glow-pulse shadow-glow")));
     }
 }
 

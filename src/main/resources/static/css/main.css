@@ -289,13 +289,6 @@ body {
   100% { opacity: 0; }
 }
 
-/* Subtle loot reveal pop */
-@keyframes card-reveal-pop {
-  0% { transform: scale(0.95); }
-  60% { transform: scale(1.025); }
-  100% { transform: scale(1); }
-}
-
 .animate-glow-pulse {
   animation: glow-pulse 1s ease-in-out infinite;
   transition: none;
@@ -308,12 +301,7 @@ body {
   animation: white-fill-in 800ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 .white-fill-out {
-  animation: white-fill-out 250ms ease-out forwards;
-}
-
-.slot-box.card-revealing {
-  animation: card-reveal-pop 250ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-  will-change: transform;
+  animation: white-fill-out 200ms ease-out forwards;
 }
 
 .slot-white-overlay {
@@ -337,8 +325,7 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-glow-pulse,
-  .slot-box.card-revealing {
+  .animate-glow-pulse {
     animation: none !important;
   }
   .white-fill-in,
