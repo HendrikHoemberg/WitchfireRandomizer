@@ -109,6 +109,7 @@
                             N/A
                         </span>
                         <span th:if="${entry.value > 0}"
+                              class="requirement-badge"
                               style="font-size: 0.75rem; padding: 0.1rem 0.35rem; border-radius: 0.25rem; font-weight: 700;"
                               :class="userStats[$el.closest('.requirement-item').dataset.stat] >= Number($el.closest('.requirement-item').dataset.required) ? 'bg-green-900 text-green-200' : 'bg-red-900 text-red-200'"
                               x-text="userStats[$el.closest('.requirement-item').dataset.stat] >= Number($el.closest('.requirement-item').dataset.required) ? '✓' : '✗'">

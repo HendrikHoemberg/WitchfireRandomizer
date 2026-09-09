@@ -184,5 +184,35 @@ class RandomizerControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(model().attribute("loadout", hasProperty("beads", hasSize(2))));
     }
+
+    @Test
+    void testStatRequirementBadgesAndColors() throws Exception {
+        // Assert CSS defines classes for green checkmark and red X icon
+        mockMvc.perform(get("/css/main.css"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString(".bg-green-900")))
+                .andExpect(content().string(containsString(".text-green-200")))
+                .andExpect(content().string(containsString(".bg-red-900")))
+                .andExpect(content().string(containsString(".text-red-200")))
+                .andExpect(content().string(containsString(".requirement-badge")));
+
+        // Assert randomizer template renders the requirement badge with class and icon toggles when beads have requirements
+        mockMvc.perform(get("/").param("beads", "b-acute-ailment-bead"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("requirement-badge")))
+                .andExpect(content().string(containsString("bg-green-900 text-green-200")))
+                .andExpect(content().string(containsString("bg-red-900 text-red-200")))
+                .andExpect(content().string(containsString("✓")))
+                .andExpect(content().string(containsString("✗")));
+
+        // Assert reroll fragment also renders the requirement badge when beads have requirements
+        mockMvc.perform(post("/randomizer/reroll")
+                        .param("locks[bead1]", "true")
+                        .param("currentSlotItemIds[bead1]", "b-acute-ailment-bead"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("requirement-badge")))
+                .andExpect(content().string(containsString("bg-green-900 text-green-200")))
+                .andExpect(content().string(containsString("bg-red-900 text-red-200")));
+    }
 }
 

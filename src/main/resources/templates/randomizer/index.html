@@ -235,6 +235,9 @@
                         const newGrid = document.getElementById('loadout-grid');
                         if (newGrid) {
                             htmx.process(newGrid);
+                            if (window.Alpine) {
+                                Alpine.initTree(newGrid);
+                            }
                         }
                     }
 
