@@ -1,40 +1,25 @@
-# Completed Tasks: Witchfire Randomizer & Wiki Rewrite
+# Current Task: Request Logging & Host-Level Rotating Log Files
 
-- [x] **Task 1: Scraper Script & Static Seed Assets**
-  - [x] Write `scripts/scrape_wiki.py`
-  - [x] Copy base textures and icons from old project
-  - [x] Run scraper to generate `src/main/resources/data/items.json` (136 items) and download icons
-  - [x] Commit (`feat(data): add wiki scraper and initial items seed with melee weapons`)
-- [x] **Task 2: Domain Model**
-  - [x] Write failing `ModelTest`
-  - [x] Implement domain models (`Item`, `Weapon`, `MeleeWeapon`, `Bead`, `Loadout`, `Spell`, `MagicalItem`, etc.)
-  - [x] Verify `ModelTest` passes
-  - [x] Commit (`feat(model): add domain models for items, weapons, melee, beads, and loadout`)
-- [x] **Task 3: Item Repository**
-  - [x] Write failing `ItemRepositoryTest`
-  - [x] Implement `ItemRepository`
-  - [x] Verify `ItemRepositoryTest` passes
-  - [x] Commit (`feat(repo): implement in-memory ItemRepository with filtering and bead constraints`)
-- [x] **Task 4: Randomizer Service**
-  - [x] Write failing `RandomizerServiceTest`
-  - [x] Implement `RandomizerService`
-  - [x] Verify `RandomizerServiceTest` passes
-  - [x] Commit (`feat(service): implement RandomizerService with slot locks and constraints`)
-- [x] **Task 5: Custom Dark Fantasy CSS & Base Layout**
-  - [x] Vendor HTMX and Alpine.js locally
-  - [x] Create `src/main/resources/static/css/main.css`
-  - [x] Create base Thymeleaf template and navigation fragments
-  - [x] Commit (`feat(ui): add custom dark fantasy css, vendored js, and base templates`)
-- [x] **Task 6: Item Wiki Web Layer**
-  - [x] Write failing `WikiControllerTest`
-  - [x] Implement `WikiController` and Thymeleaf wiki templates
-  - [x] Verify `WikiControllerTest` passes
-  - [x] Commit (`feat(wiki): implement wiki controller, live filters, and item card templates`)
-- [x] **Task 7: Randomizer Web Layer**
-  - [x] Write failing `RandomizerControllerTest`
-  - [x] Implement `RandomizerController` and Thymeleaf randomizer templates
-  - [x] Verify `RandomizerControllerTest` passes
-  - [x] Commit (`feat(randomizer): implement randomizer controller, HTMX rerolls, and Alpine lock state`)
-- [x] **Task 8: Verification & Polish**
-  - [x] Full suite run `./mvnw test` (20 tests passing, 0 failures)
-  - [x] Commit and final report
+- [ ] Task 1: RequestLoggingFilter and Unit Tests
+  - [ ] Step 1: Write failing test (`RequestLoggingFilterTest`)
+  - [ ] Step 2: Run test, verify failure
+  - [ ] Step 3: Implement `RequestLoggingFilter`
+  - [ ] Step 4: Run test, verify pass
+  - [ ] Step 5: Git commit
+- [ ] Task 2: Dataset Loading and Startup Summary Logging
+  - [ ] Step 1: Write failing test in `ItemRepositoryTest`
+  - [ ] Step 2: Run test, verify failure
+  - [ ] Step 3: Implement logging in `ItemRepository`
+  - [ ] Step 4: Run test, verify pass
+  - [ ] Step 5: Git commit
+- [ ] Task 3: Rolling File Logback Configuration and Gitignore
+  - [ ] Step 1: Update `.gitignore` with `logs/` and `*.log`
+  - [ ] Step 2: Configure rolling log file properties with `${LOG_PATH:logs}`
+  - [ ] Step 3: Run all tests to verify logback configuration
+  - [ ] Step 4: Git commit
+- [ ] Task 4: Docker, Docker Compose, and VPS Runbook Updates
+  - [ ] Step 1: Update `Dockerfile` (predictable non-root UID 1000 & `/app/logs`)
+  - [ ] Step 2: Update `docker-compose.yml` (volume mount `/var/log/witchfire:/app/logs` & `LOG_PATH`)
+  - [ ] Step 3: Update `docs/vps-deployment-checklist.md` with permission & log viewing commands
+  - [ ] Step 4: Verify full project build (`./mvnw clean package`)
+  - [ ] Step 5: Git commit
