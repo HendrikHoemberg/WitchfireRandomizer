@@ -121,5 +121,25 @@ class RandomizerControllerTest {
                 .andExpect(content().string(containsString("animate-glow-pulse shadow-glow")))
                 .andExpect(content().string(containsString("glow-dissipating")));
     }
+
+    @Test
+    void testSlotCardsIncludeDataSlotKey() throws Exception {
+        mockMvc.perform(get("/"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("data-slot-key=\"primaryWeapon\"")))
+                .andExpect(content().string(containsString("data-slot-key=\"bead1\"")));
+    }
+
+    @Test
+    void testRerollWithLockedEmptySlotKeepsSlotEmptyAndLocked() throws Exception {
+        mockMvc.perform(post("/randomizer/reroll")
+                        .param("locks[primaryWeapon]", "true")
+                        .param("currentSlotItemIds[primaryWeapon]", "")
+                        .param("locks[bead1]", "true")
+                        .param("currentSlotItemIds[bead1]", ""))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("id=\"slot-primaryWeapon\"")))
+                .andExpect(content().string(containsString("slot-box empty locked")));
+    }
 }
 

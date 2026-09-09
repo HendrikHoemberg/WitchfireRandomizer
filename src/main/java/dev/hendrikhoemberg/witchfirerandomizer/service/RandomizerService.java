@@ -99,11 +99,14 @@ public class RandomizerService {
         boolean isLocked = Boolean.TRUE.equals(req.getLocks().get(slotName));
         String currentId = req.getCurrentSlotItemIds().get(slotName);
 
-        if (isLocked && currentId != null) {
-            Optional<Item> lockedItem = itemRepository.findById(currentId);
-            if (lockedItem.isPresent() && type.isInstance(lockedItem.get())) {
-                return (T) lockedItem.get();
+        if (isLocked) {
+            if (currentId != null && !currentId.isBlank()) {
+                Optional<Item> lockedItem = itemRepository.findById(currentId);
+                if (lockedItem.isPresent() && type.isInstance(lockedItem.get())) {
+                    return (T) lockedItem.get();
+                }
             }
+            return null;
         }
 
         if (canBeEmpty && ThreadLocalRandom.current().nextDouble() < 0.35) {
@@ -158,26 +161,59 @@ public class RandomizerService {
         int count = Math.max(1, Math.min(5, req.getBeadSlotCount()));
         List<Bead> eligible = new ArrayList<>(itemRepository.findEligibleBeads(req.getBeadUserStats()));
 
-        if (!req.getExcludedItemIds().isEmpty()) {
-            List<Bead> nonExcluded = eligible.stream()
-                    .filter(b -> !req.getExcludedItemIds().contains(b.getId()))
-                    .collect(Collectors.toList());
-            if (nonExcluded.size() >= count) {
-                eligible = nonExcluded;
+        Bead[] result = new Bead[count];
+        boolean[] isSlotResolved = new boolean[count];
+        Set<String> lockedBeadIds = new HashSet<>();
+
+        for (int i = 0; i < count; i++) {
+            String slotKey = "bead" + (i + 1);
+            boolean isLocked = Boolean.TRUE.equals(req.getLocks().get(slotKey));
+            if (isLocked) {
+                isSlotResolved[i] = true;
+                String currentId = req.getCurrentSlotItemIds().get(slotKey);
+                if (currentId != null && !currentId.isBlank()) {
+                    Optional<Item> item = itemRepository.findById(currentId);
+                    if (item.isPresent() && item.get() instanceof Bead bead) {
+                        result[i] = bead;
+                        lockedBeadIds.add(bead.getId());
+                    } else {
+                        result[i] = null;
+                    }
+                } else {
+                    result[i] = null;
+                }
             }
         }
 
-        Collections.shuffle(eligible);
-        List<Bead> picked = new ArrayList<>();
+        Set<String> allExclusions = new HashSet<>(req.getExcludedItemIds());
+        allExclusions.addAll(lockedBeadIds);
+
+        List<Bead> availablePool = eligible.stream()
+                .filter(b -> !allExclusions.contains(b.getId()))
+                .collect(Collectors.toList());
+
+        if (availablePool.size() < count) {
+            availablePool = eligible.stream()
+                    .filter(b -> !lockedBeadIds.contains(b.getId()))
+                    .collect(Collectors.toList());
+        }
+
+        Collections.shuffle(availablePool);
+        int poolIndex = 0;
+
         for (int i = 0; i < count; i++) {
+            if (isSlotResolved[i]) {
+                continue;
+            }
             if (req.isEmptySlotMode() && ThreadLocalRandom.current().nextDouble() < 0.35) {
-                picked.add(null);
-            } else if (i < eligible.size()) {
-                picked.add(eligible.get(i));
+                result[i] = null;
+            } else if (poolIndex < availablePool.size()) {
+                result[i] = availablePool.get(poolIndex++);
             } else {
-                picked.add(null);
+                result[i] = null;
             }
         }
-        return picked;
+
+        return Arrays.asList(result);
     }
 }

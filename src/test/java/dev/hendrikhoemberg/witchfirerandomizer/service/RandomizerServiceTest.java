@@ -60,6 +60,38 @@ class RandomizerServiceTest {
     }
 
     @Test
+    void testPreservesLockedEmptySlots() {
+        RandomizerRequest request = new RandomizerRequest();
+        request.setLocks(Map.of("primaryWeapon", true, "meleeWeapon", true, "relic", true));
+        request.setCurrentSlotItemIds(Map.of("primaryWeapon", "", "meleeWeapon", ""));
+
+        Loadout loadout = randomizerService.generateRandomLoadout(request);
+
+        assertNull(loadout.getPrimaryWeapon(), "Locked empty primary weapon must remain null");
+        assertNull(loadout.getMeleeWeapon(), "Locked empty melee weapon must remain null");
+        assertNull(loadout.getRelic(), "Locked slot with no current id must remain null");
+        assertNotNull(loadout.getDemonicWeapon(), "Unlocked demonic weapon should still be generated");
+    }
+
+    @Test
+    void testPreservesLockedBeads() {
+        RandomizerRequest request = new RandomizerRequest();
+        request.setBeadSlotCount(3);
+        Bead testBead = itemRepository.findEligibleBeads(Map.of()).get(0);
+        request.setLocks(Map.of("bead1", true, "bead2", true));
+        request.setCurrentSlotItemIds(Map.of("bead1", testBead.getId(), "bead2", ""));
+
+        Loadout loadout = randomizerService.generateRandomLoadout(request);
+
+        assertEquals(3, loadout.getBeads().size());
+        assertNotNull(loadout.getBeads().get(0));
+        assertEquals(testBead.getId(), loadout.getBeads().get(0).getId(), "Locked bead must remain unchanged");
+        assertNull(loadout.getBeads().get(1), "Locked empty bead slot must remain null");
+        assertNotNull(loadout.getBeads().get(2), "Unlocked bead slot should be generated");
+        assertNotEquals(testBead.getId(), loadout.getBeads().get(2).getId(), "Unlocked bead slot should not duplicate locked bead");
+    }
+
+    @Test
     void testExcludesItems() {
         RandomizerRequest request = new RandomizerRequest();
         // Exclude all melee weapons except one, or exclude a specific one

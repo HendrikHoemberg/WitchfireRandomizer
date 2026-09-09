@@ -5,6 +5,7 @@
      class="slot-box"
      th:classappend="${(item == null ? 'empty ' : '') + (isLocked == true ? 'locked ' : '')}"
      th:id="'slot-' + ${slotKey}"
+     th:data-slot-key="${slotKey}"
      :class="{ 'locked': locks[$el.dataset.slotKey], 'animate-glow-pulse shadow-glow': isSlotGenerating($el.dataset.slotKey, 'equipment') && !isFadingOut, 'glow-dissipating': isSlotGenerating($el.dataset.slotKey, 'equipment') && isFadingOut }"
      @click="toggleLock($el.dataset.slotKey)"
      @mouseenter="showPopup($el)"
@@ -12,7 +13,7 @@
 
     <!-- Hidden state inputs for form serialization -->
     <input type="hidden" th:name="'currentSlotItemIds[' + ${slotKey} + ']'" th:value="${item != null ? item.id : ''}" />
-    <input type="hidden" th:name="'locks[' + ${slotKey} + ']'" :value="locks[$el.closest('.slot-box').dataset.slotKey] ? 'true' : 'false'" value="false" />
+    <input type="hidden" th:name="'locks[' + ${slotKey} + ']'" th:value="${isLocked == true ? 'true' : 'false'}" :value="locks[$el.closest('.slot-box').dataset.slotKey] ? 'true' : 'false'" value="false" />
 
     <!-- White fill overlay for generation animation -->
     <div class="slot-white-overlay"
