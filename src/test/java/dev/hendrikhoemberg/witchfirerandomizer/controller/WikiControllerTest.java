@@ -55,4 +55,13 @@ class WikiControllerTest {
         mockMvc.perform(get("/wiki/item/non-existent-id"))
                 .andExpect(status().isNotFound());
     }
+
+    @Test
+    void testWikiRendersFooter() throws Exception {
+        mockMvc.perform(get("/wiki"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("site-footer")))
+                .andExpect(content().string(containsString("href=\"/privacy\"")))
+                .andExpect(content().string(containsString("href=\"/impressum\"")));
+    }
 }

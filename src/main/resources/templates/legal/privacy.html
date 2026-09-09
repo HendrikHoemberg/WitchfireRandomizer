@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${pageTitle != null ? pageTitle + ' - Witchfire Companion' : 'Privacy Policy - Witchfire Companion'}">Privacy Policy - Witchfire Companion</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/htmx.min.js"></script>
+    <script defer src="/js/alpine.min.js"></script>
+</head>
+<body>
+    <div th:replace="~{fragments/navigation :: navbar('privacy')}"></div>
+
+    <main class="container" style="max-width: 800px; margin: 0 auto; padding-top: 1rem;">
+        <!-- Centered Witchfire Logo -->
+        <div class="logo-container">
+            <a href="/">
+                <img src="/images/wf-logo2.webP" alt="Witchfire" class="page-logo">
+            </a>
+        </div>
+
+        <div class="texture-box" style="padding: 2rem; margin-bottom: 2rem; line-height: 1.6;">
+            <h1 style="color: var(--wf-gold); font-size: 1.75rem; margin-bottom: 1rem; border-bottom: 1px solid var(--wf-border); padding-bottom: 0.5rem;">
+                Privacy Policy (Datenschutzerklärung)
+            </h1>
+
+            <section style="margin-bottom: 1.5rem;">
+                <h2 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 0.5rem;">1. General Information</h2>
+                <p style="color: #d1d5db; margin-bottom: 0.75rem;">
+                    This website is an unofficial, non-commercial fan-made companion and loadout randomizer for the video game <em>Witchfire</em>.
+                    We respect your privacy and process personal data in compliance with the General Data Protection Regulation (GDPR / DSGVO).
+                </p>
+            </section>
+
+            <section style="margin-bottom: 1.5rem;">
+                <h2 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 0.5rem;">2. No Cookies &amp; No Tracking</h2>
+                <p style="color: #d1d5db; margin-bottom: 0.75rem;">
+                    This website <strong>does not use tracking cookies</strong>, advertising pixels, or third-party analytics platforms (such as Google Analytics or Matomo).
+                    We do not track your browsing activity across other sites or profile user behavior.
+                </p>
+            </section>
+
+            <section style="margin-bottom: 1.5rem;">
+                <h2 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 0.5rem;">3. Local Storage</h2>
+                <p style="color: #d1d5db; margin-bottom: 0.75rem;">
+                    To preserve your custom preferences (such as your character stat constraints and bead slot count for the randomizer),
+                    this application stores these settings locally on your device using browser <code>localStorage</code> (key <code>beadUserStats</code>).
+                    This data remains strictly on your device, is never transmitted to any server or third party, and can be cleared by you at any time through your browser settings.
+                </p>
+            </section>
+
+            <section style="margin-bottom: 1.5rem;">
+                <h2 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 0.5rem;">4. Server Logs</h2>
+                <p style="color: #d1d5db; margin-bottom: 0.75rem;">
+                    When you access this website, our web server temporarily records standard technical connection data in log files:
+                </p>
+                <ul style="color: #d1d5db; margin-left: 1.5rem; margin-bottom: 0.75rem;">
+                    <li>IP address of the requesting device</li>
+                    <li>Date and time of the request</li>
+                    <li>Request method and resource URL</li>
+                    <li>HTTP status code and byte count</li>
+                    <li>Browser user-agent string and referrer URL</li>
+                </ul>
+                <p style="color: #d1d5db; margin-bottom: 0.75rem;">
+                    This processing is based on Art. 6(1)(f) GDPR (legitimate interest) to ensure system security, detect and prevent malicious attacks,
+                    and maintain service stability. Server logs are kept for a limited duration and automatically rotated.
+                </p>
+            </section>
+
+            <section style="margin-bottom: 1.5rem;">
+                <h2 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 0.5rem;">5. Your Rights</h2>
+                <p style="color: #d1d5db; margin-bottom: 0.75rem;">
+                    Under the GDPR, you have the right to request access to, rectification, or erasure of your personal data, as well as the right to restriction of processing
+                    and the right to lodge a complaint with a data protection supervisory authority.
+                </p>
+                <p style="color: #d1d5db;">
+                    For questions regarding data protection, please contact the site operator indicated in the <a href="/impressum" style="color: var(--wf-gold);">Impressum</a>.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

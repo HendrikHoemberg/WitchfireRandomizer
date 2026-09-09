@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${pageTitle != null ? pageTitle + ' - Witchfire Companion' : 'Impressum / Legal Notice - Witchfire Companion'}">Impressum / Legal Notice - Witchfire Companion</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/htmx.min.js"></script>
+    <script defer src="/js/alpine.min.js"></script>
+</head>
+<body>
+    <div th:replace="~{fragments/navigation :: navbar('impressum')}"></div>
+
+    <main class="container" style="max-width: 800px; margin: 0 auto; padding-top: 1rem;">
+        <!-- Centered Witchfire Logo -->
+        <div class="logo-container">
+            <a href="/">
+                <img src="/images/wf-logo2.webP" alt="Witchfire" class="page-logo">
+            </a>
+        </div>
+
+        <div class="texture-box" style="padding: 2rem; margin-bottom: 2rem; line-height: 1.6;">
+            <h1 style="color: var(--wf-gold); font-size: 1.75rem; margin-bottom: 1rem; border-bottom: 1px solid var(--wf-border); padding-bottom: 0.5rem;">
+                Impressum / Legal Notice
+            </h1>
+
+            <section style="margin-bottom: 1.5rem;">
+                <h2 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 0.5rem;">Information according to § 5 DDG (Digitale-Dienste-Gesetz)</h2>
+                <p style="color: #d1d5db; margin-bottom: 0.5rem;">
+                    <strong>Site Operator:</strong><br>
+                    Hendrik Hömberg<br>
+                    Email: hendrik.hoemberg@web.de
+                </p>
+                <p style="color: #9ca3af; font-size: 0.85rem; font-style: italic;">
+                    This website is a non-commercial, privately hosted fan project operated without commercial intent.
+                </p>
+            </section>
+
+            <section style="margin-bottom: 1.5rem;">
+                <h2 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 0.5rem;">Disclaimer &amp; Trademarks</h2>
+                <p style="color: #d1d5db; margin-bottom: 0.75rem;">
+                    <strong>Witchfire</strong> is a video game developed and published by <strong>The Astronauts</strong>.
+                    This website is an unofficial companion and loadout randomizer tool and is <strong>not affiliated with, endorsed, sponsored, or specifically approved by The Astronauts</strong> in any way.
+                </p>
+                <p style="color: #d1d5db; margin-bottom: 0.75rem;">
+                    All game assets, weapon and item names, icons, statistics, and images belong to <strong>The Astronauts</strong>.
+                </p>
+                <p style="color: #d1d5db;">
+                    Background artwork created by <strong>Gregory Pedzinski</strong>.
+                </p>
+            </section>
+
+            <section style="margin-bottom: 1.5rem;">
+                <h2 style="color: #ffffff; font-size: 1.15rem; margin-bottom: 0.5rem;">Liability for Content &amp; Links</h2>
+                <p style="color: #d1d5db; margin-bottom: 0.75rem;">
+                    The contents of this site were created with utmost care. However, we cannot guarantee the accuracy, completeness, or timeliness of game information or statistics, as Witchfire is actively updated.
+                </p>
+                <p style="color: #d1d5db;">
+                    Our site may contain links to external third-party websites over whose content we have no control. Therefore, we cannot accept liability for external contents.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>

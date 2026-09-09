@@ -510,6 +510,9 @@
              x-html="hoveredItemHtml">
         </div>
     </main>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
     <script>
         document.addEventListener('htmx:load', function (evt) {
             if (window.Alpine && evt.detail.elt) {

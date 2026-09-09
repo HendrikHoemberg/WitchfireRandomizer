@@ -214,5 +214,15 @@ class RandomizerControllerTest {
                 .andExpect(content().string(containsString("bg-green-900 text-green-200")))
                 .andExpect(content().string(containsString("bg-red-900 text-red-200")));
     }
+
+    @Test
+    void testRandomizerRendersFooter() throws Exception {
+        mockMvc.perform(get("/"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("site-footer")))
+                .andExpect(content().string(containsString("Witchfire Randomizer 1.0.0")))
+                .andExpect(content().string(containsString("href=\"/privacy\"")))
+                .andExpect(content().string(containsString("href=\"/impressum\"")));
+    }
 }
 
