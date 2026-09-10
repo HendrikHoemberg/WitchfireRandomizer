@@ -44,6 +44,10 @@ class WikiDesignConsistencyTest {
         return Files.readString(MAIN_CSS, StandardCharsets.UTF_8);
     }
 
+    private static String readTemplate(String path) throws IOException {
+        return Files.readString(Path.of("src/main/resources/templates", path), StandardCharsets.UTF_8);
+    }
+
     private static Set<String> matches(String css, Pattern pattern) {
         Set<String> found = new HashSet<>();
         Matcher matcher = pattern.matcher(css);
@@ -163,8 +167,50 @@ class WikiDesignConsistencyTest {
     void shouldRenderDropdownForArcanaProphecyCategories() throws Exception {
         mockMvc.perform(get("/wiki/arcana"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("custom-select")))
+                .andExpect(content().string(containsString("wiki-select")))
                 .andExpect(content().string(containsString("All Categories")));
+    }
+
+    @Test
+    void shouldStyleEveryWikiDropdownWithTheSharedSelectClass() throws Exception {
+        String rule = cssRule(mainCss(), ".wiki-select");
+        assertThat(rule).contains("appearance: none");
+        assertThat(rule).contains("background-color: #201d19");
+
+        for (String template : List.of("wiki/bestiary.html", "wiki/prophecies.html",
+                "wiki/arcana.html", "wiki/index.html")) {
+            assertThat(readTemplate(template))
+                    .as("%s should use the shared select class", template)
+                    .doesNotContain("custom-select")
+                    .doesNotContain("wiki-sort-select");
+        }
+    }
+
+    @Test
+    void shouldGroupBestiaryLocationsForTheDropdown() throws Exception {
+        mockMvc.perform(get("/wiki/bestiary"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("<optgroup label=\"Regions\"")))
+                .andExpect(content().string(containsString("<optgroup label=\"Vaults\"")))
+                .andExpect(content().string(containsString("<optgroup label=\"Summoned\"")))
+                .andExpect(content().string(containsString(">Calamity<")))
+                .andExpect(content().string(not(containsString("Gnosis"))))
+                .andExpect(content().string(not(containsString("selectedGnosis"))));
+    }
+
+    @Test
+    void shouldKeepTheEquipmentSortControlInsideTheFilterBox() throws Exception {
+        String page = mockMvc.perform(get("/wiki"))
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString();
+
+        assertThat(page.indexOf("wiki-filter-box")).isLessThan(page.indexOf("id=\"sort-select\""));
+        assertThat(page.indexOf("id=\"sort-select\"")).isLessThan(page.indexOf("id=\"wiki-items-grid\""));
+
+        // …and the swapped fragment must not carry it, or every swap would reset it.
+        mockMvc.perform(get("/wiki/items"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(not(containsString("sort-select"))));
     }
 
     @Test

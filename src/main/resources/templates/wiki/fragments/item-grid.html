@@ -3,23 +3,9 @@
 <body>
 <div id="wiki-items-grid" class="wiki-results-container" th:fragment="itemGrid">
     <!-- Results Header -->
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-        <div style="font-size: 0.95rem; color: #ffffff;">
+    <div class="wiki-results-header">
+        <div class="results-counter">
             Showing <span th:text="${items.size()}">0</span> <span th:text="${items.size() == 1 ? 'item' : 'items'}">items</span>
-        </div>
-
-        <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <label for="sort-select" style="font-size: 0.9rem; color: #ffffff; font-weight: 500;">Sort By:</label>
-            <select id="sort-select"
-                    class="wiki-sort-select"
-                    x-model="sortCriteria"
-                    @change="updateFilters()">
-                <option value="category" th:selected="${sortCriteria == null or sortCriteria == 'category'}">By Category</option>
-                <option value="name-asc" th:selected="${sortCriteria == 'name-asc'}">Name (A-Z)</option>
-                <option value="name-desc" th:selected="${sortCriteria == 'name-desc'}">Name (Z-A)</option>
-                <option value="element-asc" th:selected="${sortCriteria == 'element-asc'}">Element (A-Z)</option>
-                <option value="element-desc" th:selected="${sortCriteria == 'element-desc'}">Element (Z-A)</option>
-            </select>
         </div>
     </div>
 

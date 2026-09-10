@@ -120,14 +120,29 @@
                 </div>
             </div>
 
-            <!-- Reset Filters Button -->
-            <div style="display: flex; justify-content: flex-end; margin-top: 1rem;"
-                 x-show="selectedCategory || selectedElement || noElement || searchQuery">
-                <button type="button"
-                        class="filter-pill-btn filter-reset-btn"
-                        @click="clearAllFilters()">
-                    Reset Filters
-                </button>
+            <!-- Sort & Reset -->
+            <div class="filter-secondary-row">
+                <div class="filter-secondary-field">
+                    <label class="filter-secondary-label" for="sort-select">Sort:</label>
+                    <select id="sort-select"
+                            class="wiki-select"
+                            x-model="sortCriteria"
+                            @change="updateFilters()">
+                        <option value="category">By Category</option>
+                        <option value="name-asc">Name (A-Z)</option>
+                        <option value="name-desc">Name (Z-A)</option>
+                        <option value="element-asc">Element (A-Z)</option>
+                        <option value="element-desc">Element (Z-A)</option>
+                    </select>
+                </div>
+
+                <div x-show="selectedCategory || selectedElement || noElement || searchQuery">
+                    <button type="button"
+                            class="filter-pill-btn filter-reset-btn"
+                            @click="clearAllFilters()">
+                        Reset Filters
+                    </button>
+                </div>
             </div>
         </div>
 

@@ -1075,6 +1075,52 @@ input:checked + .slider:before {
   color: var(--wf-text-muted);
 }
 
+/* The one dropdown style for every wiki page. Replaces the three ad-hoc class names
+   (custom-select, wiki-sort-select) that had no rules at all, plus Arcana's inline style. */
+.wiki-select {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #201d19;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' fill='none' stroke='%23ddaf7a' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 0.7rem;
+  color: #e5e7eb;
+  border: 1px solid var(--wf-border);
+  border-radius: 0.375rem;
+  padding: 0.45rem 2rem 0.45rem 0.85rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  min-width: 13rem;
+  max-width: 22rem;
+}
+
+.wiki-select:hover {
+  border-color: rgba(var(--wf-gold-rgb), 0.45);
+}
+
+.wiki-select:focus {
+  outline: none;
+  border-color: var(--wf-gold);
+  box-shadow: 0 0 0 2px rgba(var(--wf-gold-rgb), 0.18);
+}
+
+.wiki-select optgroup {
+  background: #17140f;
+  color: var(--wf-gold);
+  font-style: normal;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.wiki-select option {
+  background: #201d19;
+  color: #e5e7eb;
+}
+
 .filter-pill-btn {
   padding: 0.25rem 0.75rem;
   border-radius: 0.375rem;

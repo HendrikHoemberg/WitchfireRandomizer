@@ -26,7 +26,7 @@ class WikiControllerTest {
                 .andExpect(content().string(containsString("burger-btn")))
                 .andExpect(content().string(containsString("Filter by Category")))
                 .andExpect(content().string(containsString("Filter by Element")))
-                .andExpect(content().string(containsString("Sort By:")))
+                .andExpect(content().string(containsString("Sort:")))
                 .andExpect(content().string(containsString("Showing")))
                 .andExpect(content().string(containsString("Weapons")))
                 .andExpect(content().string(containsString("Melee Weapons")));

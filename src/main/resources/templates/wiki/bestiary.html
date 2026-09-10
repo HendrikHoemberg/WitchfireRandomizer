@@ -63,20 +63,34 @@
                 </button>
             </div>
 
-            <!-- Secondary Filters: Location & Reset -->
+            <!-- Filters: location is the primary axis now, sort sits beside it -->
             <div class="filter-secondary-row">
-                <!-- Location Filter -->
                 <div class="filter-secondary-field">
-                    <label class="filter-secondary-label">Location:</label>
-                    <select class="custom-select"
+                    <label class="filter-secondary-label" for="location-select">Location:</label>
+                    <select id="location-select"
+                            class="wiki-select"
                             x-model="selectedLocation"
                             @change="updateFilters()">
                         <option value="">All Locations</option>
-                        <option th:each="loc : ${locations}" th:value="${loc}" th:text="${loc}">Location</option>
+                        <optgroup th:each="group : ${locationGroups}" th:label="${group.key}">
+                            <option th:each="option : ${group.value}"
+                                    th:value="${option.value}"
+                                    th:text="${option.label}">Irongate Castle</option>
+                        </optgroup>
                     </select>
                 </div>
 
-                <!-- Reset Filters Button -->
+                <div class="filter-secondary-field">
+                    <label class="filter-secondary-label" for="sort-select">Sort:</label>
+                    <select id="sort-select"
+                            class="wiki-select"
+                            x-model="sortCriteria"
+                            @change="updateFilters()">
+                        <option value="name">Name (A-Z)</option>
+                        <option value="health">Health (High to Low)</option>
+                    </select>
+                </div>
+
                 <div x-show="searchQuery || selectedLocation || sortCriteria !== 'name'">
                     <button type="button"
                             class="filter-pill-btn filter-reset-btn"
@@ -92,17 +106,6 @@
             <div class="results-counter">
                 Showing <span th:text="${#lists.size(enemies)}">0</span>
                 <span th:text="${#lists.size(enemies) == 1 ? 'enemy' : 'enemies'}">enemies</span>
-            </div>
-
-            <!-- Sort dropdown aligned right, matching Equipment tab -->
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-                <label style="font-size: 0.9rem; color: #ffffff; font-weight: 500;">Sort By:</label>
-                <select class="wiki-sort-select"
-                        x-model="sortCriteria"
-                        @change="updateFilters()">
-                    <option value="name">Name (A-Z)</option>
-                    <option value="health">Health (High to Low)</option>
-                </select>
             </div>
         </div>
 
