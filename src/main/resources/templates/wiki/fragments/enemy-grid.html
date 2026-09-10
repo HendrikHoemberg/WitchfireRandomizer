@@ -8,17 +8,15 @@
     </div>
 
     <div th:each="enemy : ${enemies}"
-         class="enemy-card texture-box is-clickable"
-         th:id="${enemy.id}"
-         @click="openEnemyModal($el.getAttribute('data-enemy-id'))"
-         th:data-enemy-id="${enemy.id}"
-         >
+         class="enemy-card texture-box"
+         th:id="${enemy.id}">
+        <!-- Header -->
         <div class="enemy-card-header">
             <div class="enemy-portrait-box">
                 <img th:src="${enemy.iconUrl}" th:alt="${enemy.name}" loading="lazy" />
             </div>
             <div style="flex-grow: 1; min-width: 0;">
-                <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.25rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.35rem;">
                     <h3 class="enemy-card-title" th:text="${enemy.name}">Enemy Name</h3>
                     <span th:if="${enemy.gnosis != null}"
                           class="gnosis-badge"
@@ -26,19 +24,74 @@
                 </div>
                 <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
                     <span class="rank-badge" th:text="${enemy.rank}">Rank</span>
-                    <span th:if="${enemy.health != null and enemy.health > 0}"
-                          class="health-chip"
-                          th:text="'HP: ' + ${#numbers.formatInteger(enemy.health, 1, 'COMMA')}">HP: 1,200</span>
+                    <span th:if="${enemy.variants != null and !enemy.variants.isBlank()}"
+                          class="variant-badge"
+                          th:text="${enemy.variants}">Elite</span>
                 </div>
             </div>
         </div>
 
+        <!-- Combat Stats & Resistances Body -->
         <div class="enemy-card-body">
-            <p class="enemy-desc" th:text="${enemy.description != null and !enemy.description.isBlank() ? enemy.description : 'A denizen of the Witch domain.'}">Enemy description</p>
+            <!-- Combat Strip: Health & Attack -->
+            <div class="enemy-combat-stats-row">
+                <div th:if="${enemy.health != null and enemy.health > 0}" class="enemy-stat-chip health-chip">
+                    <span class="stat-chip-label">HP</span>
+                    <span class="stat-chip-value" th:text="${#numbers.formatInteger(enemy.health, 1, 'COMMA')}">1,200</span>
+                </div>
+                <div th:if="${enemy.damage != null and !enemy.damage.isBlank()}" class="enemy-stat-chip attack-chip">
+                    <span class="stat-chip-label">ATK</span>
+                    <span class="stat-chip-value" th:text="${enemy.damage}">4 - 35</span>
+                </div>
+            </div>
 
-            <!-- Locations summary (Clean single-line indicator; full territory details in modal) -->
-            <div th:if="${enemy.locations != null and !enemy.locations.isEmpty()}" style="margin-top: 0.5rem; font-size: 0.75rem; color: #9ca3af;">
-                <span th:text="${#lists.size(enemy.locations) == 1 ? enemy.locations[0] : enemy.locations[0] + ' (+' + (#lists.size(enemy.locations) - 1) + ')'}">Location</span>
+            <!-- Elemental Resistances / Vulnerabilities Strip -->
+            <div class="enemy-affinity-strip"
+                 th:if="${(enemy.fireResistance != null and enemy.fireResistance != 0) or (enemy.shockResistance != null and enemy.shockResistance != 0) or (enemy.freezeResistance != null and enemy.freezeResistance != 0) or (enemy.decayResistance != null and enemy.decayResistance != 0) or (enemy.airResistance != null and enemy.airResistance != 0) or (enemy.earthResistance != null and enemy.earthResistance != 0) or (enemy.waterResistance != null and enemy.waterResistance != 0) or (enemy.burnResistance != null and enemy.burnResistance != 0) or (enemy.staggerResistance != null and enemy.staggerResistance != 0) or (enemy.stunResistance != null and enemy.stunResistance != 0)}">
+                <span th:if="${enemy.fireResistance != null and enemy.fireResistance != 0}"
+                      class="affinity-pill" th:classappend="${enemy.fireResistance < 0 ? 'aff-vulnerable' : 'aff-resistant'}"
+                      th:text="'Fire ' + ${(enemy.fireResistance > 0 ? '+' : '') + enemy.fireResistance + '%'}">Fire +75%</span>
+                <span th:if="${enemy.shockResistance != null and enemy.shockResistance != 0}"
+                      class="affinity-pill" th:classappend="${enemy.shockResistance < 0 ? 'aff-vulnerable' : 'aff-resistant'}"
+                      th:text="'Shock ' + ${(enemy.shockResistance > 0 ? '+' : '') + enemy.shockResistance + '%'}">Shock +35%</span>
+                <span th:if="${enemy.freezeResistance != null and enemy.freezeResistance != 0}"
+                      class="affinity-pill" th:classappend="${enemy.freezeResistance < 0 ? 'aff-vulnerable' : 'aff-resistant'}"
+                      th:text="'Freeze ' + ${(enemy.freezeResistance > 0 ? '+' : '') + enemy.freezeResistance + '%'}">Freeze +50%</span>
+                <span th:if="${enemy.decayResistance != null and enemy.decayResistance != 0}"
+                      class="affinity-pill" th:classappend="${enemy.decayResistance < 0 ? 'aff-vulnerable' : 'aff-resistant'}"
+                      th:text="'Decay ' + ${(enemy.decayResistance > 0 ? '+' : '') + enemy.decayResistance + '%'}">Decay -100%</span>
+                <span th:if="${enemy.airResistance != null and enemy.airResistance != 0}"
+                      class="affinity-pill" th:classappend="${enemy.airResistance < 0 ? 'aff-vulnerable' : 'aff-resistant'}"
+                      th:text="'Air ' + ${(enemy.airResistance > 0 ? '+' : '') + enemy.airResistance + '%'}">Air +35%</span>
+                <span th:if="${enemy.earthResistance != null and enemy.earthResistance != 0}"
+                      class="affinity-pill" th:classappend="${enemy.earthResistance < 0 ? 'aff-vulnerable' : 'aff-resistant'}"
+                      th:text="'Earth ' + ${(enemy.earthResistance > 0 ? '+' : '') + enemy.earthResistance + '%'}">Earth +20%</span>
+                <span th:if="${enemy.waterResistance != null and enemy.waterResistance != 0}"
+                      class="affinity-pill" th:classappend="${enemy.waterResistance < 0 ? 'aff-vulnerable' : 'aff-resistant'}"
+                      th:text="'Water ' + ${(enemy.waterResistance > 0 ? '+' : '') + enemy.waterResistance + '%'}">Water +20%</span>
+                <span th:if="${enemy.burnResistance != null and enemy.burnResistance != 0}"
+                      class="affinity-pill" th:classappend="${enemy.burnResistance < 0 ? 'aff-vulnerable' : 'aff-resistant'}"
+                      th:text="'Burn ' + ${(enemy.burnResistance > 0 ? '+' : '') + enemy.burnResistance + '%'}">Burn +20%</span>
+                <span th:if="${enemy.staggerResistance != null and enemy.staggerResistance != 0}"
+                      class="affinity-pill aff-physical"
+                      th:text="'Stagger ' + ${enemy.staggerResistance + '%'}">Stagger 80%</span>
+                <span th:if="${enemy.stunResistance != null and enemy.stunResistance != 0}"
+                      class="affinity-pill aff-physical"
+                      th:text="'Stun ' + ${enemy.stunResistance + '%'}">Stun 50%</span>
+            </div>
+
+            <!-- Custom Lore Description (omitted if generic filler) -->
+            <p th:if="${enemy.description != null and !enemy.description.isBlank() and !enemy.description.contains('A denizen of the Witch domain') and !enemy.description.contains('A denizen under the Witch command')}"
+               class="enemy-desc"
+               th:text="${enemy.description}">
+                Unique enemy description text.
+            </p>
+
+            <!-- Territory Locations -->
+            <div th:if="${enemy.locations != null and !enemy.locations.isEmpty()}" class="locations-chips-row" style="margin-top: 0.75rem;">
+                <span th:each="loc : ${enemy.locations}"
+                      class="location-chip"
+                      th:text="${loc}">Irongate Castle</span>
             </div>
         </div>
     </div>

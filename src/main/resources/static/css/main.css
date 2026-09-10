@@ -1483,9 +1483,57 @@ input:checked + .slider:before {
    ========================================================================== */
 .bestiary-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.25rem;
   margin-top: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .bestiary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.enemy-combat-stats-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.enemy-affinity-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.6rem;
+}
+
+.affinity-pill {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  background: rgba(0, 0, 0, 0.4);
+  letter-spacing: 0.02em;
+}
+
+.affinity-pill.aff-vulnerable {
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.4);
+  background: rgba(248, 113, 113, 0.08);
+}
+
+.affinity-pill.aff-resistant {
+  color: #94a3b8;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  background: rgba(148, 163, 184, 0.08);
+}
+
+.affinity-pill.aff-physical {
+  color: #d1d5db;
+  border: 1px solid var(--wf-border-subtle);
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .enemy-card {

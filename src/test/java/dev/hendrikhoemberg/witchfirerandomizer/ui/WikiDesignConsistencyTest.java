@@ -203,6 +203,20 @@ class WikiDesignConsistencyTest {
                 .andExpect(content().string(containsString("Showing")))
                 .andExpect(content().string(not(containsString("openArcanaModal"))));
     }
+
+    @Test
+    void shouldStyleBestiaryInTwoColumnGridAndOmitPlaceholderText() throws Exception {
+        String css = mainCss();
+        String bestiaryGridRule = cssRule(css, ".bestiary-grid");
+        assertThat(bestiaryGridRule).contains("repeat(2, 1fr)");
+
+        mockMvc.perform(get("/wiki/bestiary"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(not(containsString("A denizen of the Witch domain."))))
+                .andExpect(content().string(not(containsString("A denizen under the Witch command."))))
+                .andExpect(content().string(containsString("enemy-card")))
+                .andExpect(content().string(not(containsString("openEnemyModal"))));
+    }
 }
 
 

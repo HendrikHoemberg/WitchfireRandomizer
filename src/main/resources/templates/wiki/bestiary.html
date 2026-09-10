@@ -13,14 +13,11 @@
 <body>
     <div th:replace="~{fragments/navigation :: navbar('bestiary')}"></div>
 
-    <main class="container"
-          th:data-modal-open="${initialModalOpen != null and initialModalOpen}"
-          x-data="{
+    <main class="container" x-data="{
         searchQuery: '',
         selectedGnosis: '',
         selectedLocation: '',
         sortCriteria: 'name',
-        showModal: false,
         updateFilters() {
             htmx.ajax('GET', '/wiki/bestiary/enemies', {
                 target: '#bestiary-enemies-grid',
@@ -39,21 +36,8 @@
             this.selectedLocation = '';
             this.sortCriteria = 'name';
             this.updateFilters();
-        },
-        openEnemyModal(enemyId) {
-            this.showModal = true;
-            htmx.ajax('GET', '/wiki/bestiary/enemy/' + enemyId, {
-                target: '#enemy-modal-dialog',
-                swap: 'innerHTML'
-            });
         }
-    }"
-    x-init="
-        const modalId = new URLSearchParams(window.location.search).get('modal');
-        if (modalId) {
-            openEnemyModal(modalId);
-        }
-    ">
+    }">
         <!-- Centered Witchfire Logo -->
         <div class="logo-container">
             <a href="/">
@@ -67,17 +51,16 @@
         <!-- Search and Filters Box -->
         <div class="wiki-filter-box texture-box">
             <!-- Search Input -->
-            <div class="search-input-wrapper" style="position: relative; margin-bottom: 1.25rem;">
+            <div class="search-input-wrapper">
                 <input type="text"
                        class="wiki-search-input"
-                       placeholder="Search enemies by name, description, or attack..."
+                       placeholder="Search enemies by name, attack, or location..."
                        x-model="searchQuery"
                        @input.debounce.300ms="updateFilters()" />
                 <button type="button"
                         x-show="searchQuery.length > 0"
                         @click="searchQuery = ''; updateFilters()"
                         class="search-clear-btn"
-                        style="position: absolute; right: 0.75rem; top: 35%; transform: translateY(-50%); background: none; border: none; color: #9ca3af; font-size: 1.25rem; cursor: pointer;"
                         title="Clear search">
                     &times;
                 </button>
@@ -105,40 +88,24 @@
                 </div>
             </div>
 
-            <!-- Secondary Filters: Location & Sort -->
-            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--wf-border); align-items: center; justify-content: space-between;">
-                <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-                    <!-- Location Filter -->
-                    <div style="display: flex; align-items: center; gap: 0.5rem;">
-                        <label style="font-size: 0.85rem; color: #9ca3af; font-weight: 500;">Location:</label>
-                        <select class="custom-select"
-                                style="background: #201d19; color: #e5e7eb; border: 1px solid var(--wf-border); border-radius: 0.375rem; padding: 0.35rem 0.75rem; font-size: 0.85rem;"
-                                x-model="selectedLocation"
-                                @change="updateFilters()">
-                            <option value="">All Locations</option>
-                            <option th:each="loc : ${locations}" th:value="${loc}" th:text="${loc}">Location</option>
-                        </select>
-                    </div>
-
-                    <!-- Sort -->
-                    <div style="display: flex; align-items: center; gap: 0.5rem;">
-                        <label style="font-size: 0.85rem; color: #9ca3af; font-weight: 500;">Sort By:</label>
-                        <select class="custom-select"
-                                style="background: #201d19; color: #e5e7eb; border: 1px solid var(--wf-border); border-radius: 0.375rem; padding: 0.35rem 0.75rem; font-size: 0.85rem;"
-                                x-model="sortCriteria"
-                                @change="updateFilters()">
-                            <option value="name">Name (A-Z)</option>
-                            <option value="health">Health (High to Low)</option>
-                            <option value="gnosis">Gnosis (Low to High)</option>
-                        </select>
-                    </div>
+            <!-- Secondary Filters: Location & Reset -->
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--wf-border); align-items: center; justify-content: space-between;">
+                <!-- Location Filter -->
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <label style="font-size: 0.85rem; color: #9ca3af; font-weight: 500;">Location:</label>
+                    <select class="custom-select"
+                            style="background: #201d19; color: #e5e7eb; border: 1px solid var(--wf-border); border-radius: 0.375rem; padding: 0.35rem 0.75rem; font-size: 0.85rem;"
+                            x-model="selectedLocation"
+                            @change="updateFilters()">
+                        <option value="">All Locations</option>
+                        <option th:each="loc : ${locations}" th:value="${loc}" th:text="${loc}">Location</option>
+                    </select>
                 </div>
 
                 <!-- Reset Filters Button -->
                 <div x-show="searchQuery || selectedGnosis !== '' || selectedLocation || sortCriteria !== 'name'">
                     <button type="button"
-                            class="filter-pill-btn"
-                            style="font-size: 0.8rem; color: #f87171; border-color: rgba(239, 68, 68, 0.4);"
+                            class="filter-pill-btn filter-reset-btn"
                             @click="clearAllFilters()">
                         Reset Filters
                     </button>
@@ -147,39 +114,27 @@
         </div>
 
         <!-- Results Header -->
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-            <div style="font-size: 0.95rem; color: #ffffff;">
+        <div class="wiki-results-header">
+            <div class="results-counter">
                 Showing <span th:text="${#lists.size(enemies)}">0</span>
                 <span th:text="${#lists.size(enemies) == 1 ? 'enemy' : 'enemies'}">enemies</span>
+            </div>
+
+            <!-- Sort dropdown aligned right, matching Equipment tab -->
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <label style="font-size: 0.9rem; color: #ffffff; font-weight: 500;">Sort By:</label>
+                <select class="wiki-sort-select"
+                        x-model="sortCriteria"
+                        @change="updateFilters()">
+                    <option value="name">Name (A-Z)</option>
+                    <option value="health">Health (High to Low)</option>
+                    <option value="gnosis">Gnosis (Low to High)</option>
+                </select>
             </div>
         </div>
 
         <!-- Enemy Grid -->
         <div th:replace="~{wiki/fragments/enemy-grid :: enemyGrid}"></div>
-
-        <!-- Detail Modal Overlay -->
-        <div class="detail-modal-overlay"
-             x-show="showModal"
-             x-cloak
-             @click="showModal = false"
-             @keydown.escape.window="showModal = false">
-            <div class="detail-modal-box wiki-modal-box texture-box"
-                 style="position: relative;"
-                 @click.stop>
-                <button type="button"
-                        class="modal-close-btn"
-                        @click="showModal = false"
-                        title="Close">
-                    &times;
-                </button>
-                <div id="enemy-modal-dialog">
-                    <th:block th:if="${enemy != null}">
-                        <div th:replace="~{wiki/fragments/enemy-modal :: enemyModalContent}"></div>
-                    </th:block>
-                    <p th:if="${enemy == null}" style="padding: 2rem; text-align: center; color: #9ca3af;">Loading details...</p>
-                </div>
-            </div>
-        </div>
     </main>
 
     <div th:replace="~{fragments/footer :: footer}"></div>
