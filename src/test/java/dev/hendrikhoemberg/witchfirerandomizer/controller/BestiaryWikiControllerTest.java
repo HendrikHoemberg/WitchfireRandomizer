@@ -22,7 +22,8 @@ class BestiaryWikiControllerTest {
         mockMvc.perform(get("/wiki/bestiary"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("wiki/bestiary"))
-                .andExpect(model().attributeExists("enemies", "locations", "gnosisLevels"))
+                .andExpect(model().attributeExists("enemies", "locations", "locationGroups"))
+                .andExpect(model().attributeDoesNotExist("gnosisLevels"))
                 .andExpect(content().string(containsString("Bestiary")))
                 .andExpect(content().string(containsString("Anointer")))
                 .andExpect(content().string(containsString("Arcabusier")));
@@ -30,7 +31,7 @@ class BestiaryWikiControllerTest {
 
     @Test
     void shouldReturnEnemyGridFragment() throws Exception {
-        mockMvc.perform(get("/wiki/bestiary/enemies").param("gnosis", "3"))
+        mockMvc.perform(get("/wiki/bestiary/enemies").param("location", "Irongate Castle"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("wiki/fragments/enemy-grid :: enemyGrid"))
                 .andExpect(content().string(containsString("Anointer")));

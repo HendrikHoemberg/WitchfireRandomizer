@@ -59,19 +59,16 @@ public class EnemyRepository {
         return Optional.ofNullable(enemyById.get(id));
     }
 
-    public List<Enemy> search(String query, Integer gnosis, String rank, String location, String sort) {
+    public List<Enemy> search(String query, String rank, String location, String sort) {
         List<Enemy> filtered = enemyList.stream()
                 .filter(e -> {
                     if (query != null && !query.isBlank()) {
                         String q = query.trim().toLowerCase();
                         boolean matchesName = e.getName() != null && e.getName().toLowerCase().contains(q);
-                        boolean matchesDesc = e.getDescription() != null && e.getDescription().toLowerCase().contains(q);
-                        if (!matchesName && !matchesDesc) {
-                            return false;
-                        }
-                    }
-                    if (gnosis != null) {
-                        if (e.getGnosis() == null || !e.getGnosis().equals(gnosis)) {
+                        boolean matchesDamage = e.getDamage() != null && e.getDamage().toLowerCase().contains(q);
+                        boolean matchesLocation = e.getLocations() != null && e.getLocations().stream()
+                                .anyMatch(l -> l != null && l.toLowerCase().contains(q));
+                        if (!matchesName && !matchesDamage && !matchesLocation) {
                             return false;
                         }
                     }
@@ -81,9 +78,9 @@ public class EnemyRepository {
                         }
                     }
                     if (location != null && !location.isBlank()) {
-                        String locLower = location.trim().toLowerCase();
-                        boolean matchesLoc = e.getLocations().stream()
-                                .anyMatch(l -> l.toLowerCase().contains(locLower));
+                        String wanted = location.trim();
+                        boolean matchesLoc = e.getLocations() != null && e.getLocations().stream()
+                                .anyMatch(l -> l != null && l.equalsIgnoreCase(wanted));
                         if (!matchesLoc) {
                             return false;
                         }
@@ -98,11 +95,6 @@ public class EnemyRepository {
                 int h1 = a.getHealth() != null ? a.getHealth() : 0;
                 int h2 = b.getHealth() != null ? b.getHealth() : 0;
                 return Integer.compare(h2, h1); // descending
-            });
-            case "gnosis" -> filtered.sort((a, b) -> {
-                int g1 = a.getGnosis() != null ? a.getGnosis() : 0;
-                int g2 = b.getGnosis() != null ? b.getGnosis() : 0;
-                return Integer.compare(g1, g2); // ascending
             });
             case "name" -> filtered.sort(Comparator.comparing(e -> e.getName() != null ? e.getName() : ""));
             default -> filtered.sort(Comparator.comparing(e -> e.getName() != null ? e.getName() : ""));
@@ -127,5 +119,41 @@ public class EnemyRepository {
                 .distinct()
                 .sorted()
                 .toList();
+    }
+
+    /** A dropdown entry: the full location (posted value) plus the label to show. */
+    public record LocationOption(String value, String label) {
+    }
+
+    /**
+     * Locations grouped for the bestiary dropdown, in display order: Regions, then the Vaults inside
+     * them, then the locations enemies are summoned at. Empty groups are omitted.
+     */
+    public Map<String, List<LocationOption>> getLocationGroups() {
+        List<LocationOption> regions = new ArrayList<>();
+        List<LocationOption> vaults = new ArrayList<>();
+        List<LocationOption> summoned = new ArrayList<>();
+
+        for (String location : getAllLocations()) {
+            if (location.endsWith(" Vault")) {
+                vaults.add(new LocationOption(location, location));
+            } else if (location.startsWith("Summoned by ")) {
+                summoned.add(new LocationOption(location, location.substring("Summoned by ".length())));
+            } else {
+                regions.add(new LocationOption(location, location));
+            }
+        }
+
+        Map<String, List<LocationOption>> groups = new LinkedHashMap<>();
+        if (!regions.isEmpty()) {
+            groups.put("Regions", regions);
+        }
+        if (!vaults.isEmpty()) {
+            groups.put("Vaults", vaults);
+        }
+        if (!summoned.isEmpty()) {
+            groups.put("Summoned", summoned);
+        }
+        return groups;
     }
 }

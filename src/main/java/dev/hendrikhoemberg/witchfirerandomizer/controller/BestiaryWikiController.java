@@ -10,6 +10,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
+
 @Controller
 @RequestMapping("/wiki/bestiary")
 public class BestiaryWikiController {
@@ -23,17 +24,15 @@ public class BestiaryWikiController {
     @GetMapping
     public String index(
             @RequestParam(required = false) String search,
-            @RequestParam(required = false) Integer gnosis,
             @RequestParam(required = false) String location,
             @RequestParam(required = false, defaultValue = "name") String sort,
             @RequestParam(required = false) String modal,
             Model model) {
         model.addAttribute("activeTab", "bestiary");
         model.addAttribute("pageTitle", "Bestiary & Vulnerabilities - Witchfire Companion");
-        model.addAttribute("enemies", enemyRepository.search(search, gnosis, null, location, sort));
+        model.addAttribute("enemies", enemyRepository.search(search, null, location, sort));
         model.addAttribute("locations", enemyRepository.getAllLocations());
-        model.addAttribute("gnosisLevels", List.of(0, 1, 2, 3, 4, 5, 6));
-        model.addAttribute("selectedGnosis", gnosis);
+        model.addAttribute("locationGroups", enemyRepository.getLocationGroups());
         model.addAttribute("selectedLocation", location);
         model.addAttribute("sortCriteria", sort);
         model.addAttribute("searchQuery", search != null ? search : "");
@@ -49,11 +48,10 @@ public class BestiaryWikiController {
     @GetMapping("/enemies")
     public String getEnemies(
             @RequestParam(required = false) String search,
-            @RequestParam(required = false) Integer gnosis,
             @RequestParam(required = false) String location,
             @RequestParam(required = false, defaultValue = "name") String sort,
             Model model) {
-        List<Enemy> enemies = enemyRepository.search(search, gnosis, null, location, sort);
+        List<Enemy> enemies = enemyRepository.search(search, null, location, sort);
         model.addAttribute("enemies", enemies);
         return "wiki/fragments/enemy-grid :: enemyGrid";
     }
