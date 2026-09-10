@@ -28,6 +28,7 @@ public class ArcanaWikiController {
             @RequestParam(required = false) String prophecyType,
             @RequestParam(required = false) Element element,
             @RequestParam(required = false, defaultValue = "cards") String viewMode,
+            @RequestParam(required = false) String modal,
             Model model) {
         model.addAttribute("activeTab", "arcana");
         model.addAttribute("pageTitle", "Arcana & Prophecies - Witchfire Companion");
@@ -39,6 +40,12 @@ public class ArcanaWikiController {
         model.addAttribute("selectedProphecyType", prophecyType);
         model.addAttribute("searchQuery", search != null ? search : "");
         model.addAttribute("viewMode", viewMode);
+        if (modal != null) {
+            arcanaRepository.findById(modal).ifPresent(c -> {
+                model.addAttribute("card", c);
+                model.addAttribute("initialModalOpen", true);
+            });
+        }
         return "wiki/arcana";
     }
 

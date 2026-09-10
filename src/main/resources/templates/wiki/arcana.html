@@ -13,7 +13,9 @@
 <body>
     <div th:replace="~{fragments/navigation :: navbar('arcana')}"></div>
 
-    <main class="container" x-data="{
+    <main class="container"
+          th:data-modal-open="${initialModalOpen != null and initialModalOpen}"
+          x-data="{
         viewMode: 'cards',
         searchQuery: '',
         selectedElement: '',
@@ -43,7 +45,13 @@
                 swap: 'innerHTML'
             });
         }
-    }">
+    }"
+    x-init="
+        const modalId = new URLSearchParams(window.location.search).get('modal');
+        if (modalId) {
+            openArcanaModal(modalId);
+        }
+    ">
         <!-- Centered Witchfire Logo -->
         <div class="logo-container">
             <a href="/">
@@ -169,13 +177,16 @@
                  style="position: relative;"
                  @click.stop>
                 <button type="button"
+                        class="modal-close-btn"
                         @click="showModal = false"
-                        style="position: absolute; top: 0.75rem; right: 0.75rem; background: none; border: none; font-size: 1.75rem; color: #9ca3af; cursor: pointer; z-index: 20;"
                         title="Close">
                     &times;
                 </button>
                 <div id="arcana-modal-dialog">
-                    <p style="padding: 2rem; text-align: center; color: #9ca3af;">Loading details...</p>
+                    <th:block th:if="${card != null}">
+                        <div th:replace="~{wiki/fragments/arcana-modal :: arcanaModalContent}"></div>
+                    </th:block>
+                    <p th:if="${card == null}" style="padding: 2rem; text-align: center; color: #9ca3af;">Loading details...</p>
                 </div>
             </div>
         </div>

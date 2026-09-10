@@ -13,10 +13,11 @@
 <body>
     <div th:replace="~{fragments/navigation :: navbar('bestiary')}"></div>
 
-    <main class="container" x-data="{
+    <main class="container"
+          th:data-modal-open="${initialModalOpen != null and initialModalOpen}"
+          x-data="{
         searchQuery: '',
         selectedGnosis: '',
-        selectedRank: '',
         selectedLocation: '',
         sortCriteria: 'name',
         showModal: false,
@@ -27,7 +28,6 @@
                 values: {
                     search: this.searchQuery,
                     gnosis: this.selectedGnosis,
-                    rank: this.selectedRank,
                     location: this.selectedLocation,
                     sort: this.sortCriteria
                 }
@@ -36,7 +36,6 @@
         clearAllFilters() {
             this.searchQuery = '';
             this.selectedGnosis = '';
-            this.selectedRank = '';
             this.selectedLocation = '';
             this.sortCriteria = 'name';
             this.updateFilters();
@@ -48,7 +47,13 @@
                 swap: 'innerHTML'
             });
         }
-    }">
+    }"
+    x-init="
+        const modalId = new URLSearchParams(window.location.search).get('modal');
+        if (modalId) {
+            openEnemyModal(modalId);
+        }
+    ">
         <!-- Centered Witchfire Logo -->
         <div class="logo-container">
             <a href="/">
@@ -78,49 +83,25 @@
                 </button>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-                <!-- Gnosis Level Filter -->
-                <div>
-                    <h3 class="filter-section-title">Filter by Gnosis</h3>
-                    <div class="filter-pills-row">
-                        <button type="button"
-                                class="filter-pill-btn"
-                                :class="selectedGnosis === '' ? 'active' : ''"
-                                @click="selectedGnosis = ''; updateFilters()">
-                            All Gnosis
-                        </button>
-                        <button th:each="g : ${gnosisLevels}"
-                                type="button"
-                                class="filter-pill-btn"
-                                th:data-gnosis="${g}"
-                                th:text="'Gnosis ' + ${g}"
-                                :class="selectedGnosis === $el.dataset.gnosis ? 'active' : ''"
-                                @click="selectedGnosis = $el.dataset.gnosis; updateFilters()">
-                            Gnosis 0
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Rank Filter -->
-                <div>
-                    <h3 class="filter-section-title">Filter by Rank</h3>
-                    <div class="filter-pills-row">
-                        <button type="button"
-                                class="filter-pill-btn"
-                                :class="selectedRank === '' ? 'active' : ''"
-                                @click="selectedRank = ''; updateFilters()">
-                            All Ranks
-                        </button>
-                        <button th:each="r : ${ranks}"
-                                type="button"
-                                class="filter-pill-btn"
-                                th:data-rank="${r}"
-                                th:text="${r}"
-                                :class="selectedRank === $el.dataset.rank ? 'active' : ''"
-                                @click="selectedRank = $el.dataset.rank; updateFilters()">
-                            Rank
-                        </button>
-                    </div>
+            <!-- Gnosis Level Filter -->
+            <div style="margin-bottom: 0.5rem;">
+                <h3 class="filter-section-title">Filter by Gnosis</h3>
+                <div class="filter-pills-row">
+                    <button type="button"
+                            class="filter-pill-btn"
+                            :class="selectedGnosis === '' ? 'active' : ''"
+                            @click="selectedGnosis = ''; updateFilters()">
+                        All Gnosis
+                    </button>
+                    <button th:each="g : ${gnosisLevels}"
+                            type="button"
+                            class="filter-pill-btn"
+                            th:data-gnosis="${g}"
+                            th:text="'Gnosis ' + ${g}"
+                            :class="selectedGnosis === $el.dataset.gnosis ? 'active' : ''"
+                            @click="selectedGnosis = $el.dataset.gnosis; updateFilters()">
+                        Gnosis 0
+                    </button>
                 </div>
             </div>
 
@@ -154,7 +135,7 @@
                 </div>
 
                 <!-- Reset Filters Button -->
-                <div x-show="searchQuery || selectedGnosis !== '' || selectedRank || selectedLocation || sortCriteria !== 'name'">
+                <div x-show="searchQuery || selectedGnosis !== '' || selectedLocation || sortCriteria !== 'name'">
                     <button type="button"
                             class="filter-pill-btn"
                             style="font-size: 0.8rem; color: #f87171; border-color: rgba(239, 68, 68, 0.4);"
@@ -178,13 +159,16 @@
                  style="position: relative;"
                  @click.stop>
                 <button type="button"
+                        class="modal-close-btn"
                         @click="showModal = false"
-                        style="position: absolute; top: 0.75rem; right: 0.75rem; background: none; border: none; font-size: 1.75rem; color: #9ca3af; cursor: pointer; z-index: 20;"
                         title="Close">
                     &times;
                 </button>
                 <div id="enemy-modal-dialog">
-                    <p style="padding: 2rem; text-align: center; color: #9ca3af;">Loading details...</p>
+                    <th:block th:if="${enemy != null}">
+                        <div th:replace="~{wiki/fragments/enemy-modal :: enemyModalContent}"></div>
+                    </th:block>
+                    <p th:if="${enemy == null}" style="padding: 2rem; text-align: center; color: #9ca3af;">Loading details...</p>
                 </div>
             </div>
         </div>

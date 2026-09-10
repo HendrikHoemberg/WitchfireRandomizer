@@ -1119,11 +1119,42 @@ input:checked + .slider:before {
   z-index: 1000;
 }
 .detail-modal-box {
-  max-width: 500px;
+  max-width: 620px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
+  background-color: #141210;
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 0, 0, 0.95);
+  border-radius: 0.5rem;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: rgba(22, 19, 15, 0.85);
+  border: 1px solid var(--wf-border);
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.35rem;
+  line-height: 1;
+  z-index: 30;
+  transition: color 0.15s, border-color 0.15s, background-color 0.15s, transform 0.15s;
+}
+
+.modal-close-btn:hover {
+  color: var(--wf-gold);
+  border-color: var(--wf-gold);
+  background: rgba(45, 38, 28, 0.95);
+  transform: scale(1.08);
 }
 
 /* Site Footer */
@@ -1561,36 +1592,377 @@ input:checked + .slider:before {
   background: rgba(20, 83, 45, 0.2);
 }
 
-/* Modal details */
-.resistance-box {
-  background: #171512;
-  border: 1px solid var(--wf-border);
-  border-radius: 0.375rem;
-  padding: 0.5rem;
-  text-align: center;
+/* ==========================================================================
+   Wiki Modal Styling (Arcana & Bestiary - Dark Fantasy Aesthetic, No Emojis)
+   ========================================================================== */
+.wiki-modal-container {
+  padding: 1.5rem;
+  position: relative;
 }
 
-.res-label {
-  font-size: 0.7rem;
+.wiki-modal-header {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--wf-border);
+  padding-right: 2.25rem; /* clearance for modal-close-btn */
+}
+
+.wiki-modal-header-info {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.wiki-modal-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.wiki-modal-title {
+  font-family: var(--font-gothic, serif);
+  font-size: 1.65rem;
+  color: var(--wf-gold);
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
+
+.wiki-modal-section {
+  margin-top: 1.25rem;
+}
+
+.wiki-modal-section-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--wf-gold);
+  margin: 0 0 0.5rem 0;
+}
+
+/* Arcana Modal Specifics */
+.arcana-modal-icon-frame {
+  width: 5.5rem;
+  height: 5.5rem;
+  background: radial-gradient(circle, #201c17 0%, #0d0b09 100%);
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.85), 0 3px 10px rgba(0, 0, 0, 0.6);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arcana-modal-icon-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.7));
+}
+
+.arcana-modal-icon-fallback {
+  font-family: var(--font-gothic, serif);
+  font-size: 2.25rem;
+  color: var(--wf-gold);
+}
+
+.arcana-category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+}
+
+.arcana-lore-box {
+  background: rgba(22, 19, 15, 0.7);
+  border-left: 3px solid var(--wf-gold-accent);
+  padding: 0.85rem 1.15rem;
+  border-radius: 0 0.375rem 0.375rem 0;
+  border-top: 1px solid var(--wf-border-subtle);
+  border-right: 1px solid var(--wf-border-subtle);
+  border-bottom: 1px solid var(--wf-border-subtle);
+}
+
+.arcana-lore-text {
+  color: #f3f4f6;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin: 0;
+  font-style: italic;
+}
+
+.arcana-scaling-card {
+  background: linear-gradient(180deg, rgba(28, 24, 18, 0.9) 0%, rgba(14, 12, 10, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: inset 0 1px 0 rgba(212, 175, 55, 0.2);
+  border-radius: 0.375rem;
+  overflow: hidden;
+}
+
+.arcana-scaling-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.45rem 0.85rem;
+  background: rgba(212, 175, 55, 0.1);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.arcana-scaling-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--wf-gold);
+}
+
+.arcana-scaling-stat-label {
+  font-size: 0.72rem;
   color: #9ca3af;
-  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.arcana-scaling-body {
+  padding: 0.85rem 1rem;
+}
+
+.arcana-scaling-effect {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fef08a;
+  letter-spacing: 0.01em;
+}
+
+/* Enemy Modal Specifics */
+.enemy-modal-portrait-frame {
+  width: 5.5rem;
+  height: 5.5rem;
+  background: #0a0908;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.enemy-modal-portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.375rem;
+}
+
+.enemy-modal-portrait-fallback {
+  font-family: var(--font-gothic, serif);
+  font-size: 2.25rem;
+  color: var(--wf-gold);
+}
+
+.enemy-modal-badges-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.6rem;
+}
+
+.variant-badge {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.5rem;
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  color: #c084fc;
+  border-radius: 0.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.enemy-modal-combat-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.enemy-stat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.enemy-stat-chip.health-chip {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+}
+
+.enemy-stat-chip.attack-chip {
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+
+.stat-chip-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+}
+
+.stat-chip-value {
+  font-weight: 700;
+}
+
+.enemy-overview-box {
+  background: rgba(22, 19, 15, 0.6);
+  border-left: 3px solid #6b7280;
+  padding: 0.75rem 1rem;
+  border-radius: 0 0.375rem 0.375rem 0;
+  border-top: 1px solid var(--wf-border-subtle);
+  border-right: 1px solid var(--wf-border-subtle);
+  border-bottom: 1px solid var(--wf-border-subtle);
+}
+
+.enemy-overview-text {
+  color: #e5e7eb;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.resistance-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.res-card {
+  border-radius: 0.375rem;
+  padding: 0.6rem 0.5rem;
+  text-align: center;
+  transition: border-color 0.15s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.res-card-name {
+  font-size: 0.72rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 0.2rem;
 }
 
-.res-val {
+.res-card-value {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.res-card-status {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  margin-top: 0.25rem;
+}
+
+/* Vulnerable state (takes extra damage - weakness!) */
+.res-card.res-vulnerable {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+.res-card.res-vulnerable .res-card-name {
+  color: #6ee7b7;
+}
+.res-card.res-vulnerable .res-card-value {
+  color: #34d399;
+}
+.res-card.res-vulnerable .res-card-status {
+  color: #10b981;
+}
+
+/* Resistant state (reduces damage taken) */
+.res-card.res-resistant {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+}
+.res-card.res-resistant .res-card-name {
+  color: #fca5a5;
+}
+.res-card.res-resistant .res-card-value {
+  color: #f87171;
+}
+.res-card.res-resistant .res-card-status {
+  color: #ef4444;
+}
+
+/* Neutral state */
+.res-card.res-neutral {
+  background: #171512;
+  border: 1px solid var(--wf-border);
+}
+.res-card.res-neutral .res-card-name {
+  color: #9ca3af;
+}
+.res-card.res-neutral .res-card-value {
+  color: #d1d5db;
+}
+.res-card.res-neutral .res-card-status {
+  color: #6b7280;
+}
+
+.physical-res-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.physical-res-pill {
+  background: #171512;
+  border: 1px solid var(--wf-border);
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.85rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.physical-res-label {
+  font-size: 0.78rem;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.physical-res-val {
   font-size: 0.95rem;
   font-weight: 700;
   color: #e5e7eb;
 }
 
-.text-green {
-  color: #34d399 !important;
-}
-
-.text-red {
-  color: #f87171 !important;
+.locations-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .location-chip {
@@ -1598,6 +1970,6 @@ input:checked + .slider:before {
   background: #1f1b17;
   border: 1px solid #3d352c;
   color: #d1d5db;
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 0.55rem;
   border-radius: 0.25rem;
 }
