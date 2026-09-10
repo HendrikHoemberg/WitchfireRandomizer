@@ -40,3 +40,23 @@
   - [x] Step 1: Add dark-fantasy styles in `main.css` (no simple emojis)
   - [x] Step 2: Run full verification `./mvnw test`
   - [x] Step 3: Commit
+
+---
+
+# Current Task: Wiki UI Harmonization
+
+Plan: `docs/slimpowers/plans/2026-09-10-wiki-ui-harmonization.md`
+
+- [x] Task 1: Wiki design-consistency regression tests (`WikiDesignConsistencyTest`)
+  - [x] Step 1: Write failing tests
+  - [x] Step 2: Run tests — verify 8 of 9 FAIL
+  - [x] Step 3: Commit
+- [x] Task 2: One gold token + app font (drop the undefined `--font-gothic` serif)
+- [x] Task 3: Card surfaces back to the shared `.texture-box` glass + app title treatment
+- [x] Task 4: Wiki sub-nav to the app underline-tab idiom; fix the 9 px mobile overflow
+- [x] Task 5: Flatten modal content; revert the shared `.detail-modal-box` regression
+- [x] Task 6: Shared footer fragment, search gap, bestiary results header, stale copy
+- [x] Task 7: Full verification
+  - [x] Step 1: `./mvnw test` → 79 tests, 0 failures
+  - [x] Step 2: Re-capture screenshots (`target/ui-review/shots-after/`) and layout probe
+  - [x] Step 3: Commit
