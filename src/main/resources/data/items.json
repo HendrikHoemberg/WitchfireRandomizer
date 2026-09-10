@@ -20,7 +20,7 @@
     "ammoReserves": 96,
     "fireMode": "Single Shot",
     "location": "",
-    "iconUrl": "/images/items/w-all-seeing-eye.png",
+    "iconUrl": "/images/items/w-all-seeing-eye.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -73,7 +73,7 @@
     "ammoReserves": 420,
     "fireMode": "Auto",
     "location": "",
-    "iconUrl": "/images/items/w-angelus.png",
+    "iconUrl": "/images/items/w-angelus.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -126,7 +126,7 @@
     "ammoReserves": 40,
     "fireMode": "Single Shot",
     "location": "",
-    "iconUrl": "/images/items/w-basilisk.png",
+    "iconUrl": "/images/items/w-basilisk.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -179,7 +179,7 @@
     "ammoReserves": 168,
     "fireMode": "Auto",
     "location": "Outskirts Vault",
-    "iconUrl": "/images/items/w-corpse-eater.png",
+    "iconUrl": "/images/items/w-corpse-eater.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -232,7 +232,7 @@
     "ammoReserves": 330,
     "fireMode": "Auto",
     "location": "",
-    "iconUrl": "/images/items/w-cricket.png",
+    "iconUrl": "/images/items/w-cricket.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -285,7 +285,7 @@
     "ammoReserves": 168,
     "fireMode": "Auto",
     "location": "",
-    "iconUrl": "/images/items/w-duelist.png",
+    "iconUrl": "/images/items/w-duelist.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -338,7 +338,7 @@
     "ammoReserves": 40,
     "fireMode": "Semi-Auto",
     "location": "",
-    "iconUrl": "/images/items/w-echo.png",
+    "iconUrl": "/images/items/w-echo.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -391,7 +391,7 @@
     "ammoReserves": 14,
     "fireMode": "Semi-Auto",
     "location": "",
-    "iconUrl": "/images/items/w-falling-star.png",
+    "iconUrl": "/images/items/w-falling-star.webp",
     "mysteriumTiers": []
   },
   {
@@ -415,7 +415,7 @@
     "ammoReserves": 460,
     "fireMode": "Auto",
     "location": "Irongate Castle",
-    "iconUrl": "/images/items/w-fatum.png",
+    "iconUrl": "/images/items/w-fatum.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -468,7 +468,7 @@
     "ammoReserves": 84,
     "fireMode": "Single Shot",
     "location": "",
-    "iconUrl": "/images/items/w-frostbite.png",
+    "iconUrl": "/images/items/w-frostbite.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -521,7 +521,7 @@
     "ammoReserves": 20,
     "fireMode": "Single Shot",
     "location": "",
-    "iconUrl": "/images/items/w-hailstorm.png",
+    "iconUrl": "/images/items/w-hailstorm.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -574,7 +574,7 @@
     "ammoReserves": 84,
     "fireMode": "Semi Auto",
     "location": "",
-    "iconUrl": "/images/items/w-hangfire.png",
+    "iconUrl": "/images/items/w-hangfire.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -627,7 +627,7 @@
     "ammoReserves": 84,
     "fireMode": "Semi-Auto",
     "location": "",
-    "iconUrl": "/images/items/w-heart-eater.png",
+    "iconUrl": "/images/items/w-heart-eater.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -680,7 +680,7 @@
     "ammoReserves": 84,
     "fireMode": "Semi-Auto",
     "location": "",
-    "iconUrl": "/images/items/w-hunger.png",
+    "iconUrl": "/images/items/w-hunger.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -733,7 +733,7 @@
     "ammoReserves": 78,
     "fireMode": "Single Shot",
     "location": "",
-    "iconUrl": "/images/items/w-hypnosis.png",
+    "iconUrl": "/images/items/w-hypnosis.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -786,7 +786,7 @@
     "ammoReserves": 24,
     "fireMode": "Semi-Auto / Charged",
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/w-judgment.png",
+    "iconUrl": "/images/items/w-judgment.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -839,7 +839,7 @@
     "ammoReserves": 396,
     "fireMode": "Burst Fire",
     "location": "Velmorne",
-    "iconUrl": "/images/items/w-koschei.png",
+    "iconUrl": "/images/items/w-koschei.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -892,7 +892,7 @@
     "ammoReserves": 224,
     "fireMode": "Auto / Charged",
     "location": "Velmorne Vault",
-    "iconUrl": "/images/items/w-martyr.png",
+    "iconUrl": "/images/items/w-martyr.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -945,7 +945,7 @@
     "ammoReserves": 540,
     "fireMode": "Auto",
     "location": "",
-    "iconUrl": "/images/items/w-midas.png",
+    "iconUrl": "/images/items/w-midas.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -998,7 +998,7 @@
     "ammoReserves": 80,
     "fireMode": "Single Shot",
     "location": "",
-    "iconUrl": "/images/items/w-nemesis.png",
+    "iconUrl": "/images/items/w-nemesis.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -1051,7 +1051,7 @@
     "ammoReserves": 20,
     "fireMode": "Single Shot",
     "location": "Velmorne",
-    "iconUrl": "/images/items/w-oracle.png",
+    "iconUrl": "/images/items/w-oracle.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -1104,7 +1104,7 @@
     "ammoReserves": 40,
     "fireMode": "Auto",
     "location": "",
-    "iconUrl": "/images/items/w-psychopomp.png",
+    "iconUrl": "/images/items/w-psychopomp.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -1157,7 +1157,7 @@
     "ammoReserves": 270,
     "fireMode": "Auto",
     "location": "",
-    "iconUrl": "/images/items/w-ricochet.png",
+    "iconUrl": "/images/items/w-ricochet.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -1210,7 +1210,7 @@
     "ammoReserves": 480,
     "fireMode": "Auto",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/items/w-rotweaver.png",
+    "iconUrl": "/images/items/w-rotweaver.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -1263,7 +1263,7 @@
     "ammoReserves": 24,
     "fireMode": "Semi-Auto",
     "location": "",
-    "iconUrl": "/images/items/w-soul-eater.png",
+    "iconUrl": "/images/items/w-soul-eater.webp",
     "mysteriumTiers": []
   },
   {
@@ -1287,7 +1287,7 @@
     "ammoReserves": 43,
     "fireMode": "Single Shot",
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/w-striga.png",
+    "iconUrl": "/images/items/w-striga.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -1340,7 +1340,7 @@
     "ammoReserves": 120,
     "fireMode": "Auto / Charged",
     "location": "",
-    "iconUrl": "/images/items/w-tempest.png",
+    "iconUrl": "/images/items/w-tempest.webp",
     "mysteriumTiers": []
   },
   {
@@ -1364,7 +1364,7 @@
     "ammoReserves": 42,
     "fireMode": "Semi-Auto",
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/w-tribunal.png",
+    "iconUrl": "/images/items/w-tribunal.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -1417,7 +1417,7 @@
     "ammoReserves": 10,
     "fireMode": "Single Shot",
     "location": "",
-    "iconUrl": "/images/items/w-vulture.png",
+    "iconUrl": "/images/items/w-vulture.webp",
     "mysteriumTiers": []
   },
   {
@@ -1441,7 +1441,7 @@
     "ammoReserves": 17,
     "fireMode": "Semi-Auto",
     "location": "",
-    "iconUrl": "/images/items/w-whisper.png",
+    "iconUrl": "/images/items/w-whisper.webp",
     "mysteriumTiers": []
   },
   {
@@ -1455,7 +1455,7 @@
     "specialAttack": "Block just before impact to Parry and fire a retaliation projectile.",
     "specialDamage": "60",
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/mw-buckler.png",
+    "iconUrl": "/images/items/mw-buckler.webp",
     "mysteriumTiers": []
   },
   {
@@ -1469,7 +1469,7 @@
     "specialAttack": "Attack again mid-swing to chain into a rising uppercut.",
     "specialDamage": "50",
     "location": "",
-    "iconUrl": "/images/items/mw-fist.png",
+    "iconUrl": "/images/items/mw-fist.webp",
     "mysteriumTiers": []
   },
   {
@@ -1483,7 +1483,7 @@
     "specialAttack": "Attack while sliding to perform a long-range predatory leap.",
     "specialDamage": "100",
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/mw-katar.png",
+    "iconUrl": "/images/items/mw-katar.webp",
     "mysteriumTiers": []
   },
   {
@@ -1497,7 +1497,7 @@
     "specialAttack": "Crouch in mid-air to execute a ground slam shockwave.",
     "specialDamage": "60 - 200",
     "location": "Velmorne Vault",
-    "iconUrl": "/images/items/mw-morning-star.png",
+    "iconUrl": "/images/items/mw-morning-star.webp",
     "mysteriumTiers": []
   },
   {
@@ -1511,7 +1511,7 @@
     "specialAttack": "Hold charged melee to toll a stunning shockwave.",
     "specialDamage": "15",
     "location": "Marshland",
-    "iconUrl": "/images/items/mw-sacring-bell.png",
+    "iconUrl": "/images/items/mw-sacring-bell.webp",
     "mysteriumTiers": []
   },
   {
@@ -1525,7 +1525,7 @@
     "specialAttack": "Hold melee for a heavier blow. Hold longer to release a forward fire shockwave.",
     "specialDamage": "180, 120",
     "location": "Irongate Castle",
-    "iconUrl": "/images/items/mw-zweihander.png",
+    "iconUrl": "/images/items/mw-zweihander.webp",
     "mysteriumTiers": []
   },
   {
@@ -1537,7 +1537,7 @@
     "charges": 1,
     "recharge": "20",
     "location": "",
-    "iconUrl": "/images/items/s-blight-cyst.png",
+    "iconUrl": "/images/items/s-blight-cyst.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -1586,7 +1586,7 @@
     "charges": 1,
     "recharge": "60",
     "location": "Irongate Castle",
-    "iconUrl": "/images/items/s-burning-stake.png",
+    "iconUrl": "/images/items/s-burning-stake.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -1635,7 +1635,7 @@
     "charges": 1,
     "recharge": "100",
     "location": "",
-    "iconUrl": "/images/items/s-cornucopia.png",
+    "iconUrl": "/images/items/s-cornucopia.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -1679,7 +1679,7 @@
     "charges": 1,
     "recharge": "65",
     "location": "",
-    "iconUrl": "/images/items/s-cursed-bell.png",
+    "iconUrl": "/images/items/s-cursed-bell.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -1728,7 +1728,7 @@
     "charges": 2,
     "recharge": "25",
     "location": "",
-    "iconUrl": "/images/items/s-fireballs.png",
+    "iconUrl": "/images/items/s-fireballs.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -1777,7 +1777,7 @@
     "charges": 1,
     "recharge": "20",
     "location": "Island of the Damned",
-    "iconUrl": "/images/items/s-firebreath.png",
+    "iconUrl": "/images/items/s-firebreath.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -1821,7 +1821,7 @@
     "charges": 1,
     "recharge": "22",
     "location": "",
-    "iconUrl": "/images/items/s-frost-cone.png",
+    "iconUrl": "/images/items/s-frost-cone.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -1865,7 +1865,7 @@
     "charges": 1,
     "recharge": "60",
     "location": "",
-    "iconUrl": "/images/items/s-ice-sphere.png",
+    "iconUrl": "/images/items/s-ice-sphere.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -1909,7 +1909,7 @@
     "charges": 2,
     "recharge": "18",
     "location": "",
-    "iconUrl": "/images/items/s-ice-stiletto.png",
+    "iconUrl": "/images/items/s-ice-stiletto.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -1953,7 +1953,7 @@
     "charges": 1,
     "recharge": "100",
     "location": "",
-    "iconUrl": "/images/items/s-iron-cross.png",
+    "iconUrl": "/images/items/s-iron-cross.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2002,7 +2002,7 @@
     "charges": 1,
     "recharge": "17",
     "location": "",
-    "iconUrl": "/images/items/s-lightning-bolt.png",
+    "iconUrl": "/images/items/s-lightning-bolt.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2051,7 +2051,7 @@
     "charges": 1,
     "recharge": "65",
     "location": "Witch Mountain",
-    "iconUrl": "/images/items/s-miasma.png",
+    "iconUrl": "/images/items/s-miasma.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2103,7 +2103,7 @@
     "charges": 1,
     "recharge": "0",
     "location": "Marshland",
-    "iconUrl": "/images/items/s-pyre-skull.png",
+    "iconUrl": "/images/items/s-pyre-skull.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2147,7 +2147,7 @@
     "charges": 1,
     "recharge": "55",
     "location": "",
-    "iconUrl": "/images/items/s-rotten-fiend.png",
+    "iconUrl": "/images/items/s-rotten-fiend.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2191,7 +2191,7 @@
     "charges": 1,
     "recharge": "15",
     "location": "",
-    "iconUrl": "/images/items/s-shockwave.png",
+    "iconUrl": "/images/items/s-shockwave.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2235,7 +2235,7 @@
     "charges": 3,
     "recharge": "15",
     "location": "Scarlet Coast",
-    "iconUrl": "/images/items/s-stigma-diabolicum.png",
+    "iconUrl": "/images/items/s-stigma-diabolicum.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2284,7 +2284,7 @@
     "charges": 1,
     "recharge": "35",
     "location": "",
-    "iconUrl": "/images/items/s-stormball.png",
+    "iconUrl": "/images/items/s-stormball.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2328,7 +2328,7 @@
     "charges": 2,
     "recharge": "20",
     "location": "Witch Mountain",
-    "iconUrl": "/images/items/s-twinshade.png",
+    "iconUrl": "/images/items/s-twinshade.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2372,7 +2372,7 @@
     "charges": 1,
     "recharge": "0",
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/s-winter-nail.png",
+    "iconUrl": "/images/items/s-winter-nail.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2414,7 +2414,7 @@
     "element": null,
     "description": "Kills release healing witchfire orbs. The closer to death, the more often they appear and the more they restore.",
     "location": "",
-    "iconUrl": "/images/items/m-balewort.png",
+    "iconUrl": "/images/items/m-balewort.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2461,7 +2461,7 @@
     "element": null,
     "description": "A regenerating aura that fully shields against minor damage but allows any stronger attack to penetrate.",
     "location": "",
-    "iconUrl": "/images/items/m-belladonna.png",
+    "iconUrl": "/images/items/m-belladonna.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2508,7 +2508,7 @@
     "element": "Water",
     "description": "Barrier breaks release a freezing shockwave.",
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/m-biting-tongue.png",
+    "iconUrl": "/images/items/m-biting-tongue.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2550,7 +2550,7 @@
     "element": null,
     "description": "Any damage taken makes the fetish release a powerful shockwave.",
     "location": "",
-    "iconUrl": "/images/items/m-bittersweet-nightshade.png",
+    "iconUrl": "/images/items/m-bittersweet-nightshade.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2593,7 +2593,7 @@
     "element": "Fire",
     "description": "Blood spilled by fire and lead. Overkill causes the victim to explode, igniting nearby enemies.",
     "location": "",
-    "iconUrl": "/images/items/m-blood-of-a-banshee.png",
+    "iconUrl": "/images/items/m-blood-of-a-banshee.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2640,7 +2640,7 @@
     "element": "Earth",
     "description": "A powerful talisman as well as a grimoire. Anyone who hurts its owner is cursed with Decay.",
     "location": "",
-    "iconUrl": "/images/items/m-book-of-serpents.png",
+    "iconUrl": "/images/items/m-book-of-serpents.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2682,7 +2682,7 @@
     "element": "Water",
     "description": "Radiates an Aura that freezes any Minor enemy who wounds the owner of the relic with a melee attack.",
     "location": "Irongate Castle",
-    "iconUrl": "/images/items/m-braid-of-a-seductress.png",
+    "iconUrl": "/images/items/m-braid-of-a-seductress.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2724,7 +2724,7 @@
     "element": "Fire",
     "description": "Dash applies the Fire elemental to a weapon for a short time.",
     "location": "",
-    "iconUrl": "/images/items/m-crown-of-fire.png",
+    "iconUrl": "/images/items/m-crown-of-fire.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2766,7 +2766,7 @@
     "element": "Air",
     "description": "Dashing electrocutes the last enemy damaged by firearms.",
     "location": "",
-    "iconUrl": "/images/items/m-dynamo-ring.png",
+    "iconUrl": "/images/items/m-dynamo-ring.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2810,7 +2810,7 @@
     "element": "Air",
     "description": "An eye inked with the infant blood. The relic strikes any near death enemy with a heavenly lightning.",
     "location": "",
-    "iconUrl": "/images/items/m-eye-of-the-madwoman.png",
+    "iconUrl": "/images/items/m-eye-of-the-madwoman.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2857,7 +2857,7 @@
     "element": null,
     "description": "Significantly increases the effectiveness of healing elixirs.",
     "location": "",
-    "iconUrl": "/images/items/m-henbane.png",
+    "iconUrl": "/images/items/m-henbane.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2901,7 +2901,7 @@
     "element": "Air",
     "description": "After landing multiple shots, a bolt of lightning arcs between nearby enemies.",
     "location": "Island of the Damned Vault",
-    "iconUrl": "/images/items/m-kirfane.png",
+    "iconUrl": "/images/items/m-kirfane.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2943,7 +2943,7 @@
     "element": null,
     "description": "Prevents fatal damage once per expedition. Activated, restores some health, fully recharges spells, and grants a few seconds of immunity to any incoming damage.",
     "location": "Scarlet Coast",
-    "iconUrl": "/images/items/m-mandrake.png",
+    "iconUrl": "/images/items/m-mandrake.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -2990,7 +2990,7 @@
     "element": "Fire",
     "description": "Slides are longer and create a damaging fire trail that burns enemies.",
     "location": "Irongate Castle",
-    "iconUrl": "/images/items/m-meteor-ring.png",
+    "iconUrl": "/images/items/m-meteor-ring.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -3037,7 +3037,7 @@
     "element": null,
     "description": "Absorbing a Manifestation crystal adds a magical shield that neutralizes any damage once and then dissipates.",
     "location": "Irongate Castle Vault",
-    "iconUrl": "/images/items/m-monkshood.png",
+    "iconUrl": "/images/items/m-monkshood.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -3079,7 +3079,7 @@
     "element": "Fire",
     "description": "A tooth found among witch's ashes. Critical shots on full health enemies ignite them.",
     "location": "",
-    "iconUrl": "/images/items/m-painted-tooth.png",
+    "iconUrl": "/images/items/m-painted-tooth.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -3121,7 +3121,7 @@
     "element": "Earth",
     "description": "Curses the nearest enemy with Decay.",
     "location": "Velmorne",
-    "iconUrl": "/images/items/m-parasite.png",
+    "iconUrl": "/images/items/m-parasite.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -3168,7 +3168,7 @@
     "element": "Earth",
     "description": "Dash leaves behind a delayed bomb that damages and knocks back enemies.",
     "location": "",
-    "iconUrl": "/images/items/m-ring-of-excreta.png",
+    "iconUrl": "/images/items/m-ring-of-excreta.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -3215,7 +3215,7 @@
     "element": null,
     "description": "Dashing while looking at the last wounded enemy pushes them in the direction of the Dash.",
     "location": "",
-    "iconUrl": "/images/items/m-ring-of-obedience.png",
+    "iconUrl": "/images/items/m-ring-of-obedience.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -3262,7 +3262,7 @@
     "element": "Water",
     "description": "Dodging a melee attack with Dash freezes the attacker. Killing them before they thaw occasionally creates an ammo-replenishing orb.",
     "location": "",
-    "iconUrl": "/images/items/m-ring-of-thorns.png",
+    "iconUrl": "/images/items/m-ring-of-thorns.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -3304,7 +3304,7 @@
     "element": null,
     "description": "Allows to Dash mid-air.",
     "location": "Scarlet Coast Vault",
-    "iconUrl": "/images/items/m-ring-of-wings.png",
+    "iconUrl": "/images/items/m-ring-of-wings.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -3347,7 +3347,7 @@
     "element": null,
     "description": "Prevents a fatal hit, removing bonus Stamina instead. Refreshes on regaining Focus.",
     "location": "",
-    "iconUrl": "/images/items/m-scourge.png",
+    "iconUrl": "/images/items/m-scourge.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -3389,7 +3389,7 @@
     "element": null,
     "description": "Reloading releases a shockwave that knocks back nearby enemies.",
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/m-severed-ear.png",
+    "iconUrl": "/images/items/m-severed-ear.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -3431,7 +3431,7 @@
     "element": "Water",
     "description": "Dashing turns the ring bearer into a shadow mist that can pass through enemies.",
     "location": "",
-    "iconUrl": "/images/items/m-shadowmist-ring.png",
+    "iconUrl": "/images/items/m-shadowmist-ring.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -3473,7 +3473,7 @@
     "element": "Air",
     "description": "Sliding leaves behind a lightning mote that shocks nearby enemies.",
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/m-static-ring.png",
+    "iconUrl": "/images/items/m-static-ring.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -3520,7 +3520,7 @@
     "element": null,
     "description": "Collecting shield orbs sometimes dropped by enemies grants a temporary shield.",
     "location": "Witch Mountain",
-    "iconUrl": "/images/items/m-yew.png",
+    "iconUrl": "/images/items/m-yew.webp",
     "mysteriumTiers": [
       {
         "level": 1,
@@ -3570,7 +3570,7 @@
       }
     ],
     "location": "Velmorne",
-    "iconUrl": "/images/items/b-acute-ailment-bead.png",
+    "iconUrl": "/images/items/b-acute-ailment-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -3590,7 +3590,7 @@
       }
     ],
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/b-adrenaline-bead.png",
+    "iconUrl": "/images/items/b-adrenaline-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -3610,7 +3610,7 @@
       }
     ],
     "location": "Velmorne",
-    "iconUrl": "/images/items/b-ailment-immunity-bead.png",
+    "iconUrl": "/images/items/b-ailment-immunity-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -3626,7 +3626,7 @@
       }
     ],
     "location": "Island of the Damned",
-    "iconUrl": "/images/items/b-ailment-power-bead-i.png",
+    "iconUrl": "/images/items/b-ailment-power-bead-i.webp",
     "mysteriumTiers": []
   },
   {
@@ -3646,7 +3646,7 @@
       }
     ],
     "location": "Outskirts",
-    "iconUrl": "/images/items/b-ammo-preservation-bead.png",
+    "iconUrl": "/images/items/b-ammo-preservation-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -3662,7 +3662,7 @@
       }
     ],
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/b-ammo-reserves-bead-i.png",
+    "iconUrl": "/images/items/b-ammo-reserves-bead-i.webp",
     "mysteriumTiers": []
   },
   {
@@ -3673,7 +3673,7 @@
     "description": "25% damage boost on ammo pickup: up to 9s Ammo from small ammo pickups: up to +30% The bead's power grows with Arsenal",
     "requirements": [],
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/b-bead-of-barachiel.png",
+    "iconUrl": "/images/items/b-bead-of-barachiel.webp",
     "mysteriumTiers": []
   },
   {
@@ -3684,7 +3684,7 @@
     "description": "Damage to powerful enemies: up to +25% Damage from powerful enemies: up to -30% The bead's power grows with Faith",
     "requirements": [],
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/b-bead-of-cain.png",
+    "iconUrl": "/images/items/b-bead-of-cain.webp",
     "mysteriumTiers": []
   },
   {
@@ -3695,7 +3695,7 @@
     "description": "Reduced damage from Madness: up to -70% Madness recovery delay: up to -75% The bead's power grows with Mind",
     "requirements": [],
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/b-bead-of-elias.png",
+    "iconUrl": "/images/items/b-bead-of-elias.webp",
     "mysteriumTiers": []
   },
   {
@@ -3706,7 +3706,7 @@
     "description": "Nearby enemies scale resistance (up to 5) Bonus resistance per enemy: up to +7% The bead's power grows with Flesh",
     "requirements": [],
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/b-bead-of-goliath.png",
+    "iconUrl": "/images/items/b-bead-of-goliath.webp",
     "mysteriumTiers": []
   },
   {
@@ -3717,7 +3717,7 @@
     "description": "Increased item drop chances: up to +50% Increased witchfire gains: up to +25% The bead's power grows with Witchery",
     "requirements": [],
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/b-bead-of-mammon.png",
+    "iconUrl": "/images/items/b-bead-of-mammon.webp",
     "mysteriumTiers": []
   },
   {
@@ -3728,7 +3728,7 @@
     "description": "Increased entry portal duration: up to +100% Reduced return portal delay: up to -60% The bead's power grows with Faith",
     "requirements": [],
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/b-bead-of-orion.png",
+    "iconUrl": "/images/items/b-bead-of-orion.webp",
     "mysteriumTiers": []
   },
   {
@@ -3739,7 +3739,7 @@
     "description": "Trap activation delay: up to +0.6s The bead's power grows with Blood",
     "requirements": [],
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/b-bead-of-sefer.png",
+    "iconUrl": "/images/items/b-bead-of-sefer.webp",
     "mysteriumTiers": []
   },
   {
@@ -3755,7 +3755,7 @@
       }
     ],
     "location": "Scarlet Coast",
-    "iconUrl": "/images/items/b-blessed-aim-bead-i.png",
+    "iconUrl": "/images/items/b-blessed-aim-bead-i.webp",
     "mysteriumTiers": []
   },
   {
@@ -3771,7 +3771,7 @@
       }
     ],
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/b-blessed-aim-bead-ii.png",
+    "iconUrl": "/images/items/b-blessed-aim-bead-ii.webp",
     "mysteriumTiers": []
   },
   {
@@ -3791,7 +3791,7 @@
       }
     ],
     "location": "Velmorne Vault",
-    "iconUrl": "/images/items/b-blessed-fire-bead.png",
+    "iconUrl": "/images/items/b-blessed-fire-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -3811,7 +3811,7 @@
       }
     ],
     "location": "Island of the Damned Scarlet Coast Velmorne Irongate Castle",
-    "iconUrl": "/images/items/b-blessed-hits-bead.png",
+    "iconUrl": "/images/items/b-blessed-hits-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -3827,7 +3827,7 @@
       }
     ],
     "location": "Island of the Damned",
-    "iconUrl": "/images/items/b-brawler-bead.png",
+    "iconUrl": "/images/items/b-brawler-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -3843,7 +3843,7 @@
       }
     ],
     "location": "Scarlet Coast",
-    "iconUrl": "/images/items/b-crystal-spell-bead.png",
+    "iconUrl": "/images/items/b-crystal-spell-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -3863,7 +3863,7 @@
       }
     ],
     "location": "Velmorne",
-    "iconUrl": "/images/items/b-dash-range-bead.png",
+    "iconUrl": "/images/items/b-dash-range-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -3883,7 +3883,7 @@
       }
     ],
     "location": "Scarlet Coast",
-    "iconUrl": "/images/items/b-dash-stamina-bead.png",
+    "iconUrl": "/images/items/b-dash-stamina-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -3903,7 +3903,7 @@
       }
     ],
     "location": "Irongate Castle",
-    "iconUrl": "/images/items/b-demonic-ammo-bead.png",
+    "iconUrl": "/images/items/b-demonic-ammo-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -3919,7 +3919,7 @@
       }
     ],
     "location": "Irongate Castle",
-    "iconUrl": "/images/items/b-divine-intervention-bead-i.png",
+    "iconUrl": "/images/items/b-divine-intervention-bead-i.webp",
     "mysteriumTiers": []
   },
   {
@@ -3935,7 +3935,7 @@
       }
     ],
     "location": "Scarlet Coast",
-    "iconUrl": "/images/items/b-elemental-duration-bead-i.png",
+    "iconUrl": "/images/items/b-elemental-duration-bead-i.webp",
     "mysteriumTiers": []
   },
   {
@@ -3951,7 +3951,7 @@
       }
     ],
     "location": "Scarlet Coast Velmorne Irongate Castle",
-    "iconUrl": "/images/items/b-elixir-bead-i.png",
+    "iconUrl": "/images/items/b-elixir-bead-i.webp",
     "mysteriumTiers": []
   },
   {
@@ -3967,7 +3967,7 @@
       }
     ],
     "location": "Witch Mountain",
-    "iconUrl": "/images/items/b-elixir-bead-ii.png",
+    "iconUrl": "/images/items/b-elixir-bead-ii.webp",
     "mysteriumTiers": []
   },
   {
@@ -3987,7 +3987,7 @@
       }
     ],
     "location": "Marshland",
-    "iconUrl": "/images/items/b-forager-bead.png",
+    "iconUrl": "/images/items/b-forager-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -4007,7 +4007,7 @@
       }
     ],
     "location": "Island of the Damned Vault",
-    "iconUrl": "/images/items/b-free-arcana-bead.png",
+    "iconUrl": "/images/items/b-free-arcana-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -4023,7 +4023,7 @@
       }
     ],
     "location": "Island of the Damned",
-    "iconUrl": "/images/items/b-healing-bead-i.png",
+    "iconUrl": "/images/items/b-healing-bead-i.webp",
     "mysteriumTiers": []
   },
   {
@@ -4034,7 +4034,7 @@
     "description": "Health: +10%",
     "requirements": [],
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/b-health-bead-i.png",
+    "iconUrl": "/images/items/b-health-bead-i.webp",
     "mysteriumTiers": []
   },
   {
@@ -4050,7 +4050,7 @@
       }
     ],
     "location": "Island of the Damned Scarlet Coast Velmorne Irongate Castle",
-    "iconUrl": "/images/items/b-health-bead-ii.png",
+    "iconUrl": "/images/items/b-health-bead-ii.webp",
     "mysteriumTiers": []
   },
   {
@@ -4070,7 +4070,7 @@
       }
     ],
     "location": "Irongate Castle",
-    "iconUrl": "/images/items/b-immune-dash-bead.png",
+    "iconUrl": "/images/items/b-immune-dash-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -4090,7 +4090,7 @@
       }
     ],
     "location": "Witch Mountain",
-    "iconUrl": "/images/items/b-incense-bead-i.png",
+    "iconUrl": "/images/items/b-incense-bead-i.webp",
     "mysteriumTiers": []
   },
   {
@@ -4110,7 +4110,7 @@
       }
     ],
     "location": "Scarlet Coast Vault",
-    "iconUrl": "/images/items/b-light-spell-charge-bead.png",
+    "iconUrl": "/images/items/b-light-spell-charge-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -4130,7 +4130,7 @@
       }
     ],
     "location": "Velmorne",
-    "iconUrl": "/images/items/b-long-range-bead.png",
+    "iconUrl": "/images/items/b-long-range-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -4146,7 +4146,7 @@
       }
     ],
     "location": "Marshland",
-    "iconUrl": "/images/items/b-long-slide-bead.png",
+    "iconUrl": "/images/items/b-long-slide-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -4162,7 +4162,7 @@
       }
     ],
     "location": "Island of the Damned Scarlet Coast Velmorne Irongate Castle",
-    "iconUrl": "/images/items/b-madness-bead-i.png",
+    "iconUrl": "/images/items/b-madness-bead-i.webp",
     "mysteriumTiers": []
   },
   {
@@ -4178,7 +4178,7 @@
       }
     ],
     "location": "Irongate Castle Vault",
-    "iconUrl": "/images/items/b-melee-charge-bead.png",
+    "iconUrl": "/images/items/b-melee-charge-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -4194,7 +4194,7 @@
       }
     ],
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/b-melee-recharge-bead-i.png",
+    "iconUrl": "/images/items/b-melee-recharge-bead-i.webp",
     "mysteriumTiers": []
   },
   {
@@ -4210,7 +4210,7 @@
       }
     ],
     "location": "Velmorne",
-    "iconUrl": "/images/items/b-metanoia-bead-i.png",
+    "iconUrl": "/images/items/b-metanoia-bead-i.webp",
     "mysteriumTiers": []
   },
   {
@@ -4230,7 +4230,7 @@
       }
     ],
     "location": "Marshland",
-    "iconUrl": "/images/items/b-plunder-bead.png",
+    "iconUrl": "/images/items/b-plunder-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -4246,7 +4246,7 @@
       }
     ],
     "location": "Island of the Damned Scarlet Coast Velmorne Irongate Castle",
-    "iconUrl": "/images/items/b-providence-bead-i.png",
+    "iconUrl": "/images/items/b-providence-bead-i.webp",
     "mysteriumTiers": []
   },
   {
@@ -4262,7 +4262,7 @@
       }
     ],
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/items/b-quickdraw-bead.png",
+    "iconUrl": "/images/items/b-quickdraw-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -4282,7 +4282,7 @@
       }
     ],
     "location": "Island of the Damned Scarlet Coast Velmorne Irongate Castle",
-    "iconUrl": "/images/items/b-resistance-bead.png",
+    "iconUrl": "/images/items/b-resistance-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -4302,7 +4302,7 @@
       }
     ],
     "location": "Irongate Castle",
-    "iconUrl": "/images/items/b-short-range-bead.png",
+    "iconUrl": "/images/items/b-short-range-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -4318,7 +4318,7 @@
       }
     ],
     "location": "Outskirts Vault",
-    "iconUrl": "/images/items/b-sigil-slide-bead.png",
+    "iconUrl": "/images/items/b-sigil-slide-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -4334,7 +4334,7 @@
       }
     ],
     "location": "Scarlet Coast",
-    "iconUrl": "/images/items/b-spell-recharge-bead-i.png",
+    "iconUrl": "/images/items/b-spell-recharge-bead-i.webp",
     "mysteriumTiers": []
   },
   {
@@ -4350,7 +4350,7 @@
       }
     ],
     "location": "Irongate Castle",
-    "iconUrl": "/images/items/b-sprint-bead.png",
+    "iconUrl": "/images/items/b-sprint-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -4366,7 +4366,7 @@
       }
     ],
     "location": "Island of the Damned",
-    "iconUrl": "/images/items/b-stamina-bead-i.png",
+    "iconUrl": "/images/items/b-stamina-bead-i.webp",
     "mysteriumTiers": []
   },
   {
@@ -4382,7 +4382,7 @@
       }
     ],
     "location": "Island of the Damned Scarlet Coast Velmorne Irongate Castle",
-    "iconUrl": "/images/items/b-stamina-sigil-bead.png",
+    "iconUrl": "/images/items/b-stamina-sigil-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -4402,7 +4402,7 @@
       }
     ],
     "location": "Velmorne",
-    "iconUrl": "/images/items/b-traps-bead.png",
+    "iconUrl": "/images/items/b-traps-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -4418,7 +4418,7 @@
       }
     ],
     "location": "Island of the Damned",
-    "iconUrl": "/images/items/b-triple-reward-bead.png",
+    "iconUrl": "/images/items/b-triple-reward-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -4438,7 +4438,7 @@
       }
     ],
     "location": "Marshland",
-    "iconUrl": "/images/items/b-unbroken-reload-bead.png",
+    "iconUrl": "/images/items/b-unbroken-reload-bead.webp",
     "mysteriumTiers": []
   },
   {
@@ -4454,7 +4454,7 @@
       }
     ],
     "location": "Irongate Castle",
-    "iconUrl": "/images/items/b-vigor-bead-i.png",
+    "iconUrl": "/images/items/b-vigor-bead-i.webp",
     "mysteriumTiers": []
   },
   {
@@ -4470,7 +4470,7 @@
       }
     ],
     "location": "Scarlet Coast",
-    "iconUrl": "/images/items/b-weapon-range-bead-i.png",
+    "iconUrl": "/images/items/b-weapon-range-bead-i.webp",
     "mysteriumTiers": []
   }
 ]

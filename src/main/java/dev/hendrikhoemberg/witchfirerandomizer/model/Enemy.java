@@ -211,4 +211,14 @@ public class Enemy {
     public void setIconUrl(String iconUrl) {
         this.iconUrl = iconUrl;
     }
+
+    /** Active resistances, strongest-first grouping handled by the view; canonical order here. */
+    public List<Affinity> getResistances() {
+        return AffinityType.resistances(this);
+    }
+
+    /** Active vulnerabilities, i.e. the elements this enemy takes extra damage from. */
+    public List<Affinity> getVulnerabilities() {
+        return AffinityType.vulnerabilities(this);
+    }
 }

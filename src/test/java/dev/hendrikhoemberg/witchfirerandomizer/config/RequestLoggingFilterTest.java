@@ -66,7 +66,7 @@ class RequestLoggingFilterTest {
     @Test
     void testStaticAssetsAreNotLogged() throws ServletException, IOException {
         String[] staticPaths = {
-                "/images/items/b-acute-ailment-bead.png",
+                "/images/items/b-acute-ailment-bead.webp",
                 "/images/favicon.png",
                 "/css/main.css",
                 "/favicon.ico",

@@ -11,7 +11,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -229,15 +231,103 @@ class WikiDesignConsistencyTest {
     }
 
     @Test
-    void shouldGroupEnemyAffinitiesIntoResistsAndVulnerabilities() throws Exception {
+    void shouldOnlyReferenceImageFilesThatExist() throws Exception {
+        // Catches case mismatches and stale extensions: the pages render, but the <img> silently
+        // 404s. Nothing else in the suite fetches assets, so this is the only guard.
+        Path staticRoot = Path.of("src/main/resources/static");
+        Set<String> referenced = new TreeSet<>();
+
+        for (String route : new String[]{"/", "/wiki", "/wiki/arcana", "/wiki/prophecies", "/wiki/bestiary"}) {
+            String html = mockMvc.perform(get(route))
+                    .andExpect(status().isOk())
+                    .andReturn().getResponse().getContentAsString();
+            Matcher matcher = Pattern.compile("(?:src|href)=\"(/images/[^\"]+)\"").matcher(html);
+            while (matcher.find()) {
+                referenced.add(matcher.group(1));
+            }
+        }
+
+        Matcher cssUrls = Pattern.compile("url\\('(/images/[^']+)'\\)").matcher(mainCss());
+        while (cssUrls.find()) {
+            referenced.add(cssUrls.group(1));
+        }
+
+        assertThat(referenced).as("pages should actually reference images").isNotEmpty();
+
+        List<String> missing = referenced.stream()
+                .filter(url -> !Files.exists(staticRoot.resolve(url.substring(1))))
+                .toList();
+
+        assertThat(missing).as("every referenced image must exist under static/").isEmpty();
+    }
+
+    @Test
+    void shouldRenderEnemyAffinitiesAsALedgerInsteadOfPills() throws Exception {
         // Anointer resists Fire/Freeze/Air/Stagger and is vulnerable to Decay.
         mockMvc.perform(get("/wiki/bestiary/enemies").param("search", "Anointer"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("enemy-affinity-label")))
+                .andExpect(content().string(containsString("enemy-affinity-ledger")))
+                .andExpect(content().string(containsString("enemy-affinity-entry")))
+                .andExpect(content().string(containsString("enemy-affinity-track")))
+                .andExpect(content().string(containsString("enemy-affinity-fill")))
                 .andExpect(content().string(containsString(">Resists<")))
                 .andExpect(content().string(containsString(">Vulnerable<")))
-                .andExpect(content().string(containsString("enemy-affinity-row is-vulnerable")))
+                .andExpect(content().string(not(containsString("affinity-pill"))))
                 .andExpect(content().string(not(containsString("enemy-affinity-strip"))));
+    }
+
+    @Test
+    void shouldLeadWithVulnerabilitiesBeforeResistances() throws Exception {
+        String html = mockMvc.perform(get("/wiki/bestiary/enemies").param("search", "Anointer"))
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString();
+
+        assertThat(html.indexOf(">Vulnerable<")).isNotNegative();
+        assertThat(html.indexOf(">Vulnerable<")).isLessThan(html.indexOf(">Resists<"));
+    }
+
+    @Test
+    void shouldEncodeAffinityMagnitudeInTheLedgerBar() throws Exception {
+        String html = mockMvc.perform(get("/wiki/bestiary/enemies").param("search", "Anointer"))
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString();
+
+        // Fire +75% and Decay -100% straight from the scraped data.
+        assertThat(html).contains("width:75%");
+        assertThat(html).contains("width:100%");
+        assertThat(html).contains("+75%");
+        assertThat(html).contains("-100%");
+    }
+
+    @Test
+    void shouldGiveEachAffinityRowAnElementIdentityDot() throws Exception {
+        String html = mockMvc.perform(get("/wiki/bestiary/enemies").param("search", "Anointer"))
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString();
+
+        assertThat(html).contains("enemy-affinity-dot");
+        assertThat(html).contains("#e0705c"); // Fire
+        assertThat(html).contains("#84b06a"); // Decay
+    }
+
+    @Test
+    void shouldRenderTheEnemyPortraitPlateBesideTheDossier() throws Exception {
+        String cardRule = cssRule(mainCss(), ".enemy-card");
+        assertThat(cardRule).contains("grid-template-columns");
+
+        mockMvc.perform(get("/wiki/bestiary/enemies"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("enemy-card-portrait")))
+                .andExpect(content().string(containsString("enemy-card-dossier")));
+    }
+
+    @Test
+    void shouldUseDedicatedAffinityTokensInsteadOfAdHocColours() throws Exception {
+        String css = mainCss();
+        assertThat(css).contains("--wf-resist:");
+        assertThat(css).contains("--wf-vulnerable:");
+        assertThat(cssRule(css, ".enemy-affinity-fill")).contains("var(--wf-resist)");
+        assertThat(cssRule(css, ".enemy-affinity-fill.is-vulnerable")).contains("var(--wf-vulnerable)");
     }
 
     @Test

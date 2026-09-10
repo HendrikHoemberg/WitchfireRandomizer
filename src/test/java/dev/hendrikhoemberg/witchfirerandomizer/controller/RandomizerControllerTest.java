@@ -42,7 +42,7 @@ class RandomizerControllerTest {
     void testHeaderAndDrawerNavigationRendered() throws Exception {
         mockMvc.perform(get("/"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("wf-logo2.webP")))
+                .andExpect(content().string(containsString("wf-logo2.webp")))
                 .andExpect(content().string(containsString("burger-btn")))
                 .andExpect(content().string(containsString("Loadout Randomizer")))
                 .andExpect(content().string(containsString("Item Wiki")));

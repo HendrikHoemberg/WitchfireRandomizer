@@ -8,7 +8,7 @@
       "Fire Element"
     ],
     "element": "Fire",
-    "iconUrl": "/images/arcana/arcana-accelerant.png"
+    "iconUrl": "/images/arcana/arcana-accelerant.webp"
   },
   {
     "id": "arcana-anti-element",
@@ -17,7 +17,7 @@
     "effects": "Weapon damage: +10%",
     "prophecyTypes": [],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-anti-element.png"
+    "iconUrl": "/images/arcana/arcana-anti-element.webp"
   },
   {
     "id": "arcana-atrophy",
@@ -28,7 +28,7 @@
       "Earth Element"
     ],
     "element": "Earth",
-    "iconUrl": "/images/arcana/arcana-atrophy.png"
+    "iconUrl": "/images/arcana/arcana-atrophy.webp"
   },
   {
     "id": "arcana-battery",
@@ -39,7 +39,7 @@
       "Air Element"
     ],
     "element": "Air",
-    "iconUrl": "/images/arcana/arcana-battery.png"
+    "iconUrl": "/images/arcana/arcana-battery.webp"
   },
   {
     "id": "arcana-blindfire",
@@ -51,7 +51,7 @@
       "Firearms"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-blindfire.png"
+    "iconUrl": "/images/arcana/arcana-blindfire.webp"
   },
   {
     "id": "arcana-blood-transfer",
@@ -63,7 +63,7 @@
       "Variety"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-blood-transfer.png"
+    "iconUrl": "/images/arcana/arcana-blood-transfer.webp"
   },
   {
     "id": "arcana-bonus-elixir",
@@ -75,7 +75,7 @@
       "Variety"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-bonus-elixir.png"
+    "iconUrl": "/images/arcana/arcana-bonus-elixir.webp"
   },
   {
     "id": "arcana-bonus-witchfire",
@@ -87,7 +87,7 @@
       "Witchfire"
     ],
     "element": "Fire",
-    "iconUrl": "/images/arcana/arcana-bonus-witchfire.png"
+    "iconUrl": "/images/arcana/arcana-bonus-witchfire.webp"
   },
   {
     "id": "arcana-brittle-knuckles",
@@ -98,7 +98,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-brittle-knuckles.png"
+    "iconUrl": "/images/arcana/arcana-brittle-knuckles.webp"
   },
   {
     "id": "arcana-cascade",
@@ -110,7 +110,7 @@
       "Spells"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-cascade.png"
+    "iconUrl": "/images/arcana/arcana-cascade.webp"
   },
   {
     "id": "arcana-chaos-flame",
@@ -121,7 +121,7 @@
       "Fire Element"
     ],
     "element": "Fire",
-    "iconUrl": "/images/arcana/arcana-chaos-flame.png"
+    "iconUrl": "/images/arcana/arcana-chaos-flame.webp"
   },
   {
     "id": "arcana-chaos-reload",
@@ -130,7 +130,7 @@
     "effects": "Chance: +25%",
     "prophecyTypes": [],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-chaos-reload.png"
+    "iconUrl": "/images/arcana/arcana-chaos-reload.webp"
   },
   {
     "id": "arcana-circle-of-life",
@@ -142,7 +142,7 @@
       "Spells"
     ],
     "element": "Earth",
-    "iconUrl": "/images/arcana/arcana-circle-of-life.png"
+    "iconUrl": "/images/arcana/arcana-circle-of-life.webp"
   },
   {
     "id": "arcana-cleansing-fire",
@@ -154,7 +154,7 @@
       "Destruction"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-cleansing-fire.png"
+    "iconUrl": "/images/arcana/arcana-cleansing-fire.webp"
   },
   {
     "id": "arcana-conductor",
@@ -165,7 +165,7 @@
       "Air Element"
     ],
     "element": "Air",
-    "iconUrl": "/images/arcana/arcana-conductor.png"
+    "iconUrl": "/images/arcana/arcana-conductor.webp"
   },
   {
     "id": "arcana-critical-burn",
@@ -177,7 +177,7 @@
       "Fire Element"
     ],
     "element": "Fire",
-    "iconUrl": "/images/arcana/arcana-critical-burn.png"
+    "iconUrl": "/images/arcana/arcana-critical-burn.webp"
   },
   {
     "id": "arcana-critical-chain",
@@ -190,7 +190,7 @@
       "Nimble Fingers"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-critical-chain.png"
+    "iconUrl": "/images/arcana/arcana-critical-chain.webp"
   },
   {
     "id": "arcana-cryovolcano",
@@ -201,7 +201,7 @@
       "Water Element"
     ],
     "element": "Water",
-    "iconUrl": "/images/arcana/arcana-cryovolcano.png"
+    "iconUrl": "/images/arcana/arcana-cryovolcano.webp"
   },
   {
     "id": "arcana-deadeye",
@@ -212,7 +212,7 @@
       "Dead Eyes"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-deadeye.png"
+    "iconUrl": "/images/arcana/arcana-deadeye.webp"
   },
   {
     "id": "arcana-decay-echo",
@@ -223,7 +223,7 @@
       "Earth Element"
     ],
     "element": "Earth",
-    "iconUrl": "/images/arcana/arcana-decay-echo.png"
+    "iconUrl": "/images/arcana/arcana-decay-echo.webp"
   },
   {
     "id": "arcana-depleted-demonic",
@@ -234,7 +234,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-depleted-demonic.png"
+    "iconUrl": "/images/arcana/arcana-depleted-demonic.webp"
   },
   {
     "id": "arcana-depleted-primary",
@@ -245,7 +245,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-depleted-primary.png"
+    "iconUrl": "/images/arcana/arcana-depleted-primary.webp"
   },
   {
     "id": "arcana-depleted-secondary",
@@ -256,7 +256,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-depleted-secondary.png"
+    "iconUrl": "/images/arcana/arcana-depleted-secondary.webp"
   },
   {
     "id": "arcana-doomsday-clock",
@@ -267,7 +267,7 @@
       "Earth Element"
     ],
     "element": "Earth",
-    "iconUrl": "/images/arcana/arcana-doomsday-clock.png"
+    "iconUrl": "/images/arcana/arcana-doomsday-clock.webp"
   },
   {
     "id": "arcana-dulled-demonic",
@@ -278,7 +278,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-dulled-demonic.png"
+    "iconUrl": "/images/arcana/arcana-dulled-demonic.webp"
   },
   {
     "id": "arcana-dulled-healing",
@@ -289,7 +289,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-dulled-healing.png"
+    "iconUrl": "/images/arcana/arcana-dulled-healing.webp"
   },
   {
     "id": "arcana-dulled-primary",
@@ -300,7 +300,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-dulled-primary.png"
+    "iconUrl": "/images/arcana/arcana-dulled-primary.webp"
   },
   {
     "id": "arcana-dulled-secondary",
@@ -311,7 +311,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-dulled-secondary.png"
+    "iconUrl": "/images/arcana/arcana-dulled-secondary.webp"
   },
   {
     "id": "arcana-dulled-stamina",
@@ -322,7 +322,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-dulled-stamina.png"
+    "iconUrl": "/images/arcana/arcana-dulled-stamina.webp"
   },
   {
     "id": "arcana-dulled-witchcraft",
@@ -333,7 +333,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-dulled-witchcraft.png"
+    "iconUrl": "/images/arcana/arcana-dulled-witchcraft.webp"
   },
   {
     "id": "arcana-elemental-fire-rate",
@@ -344,7 +344,7 @@
       "Serpent"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-elemental-fire-rate.png"
+    "iconUrl": "/images/arcana/arcana-elemental-fire-rate.webp"
   },
   {
     "id": "arcana-elemental-firepower",
@@ -356,7 +356,7 @@
       "Firearms"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-elemental-firepower.png"
+    "iconUrl": "/images/arcana/arcana-elemental-firepower.webp"
   },
   {
     "id": "arcana-elemental-refresh",
@@ -367,7 +367,7 @@
       "Spells"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-elemental-refresh.png"
+    "iconUrl": "/images/arcana/arcana-elemental-refresh.webp"
   },
   {
     "id": "arcana-empty-of-magic",
@@ -380,7 +380,7 @@
       "Lightness"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-empty-of-magic.png"
+    "iconUrl": "/images/arcana/arcana-empty-of-magic.webp"
   },
   {
     "id": "arcana-extra-bolt",
@@ -391,7 +391,7 @@
       "Air Element"
     ],
     "element": "Air",
-    "iconUrl": "/images/arcana/arcana-extra-bolt.png"
+    "iconUrl": "/images/arcana/arcana-extra-bolt.webp"
   },
   {
     "id": "arcana-extra-light-spell",
@@ -402,7 +402,7 @@
       "Lightness"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-extra-light-spell.png"
+    "iconUrl": "/images/arcana/arcana-extra-light-spell.webp"
   },
   {
     "id": "arcana-fast-heavy-spell",
@@ -414,7 +414,7 @@
       "Spells"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-fast-heavy-spell.png"
+    "iconUrl": "/images/arcana/arcana-fast-heavy-spell.webp"
   },
   {
     "id": "arcana-fast-light-spell",
@@ -426,7 +426,7 @@
       "Spells"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-fast-light-spell.png"
+    "iconUrl": "/images/arcana/arcana-fast-light-spell.webp"
   },
   {
     "id": "arcana-fast-reload",
@@ -437,7 +437,7 @@
       "Nimble Fingers"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-fast-reload.png"
+    "iconUrl": "/images/arcana/arcana-fast-reload.webp"
   },
   {
     "id": "arcana-fast-strafe",
@@ -448,7 +448,7 @@
       "Serpent"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-fast-strafe.png"
+    "iconUrl": "/images/arcana/arcana-fast-strafe.webp"
   },
   {
     "id": "arcana-fertilizer",
@@ -459,7 +459,7 @@
       "Earth Element"
     ],
     "element": "Earth",
-    "iconUrl": "/images/arcana/arcana-fertilizer.png"
+    "iconUrl": "/images/arcana/arcana-fertilizer.webp"
   },
   {
     "id": "arcana-final-bullet",
@@ -473,7 +473,7 @@
       "Serpent"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-final-bullet.png"
+    "iconUrl": "/images/arcana/arcana-final-bullet.webp"
   },
   {
     "id": "arcana-fire-orb",
@@ -484,7 +484,7 @@
       "Fire Element"
     ],
     "element": "Fire",
-    "iconUrl": "/images/arcana/arcana-fire-orb.png"
+    "iconUrl": "/images/arcana/arcana-fire-orb.webp"
   },
   {
     "id": "arcana-fire-rate-boost",
@@ -495,7 +495,7 @@
       "Serpent"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-fire-rate-boost.png"
+    "iconUrl": "/images/arcana/arcana-fire-rate-boost.webp"
   },
   {
     "id": "arcana-firearm-mastery",
@@ -506,7 +506,7 @@
       "Nimble Fingers"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-firearm-mastery.png"
+    "iconUrl": "/images/arcana/arcana-firearm-mastery.webp"
   },
   {
     "id": "arcana-firepower-boost",
@@ -517,7 +517,7 @@
       "Destruction"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-firepower-boost.png"
+    "iconUrl": "/images/arcana/arcana-firepower-boost.webp"
   },
   {
     "id": "arcana-flashover",
@@ -529,7 +529,7 @@
       "Fire Element"
     ],
     "element": "Fire",
-    "iconUrl": "/images/arcana/arcana-flashover.png"
+    "iconUrl": "/images/arcana/arcana-flashover.webp"
   },
   {
     "id": "arcana-flinchless",
@@ -541,7 +541,7 @@
       "Variety"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-flinchless.png"
+    "iconUrl": "/images/arcana/arcana-flinchless.webp"
   },
   {
     "id": "arcana-freezing-gust",
@@ -552,7 +552,7 @@
       "Water Element"
     ],
     "element": "Water",
-    "iconUrl": "/images/arcana/arcana-freezing-gust.png"
+    "iconUrl": "/images/arcana/arcana-freezing-gust.webp"
   },
   {
     "id": "arcana-full-health-firepower",
@@ -564,7 +564,7 @@
       "Serpent"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-full-health-firepower.png"
+    "iconUrl": "/images/arcana/arcana-full-health-firepower.webp"
   },
   {
     "id": "arcana-full-of-magic",
@@ -578,7 +578,7 @@
       "Lightness"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-full-of-magic.png"
+    "iconUrl": "/images/arcana/arcana-full-of-magic.webp"
   },
   {
     "id": "arcana-grounded",
@@ -589,7 +589,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-grounded.png"
+    "iconUrl": "/images/arcana/arcana-grounded.webp"
   },
   {
     "id": "arcana-health-boost",
@@ -601,7 +601,7 @@
       "Variety"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-health-boost.png"
+    "iconUrl": "/images/arcana/arcana-health-boost.webp"
   },
   {
     "id": "arcana-health-halved",
@@ -612,7 +612,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-health-halved.png"
+    "iconUrl": "/images/arcana/arcana-health-halved.webp"
   },
   {
     "id": "arcana-health-sacrifice",
@@ -624,7 +624,7 @@
       "Health"
     ],
     "element": "Water",
-    "iconUrl": "/images/arcana/arcana-health-sacrifice.png"
+    "iconUrl": "/images/arcana/arcana-health-sacrifice.webp"
   },
   {
     "id": "arcana-heat-exhaustion",
@@ -635,7 +635,7 @@
       "Fire Element"
     ],
     "element": "Fire",
-    "iconUrl": "/images/arcana/arcana-heat-exhaustion.png"
+    "iconUrl": "/images/arcana/arcana-heat-exhaustion.webp"
   },
   {
     "id": "arcana-heavy-spell-recharge",
@@ -646,7 +646,7 @@
       "Heaviness"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-heavy-spell-recharge.png"
+    "iconUrl": "/images/arcana/arcana-heavy-spell-recharge.webp"
   },
   {
     "id": "arcana-ice-remnant",
@@ -658,7 +658,7 @@
       "Water Element"
     ],
     "element": "Water",
-    "iconUrl": "/images/arcana/arcana-ice-remnant.png"
+    "iconUrl": "/images/arcana/arcana-ice-remnant.webp"
   },
   {
     "id": "arcana-ice-statue",
@@ -669,7 +669,7 @@
       "Water Element"
     ],
     "element": "Fire",
-    "iconUrl": "/images/arcana/arcana-ice-statue.png"
+    "iconUrl": "/images/arcana/arcana-ice-statue.webp"
   },
   {
     "id": "arcana-ignition",
@@ -680,7 +680,7 @@
       "Fire Element"
     ],
     "element": "Fire",
-    "iconUrl": "/images/arcana/arcana-ignition.png"
+    "iconUrl": "/images/arcana/arcana-ignition.webp"
   },
   {
     "id": "arcana-immunity-reload",
@@ -691,7 +691,7 @@
       "Bull"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-immunity-reload.png"
+    "iconUrl": "/images/arcana/arcana-immunity-reload.webp"
   },
   {
     "id": "arcana-immunity-spellcast",
@@ -704,7 +704,7 @@
       "Lightness"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-immunity-spellcast.png"
+    "iconUrl": "/images/arcana/arcana-immunity-spellcast.webp"
   },
   {
     "id": "arcana-immunity-swap",
@@ -715,7 +715,7 @@
       "Serpent"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-immunity-swap.png"
+    "iconUrl": "/images/arcana/arcana-immunity-swap.webp"
   },
   {
     "id": "arcana-infectious-cloud",
@@ -727,7 +727,7 @@
       "Earth Element"
     ],
     "element": "Earth",
-    "iconUrl": "/images/arcana/arcana-infectious-cloud.png"
+    "iconUrl": "/images/arcana/arcana-infectious-cloud.webp"
   },
   {
     "id": "arcana-kill-reload",
@@ -738,7 +738,7 @@
       "Nimble Fingers"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-kill-reload.png"
+    "iconUrl": "/images/arcana/arcana-kill-reload.webp"
   },
   {
     "id": "arcana-large-magazine",
@@ -749,7 +749,7 @@
       "Gunpowder"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-large-magazine.png"
+    "iconUrl": "/images/arcana/arcana-large-magazine.webp"
   },
   {
     "id": "arcana-last-elixir",
@@ -761,7 +761,7 @@
       "Variety"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-last-elixir.png"
+    "iconUrl": "/images/arcana/arcana-last-elixir.webp"
   },
   {
     "id": "arcana-lasting-element",
@@ -772,7 +772,7 @@
       "Spells"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-lasting-element.png"
+    "iconUrl": "/images/arcana/arcana-lasting-element.webp"
   },
   {
     "id": "arcana-lifeleech",
@@ -783,7 +783,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-lifeleech.png"
+    "iconUrl": "/images/arcana/arcana-lifeleech.webp"
   },
   {
     "id": "arcana-light-spell-recharge",
@@ -794,7 +794,7 @@
       "Lightness"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-light-spell-recharge.png"
+    "iconUrl": "/images/arcana/arcana-light-spell-recharge.webp"
   },
   {
     "id": "arcana-live-wire",
@@ -805,7 +805,7 @@
       "Stamina"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-live-wire.png"
+    "iconUrl": "/images/arcana/arcana-live-wire.webp"
   },
   {
     "id": "arcana-long-winter",
@@ -816,7 +816,7 @@
       "Water Element"
     ],
     "element": "Water",
-    "iconUrl": "/images/arcana/arcana-long-winter.png"
+    "iconUrl": "/images/arcana/arcana-long-winter.webp"
   },
   {
     "id": "arcana-longer-bolts",
@@ -827,7 +827,7 @@
       "Air Element"
     ],
     "element": "Air",
-    "iconUrl": "/images/arcana/arcana-longer-bolts.png"
+    "iconUrl": "/images/arcana/arcana-longer-bolts.webp"
   },
   {
     "id": "arcana-memento-mori",
@@ -838,7 +838,7 @@
       "Earth Element"
     ],
     "element": "Earth",
-    "iconUrl": "/images/arcana/arcana-memento-mori.png"
+    "iconUrl": "/images/arcana/arcana-memento-mori.webp"
   },
   {
     "id": "arcana-more-bolt-jumps",
@@ -849,7 +849,7 @@
       "Air Element"
     ],
     "element": "Air",
-    "iconUrl": "/images/arcana/arcana-more-bolt-jumps.png"
+    "iconUrl": "/images/arcana/arcana-more-bolt-jumps.webp"
   },
   {
     "id": "arcana-more-stamina",
@@ -861,7 +861,7 @@
       "Variety"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-more-stamina.png"
+    "iconUrl": "/images/arcana/arcana-more-stamina.webp"
   },
   {
     "id": "arcana-necrosis",
@@ -872,7 +872,7 @@
       "Earth Element"
     ],
     "element": "Earth",
-    "iconUrl": "/images/arcana/arcana-necrosis.png"
+    "iconUrl": "/images/arcana/arcana-necrosis.webp"
   },
   {
     "id": "arcana-no-retreat",
@@ -883,7 +883,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-no-retreat.png"
+    "iconUrl": "/images/arcana/arcana-no-retreat.webp"
   },
   {
     "id": "arcana-pagophobia",
@@ -894,7 +894,7 @@
       "Water Element"
     ],
     "element": "Water",
-    "iconUrl": "/images/arcana/arcana-pagophobia.png"
+    "iconUrl": "/images/arcana/arcana-pagophobia.webp"
   },
   {
     "id": "arcana-painful-recharge",
@@ -905,7 +905,7 @@
       "Heaviness"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-painful-recharge.png"
+    "iconUrl": "/images/arcana/arcana-painful-recharge.webp"
   },
   {
     "id": "arcana-pendulum",
@@ -918,7 +918,7 @@
       "Health"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-pendulum.png"
+    "iconUrl": "/images/arcana/arcana-pendulum.webp"
   },
   {
     "id": "arcana-perun",
@@ -930,7 +930,7 @@
       "Dead Eyes"
     ],
     "element": "Air",
-    "iconUrl": "/images/arcana/arcana-perun.png"
+    "iconUrl": "/images/arcana/arcana-perun.webp"
   },
   {
     "id": "arcana-phantom-bullets",
@@ -942,7 +942,7 @@
       "Nimble Fingers"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-phantom-bullets.png"
+    "iconUrl": "/images/arcana/arcana-phantom-bullets.webp"
   },
   {
     "id": "arcana-piercing-bullets",
@@ -953,7 +953,7 @@
       "Gunpowder"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-piercing-bullets.png"
+    "iconUrl": "/images/arcana/arcana-piercing-bullets.webp"
   },
   {
     "id": "arcana-potion-loss",
@@ -964,7 +964,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-potion-loss.png"
+    "iconUrl": "/images/arcana/arcana-potion-loss.webp"
   },
   {
     "id": "arcana-power-drain",
@@ -976,7 +976,7 @@
       "Variety"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-power-drain.png"
+    "iconUrl": "/images/arcana/arcana-power-drain.webp"
   },
   {
     "id": "arcana-putrefaction",
@@ -987,7 +987,7 @@
       "Earth Element"
     ],
     "element": "Earth",
-    "iconUrl": "/images/arcana/arcana-putrefaction.png"
+    "iconUrl": "/images/arcana/arcana-putrefaction.webp"
   },
   {
     "id": "arcana-pyrolysis",
@@ -998,7 +998,7 @@
       "Fire Element"
     ],
     "element": "Fire",
-    "iconUrl": "/images/arcana/arcana-pyrolysis.png"
+    "iconUrl": "/images/arcana/arcana-pyrolysis.webp"
   },
   {
     "id": "arcana-range-boost",
@@ -1009,7 +1009,7 @@
       "Serpent"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-range-boost.png"
+    "iconUrl": "/images/arcana/arcana-range-boost.webp"
   },
   {
     "id": "arcana-range-sacrifice",
@@ -1020,7 +1020,7 @@
       "Bull"
     ],
     "element": "Water",
-    "iconUrl": "/images/arcana/arcana-range-sacrifice.png"
+    "iconUrl": "/images/arcana/arcana-range-sacrifice.webp"
   },
   {
     "id": "arcana-recharged",
@@ -1032,7 +1032,7 @@
       "Spells"
     ],
     "element": "Air",
-    "iconUrl": "/images/arcana/arcana-recharged.png"
+    "iconUrl": "/images/arcana/arcana-recharged.webp"
   },
   {
     "id": "arcana-refreeze",
@@ -1043,7 +1043,7 @@
       "Water Element"
     ],
     "element": "Water",
-    "iconUrl": "/images/arcana/arcana-refreeze.png"
+    "iconUrl": "/images/arcana/arcana-refreeze.webp"
   },
   {
     "id": "arcana-rejuvenation",
@@ -1055,7 +1055,7 @@
       "Variety"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-rejuvenation.png"
+    "iconUrl": "/images/arcana/arcana-rejuvenation.webp"
   },
   {
     "id": "arcana-rekindled",
@@ -1067,7 +1067,7 @@
       "Spells"
     ],
     "element": "Fire",
-    "iconUrl": "/images/arcana/arcana-rekindled.png"
+    "iconUrl": "/images/arcana/arcana-rekindled.webp"
   },
   {
     "id": "arcana-reload-dash",
@@ -1079,7 +1079,7 @@
       "Destruction"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-reload-dash.png"
+    "iconUrl": "/images/arcana/arcana-reload-dash.webp"
   },
   {
     "id": "arcana-reload-slide",
@@ -1090,7 +1090,7 @@
       "Bull"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-reload-slide.png"
+    "iconUrl": "/images/arcana/arcana-reload-slide.webp"
   },
   {
     "id": "arcana-reload-swap",
@@ -1101,7 +1101,7 @@
       "Nimble Fingers"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-reload-swap.png"
+    "iconUrl": "/images/arcana/arcana-reload-swap.webp"
   },
   {
     "id": "arcana-revenge",
@@ -1112,7 +1112,7 @@
       "Bull"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-revenge.png"
+    "iconUrl": "/images/arcana/arcana-revenge.webp"
   },
   {
     "id": "arcana-rime-shield",
@@ -1123,7 +1123,7 @@
       "Water Element"
     ],
     "element": "Water",
-    "iconUrl": "/images/arcana/arcana-rime-shield.png"
+    "iconUrl": "/images/arcana/arcana-rime-shield.webp"
   },
   {
     "id": "arcana-safe-deposit",
@@ -1134,7 +1134,7 @@
       "Witchfire"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-safe-deposit.png"
+    "iconUrl": "/images/arcana/arcana-safe-deposit.webp"
   },
   {
     "id": "arcana-safe-reload",
@@ -1145,7 +1145,7 @@
       "Serpent"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-safe-reload.png"
+    "iconUrl": "/images/arcana/arcana-safe-reload.webp"
   },
   {
     "id": "arcana-scholar",
@@ -1156,7 +1156,7 @@
       "Variety"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-scholar.png"
+    "iconUrl": "/images/arcana/arcana-scholar.webp"
   },
   {
     "id": "arcana-shattered-soul",
@@ -1167,7 +1167,7 @@
       "Water Element"
     ],
     "element": "Water",
-    "iconUrl": "/images/arcana/arcana-shattered-soul.png"
+    "iconUrl": "/images/arcana/arcana-shattered-soul.webp"
   },
   {
     "id": "arcana-shock-wave",
@@ -1179,7 +1179,7 @@
       "Dead Eyes"
     ],
     "element": "Air",
-    "iconUrl": "/images/arcana/arcana-shock-wave.png"
+    "iconUrl": "/images/arcana/arcana-shock-wave.webp"
   },
   {
     "id": "arcana-silent-demonic",
@@ -1190,7 +1190,7 @@
       "Corrupted"
     ],
     "element": "Water",
-    "iconUrl": "/images/arcana/arcana-silent-demonic.png"
+    "iconUrl": "/images/arcana/arcana-silent-demonic.webp"
   },
   {
     "id": "arcana-silent-fetish",
@@ -1201,7 +1201,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-silent-fetish.png"
+    "iconUrl": "/images/arcana/arcana-silent-fetish.webp"
   },
   {
     "id": "arcana-silent-heavy-spell",
@@ -1212,7 +1212,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-silent-heavy-spell.png"
+    "iconUrl": "/images/arcana/arcana-silent-heavy-spell.webp"
   },
   {
     "id": "arcana-silent-light-spell",
@@ -1223,7 +1223,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-silent-light-spell.png"
+    "iconUrl": "/images/arcana/arcana-silent-light-spell.webp"
   },
   {
     "id": "arcana-silent-relic",
@@ -1234,7 +1234,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-silent-relic.png"
+    "iconUrl": "/images/arcana/arcana-silent-relic.webp"
   },
   {
     "id": "arcana-silent-ring",
@@ -1245,7 +1245,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-silent-ring.png"
+    "iconUrl": "/images/arcana/arcana-silent-ring.webp"
   },
   {
     "id": "arcana-silent-secondary",
@@ -1256,7 +1256,7 @@
       "Corrupted"
     ],
     "element": "Water",
-    "iconUrl": "/images/arcana/arcana-silent-secondary.png"
+    "iconUrl": "/images/arcana/arcana-silent-secondary.webp"
   },
   {
     "id": "arcana-snowball",
@@ -1267,7 +1267,7 @@
       "Water Element"
     ],
     "element": "Water",
-    "iconUrl": "/images/arcana/arcana-snowball.png"
+    "iconUrl": "/images/arcana/arcana-snowball.webp"
   },
   {
     "id": "arcana-stamina-halved",
@@ -1278,7 +1278,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-stamina-halved.png"
+    "iconUrl": "/images/arcana/arcana-stamina-halved.webp"
   },
   {
     "id": "arcana-stationary-scope",
@@ -1289,7 +1289,7 @@
       "Corrupted"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-stationary-scope.png"
+    "iconUrl": "/images/arcana/arcana-stationary-scope.webp"
   },
   {
     "id": "arcana-stormbringer",
@@ -1300,7 +1300,7 @@
       "Air Element"
     ],
     "element": "Air",
-    "iconUrl": "/images/arcana/arcana-stormbringer.png"
+    "iconUrl": "/images/arcana/arcana-stormbringer.webp"
   },
   {
     "id": "arcana-stun-bullets",
@@ -1311,7 +1311,7 @@
       "Firearms"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-stun-bullets.png"
+    "iconUrl": "/images/arcana/arcana-stun-bullets.webp"
   },
   {
     "id": "arcana-thunderbolt",
@@ -1322,7 +1322,7 @@
       "Air Element"
     ],
     "element": "Air",
-    "iconUrl": "/images/arcana/arcana-thunderbolt.png"
+    "iconUrl": "/images/arcana/arcana-thunderbolt.webp"
   },
   {
     "id": "arcana-touch-of-death",
@@ -1333,7 +1333,7 @@
       "Earth Element"
     ],
     "element": "Earth",
-    "iconUrl": "/images/arcana/arcana-touch-of-death.png"
+    "iconUrl": "/images/arcana/arcana-touch-of-death.webp"
   },
   {
     "id": "arcana-weakened-enemies",
@@ -1344,7 +1344,7 @@
       "Health"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-weakened-enemies.png"
+    "iconUrl": "/images/arcana/arcana-weakened-enemies.webp"
   },
   {
     "id": "arcana-witchfire-clusters",
@@ -1356,7 +1356,7 @@
       "Witchfire"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-witchfire-clusters.png"
+    "iconUrl": "/images/arcana/arcana-witchfire-clusters.webp"
   },
   {
     "id": "arcana-witchfire-orbs",
@@ -1368,6 +1368,6 @@
       "Witchfire"
     ],
     "element": null,
-    "iconUrl": "/images/arcana/arcana-witchfire-orbs.png"
+    "iconUrl": "/images/arcana/arcana-witchfire-orbs.webp"
   }
 ]

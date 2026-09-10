@@ -7,10 +7,13 @@ Outputs:
   - src/main/resources/data/arcana.json
   - src/main/resources/data/prophecies.json
   - src/main/resources/data/enemies.json
-  - src/main/resources/static/images/items/<id>.png
-  - src/main/resources/static/images/arcana/<id>.png
-  - src/main/resources/static/images/prophecies/<id>.png
-  - src/main/resources/static/images/enemies/<id>.png
+  - src/main/resources/static/images/items/<id>.webp
+  - src/main/resources/static/images/arcana/<id>.webp
+  - src/main/resources/static/images/prophecies/<id>.webp
+  - src/main/resources/static/images/enemies/<id>.webp
+
+Images are downloaded as the wiki's own PNGs and then re-encoded to WebP by
+scripts/optimize_images.py, which main() runs as its final step.
 """
 
 import os
@@ -194,7 +197,7 @@ def scrape_items():
         category = "DEMONIC_WEAPON" if "Demonic" in range_cat else "WEAPON"
         img_file = file_map.get(pname)
         img_url = image_urls.get(img_file)
-        local_icon = f"/images/items/{item_id}.png"
+        local_icon = f"/images/items/{item_id}.webp"
         if img_url:
             download_image(img_url, os.path.join(ITEMS_IMAGE_DIR, f"{item_id}.png"))
 
@@ -230,7 +233,7 @@ def scrape_items():
         mysteria = parse_mysteria(wt)
         img_file = file_map.get(pname)
         img_url = image_urls.get(img_file)
-        local_icon = f"/images/items/{item_id}.png"
+        local_icon = f"/images/items/{item_id}.webp"
         if img_url:
             download_image(img_url, os.path.join(ITEMS_IMAGE_DIR, f"{item_id}.png"))
 
@@ -258,7 +261,7 @@ def scrape_items():
         mysteria = parse_mysteria(wt)
         img_file = file_map.get(pname)
         img_url = image_urls.get(img_file)
-        local_icon = f"/images/items/{item_id}.png"
+        local_icon = f"/images/items/{item_id}.webp"
         if img_url:
             download_image(img_url, os.path.join(ITEMS_IMAGE_DIR, f"{item_id}.png"))
 
@@ -284,7 +287,7 @@ def scrape_items():
         mysteria = parse_mysteria(wt)
         img_file = file_map.get(pname)
         img_url = image_urls.get(img_file)
-        local_icon = f"/images/items/{item_id}.png"
+        local_icon = f"/images/items/{item_id}.webp"
         if img_url:
             download_image(img_url, os.path.join(ITEMS_IMAGE_DIR, f"{item_id}.png"))
 
@@ -307,7 +310,7 @@ def scrape_items():
         reqs = parse_bead_requirements(b.get("requirement", ""))
         img_file = file_map.get(pname)
         img_url = image_urls.get(img_file)
-        local_icon = f"/images/items/{item_id}.png"
+        local_icon = f"/images/items/{item_id}.webp"
         if img_url:
             download_image(img_url, os.path.join(ITEMS_IMAGE_DIR, f"{item_id}.png"))
 
@@ -357,7 +360,7 @@ def scrape_arcana():
 
         img_file = f"File:{r['name']}.png"
         img_url = image_urls.get(img_file)
-        local_icon = f"/images/arcana/{card_id}.png"
+        local_icon = f"/images/arcana/{card_id}.webp"
         if img_url:
             download_image(img_url, os.path.join(ARCANA_IMAGE_DIR, f"{card_id}.png"))
 
@@ -398,7 +401,7 @@ def scrape_prophecies():
 
         img_file = f"File:{p['name']}.png"
         img_url = image_urls.get(img_file)
-        local_icon = f"/images/prophecies/{prop_id}.png"
+        local_icon = f"/images/prophecies/{prop_id}.webp"
         if img_url:
             download_image(img_url, os.path.join(PROPHECIES_IMAGE_DIR, f"{prop_id}.png"))
 
@@ -435,7 +438,7 @@ def scrape_enemies():
         enemy_id = f"enemy-{slugify(e['name'])}"
         img_file = f"File:{e['name']}.png"
         img_url = image_urls.get(img_file)
-        local_icon = f"/images/enemies/{enemy_id}.png"
+        local_icon = f"/images/enemies/{enemy_id}.webp"
         if img_url:
             download_image(img_url, os.path.join(ENEMIES_IMAGE_DIR, f"{enemy_id}.png"))
 
@@ -474,6 +477,13 @@ def main():
     scrape_arcana()
     scrape_prophecies()
     scrape_enemies()
+
+    # The wiki serves full-size PNGs; re-encode them to the WebP the iconUrl values point at.
+    try:
+        import optimize_images
+        optimize_images.main()
+    except ImportError:
+        print("Warning: Pillow is not installed - run scripts/optimize_images.py manually")
 
 if __name__ == "__main__":
     main()

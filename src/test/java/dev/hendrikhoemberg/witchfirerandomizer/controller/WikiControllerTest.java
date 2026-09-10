@@ -22,7 +22,7 @@ class WikiControllerTest {
         mockMvc.perform(get("/wiki"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("wiki/index"))
-                .andExpect(content().string(containsString("wf-logo2.webP")))
+                .andExpect(content().string(containsString("wf-logo2.webp")))
                 .andExpect(content().string(containsString("burger-btn")))
                 .andExpect(content().string(containsString("Filter by Category")))
                 .andExpect(content().string(containsString("Filter by Element")))

@@ -16,6 +16,12 @@
   --wf-text-muted: #9ca3af;
   --wf-overlay-dark: rgba(22, 19, 15, 0.7);
   --wf-modal-bg: rgba(20, 18, 16, 0.95);
+  /* Bestiary affinity ledger: bone = the enemy is hardened, ember = the opening you exploit.
+     Deliberately not the danger red (reset actions, imposed omens) and not the app gold. */
+  --wf-resist: #cbc3b2;
+  --wf-resist-bright: #eee7d8;
+  --wf-vulnerable: #e8834f;
+  --wf-vulnerable-bright: #ffb98f;
   --wf-font: Arial, Helvetica, sans-serif;
 }
 
@@ -35,7 +41,7 @@ html {
 
 body {
   background-color: var(--wf-bg);
-  background-image: url('/images/wf-bg.webP');
+  background-image: url('/images/wf-bg.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -64,7 +70,7 @@ main.container {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url('/images/texture-transparent.PNG');
+  background-image: url('/images/texture-transparent.webp');
   background-size: cover;
   opacity: 0.20;
   pointer-events: none;
@@ -1510,27 +1516,24 @@ input:checked + .slider:before {
   }
 }
 
-.enemy-card-body {
+.enemy-card-dossier {
   display: flex;
   flex-direction: column;
-  flex: 1 1 auto;
+  padding: 1.05rem 1.15rem;
+  min-width: 0;
 }
 
 .enemy-stat-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.4rem 1rem;
-  padding: 0.6rem 0.75rem;
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid var(--wf-border-subtle);
-  border-radius: 0.35rem;
-  margin-bottom: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1.75rem;
+  margin-bottom: 0.9rem;
 }
 
 .enemy-stat {
   display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
+  align-items: baseline;
+  gap: 0.45rem;
   min-width: 0;
 }
 
@@ -1543,48 +1546,100 @@ input:checked + .slider:before {
 }
 
 .enemy-stat-value {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: #f3f4f6;
 }
 
-.enemy-affinity-block {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  margin-bottom: 0.85rem;
-}
-
-.enemy-affinity-row {
-  display: flex;
-  gap: 0.6rem;
-  align-items: flex-start;
+/* Affinity ledger: weaknesses first, then resistances. Bar length and fill opacity both
+   encode magnitude, so a +100% resistance reads heavier than a +5% one. */
+.enemy-affinity-ledger {
+  display: grid;
+  grid-template-columns: 4.75rem 1fr;
+  gap: 0.5rem 0.6rem;
+  align-items: start;
+  margin-bottom: 0.9rem;
 }
 
 .enemy-affinity-label {
-  flex: 0 0 4.75rem;
   padding-top: 0.2rem;
   font-size: 0.68rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: #94a3b8;
+  color: var(--wf-resist);
 }
 
-.enemy-affinity-row.is-vulnerable .enemy-affinity-label {
-  color: #f87171;
+.enemy-affinity-label.is-vulnerable {
+  color: var(--wf-vulnerable);
 }
 
-.enemy-affinity-pills {
+.enemy-affinity-entries {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.32rem 1.1rem;
+}
+
+.enemy-affinity-entry {
+  display: grid;
+  grid-template-columns: 3.9rem 1fr 3rem;
+  align-items: center;
+  gap: 0.45rem 0.5rem;
+}
+
+.enemy-affinity-name {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  color: #d1d5db;
+  white-space: nowrap;
+}
+
+.enemy-affinity-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex: 0 0 6px;
+}
+
+.enemy-affinity-track {
+  position: relative;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.enemy-affinity-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 2px;
+  background: var(--wf-resist);
+}
+
+.enemy-affinity-fill.is-vulnerable {
+  background: var(--wf-vulnerable);
+}
+
+.enemy-affinity-value {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--wf-resist-bright);
+}
+
+.enemy-affinity-entry.is-vulnerable .enemy-affinity-value {
+  color: var(--wf-vulnerable-bright);
 }
 
 .enemy-affinity-none {
+  grid-column: 1 / -1;
   font-size: 0.8rem;
   font-style: italic;
-  color: #9ca3af;
+  color: var(--wf-text-muted);
 }
 
 .enemy-locations-row {
@@ -1611,39 +1666,12 @@ input:checked + .slider:before {
   border-color: rgba(var(--wf-gold-rgb), 0.35);
 }
 
-.affinity-pill {
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 0.2rem 0.5rem;
-  border-radius: 0.25rem;
-  background: rgba(0, 0, 0, 0.4);
-  letter-spacing: 0.02em;
-}
-
-.affinity-pill.aff-vulnerable {
-  color: #f87171;
-  border: 1px solid rgba(248, 113, 113, 0.4);
-  background: rgba(248, 113, 113, 0.08);
-}
-
-.affinity-pill.aff-resistant {
-  color: #94a3b8;
-  border: 1px solid rgba(148, 163, 184, 0.4);
-  background: rgba(148, 163, 184, 0.08);
-}
-
-.affinity-pill.aff-physical {
-  color: #d1d5db;
-  border: 1px solid var(--wf-border-subtle);
-  background: rgba(0, 0, 0, 0.4);
-}
-
 .enemy-card {
   border: 1px solid var(--wf-border);
   border-radius: 0.5rem;
-  padding: 1.15rem;
-  display: flex;
-  flex-direction: column;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 168px 1fr;
   transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
@@ -1653,11 +1681,46 @@ input:checked + .slider:before {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
-.enemy-card-header {
+.enemy-card-portrait {
   display: flex;
-  gap: 0.85rem;
-  align-items: flex-start;
-  margin-bottom: 0.85rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 190px;
+  padding: 0.75rem;
+  background: radial-gradient(ellipse 70% 55% at 50% 42%,
+    rgba(var(--wf-gold-rgb), 0.14) 0%,
+    rgba(var(--wf-gold-rgb), 0.04) 45%,
+    rgba(0, 0, 0, 0.55) 100%);
+  border-right: 1px solid var(--wf-border-subtle);
+}
+
+.enemy-card-portrait img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.65));
+}
+
+/* Narrow screens: stack the portrait above the dossier instead of squeezing both.
+   Must come after the base .enemy-card rule or source order wins over the media query. */
+@media (max-width: 560px) {
+  .enemy-card {
+    grid-template-columns: 1fr;
+  }
+
+  .enemy-card-portrait {
+    min-height: 150px;
+    border-right: none;
+    border-bottom: 1px solid var(--wf-border-subtle);
+  }
+
+  .enemy-card-portrait img {
+    max-height: 130px;
+  }
+}
+
+.enemy-card-header {
+  margin-bottom: 0.8rem;
 }
 
 .enemy-card-heading {
@@ -1690,27 +1753,6 @@ input:checked + .slider:before {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 600;
-}
-
-.enemy-portrait-box {
-  width: 3.5rem;
-  height: 3.5rem;
-  background: #000;
-  border: 1px solid var(--wf-border);
-  border-radius: 0.375rem;
-  padding: 0.2rem;
-  flex-shrink: 0;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.enemy-portrait-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0.25rem;
 }
 
 .gnosis-badge {

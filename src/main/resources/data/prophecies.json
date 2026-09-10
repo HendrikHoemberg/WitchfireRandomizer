@@ -7,7 +7,7 @@
     "omenName": "Omen of Indifferent Cosmos",
     "omenEffect": "Grants an equal chance to reveal either one or all three Arcana.",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-air.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-air.webp"
   },
   {
     "id": "prophecy-prophecy-of-dead-eyes",
@@ -17,7 +17,7 @@
     "omenName": "Omen of the Raven",
     "omenEffect": "Increases the power of each awakened Arcanum with at least five White Raven Feathers in the Inventory.",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-dead-eyes.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-dead-eyes.webp"
   },
   {
     "id": "prophecy-prophecy-of-destruction",
@@ -27,7 +27,7 @@
     "omenName": "Omen of the Moonflower",
     "omenEffect": "Significantly increases the power of the awakened Arcanum if it is in the fourth or later row of Arcana. The remaining Arcana slots become disabled.",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-destruction.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-destruction.webp"
   },
   {
     "id": "prophecy-prophecy-of-earth",
@@ -37,7 +37,7 @@
     "omenName": "Omen of the Raven",
     "omenEffect": "Increases the power of each awakened Arcanum with at least five White Raven Feathers in the Inventory.",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-earth.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-earth.webp"
   },
   {
     "id": "prophecy-prophecy-of-fire",
@@ -47,7 +47,7 @@
     "omenName": "Profound Omen of the Raven",
     "omenEffect": "Significantly increases the power of each awakened Arcanum with at least ten White Raven Feathers in the Inventory.",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-fire.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-fire.webp"
   },
   {
     "id": "prophecy-prophecy-of-firearms",
@@ -57,7 +57,7 @@
     "omenName": "Profound Omen of the Moonflower",
     "omenEffect": "Significantly increases the power of the awakened Arcanum if it is in the sixth or seventh row of Arcana. The remaining Arcana slots become disabled.",
     "location": "Shrouded Hermitorium",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-firearms.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-firearms.webp"
   },
   {
     "id": "prophecy-prophecy-of-gunpowder",
@@ -67,7 +67,7 @@
     "omenName": "Profound Omen of the Raven",
     "omenEffect": "Significantly increases the power of each awakened Arcanum with at least ten White Raven Feathers in the Inventory.",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-gunpowder.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-gunpowder.webp"
   },
   {
     "id": "prophecy-prophecy-of-health",
@@ -77,7 +77,7 @@
     "omenName": "Omen of Synergy",
     "omenEffect": "Increases the power of each Arcanum when all three slots are awakened.",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-health.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-health.webp"
   },
   {
     "id": "prophecy-prophecy-of-heaviness",
@@ -87,7 +87,7 @@
     "omenName": "Omen of Opulence",
     "omenEffect": "Unveils three Arcana instead of two.",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-heaviness.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-heaviness.webp"
   },
   {
     "id": "prophecy-prophecy-of-lightness",
@@ -97,7 +97,7 @@
     "omenName": "Omen of Indifferent Cosmos",
     "omenEffect": "Grants an equal chance to reveal either one or all three Arcana.",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-lightness.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-lightness.webp"
   },
   {
     "id": "prophecy-prophecy-of-nimble-fingers",
@@ -107,7 +107,7 @@
     "omenName": "Omen of Sacrifice",
     "omenEffect": "Significantly increases the power of the awakened Arcanum but forgets two random awakened Arcana. Fails if no Arcana are available to be forgotten.",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-nimble-fingers.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-nimble-fingers.webp"
   },
   {
     "id": "prophecy-prophecy-of-spells",
@@ -117,7 +117,7 @@
     "omenName": "Omen of Synergy",
     "omenEffect": "Increases the power of each Arcanum when all three slots are awakened.",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-spells.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-spells.webp"
   },
   {
     "id": "prophecy-prophecy-of-stamina",
@@ -127,7 +127,7 @@
     "omenName": "Omen of Destined Opulence",
     "omenEffect": "Makes the next row unveil all three Arcana, overriding its Prophecy if necessary and possible.",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-stamina.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-stamina.webp"
   },
   {
     "id": "prophecy-prophecy-of-the-bull",
@@ -137,7 +137,7 @@
     "omenName": "Omen of Indifferent Cosmos",
     "omenEffect": "Grants an equal chance to reveal either one or all three Arcana.",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-the-bull.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-the-bull.webp"
   },
   {
     "id": "prophecy-prophecy-of-the-serpent",
@@ -147,7 +147,7 @@
     "omenName": "Omen of Opulence",
     "omenEffect": "Unveils three Arcana instead of two.",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-the-serpent.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-the-serpent.webp"
   },
   {
     "id": "prophecy-prophecy-of-variety",
@@ -157,7 +157,7 @@
     "omenName": "Omen of Rot",
     "omenEffect": "The awakened Arcana get a powerful boost that decreases with four absorbed Witchfire Manifestations and disappears with six.",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-variety.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-variety.webp"
   },
   {
     "id": "prophecy-prophecy-of-water",
@@ -167,7 +167,7 @@
     "omenName": "Omen of Rebirth",
     "omenEffect": "Allows any Arcana in this row to be re-rolled with White Raven Feathers.",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-water.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-water.webp"
   },
   {
     "id": "prophecy-prophecy-of-witchfire",
@@ -177,6 +177,6 @@
     "omenName": "Omen of Destined Opulence",
     "omenEffect": "Makes the next row unveil all three Arcana, overriding its Prophecy if necessary and possible.",
     "location": "The Wailing Tower",
-    "iconUrl": "/images/prophecies/prophecy-prophecy-of-witchfire.png"
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-witchfire.webp"
   }
 ]

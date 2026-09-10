@@ -133,4 +133,34 @@ Plan: `docs/slimpowers/plans/2026-09-10-bestiary-card-overhaul.md`
         max-affinity edge cases; territory footers verified bottom-anchored at a uniform
         19.4px gap via computed-style probe
 
+---
+
+# Current Task: Bestiary Portrait Dossier & WebP Asset Migration
+
+Plan: `docs/slimpowers/plans/2026-09-10-bestiary-portrait-dossier-and-webp.md`
+
+- [x] Task 1: Affinity model (test-first)
+  - [x] `Affinity` record + `AffinityType` enum (10 affinities, canonical order, muted dot colours)
+  - [x] `Enemy.getResistances()` / `getVulnerabilities()` derived accessors
+  - [x] `AffinityTest`: 7 tests, RED watched (missing API) → GREEN
+- [x] Task 2: Portrait-led dossier card
+  - [x] 6 new design tests written first and watched to fail
+  - [x] 168px portrait plate + dossier column (2-column grid kept, per user)
+  - [x] Resistance chips replaced by a **ledger**: name · severity bar · exact value,
+        adaptive 2-up; vulnerabilities first; magnitude in bar length **and** fill opacity
+  - [x] Colour overhaul: bone resist `#cbc3b2`, ember vulnerable `#e8834f` as `:root` tokens,
+        muted element-identity dots (red now reserved for danger)
+  - [x] Removed all dead card rules; mobile stacks the portrait above the dossier
+- [x] Task 3: WebP asset migration
+  - [x] `ImageAssetBudgetTest` written first and watched to fail on the 1024px originals
+  - [x] `scripts/optimize_images.py` (resize + WebP q82, deletes superseded files, idempotent)
+  - [x] Wired into `scrape_wiki.py` as its final step
+  - [x] Converted 340 assets: **70.5 MB → 6.4 MB**; all 337 `iconUrl` values rewritten
+  - [x] Fixed mixed-case `.webP` references; added `shouldOnlyReferenceImageFilesThatExist`
+        (proved it fails by hiding an image)
+- [x] Task 4: Verification
+  - [x] Full suite: `./mvnw test` → **110 tests, 0 failures, BUILD SUCCESS**
+  - [x] Real page measured over CDP: 65 image requests, **3.0 MB**, all WebP, 0 broken images
+  - [x] All 62 cards checked: 47 ledger, 15 explicit empty state, 0 with both/neither
+
 
