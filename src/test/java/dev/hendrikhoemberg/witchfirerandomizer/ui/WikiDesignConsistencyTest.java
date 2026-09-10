@@ -111,7 +111,7 @@ class WikiDesignConsistencyTest {
 
     @Test
     void shouldRenderTheSharedFooterCreditOnWikiPages() throws Exception {
-        for (String route : new String[]{"/wiki", "/wiki/arcana", "/wiki/bestiary"}) {
+        for (String route : new String[]{"/wiki", "/wiki/arcana", "/wiki/prophecies", "/wiki/bestiary"}) {
             mockMvc.perform(get(route))
                     .andExpect(status().isOk())
                     .andExpect(content().string(containsString("Gregory Pedzinski")));

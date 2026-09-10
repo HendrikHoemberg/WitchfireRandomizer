@@ -19,11 +19,16 @@ class WikiNavigationTest {
     private MockMvc mockMvc;
 
     @Test
-    void shouldRenderSubNavWithEquipmentArcanaAndBestiaryTabs() throws Exception {
+    void shouldRenderSubNavWithEquipmentArcanaPropheciesAndBestiaryTabs() throws Exception {
         mockMvc.perform(get("/wiki"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("Equipment")))
                 .andExpect(content().string(containsString("/wiki/arcana")))
+                .andExpect(content().string(containsString("/wiki/prophecies")))
                 .andExpect(content().string(containsString("/wiki/bestiary")));
+
+        mockMvc.perform(get("/wiki/prophecies"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("/wiki/prophecies\" class=\"wiki-tab-link active\"")));
     }
 }

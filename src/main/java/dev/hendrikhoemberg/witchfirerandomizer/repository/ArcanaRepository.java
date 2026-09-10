@@ -130,4 +130,13 @@ public class ArcanaRepository {
                 .sorted()
                 .toList();
     }
+
+    public List<String> getAllLocations() {
+        return prophecyList.stream()
+                .map(Prophecy::getLocation)
+                .filter(l -> l != null && !l.isBlank())
+                .distinct()
+                .sorted()
+                .toList();
+    }
 }

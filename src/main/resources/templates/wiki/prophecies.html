@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prophecies &amp; Omens - Witchfire Companion</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/htmx.min.js"></script>
+    <script defer src="/js/alpine.min.js"></script>
+</head>
+<body>
+    <div th:replace="~{fragments/navigation :: navbar('prophecies')}"></div>
+
+    <main class="container" x-data="{
+        searchQuery: '',
+        selectedLocation: '',
+        updateFilters() {
+            htmx.ajax('GET', '/wiki/prophecies/list', {
+                target: '#prophecy-list-container',
+                swap: 'outerHTML',
+                values: {
+                    search: this.searchQuery,
+                    location: this.selectedLocation
+                }
+            });
+        },
+        clearAllFilters() {
+            this.searchQuery = '';
+            this.selectedLocation = '';
+            this.updateFilters();
+        }
+    }">
+        <!-- Centered Witchfire Logo -->
+        <div class="logo-container">
+            <a href="/">
+                <img src="/images/wf-logo2.webP" alt="Witchfire" class="page-logo">
+            </a>
+        </div>
+
+        <!-- Wiki Sub-Navigation Tabs -->
+        <div th:replace="~{wiki/fragments/wiki-nav :: wikiNav('prophecies')}"></div>
+
+        <!-- Search and Filters Box -->
+        <div class="wiki-filter-box texture-box">
+            <div class="search-input-wrapper">
+                <input type="text"
+                       class="wiki-search-input"
+                       placeholder="Search prophecies by name, effect, or omen..."
+                       x-model="searchQuery"
+                       @input.debounce.300ms="updateFilters()" />
+                <button type="button"
+                        x-show="searchQuery.length > 0"
+                        @click="searchQuery = ''; updateFilters()"
+                        class="search-clear-btn"
+                        title="Clear search">
+                    &times;
+                </button>
+            </div>
+
+            <div class="filter-controls-row">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <label style="font-size: 0.85rem; color: #9ca3af; font-weight: 500;">Filter by Location:</label>
+                    <select class="custom-select"
+                            x-model="selectedLocation"
+                            @change="updateFilters()">
+                        <option value="">All Locations</option>
+                        <option th:each="loc : ${locations}" th:value="${loc}" th:text="${loc}">Location</option>
+                    </select>
+                </div>
+
+                <div x-show="searchQuery || selectedLocation">
+                    <button type="button"
+                            class="filter-pill-btn filter-reset-btn"
+                            @click="clearAllFilters()">
+                        Reset Filters
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Header -->
+        <div class="wiki-results-header">
+            <div class="results-counter">
+                Showing <span th:text="${#lists.size(prophecies)}">18</span> prophecies
+            </div>
+        </div>
+
+        <!-- Prophecies Grid -->
+        <div th:replace="~{wiki/fragments/prophecy-list :: prophecyList}"></div>
+    </main>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</body>
+</html>
