@@ -1,5 +1,6 @@
 package dev.hendrikhoemberg.witchfirerandomizer.model;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -220,5 +221,16 @@ public class Enemy {
     /** Active vulnerabilities, i.e. the elements this enemy takes extra damage from. */
     public List<Affinity> getVulnerabilities() {
         return AffinityType.vulnerabilities(this);
+    }
+
+    /** Alternate forms this enemy also appears as, e.g. "Elite / Ascended" → ["Elite", "Ascended"]. */
+    public List<String> getVariantForms() {
+        if (variants == null || variants.isBlank()) {
+            return List.of();
+        }
+        return Arrays.stream(variants.split("/"))
+                .map(String::trim)
+                .filter(form -> !form.isEmpty())
+                .toList();
     }
 }
