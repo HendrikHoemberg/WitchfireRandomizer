@@ -1,0 +1,1373 @@
+[
+  {
+    "id": "arcana-accelerant",
+    "name": "Accelerant",
+    "description": "Burning enemies receive even more damage.",
+    "effects": "Damage to burning enemies: +15% / +25%",
+    "prophecyTypes": [
+      "Fire Element"
+    ],
+    "element": "Fire",
+    "iconUrl": "/images/arcana/arcana-accelerant.png"
+  },
+  {
+    "id": "arcana-anti-element",
+    "name": "Anti-Element",
+    "description": "Bullets do more damage to enemies affected by an elemental magic.",
+    "effects": "Weapon damage: +10%",
+    "prophecyTypes": [],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-anti-element.png"
+  },
+  {
+    "id": "arcana-atrophy",
+    "name": "Atrophy",
+    "description": "Attacks of decaying enemies are weaker.",
+    "effects": "Enemy damage: -39.99% / -60%",
+    "prophecyTypes": [
+      "Earth Element"
+    ],
+    "element": "Earth",
+    "iconUrl": "/images/arcana/arcana-atrophy.png"
+  },
+  {
+    "id": "arcana-battery",
+    "name": "Battery",
+    "description": "Non-critical shots knock back and do heavily reduced damage on shocked near-death enemies.",
+    "effects": "",
+    "prophecyTypes": [
+      "Air Element"
+    ],
+    "element": "Air",
+    "iconUrl": "/images/arcana/arcana-battery.png"
+  },
+  {
+    "id": "arcana-blindfire",
+    "name": "Blindfire",
+    "description": "Increased non-critical weapon damage.",
+    "effects": "Non-critical weapon damage: +10% / +20%",
+    "prophecyTypes": [
+      "Bull",
+      "Firearms"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-blindfire.png"
+  },
+  {
+    "id": "arcana-blood-transfer",
+    "name": "Blood Transfer",
+    "description": "Increased chance for slain enemies to drop a Healing Elixir.",
+    "effects": "Drop chance: +1% / +2% / +3%",
+    "prophecyTypes": [
+      "Health",
+      "Variety"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-blood-transfer.png"
+  },
+  {
+    "id": "arcana-bonus-elixir",
+    "name": "Bonus Elixir",
+    "description": "An extra Elixir slot.",
+    "effects": "Max elixirs carried: +1 / +2 / +3",
+    "prophecyTypes": [
+      "Health",
+      "Variety"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-bonus-elixir.png"
+  },
+  {
+    "id": "arcana-bonus-witchfire",
+    "name": "Bonus Witchfire",
+    "description": "Burning enemies drop more witchfire and crystallized witchfire.",
+    "effects": "Witchfire bonus: +50% / +100% Crystallized Witchfire drop chance: +100%",
+    "prophecyTypes": [
+      "Fire Element",
+      "Witchfire"
+    ],
+    "element": "Fire",
+    "iconUrl": "/images/arcana/arcana-bonus-witchfire.png"
+  },
+  {
+    "id": "arcana-brittle-knuckles",
+    "name": "Brittle Knuckles",
+    "description": "Lose the Melee ability.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-brittle-knuckles.png"
+  },
+  {
+    "id": "arcana-cascade",
+    "name": "Cascade",
+    "description": "All weapon damage is critical for a short moment after casting any spell.",
+    "effects": "Duration: 5s / 6s",
+    "prophecyTypes": [
+      "Dead Eyes",
+      "Spells"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-cascade.png"
+  },
+  {
+    "id": "arcana-chaos-flame",
+    "name": "Chaos Flame",
+    "description": "Bullets randomly cause double damage to burning enemies.",
+    "effects": "Chance per bullet: 10% / 20%",
+    "prophecyTypes": [
+      "Fire Element"
+    ],
+    "element": "Fire",
+    "iconUrl": "/images/arcana/arcana-chaos-flame.png"
+  },
+  {
+    "id": "arcana-chaos-reload",
+    "name": "Chaos Reload",
+    "description": "After spending at least half a magazine, reload can apply a random element to the new magazine.",
+    "effects": "Chance: +25%",
+    "prophecyTypes": [],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-chaos-reload.png"
+  },
+  {
+    "id": "arcana-circle-of-life",
+    "name": "Circle of Life",
+    "description": "Enemy deaths caused by a decay's damage tick partially recharge Decay spells.",
+    "effects": "Spell recharge boost: +10% / +15%",
+    "prophecyTypes": [
+      "Earth Element",
+      "Spells"
+    ],
+    "element": "Earth",
+    "iconUrl": "/images/arcana/arcana-circle-of-life.png"
+  },
+  {
+    "id": "arcana-cleansing-fire",
+    "name": "Cleansing Fire",
+    "description": "Increased weapon damage against Elite and Ascended enemies.",
+    "effects": "Weapon damage: +50% / +75% / +100%",
+    "prophecyTypes": [
+      "Firearms",
+      "Destruction"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-cleansing-fire.png"
+  },
+  {
+    "id": "arcana-conductor",
+    "name": "Conductor",
+    "description": "Lightning bolts transfer all elemental status effects of the source.",
+    "effects": "",
+    "prophecyTypes": [
+      "Air Element"
+    ],
+    "element": "Air",
+    "iconUrl": "/images/arcana/arcana-conductor.png"
+  },
+  {
+    "id": "arcana-critical-burn",
+    "name": "Critical Burn",
+    "description": "Any weapon damage on burning enemies counts as critical hits.",
+    "effects": "",
+    "prophecyTypes": [
+      "Dead Eyes",
+      "Fire Element"
+    ],
+    "element": "Fire",
+    "iconUrl": "/images/arcana/arcana-critical-burn.png"
+  },
+  {
+    "id": "arcana-critical-chain",
+    "name": "Critical Chain",
+    "description": "Two critical hits in a row conjure an extra bullet in the magazine.",
+    "effects": "",
+    "prophecyTypes": [
+      "Dead Eyes",
+      "Gunpowder",
+      "Nimble Fingers"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-critical-chain.png"
+  },
+  {
+    "id": "arcana-cryovolcano",
+    "name": "Cryovolcano",
+    "description": "Shattered frozen enemies explode for half the damage received while frozen.",
+    "effects": "Explosion range: 10m",
+    "prophecyTypes": [
+      "Water Element"
+    ],
+    "element": "Water",
+    "iconUrl": "/images/arcana/arcana-cryovolcano.png"
+  },
+  {
+    "id": "arcana-deadeye",
+    "name": "Deadeye",
+    "description": "Increased critical weapon damage.",
+    "effects": "Critical weapon damage: +10% / +15%",
+    "prophecyTypes": [
+      "Dead Eyes"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-deadeye.png"
+  },
+  {
+    "id": "arcana-decay-echo",
+    "name": "Decay Echo",
+    "description": "Total decay damage is the same but ticks are stronger in the beginning and weaker near the end.",
+    "effects": "",
+    "prophecyTypes": [
+      "Earth Element"
+    ],
+    "element": "Earth",
+    "iconUrl": "/images/arcana/arcana-decay-echo.png"
+  },
+  {
+    "id": "arcana-depleted-demonic",
+    "name": "Depleted Demonic",
+    "description": "Demonic ammo-reserves: -50%.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-depleted-demonic.png"
+  },
+  {
+    "id": "arcana-depleted-primary",
+    "name": "Depleted Primary",
+    "description": "Primary weapon ammo-reserves: -50%.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-depleted-primary.png"
+  },
+  {
+    "id": "arcana-depleted-secondary",
+    "name": "Depleted Secondary",
+    "description": "Secondary weapon ammo-reserves: -50%.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-depleted-secondary.png"
+  },
+  {
+    "id": "arcana-doomsday-clock",
+    "name": "Doomsday Clock",
+    "description": "Decay never wears off and after the regular damage phase, ticks continue for a small damage.",
+    "effects": "Continued tick damage: 1 HP / 2 HP",
+    "prophecyTypes": [
+      "Earth Element"
+    ],
+    "element": "Earth",
+    "iconUrl": "/images/arcana/arcana-doomsday-clock.png"
+  },
+  {
+    "id": "arcana-dulled-demonic",
+    "name": "Dulled Demonic",
+    "description": "Demonic weapon damage: -50%.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-dulled-demonic.png"
+  },
+  {
+    "id": "arcana-dulled-healing",
+    "name": "Dulled Healing",
+    "description": "Healing effectiveness: -75%.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-dulled-healing.png"
+  },
+  {
+    "id": "arcana-dulled-primary",
+    "name": "Dulled Primary",
+    "description": "Primary weapon damage: -25%.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-dulled-primary.png"
+  },
+  {
+    "id": "arcana-dulled-secondary",
+    "name": "Dulled Secondary",
+    "description": "Secondary weapon damage: -25%.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-dulled-secondary.png"
+  },
+  {
+    "id": "arcana-dulled-stamina",
+    "name": "Dulled Stamina",
+    "description": "Stamina regeneration speed: -75%.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-dulled-stamina.png"
+  },
+  {
+    "id": "arcana-dulled-witchcraft",
+    "name": "Dulled Witchcraft",
+    "description": "Spell damage and power: -75%.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-dulled-witchcraft.png"
+  },
+  {
+    "id": "arcana-elemental-fire-rate",
+    "name": "Elemental Fire Rate",
+    "description": "Killing an enemy affected by elemental magic temporarily boosts RPM of non-automatic weapons.",
+    "effects": "Duration: 4s, RPM: +30%",
+    "prophecyTypes": [
+      "Serpent"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-elemental-fire-rate.png"
+  },
+  {
+    "id": "arcana-elemental-firepower",
+    "name": "Elemental Firepower",
+    "description": "Killing an enemy affected by an elemental magic temporarily boosts weapon damage.",
+    "effects": "Duration: 4s / 6s / 8s Weapon damage: +15% / +20% / +25%",
+    "prophecyTypes": [
+      "Destruction",
+      "Firearms"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-elemental-firepower.png"
+  },
+  {
+    "id": "arcana-elemental-refresh",
+    "name": "Elemental Refresh",
+    "description": "Applying an element to an enemy extends all afflictions.",
+    "effects": "Duration: +2s / +3s",
+    "prophecyTypes": [
+      "Spells"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-elemental-refresh.png"
+  },
+  {
+    "id": "arcana-empty-of-magic",
+    "name": "Empty of Magic",
+    "description": "Increased weapon damage when all spells are drained.",
+    "effects": "Weapon damage: +20%",
+    "prophecyTypes": [
+      "Bull",
+      "Heaviness",
+      "Lightness"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-empty-of-magic.png"
+  },
+  {
+    "id": "arcana-extra-bolt",
+    "name": "Extra Bolt",
+    "description": "Additional lightning bolt per discharge.",
+    "effects": "",
+    "prophecyTypes": [
+      "Air Element"
+    ],
+    "element": "Air",
+    "iconUrl": "/images/arcana/arcana-extra-bolt.png"
+  },
+  {
+    "id": "arcana-extra-light-spell",
+    "name": "Extra Light Spell",
+    "description": "Light Spell has one extra charge.",
+    "effects": "",
+    "prophecyTypes": [
+      "Lightness"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-extra-light-spell.png"
+  },
+  {
+    "id": "arcana-fast-heavy-spell",
+    "name": "Fast Heavy Spell",
+    "description": "Increased Heavy Spell recharge when Light Spell is charged.",
+    "effects": "Recharge speed: +20% / +25%",
+    "prophecyTypes": [
+      "Heaviness",
+      "Spells"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-fast-heavy-spell.png"
+  },
+  {
+    "id": "arcana-fast-light-spell",
+    "name": "Fast Light Spell",
+    "description": "Increased Light Spell recharge when Heavy Spell is charged.",
+    "effects": "Recharge speed: +20% / +25%",
+    "prophecyTypes": [
+      "Lightness",
+      "Spells"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-fast-light-spell.png"
+  },
+  {
+    "id": "arcana-fast-reload",
+    "name": "Fast Reload",
+    "description": "Faster weapon reload.",
+    "effects": "Reload: -30% / -60%",
+    "prophecyTypes": [
+      "Nimble Fingers"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-fast-reload.png"
+  },
+  {
+    "id": "arcana-fast-strafe",
+    "name": "Fast Strafe",
+    "description": "Increased strafe speed when aiming down sights.",
+    "effects": "Strafe speed when aiming down sights: +50% / +100%",
+    "prophecyTypes": [
+      "Serpent"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-fast-strafe.png"
+  },
+  {
+    "id": "arcana-fertilizer",
+    "name": "Fertilizer",
+    "description": "Decaying enemies drop a pool of corrupted witchfire upon death. The pool empowers weapons and slowly heals new wounds.",
+    "effects": "Duration: 10s / 13s Weapon damage: +10% / +20%",
+    "prophecyTypes": [
+      "Earth Element"
+    ],
+    "element": "Earth",
+    "iconUrl": "/images/arcana/arcana-fertilizer.png"
+  },
+  {
+    "id": "arcana-final-bullet",
+    "name": "Final Bullet",
+    "description": "Damage boost on the final bullet in the magazine.",
+    "effects": "Final bullet damage: +100% / +150% / +200%",
+    "prophecyTypes": [
+      "Destruction",
+      "Firearms",
+      "Gunpowder",
+      "Serpent"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-final-bullet.png"
+  },
+  {
+    "id": "arcana-fire-orb",
+    "name": "Fire Orb",
+    "description": "Enemies killed when burning collapse into fire orbs that explode when another enemy gets near.",
+    "effects": "Trigger range: 10m / 14m Explosion damage: 30 / 70",
+    "prophecyTypes": [
+      "Fire Element"
+    ],
+    "element": "Fire",
+    "iconUrl": "/images/arcana/arcana-fire-orb.png"
+  },
+  {
+    "id": "arcana-fire-rate-boost",
+    "name": "Fire Rate Boost",
+    "description": "Increases the rate of fire of non-automatic weapons.",
+    "effects": "RPM: +20%",
+    "prophecyTypes": [
+      "Serpent"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-fire-rate-boost.png"
+  },
+  {
+    "id": "arcana-firearm-mastery",
+    "name": "Firearm Mastery",
+    "description": "Increased weapon stability, handling, and aiming down sights speed.",
+    "effects": "Stability: +25% / +50% / +100% Handling: +25% / +50% / +100% ADS: -30% / -40% / -80%",
+    "prophecyTypes": [
+      "Nimble Fingers"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-firearm-mastery.png"
+  },
+  {
+    "id": "arcana-firepower-boost",
+    "name": "Firepower Boost",
+    "description": "Increased weapon damage.",
+    "effects": "Weapon damage: +10% / +13% / +15%",
+    "prophecyTypes": [
+      "Destruction"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-firepower-boost.png"
+  },
+  {
+    "id": "arcana-flashover",
+    "name": "Flashover",
+    "description": "Critical kills on burning enemies explode them and ignite others.",
+    "effects": "Explosion range: 11m / 13m / 15m Explosion damage: 40 / 60 / 80",
+    "prophecyTypes": [
+      "Dead Eyes",
+      "Fire Element"
+    ],
+    "element": "Fire",
+    "iconUrl": "/images/arcana/arcana-flashover.png"
+  },
+  {
+    "id": "arcana-flinchless",
+    "name": "Flinchless",
+    "description": "Reduced Stamina loss on hit.",
+    "effects": "Stamina drain: -50% / -75% / -100%",
+    "prophecyTypes": [
+      "Stamina",
+      "Variety"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-flinchless.png"
+  },
+  {
+    "id": "arcana-freezing-gust",
+    "name": "Freezing Gust",
+    "description": "When enemies unfreeze, they explode with a freezing shockwave.",
+    "effects": "Shockwave range: 7m",
+    "prophecyTypes": [
+      "Water Element"
+    ],
+    "element": "Water",
+    "iconUrl": "/images/arcana/arcana-freezing-gust.png"
+  },
+  {
+    "id": "arcana-full-health-firepower",
+    "name": "Full Health Firepower",
+    "description": "Increased weapon damage at full health.",
+    "effects": "Weapon damage: +10% / +13% / +15%",
+    "prophecyTypes": [
+      "Health",
+      "Serpent"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-full-health-firepower.png"
+  },
+  {
+    "id": "arcana-full-of-magic",
+    "name": "Full of Magic",
+    "description": "Increased weapon damage for each spell charged to its fullest.",
+    "effects": "Weapon damage per charged spell: +10% / +13% / +15%",
+    "prophecyTypes": [
+      "Firearms",
+      "Destruction",
+      "Heaviness",
+      "Lightness"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-full-of-magic.png"
+  },
+  {
+    "id": "arcana-grounded",
+    "name": "Grounded",
+    "description": "Lose the ability to jump in the air.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-grounded.png"
+  },
+  {
+    "id": "arcana-health-boost",
+    "name": "Health Boost",
+    "description": "Increased Max Health.",
+    "effects": "Maximum health: +20% / +25% / +35%",
+    "prophecyTypes": [
+      "Health",
+      "Variety"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-health-boost.png"
+  },
+  {
+    "id": "arcana-health-halved",
+    "name": "Health Halved",
+    "description": "Max health: -50%.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-health-halved.png"
+  },
+  {
+    "id": "arcana-health-sacrifice",
+    "name": "Health Sacrifice",
+    "description": "Increased weapon damage at the cost of reduced maximum health.",
+    "effects": "Maximum health: -30% / -25% Weapon damage: +20% / +25%",
+    "prophecyTypes": [
+      "Bull",
+      "Health"
+    ],
+    "element": "Water",
+    "iconUrl": "/images/arcana/arcana-health-sacrifice.png"
+  },
+  {
+    "id": "arcana-heat-exhaustion",
+    "name": "Heat Exhaustion",
+    "description": "Weapons instantly knock back burning minor enemies.",
+    "effects": "",
+    "prophecyTypes": [
+      "Fire Element"
+    ],
+    "element": "Fire",
+    "iconUrl": "/images/arcana/arcana-heat-exhaustion.png"
+  },
+  {
+    "id": "arcana-heavy-spell-recharge",
+    "name": "Heavy Spell Recharge",
+    "description": "Faster Heavy Spell recharge.",
+    "effects": "Recharge speed: +15%",
+    "prophecyTypes": [
+      "Heaviness"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-heavy-spell-recharge.png"
+  },
+  {
+    "id": "arcana-ice-remnant",
+    "name": "Ice Remnant",
+    "description": "Frozen enemies drop ice remnants when shattered. The remnants partially recharge Ice spells when picked up.",
+    "effects": "Spell recharge boost: 15%",
+    "prophecyTypes": [
+      "Spells",
+      "Water Element"
+    ],
+    "element": "Water",
+    "iconUrl": "/images/arcana/arcana-ice-remnant.png"
+  },
+  {
+    "id": "arcana-ice-statue",
+    "name": "Ice Statue",
+    "description": "Minor enemies freeze indefinitely until damaged with bullets.",
+    "effects": "Damage to burning enemies: +15% / +25%",
+    "prophecyTypes": [
+      "Water Element"
+    ],
+    "element": "Fire",
+    "iconUrl": "/images/arcana/arcana-ice-statue.png"
+  },
+  {
+    "id": "arcana-ignition",
+    "name": "Ignition",
+    "description": "Casting a Fire spell grants temporary boost to Stamina and weapons.",
+    "effects": "Duration: 4s / 6s Stamina: +50% / +100% Reload: -30% / -50% Weapon switch: -30% / -50%",
+    "prophecyTypes": [
+      "Fire Element"
+    ],
+    "element": "Fire",
+    "iconUrl": "/images/arcana/arcana-ignition.png"
+  },
+  {
+    "id": "arcana-immunity-reload",
+    "name": "Immunity Reload",
+    "description": "Immunity to enemy attacks after reloading an empty magazine.",
+    "effects": "",
+    "prophecyTypes": [
+      "Bull"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-immunity-reload.png"
+  },
+  {
+    "id": "arcana-immunity-spellcast",
+    "name": "Immunity Spellcast",
+    "description": "Casting a spell grants a short moment of immunity to enemy attacks.",
+    "effects": "Duration: 2s",
+    "prophecyTypes": [
+      "Bull",
+      "Heaviness",
+      "Lightness"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-immunity-spellcast.png"
+  },
+  {
+    "id": "arcana-immunity-swap",
+    "name": "Immunity Swap",
+    "description": "Switching weapons grants immunity to enemy attacks for a short time.",
+    "effects": "Immunity: 1s Effect cooldown: 10s",
+    "prophecyTypes": [
+      "Serpent"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-immunity-swap.png"
+  },
+  {
+    "id": "arcana-infectious-cloud",
+    "name": "Infectious Cloud",
+    "description": "Decaying enemies who die to a critical hit explode with an infectious decay cloud.",
+    "effects": "Explosion range: 11m / 13m",
+    "prophecyTypes": [
+      "Dead Eyes",
+      "Earth Element"
+    ],
+    "element": "Earth",
+    "iconUrl": "/images/arcana/arcana-infectious-cloud.png"
+  },
+  {
+    "id": "arcana-kill-reload",
+    "name": "Kill Reload",
+    "description": "Weapon kills partially reload the magazine.",
+    "effects": "Magazine reloaded: 25% / 35%",
+    "prophecyTypes": [
+      "Nimble Fingers"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-kill-reload.png"
+  },
+  {
+    "id": "arcana-large-magazine",
+    "name": "Large Magazine",
+    "description": "Increased magazine size.",
+    "effects": "Magazine size: +40% / +75%",
+    "prophecyTypes": [
+      "Gunpowder"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-large-magazine.png"
+  },
+  {
+    "id": "arcana-last-elixir",
+    "name": "Last Elixir",
+    "description": "Last Elixir fully heals and temporarily increases health.",
+    "effects": "Temporary health increase: +50% / +100% / +150%",
+    "prophecyTypes": [
+      "Health",
+      "Variety"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-last-elixir.png"
+  },
+  {
+    "id": "arcana-lasting-element",
+    "name": "Lasting Element",
+    "description": "Elemental status effects on enemies last longer.",
+    "effects": "Elemental status effect duration: +20% / +25%",
+    "prophecyTypes": [
+      "Spells"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-lasting-element.png"
+  },
+  {
+    "id": "arcana-lifeleech",
+    "name": "Lifeleech",
+    "description": "Lose 50% of current health.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-lifeleech.png"
+  },
+  {
+    "id": "arcana-light-spell-recharge",
+    "name": "Light Spell Recharge",
+    "description": "Faster Light Spell recharge.",
+    "effects": "Recharge speed: 15%",
+    "prophecyTypes": [
+      "Lightness"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-light-spell-recharge.png"
+  },
+  {
+    "id": "arcana-live-wire",
+    "name": "Live Wire",
+    "description": "Strongly reduced wait before Stamina begins regenerating.",
+    "effects": "",
+    "prophecyTypes": [
+      "Stamina"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-live-wire.png"
+  },
+  {
+    "id": "arcana-long-winter",
+    "name": "Long Winter",
+    "description": "Major enemies freeze for longer.",
+    "effects": "Elite enemies freeze time: +1s",
+    "prophecyTypes": [
+      "Water Element"
+    ],
+    "element": "Water",
+    "iconUrl": "/images/arcana/arcana-long-winter.png"
+  },
+  {
+    "id": "arcana-longer-bolts",
+    "name": "Longer Bolts",
+    "description": "Increases range of lightning bolts.",
+    "effects": "Bolt Range: +25%",
+    "prophecyTypes": [
+      "Air Element"
+    ],
+    "element": "Air",
+    "iconUrl": "/images/arcana/arcana-longer-bolts.png"
+  },
+  {
+    "id": "arcana-memento-mori",
+    "name": "Memento Mori",
+    "description": "Casting a Decay spell confuses all enemies, making them not attack for a short while.",
+    "effects": "Confusion duration: 4s / 5s Confusion range: 15m / 17m",
+    "prophecyTypes": [
+      "Earth Element"
+    ],
+    "element": "Earth",
+    "iconUrl": "/images/arcana/arcana-memento-mori.png"
+  },
+  {
+    "id": "arcana-more-bolt-jumps",
+    "name": "More Bolt Jumps",
+    "description": "Increased number of bolt jumps.",
+    "effects": "Bolt jumps: +1",
+    "prophecyTypes": [
+      "Air Element"
+    ],
+    "element": "Air",
+    "iconUrl": "/images/arcana/arcana-more-bolt-jumps.png"
+  },
+  {
+    "id": "arcana-more-stamina",
+    "name": "More Stamina",
+    "description": "More Stamina.",
+    "effects": "Stamina: +20% / +25% / +30%",
+    "prophecyTypes": [
+      "Stamina",
+      "Variety"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-more-stamina.png"
+  },
+  {
+    "id": "arcana-necrosis",
+    "name": "Necrosis",
+    "description": "Increased decay damage.",
+    "effects": "Tick damage: +20% / +30%",
+    "prophecyTypes": [
+      "Earth Element"
+    ],
+    "element": "Earth",
+    "iconUrl": "/images/arcana/arcana-necrosis.png"
+  },
+  {
+    "id": "arcana-no-retreat",
+    "name": "No Retreat",
+    "description": "Nearly lose the ability to move back.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-no-retreat.png"
+  },
+  {
+    "id": "arcana-pagophobia",
+    "name": "Pagophobia",
+    "description": "Increased weapon damage against frozen targets.",
+    "effects": "Weapon damage to frozen enemies: +20%",
+    "prophecyTypes": [
+      "Water Element"
+    ],
+    "element": "Water",
+    "iconUrl": "/images/arcana/arcana-pagophobia.png"
+  },
+  {
+    "id": "arcana-painful-recharge",
+    "name": "Painful Recharge",
+    "description": "Spells instantly recharge when any health is lost.",
+    "effects": "",
+    "prophecyTypes": [
+      "Heaviness"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-painful-recharge.png"
+  },
+  {
+    "id": "arcana-pendulum",
+    "name": "Pendulum",
+    "description": "Weapon damage is inversely related to health.",
+    "effects": "Damage per 10% missing health: +3% / +4% / +5%",
+    "prophecyTypes": [
+      "Destruction",
+      "Firearms",
+      "Health"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-pendulum.png"
+  },
+  {
+    "id": "arcana-perun",
+    "name": "Perun",
+    "description": "Critical hits produce more lightning bolts.",
+    "effects": "Bolts: +1 / +2",
+    "prophecyTypes": [
+      "Air Element",
+      "Dead Eyes"
+    ],
+    "element": "Air",
+    "iconUrl": "/images/arcana/arcana-perun.png"
+  },
+  {
+    "id": "arcana-phantom-bullets",
+    "name": "Phantom Bullets",
+    "description": "Missed bullets have a chance to rematerialize back in the magazine.",
+    "effects": "Chance: 40% / +60%",
+    "prophecyTypes": [
+      "Gunpowder",
+      "Nimble Fingers"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-phantom-bullets.png"
+  },
+  {
+    "id": "arcana-piercing-bullets",
+    "name": "Piercing Bullets",
+    "description": "Bullets cannot be blocked by material shields.",
+    "effects": "",
+    "prophecyTypes": [
+      "Gunpowder"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-piercing-bullets.png"
+  },
+  {
+    "id": "arcana-potion-loss",
+    "name": "Potion Loss",
+    "description": "Lose one Healing Elixir.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-potion-loss.png"
+  },
+  {
+    "id": "arcana-power-drain",
+    "name": "Power Drain",
+    "description": "Damage boost for spells and weapons when Stamina is fully drained.",
+    "effects": "Damage boost +30% / +40% / +50%",
+    "prophecyTypes": [
+      "Stamina",
+      "Variety"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-power-drain.png"
+  },
+  {
+    "id": "arcana-putrefaction",
+    "name": "Putrefaction",
+    "description": "Final decay tick deals a part of target's maximum health as damage.",
+    "effects": "Final tick damage based on max HP: 20% / 25%",
+    "prophecyTypes": [
+      "Earth Element"
+    ],
+    "element": "Earth",
+    "iconUrl": "/images/arcana/arcana-putrefaction.png"
+  },
+  {
+    "id": "arcana-pyrolysis",
+    "name": "Pyrolysis",
+    "description": "Bonus damage to burning foes but when the burn ends, they heal part of the damage.",
+    "effects": "Damage to burning enemies: +15% / +25% Percent of damage healed: 40% / 30%",
+    "prophecyTypes": [
+      "Fire Element"
+    ],
+    "element": "Fire",
+    "iconUrl": "/images/arcana/arcana-pyrolysis.png"
+  },
+  {
+    "id": "arcana-range-boost",
+    "name": "Range Boost",
+    "description": "Increased weapon range.",
+    "effects": "Range: +30%",
+    "prophecyTypes": [
+      "Serpent"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-range-boost.png"
+  },
+  {
+    "id": "arcana-range-sacrifice",
+    "name": "Range Sacrifice",
+    "description": "Increased weapon damage at the cost of reduced range.",
+    "effects": "Weapon range: -30% Weapon damage: +20%",
+    "prophecyTypes": [
+      "Bull"
+    ],
+    "element": "Water",
+    "iconUrl": "/images/arcana/arcana-range-sacrifice.png"
+  },
+  {
+    "id": "arcana-recharged",
+    "name": "Recharged",
+    "description": "Enemy deaths caused by the bolts partially recharge Lightning spells.",
+    "effects": "Spell recharge boost: +20% / +25%",
+    "prophecyTypes": [
+      "Air Element",
+      "Spells"
+    ],
+    "element": "Air",
+    "iconUrl": "/images/arcana/arcana-recharged.png"
+  },
+  {
+    "id": "arcana-refreeze",
+    "name": "Refreeze",
+    "description": "After the initial freeze, major enemies have a chance to freeze again.",
+    "effects": "Chance: +20%",
+    "prophecyTypes": [
+      "Water Element"
+    ],
+    "element": "Water",
+    "iconUrl": "/images/arcana/arcana-refreeze.png"
+  },
+  {
+    "id": "arcana-rejuvenation",
+    "name": "Rejuvenation",
+    "description": "Faster Stamina regeneration.",
+    "effects": "Regeneration speed: +20% / +25% / +30%",
+    "prophecyTypes": [
+      "Stamina",
+      "Variety"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-rejuvenation.png"
+  },
+  {
+    "id": "arcana-rekindled",
+    "name": "Rekindled",
+    "description": "Killing burning enemies partially recharges Fire spells.",
+    "effects": "Spell recharge boost: 10% / 15% / 20%",
+    "prophecyTypes": [
+      "Fire Element",
+      "Spells"
+    ],
+    "element": "Fire",
+    "iconUrl": "/images/arcana/arcana-rekindled.png"
+  },
+  {
+    "id": "arcana-reload-dash",
+    "name": "Reload Dash",
+    "description": "Dashing partially reloads equipped weapon.",
+    "effects": "",
+    "prophecyTypes": [
+      "Firearms",
+      "Destruction"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-reload-dash.png"
+  },
+  {
+    "id": "arcana-reload-slide",
+    "name": "Reload Slide",
+    "description": "Sliding partially reloads equipped weapon and increases damage and range during the slide.",
+    "effects": "Weapon range: +20% Weapon damage: +20%",
+    "prophecyTypes": [
+      "Bull"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-reload-slide.png"
+  },
+  {
+    "id": "arcana-reload-swap",
+    "name": "Reload Swap",
+    "description": "Switching to a weapon instandly reloads it.",
+    "effects": "Effect cooldown: 10s / 6s",
+    "prophecyTypes": [
+      "Nimble Fingers"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-reload-swap.png"
+  },
+  {
+    "id": "arcana-revenge",
+    "name": "Revenge",
+    "description": "Temporarily increased weapon damage after any damage is taken.",
+    "effects": "Duration: 3s Weapon damage: +25%",
+    "prophecyTypes": [
+      "Bull"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-revenge.png"
+  },
+  {
+    "id": "arcana-rime-shield",
+    "name": "Rime Shield",
+    "description": "Casting an Ice spell temporarily affects the caster with slower movement but a more resiliant body.",
+    "effects": "Duration: 3s Movement speed: -30% Damage resistance: 30%",
+    "prophecyTypes": [
+      "Water Element"
+    ],
+    "element": "Water",
+    "iconUrl": "/images/arcana/arcana-rime-shield.png"
+  },
+  {
+    "id": "arcana-safe-deposit",
+    "name": "Safe Deposit",
+    "description": "Death will consume only half of witchfire.",
+    "effects": "",
+    "prophecyTypes": [
+      "Witchfire"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-safe-deposit.png"
+  },
+  {
+    "id": "arcana-safe-reload",
+    "name": "Safe Reload",
+    "description": "Temporary damage resistance after reloading a weapon.",
+    "effects": "Damage resistance: +50% Duration: 2s",
+    "prophecyTypes": [
+      "Serpent"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-safe-reload.png"
+  },
+  {
+    "id": "arcana-scholar",
+    "name": "Scholar",
+    "description": "Extra white raven feather each time one is found.",
+    "effects": "",
+    "prophecyTypes": [
+      "Variety"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-scholar.png"
+  },
+  {
+    "id": "arcana-shattered-soul",
+    "name": "Shattered Soul",
+    "description": "Unfreezed enemies are damaged for a part of their maximum health.",
+    "effects": "Max health damage: +20%",
+    "prophecyTypes": [
+      "Water Element"
+    ],
+    "element": "Water",
+    "iconUrl": "/images/arcana/arcana-shattered-soul.png"
+  },
+  {
+    "id": "arcana-shock-wave",
+    "name": "Shock Wave",
+    "description": "Critical kills on shocked enemies produce a storm shockwave that knocks back and shocks all nearby enemies.",
+    "effects": "Shockwave range: 11m / 13m",
+    "prophecyTypes": [
+      "Air Element",
+      "Dead Eyes"
+    ],
+    "element": "Air",
+    "iconUrl": "/images/arcana/arcana-shock-wave.png"
+  },
+  {
+    "id": "arcana-silent-demonic",
+    "name": "Silent Demonic",
+    "description": "Sacrifice the Demonic weapon's ability to fire.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": "Water",
+    "iconUrl": "/images/arcana/arcana-silent-demonic.png"
+  },
+  {
+    "id": "arcana-silent-fetish",
+    "name": "Silent Fetish",
+    "description": "Surrender the power of the equipped Fetish.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-silent-fetish.png"
+  },
+  {
+    "id": "arcana-silent-heavy-spell",
+    "name": "Silent Heavy Spell",
+    "description": "Lose the ability to cast the Heavy Spell.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-silent-heavy-spell.png"
+  },
+  {
+    "id": "arcana-silent-light-spell",
+    "name": "Silent Light Spell",
+    "description": "Lose the ability to cast the Light Spell.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-silent-light-spell.png"
+  },
+  {
+    "id": "arcana-silent-relic",
+    "name": "Silent Relic",
+    "description": "Surrender the power of the equipped Relic.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-silent-relic.png"
+  },
+  {
+    "id": "arcana-silent-ring",
+    "name": "Silent Ring",
+    "description": "Surrender the power of the equipped Ring.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-silent-ring.png"
+  },
+  {
+    "id": "arcana-silent-secondary",
+    "name": "Silent Secondary",
+    "description": "Sacrifice the Secondary weapon's ability to fire.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": "Water",
+    "iconUrl": "/images/arcana/arcana-silent-secondary.png"
+  },
+  {
+    "id": "arcana-snowball",
+    "name": "Snowball",
+    "description": "Frozen enemies release an ice cloud when killed. The cloud seeks and freezes the nearest enemy.",
+    "effects": "Cloud's trigger range: 12m Cloud's wait time: 4s",
+    "prophecyTypes": [
+      "Water Element"
+    ],
+    "element": "Water",
+    "iconUrl": "/images/arcana/arcana-snowball.png"
+  },
+  {
+    "id": "arcana-stamina-halved",
+    "name": "Stamina Halved",
+    "description": "Max Stamina: -50%.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-stamina-halved.png"
+  },
+  {
+    "id": "arcana-stationary-scope",
+    "name": "Stationary Scope",
+    "description": "Lose the ability to move while aiming down sights.",
+    "effects": "",
+    "prophecyTypes": [
+      "Corrupted"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-stationary-scope.png"
+  },
+  {
+    "id": "arcana-stormbringer",
+    "name": "Stormbringer",
+    "description": "Casting a Lightning spell grants temporary aura that discharges lightning bolts at nearby enemies.",
+    "effects": "Duration: 6s Bolt damage: 30 HP Tick rate: +1s",
+    "prophecyTypes": [
+      "Air Element"
+    ],
+    "element": "Air",
+    "iconUrl": "/images/arcana/arcana-stormbringer.png"
+  },
+  {
+    "id": "arcana-stun-bullets",
+    "name": "Stun Bullets",
+    "description": "Bullets knock back and stun enemies much faster.",
+    "effects": "Stun power: +30% / +50%",
+    "prophecyTypes": [
+      "Firearms"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-stun-bullets.png"
+  },
+  {
+    "id": "arcana-thunderbolt",
+    "name": "Thunderbolt",
+    "description": "Increased lightning bolt damage.",
+    "effects": "Bolt damage: +20%",
+    "prophecyTypes": [
+      "Air Element"
+    ],
+    "element": "Air",
+    "iconUrl": "/images/arcana/arcana-thunderbolt.png"
+  },
+  {
+    "id": "arcana-touch-of-death",
+    "name": "Touch of Death",
+    "description": "The initial decay tick always stuns minor enemies.",
+    "effects": "",
+    "prophecyTypes": [
+      "Earth Element"
+    ],
+    "element": "Earth",
+    "iconUrl": "/images/arcana/arcana-touch-of-death.png"
+  },
+  {
+    "id": "arcana-weakened-enemies",
+    "name": "Weakened Enemies",
+    "description": "Enemies have less health.",
+    "effects": "Enemy health: -10% / -15%",
+    "prophecyTypes": [
+      "Health"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-weakened-enemies.png"
+  },
+  {
+    "id": "arcana-witchfire-clusters",
+    "name": "Witchfire Clusters",
+    "description": "Elites can drop gigantic witchfire crystals.",
+    "effects": "",
+    "prophecyTypes": [
+      "Variety",
+      "Witchfire"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-witchfire-clusters.png"
+  },
+  {
+    "id": "arcana-witchfire-orbs",
+    "name": "Witchfire Orbs",
+    "description": "Instead of regular witchfire, dead enemies drop a quickly dissolving potent witchfire orb.",
+    "effects": "",
+    "prophecyTypes": [
+      "Variety",
+      "Witchfire"
+    ],
+    "element": null,
+    "iconUrl": "/images/arcana/arcana-witchfire-orbs.png"
+  }
+]

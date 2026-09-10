@@ -16,9 +16,12 @@ To make the wiki a comprehensive encyclopedia for Witchfire players, this expans
    - Allows searching, filtering by element/category, inspecting card tier scaling, and viewing which Arcana pool each Prophecy unlocks alongside its corresponding Omen curse/affix.
 2. **Bestiary & Vulnerability Guide (`/wiki/bestiary`)**:
    - Covers all 62 enemy types in Witchfire.
-   - Highlights enemy ranks (Minor, Faithful, Guardian/Boss), Gnosis requirements (0–6), spawn locations, health pools, and visual elemental weakness/resistance indicators (🔥 Fire, ⚡ Shock, 💧 Freeze, 🌿 Decay).
+   - Highlights enemy ranks (Minor, Faithful, Guardian/Boss), Gnosis requirements (0–6), spawn locations, health pools, and visual elemental weakness/resistance indicators (Fire, Shock, Freeze, Decay).
 3. **Unified Wiki Hub Navigation**:
    - Seamless sub-navigation tabs across all wiki views (`Equipment`, `Arcana & Prophecies`, `Bestiary`), unified with the existing dark-fantasy theme and sidebar drawer.
+
+### Design Directive
+- **Strictly no emojis**: All tabs, badges, cards, and buttons must use clean typography, styled CSS pill badges, and subtle SVG icons that seamlessly integrate into Witchfire's dark-fantasy UI.
 
 ### Non-Goals
 - Full combat simulator or damage calculator (keep the app lightweight, responsive, and server-rendered).
@@ -46,9 +49,9 @@ GET /wiki/bestiary/enemy/{id}  -> HTMX fragment: Enemy detail modal
 
 ### 2.2 Navigation UI
 - **Wiki Sub-Navigation Bar**: A responsive tab bar positioned beneath the header on all `/wiki*` routes:
-  - `[ ⚔️ Equipment ]` (`/wiki`)
-  - `[ 🔮 Arcana & Prophecies ]` (`/wiki/arcana`)
-  - `[ 💀 Bestiary ]` (`/wiki/bestiary`)
+  - `Equipment` (`/wiki`)
+  - `Arcana & Prophecies` (`/wiki/arcana`)
+  - `Bestiary` (`/wiki/bestiary`)
 - **Sidebar Drawer**: Expanded to list:
   - Loadout Randomizer (`/`)
   - Equipment Wiki (`/wiki`)
@@ -165,8 +168,8 @@ Adheres to the established dark-fantasy aesthetic:
   - Gnosis level badge (e.g. `GNOSIS III`).
   - Base health display.
   - **Elemental Vulnerability / Resistance Badges**:
-    - 🔥 Weak (green/up indicator) or Resistant (red/shield indicator).
-    - ⚡ Shock, 💧 Freeze, 🌿 Decay status badges.
+    - Clean text/icon badges: "Weak", "Normal", "Resistant" or numeric percentages.
+    - Colored badges for Fire (#ff4d4d), Shock (#ffcc00), Freeze (#4da6ff), Decay (#66cc66).
 - **Enemy Modal**:
   - High-res portrait and lore background.
   - Spawn locations list.

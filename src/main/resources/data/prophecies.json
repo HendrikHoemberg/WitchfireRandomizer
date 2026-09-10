@@ -1,0 +1,182 @@
+[
+  {
+    "id": "prophecy-prophecy-of-air",
+    "name": "Prophecy of Air",
+    "description": "Grants Arcana tied to the element of Air.",
+    "arcanaType": "Air Element",
+    "omenName": "Omen of Indifferent Cosmos",
+    "omenEffect": "Grants an equal chance to reveal either one or all three Arcana.",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-air.png"
+  },
+  {
+    "id": "prophecy-prophecy-of-dead-eyes",
+    "name": "Prophecy of Dead Eyes",
+    "description": "Grants Arcana tied to Critical Hits.",
+    "arcanaType": "Dead Eyes",
+    "omenName": "Omen of the Raven",
+    "omenEffect": "Increases the power of each awakened Arcanum with at least five White Raven Feathers in the Inventory.",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-dead-eyes.png"
+  },
+  {
+    "id": "prophecy-prophecy-of-destruction",
+    "name": "Prophecy of Destruction",
+    "description": "Grants Arcana tied to firearm damage.",
+    "arcanaType": "Destruction",
+    "omenName": "Omen of the Moonflower",
+    "omenEffect": "Significantly increases the power of the awakened Arcanum if it is in the fourth or later row of Arcana. The remaining Arcana slots become disabled.",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-destruction.png"
+  },
+  {
+    "id": "prophecy-prophecy-of-earth",
+    "name": "Prophecy of Earth",
+    "description": "Grants Arcana tied to the element of Earth.",
+    "arcanaType": "Earth Element",
+    "omenName": "Omen of the Raven",
+    "omenEffect": "Increases the power of each awakened Arcanum with at least five White Raven Feathers in the Inventory.",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-earth.png"
+  },
+  {
+    "id": "prophecy-prophecy-of-fire",
+    "name": "Prophecy of Fire",
+    "description": "Grants Arcana tied to the element of Fire.",
+    "arcanaType": "Fire Element",
+    "omenName": "Profound Omen of the Raven",
+    "omenEffect": "Significantly increases the power of each awakened Arcanum with at least ten White Raven Feathers in the Inventory.",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-fire.png"
+  },
+  {
+    "id": "prophecy-prophecy-of-firearms",
+    "name": "Prophecy of Firearms",
+    "description": "Grants Arcana tied to weapons.",
+    "arcanaType": "Firearms",
+    "omenName": "Profound Omen of the Moonflower",
+    "omenEffect": "Significantly increases the power of the awakened Arcanum if it is in the sixth or seventh row of Arcana. The remaining Arcana slots become disabled.",
+    "location": "Shrouded Hermitorium",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-firearms.png"
+  },
+  {
+    "id": "prophecy-prophecy-of-gunpowder",
+    "name": "Prophecy of Gunpowder",
+    "description": "Grants Arcana tied to ammo.",
+    "arcanaType": "Gunpowder",
+    "omenName": "Profound Omen of the Raven",
+    "omenEffect": "Significantly increases the power of each awakened Arcanum with at least ten White Raven Feathers in the Inventory.",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-gunpowder.png"
+  },
+  {
+    "id": "prophecy-prophecy-of-health",
+    "name": "Prophecy of Health",
+    "description": "Grants Arcana tied to health.",
+    "arcanaType": "Health",
+    "omenName": "Omen of Synergy",
+    "omenEffect": "Increases the power of each Arcanum when all three slots are awakened.",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-health.png"
+  },
+  {
+    "id": "prophecy-prophecy-of-heaviness",
+    "name": "Prophecy of Heaviness",
+    "description": "Grants non-elemental Arcana tied to the Heavy Spell.",
+    "arcanaType": "Heaviness",
+    "omenName": "Omen of Opulence",
+    "omenEffect": "Unveils three Arcana instead of two.",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-heaviness.png"
+  },
+  {
+    "id": "prophecy-prophecy-of-lightness",
+    "name": "Prophecy of Lightness",
+    "description": "Grants non-elemental Arcana tied to the Light Spell.",
+    "arcanaType": "Lightness",
+    "omenName": "Omen of Indifferent Cosmos",
+    "omenEffect": "Grants an equal chance to reveal either one or all three Arcana.",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-lightness.png"
+  },
+  {
+    "id": "prophecy-prophecy-of-nimble-fingers",
+    "name": "Prophecy of Nimble Fingers",
+    "description": "Grants Arcana tied to reloading and handling of firearms.",
+    "arcanaType": "Nimble Fingers",
+    "omenName": "Omen of Sacrifice",
+    "omenEffect": "Significantly increases the power of the awakened Arcanum but forgets two random awakened Arcana. Fails if no Arcana are available to be forgotten.",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-nimble-fingers.png"
+  },
+  {
+    "id": "prophecy-prophecy-of-spells",
+    "name": "Prophecy of Spells",
+    "description": "Grants Arcana tied to spells.",
+    "arcanaType": "Spells",
+    "omenName": "Omen of Synergy",
+    "omenEffect": "Increases the power of each Arcanum when all three slots are awakened.",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-spells.png"
+  },
+  {
+    "id": "prophecy-prophecy-of-stamina",
+    "name": "Prophecy of Stamina",
+    "description": "Grants Arcana tied to Stamina.",
+    "arcanaType": "Stamina",
+    "omenName": "Omen of Destined Opulence",
+    "omenEffect": "Makes the next row unveil all three Arcana, overriding its Prophecy if necessary and possible.",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-stamina.png"
+  },
+  {
+    "id": "prophecy-prophecy-of-the-bull",
+    "name": "Prophecy of the Bull",
+    "description": "Grants Arcana that enhance an aggressive combat style.",
+    "arcanaType": "Bull",
+    "omenName": "Omen of Indifferent Cosmos",
+    "omenEffect": "Grants an equal chance to reveal either one or all three Arcana.",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-the-bull.png"
+  },
+  {
+    "id": "prophecy-prophecy-of-the-serpent",
+    "name": "Prophecy of the Serpent",
+    "description": "Grants Arcana that enhance a cautious, tactical combat style.",
+    "arcanaType": "Serpent",
+    "omenName": "Omen of Opulence",
+    "omenEffect": "Unveils three Arcana instead of two.",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-the-serpent.png"
+  },
+  {
+    "id": "prophecy-prophecy-of-variety",
+    "name": "Prophecy of Variety",
+    "description": "Grants Arcana unrelated to weapons and spells.",
+    "arcanaType": "Variety",
+    "omenName": "Omen of Rot",
+    "omenEffect": "The awakened Arcana get a powerful boost that decreases with four absorbed Witchfire Manifestations and disappears with six.",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-variety.png"
+  },
+  {
+    "id": "prophecy-prophecy-of-water",
+    "name": "Prophecy of Water",
+    "description": "Grants Arcana tied to the element of Water.",
+    "arcanaType": "Water Element",
+    "omenName": "Omen of Rebirth",
+    "omenEffect": "Allows any Arcana in this row to be re-rolled with White Raven Feathers.",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-water.png"
+  },
+  {
+    "id": "prophecy-prophecy-of-witchfire",
+    "name": "Prophecy of Witchfire",
+    "description": "Grants Arcana tied to witchfire.",
+    "arcanaType": "Witchfire",
+    "omenName": "Omen of Destined Opulence",
+    "omenEffect": "Makes the next row unveil all three Arcana, overriding its Prophecy if necessary and possible.",
+    "location": "The Wailing Tower",
+    "iconUrl": "/images/prophecies/prophecy-prophecy-of-witchfire.png"
+  }
+]

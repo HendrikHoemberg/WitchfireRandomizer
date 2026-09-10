@@ -1,25 +1,42 @@
-# Current Task: Request Logging & Host-Level Rotating Log Files
+# Current Task: Arcana, Prophecies & Bestiary Wiki Expansion
 
-- [x] Task 1: RequestLoggingFilter and Unit Tests
-  - [x] Step 1: Write failing test (`RequestLoggingFilterTest`)
-  - [x] Step 2: Run test, verify failure
-  - [x] Step 3: Implement `RequestLoggingFilter`
-  - [x] Step 4: Run test, verify pass
-  - [x] Step 5: Git commit
-- [x] Task 2: Dataset Loading and Startup Summary Logging
-  - [x] Step 1: Write failing test in `ItemRepositoryTest`
-  - [x] Step 2: Run test, verify failure
-  - [x] Step 3: Implement logging in `ItemRepository`
-  - [x] Step 4: Run test, verify pass
-  - [x] Step 5: Git commit
-- [x] Task 3: Rolling File Logback Configuration and Gitignore
-  - [x] Step 1: Update `.gitignore` with `logs/` and `*.log`
-  - [x] Step 2: Configure rolling log file properties with `${LOG_PATH:logs}`
-  - [x] Step 3: Run all tests to verify logback configuration
-  - [x] Step 4: Git commit
-- [ ] Task 4: Docker, Docker Compose, and VPS Runbook Updates
-  - [ ] Step 1: Update `Dockerfile` (predictable non-root UID 1000 & `/app/logs`)
-  - [ ] Step 2: Update `docker-compose.yml` (volume mount `/var/log/witchfire:/app/logs` & `LOG_PATH`)
-  - [ ] Step 3: Update `docs/vps-deployment-checklist.md` with permission & log viewing commands
-  - [ ] Step 4: Verify full project build (`./mvnw clean package`)
-  - [ ] Step 5: Git commit
+- [ ] Task 1: Data Ingestion & Scraper Extension (Arcana, Prophecies, Enemies)
+  - [ ] Step 1: Write test validation script
+  - [ ] Step 2: Run validation script — verify it FAILS
+  - [ ] Step 3: Implement scraper logic and download data/icons
+  - [ ] Step 4: Run validation script — verify it PASSES
+  - [ ] Step 5: Commit
+- [ ] Task 2: Arcana & Prophecy Domain Models and ArcanaRepository
+  - [ ] Step 1: Write failing test (`ArcanaRepositoryTest`)
+  - [ ] Step 2: Run test — verify it FAILS
+  - [ ] Step 3: Implement `Arcana`, `Prophecy`, and `ArcanaRepository`
+  - [ ] Step 4: Run test — verify it PASSES
+  - [ ] Step 5: Commit
+- [ ] Task 3: Enemy Domain Model and EnemyRepository
+  - [ ] Step 1: Write failing test (`EnemyRepositoryTest`)
+  - [ ] Step 2: Run test — verify it FAILS
+  - [ ] Step 3: Implement `Enemy` and `EnemyRepository`
+  - [ ] Step 4: Run test — verify it PASSES
+  - [ ] Step 5: Commit
+- [ ] Task 4: Wiki Sub-Navigation Bar & Sidebar Drawer Update
+  - [ ] Step 1: Write failing test (`WikiNavigationTest`)
+  - [ ] Step 2: Run test — verify it FAILS
+  - [ ] Step 3: Implement sub-nav fragment and update navigation
+  - [ ] Step 4: Run test — verify it PASSES
+  - [ ] Step 5: Commit
+- [ ] Task 5: Arcana & Prophecies View and Controller Endpoints
+  - [ ] Step 1: Write failing test (`ArcanaWikiControllerTest`)
+  - [ ] Step 2: Run test — verify it FAILS
+  - [ ] Step 3: Implement controller and templates
+  - [ ] Step 4: Run test — verify it PASSES
+  - [ ] Step 5: Commit
+- [ ] Task 6: Bestiary View and Controller Endpoints
+  - [ ] Step 1: Write failing test (`BestiaryWikiControllerTest`)
+  - [ ] Step 2: Run test — verify it FAILS
+  - [ ] Step 3: Implement controller and templates
+  - [ ] Step 4: Run test — verify it PASSES
+  - [ ] Step 5: Commit
+- [ ] Task 7: CSS Styling Polish & Full Suite Verification
+  - [ ] Step 1: Add dark-fantasy styles in `main.css` (no simple emojis)
+  - [ ] Step 2: Run full verification `./mvnw test`
+  - [ ] Step 3: Commit
