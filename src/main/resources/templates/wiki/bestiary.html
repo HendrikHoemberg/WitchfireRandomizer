@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestiary - Witchfire Companion</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/htmx.min.js"></script>
+    <script defer src="/js/alpine.min.js"></script>
+</head>
+<body>
+    <div th:replace="~{fragments/navigation :: navbar('bestiary')}"></div>
+
+    <main class="container" x-data="{
+        searchQuery: '',
+        selectedGnosis: '',
+        selectedRank: '',
+        selectedLocation: '',
+        sortCriteria: 'name',
+        showModal: false,
+        updateFilters() {
+            htmx.ajax('GET', '/wiki/bestiary/enemies', {
+                target: '#bestiary-enemies-grid',
+                swap: 'outerHTML',
+                values: {
+                    search: this.searchQuery,
+                    gnosis: this.selectedGnosis,
+                    rank: this.selectedRank,
+                    location: this.selectedLocation,
+                    sort: this.sortCriteria
+                }
+            });
+        },
+        clearAllFilters() {
+            this.searchQuery = '';
+            this.selectedGnosis = '';
+            this.selectedRank = '';
+            this.selectedLocation = '';
+            this.sortCriteria = 'name';
+            this.updateFilters();
+        },
+        openEnemyModal(enemyId) {
+            this.showModal = true;
+            htmx.ajax('GET', '/wiki/bestiary/enemy/' + enemyId, {
+                target: '#enemy-modal-dialog',
+                swap: 'innerHTML'
+            });
+        }
+    }">
+        <!-- Centered Witchfire Logo -->
+        <div class="logo-container">
+            <a href="/">
+                <img src="/images/wf-logo2.webP" alt="Witchfire" class="page-logo">
+            </a>
+        </div>
+
+        <!-- Wiki Sub-Navigation Tabs -->
+        <div th:replace="~{wiki/fragments/wiki-nav :: wikiNav('bestiary')}"></div>
+
+        <!-- Search and Filters Box -->
+        <div class="wiki-filter-box texture-box">
+            <!-- Search Input -->
+            <div class="search-input-wrapper" style="position: relative; margin-bottom: 1.25rem;">
+                <input type="text"
+                       class="wiki-search-input"
+                       placeholder="Search enemies by name, description, or attack..."
+                       x-model="searchQuery"
+                       @input.debounce.300ms="updateFilters()" />
+                <button type="button"
+                        x-show="searchQuery.length > 0"
+                        @click="searchQuery = ''; updateFilters()"
+                        class="search-clear-btn"
+                        style="position: absolute; right: 0.75rem; top: 35%; transform: translateY(-50%); background: none; border: none; color: #9ca3af; font-size: 1.25rem; cursor: pointer;"
+                        title="Clear search">
+                    &times;
+                </button>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                <!-- Gnosis Level Filter -->
+                <div>
+                    <h3 class="filter-section-title">Filter by Gnosis</h3>
+                    <div class="filter-pills-row">
+                        <button type="button"
+                                class="filter-pill-btn"
+                                :class="selectedGnosis === '' ? 'active' : ''"
+                                @click="selectedGnosis = ''; updateFilters()">
+                            All Gnosis
+                        </button>
+                        <button th:each="g : ${gnosisLevels}"
+                                type="button"
+                                class="filter-pill-btn"
+                                th:data-gnosis="${g}"
+                                th:text="'Gnosis ' + ${g}"
+                                :class="selectedGnosis === $el.dataset.gnosis ? 'active' : ''"
+                                @click="selectedGnosis = $el.dataset.gnosis; updateFilters()">
+                            Gnosis 0
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Rank Filter -->
+                <div>
+                    <h3 class="filter-section-title">Filter by Rank</h3>
+                    <div class="filter-pills-row">
+                        <button type="button"
+                                class="filter-pill-btn"
+                                :class="selectedRank === '' ? 'active' : ''"
+                                @click="selectedRank = ''; updateFilters()">
+                            All Ranks
+                        </button>
+                        <button th:each="r : ${ranks}"
+                                type="button"
+                                class="filter-pill-btn"
+                                th:data-rank="${r}"
+                                th:text="${r}"
+                                :class="selectedRank === $el.dataset.rank ? 'active' : ''"
+                                @click="selectedRank = $el.dataset.rank; updateFilters()">
+                            Rank
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secondary Filters: Location & Sort -->
+            <div style="display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--wf-border); align-items: center; justify-content: space-between;">
+                <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+                    <!-- Location Filter -->
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <label style="font-size: 0.85rem; color: #9ca3af; font-weight: 500;">Location:</label>
+                        <select class="custom-select"
+                                style="background: #201d19; color: #e5e7eb; border: 1px solid var(--wf-border); border-radius: 0.375rem; padding: 0.35rem 0.75rem; font-size: 0.85rem;"
+                                x-model="selectedLocation"
+                                @change="updateFilters()">
+                            <option value="">All Locations</option>
+                            <option th:each="loc : ${locations}" th:value="${loc}" th:text="${loc}">Location</option>
+                        </select>
+                    </div>
+
+                    <!-- Sort -->
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <label style="font-size: 0.85rem; color: #9ca3af; font-weight: 500;">Sort By:</label>
+                        <select class="custom-select"
+                                style="background: #201d19; color: #e5e7eb; border: 1px solid var(--wf-border); border-radius: 0.375rem; padding: 0.35rem 0.75rem; font-size: 0.85rem;"
+                                x-model="sortCriteria"
+                                @change="updateFilters()">
+                            <option value="name">Name (A-Z)</option>
+                            <option value="health">Health (High to Low)</option>
+                            <option value="gnosis">Gnosis (Low to High)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Reset Filters Button -->
+                <div x-show="searchQuery || selectedGnosis !== '' || selectedRank || selectedLocation || sortCriteria !== 'name'">
+                    <button type="button"
+                            class="filter-pill-btn"
+                            style="font-size: 0.8rem; color: #f87171; border-color: rgba(239, 68, 68, 0.4);"
+                            @click="clearAllFilters()">
+                        Reset Filters
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enemy Grid -->
+        <div th:replace="~{wiki/fragments/enemy-grid :: enemyGrid}"></div>
+
+        <!-- Detail Modal Overlay -->
+        <div class="detail-modal-overlay"
+             x-show="showModal"
+             x-cloak
+             @click="showModal = false"
+             @keydown.escape.window="showModal = false">
+            <div class="detail-modal-box texture-box"
+                 style="position: relative;"
+                 @click.stop>
+                <button type="button"
+                        @click="showModal = false"
+                        style="position: absolute; top: 0.75rem; right: 0.75rem; background: none; border: none; font-size: 1.75rem; color: #9ca3af; cursor: pointer; z-index: 20;"
+                        title="Close">
+                    &times;
+                </button>
+                <div id="enemy-modal-dialog">
+                    <p style="padding: 2rem; text-align: center; color: #9ca3af;">Loading details...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/privacy">Privacy Policy</a>
+                <span class="footer-separator">•</span>
+                <a href="/impressum">Impressum</a>
+            </div>
+            <p class="footer-copy">&copy; Witchfire Randomizer 1.0.0</p>
+            <p class="footer-disclaimer">I am not affiliated with The Astronauts or Witchfire in any way.</p>
+            <p class="footer-credits">All image rights belong to Witchfire and The Astronauts.</p>
+        </div>
+    </footer>
+</body>
+</html>

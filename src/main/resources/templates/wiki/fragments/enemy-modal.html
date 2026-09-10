@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="enemyModalContent" class="modal-body-content">
+    <div style="display: flex; gap: 1.5rem; align-items: flex-start; margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--wf-border);">
+        <div style="width: 6rem; height: 6rem; background: #0c0b09; border: 1px solid var(--wf-border); border-radius: 0.5rem; padding: 0.25rem; flex-shrink: 0; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+            <img th:src="${enemy.iconUrl}" th:alt="${enemy.name}" style="width: 100%; height: 100%; object-fit: cover;" />
+        </div>
+        <div style="flex-grow: 1;">
+            <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
+                <h2 style="font-size: 1.6rem; color: var(--wf-gold); font-family: var(--font-gothic, serif); font-weight: 700; margin: 0;" th:text="${enemy.name}">Enemy Name</h2>
+                <div style="display: flex; gap: 0.5rem; align-items: center;">
+                    <span class="rank-badge" th:text="${enemy.rank}">Rank</span>
+                    <span th:if="${enemy.gnosis != null}"
+                          class="gnosis-badge"
+                          th:text="'Gnosis ' + ${enemy.gnosis}">Gnosis 0</span>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                <span th:if="${enemy.health != null and enemy.health > 0}"
+                      class="health-chip"
+                      style="font-size: 0.95rem; padding: 0.25rem 0.75rem;"
+                      th:text="'Health: ' + ${#numbers.formatInteger(enemy.health, 1, 'COMMA')}">Health: 1,200</span>
+                <span th:if="${enemy.damage != null and !enemy.damage.isBlank()}"
+                      style="color: #d1d5db; font-size: 0.9rem;"
+                      th:text="'Attack: ' + ${enemy.damage}">Attack: Melee</span>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-bottom: 1.25rem;">
+        <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--wf-text-muted); margin-bottom: 0.35rem;">Overview</h4>
+        <p style="color: #e5e7eb; font-size: 0.95rem; line-height: 1.6;" th:text="${enemy.description != null and !enemy.description.isBlank() ? enemy.description : 'A denizen under the Witch command.'}">Overview</p>
+    </div>
+
+    <!-- Defense & Resistances Table -->
+    <div style="margin-bottom: 1.5rem;">
+        <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--wf-gold); margin-bottom: 0.5rem;">Resistances &amp; Vulnerabilities</h4>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 0.5rem;">
+            <div class="resistance-box">
+                <span class="res-label">Fire</span>
+                <span class="res-val"
+                      th:classappend="${enemy.fireResistance != null and enemy.fireResistance < 0 ? 'text-green' : (enemy.fireResistance != null and enemy.fireResistance > 20 ? 'text-red' : '')}"
+                      th:text="${enemy.fireResistance != null ? (enemy.fireResistance > 0 ? '+' : '') + enemy.fireResistance + '%' : '0%'}">0%</span>
+            </div>
+            <div class="resistance-box">
+                <span class="res-label">Shock</span>
+                <span class="res-val"
+                      th:classappend="${enemy.shockResistance != null and enemy.shockResistance < 0 ? 'text-green' : (enemy.shockResistance != null and enemy.shockResistance > 20 ? 'text-red' : '')}"
+                      th:text="${enemy.shockResistance != null ? (enemy.shockResistance > 0 ? '+' : '') + enemy.shockResistance + '%' : '0%'}">0%</span>
+            </div>
+            <div class="resistance-box">
+                <span class="res-label">Freeze</span>
+                <span class="res-val"
+                      th:classappend="${enemy.freezeResistance != null and enemy.freezeResistance < 0 ? 'text-green' : (enemy.freezeResistance != null and enemy.freezeResistance > 20 ? 'text-red' : '')}"
+                      th:text="${enemy.freezeResistance != null ? (enemy.freezeResistance > 0 ? '+' : '') + enemy.freezeResistance + '%' : '0%'}">0%</span>
+            </div>
+            <div class="resistance-box">
+                <span class="res-label">Decay</span>
+                <span class="res-val"
+                      th:classappend="${enemy.decayResistance != null and enemy.decayResistance < 0 ? 'text-green' : (enemy.decayResistance != null and enemy.decayResistance > 20 ? 'text-red' : '')}"
+                      th:text="${enemy.decayResistance != null ? (enemy.decayResistance > 0 ? '+' : '') + enemy.decayResistance + '%' : '0%'}">0%</span>
+            </div>
+            <div class="resistance-box">
+                <span class="res-label">Stun Resistance</span>
+                <span class="res-val" th:text="${enemy.stunResistance != null ? enemy.stunResistance + '%' : '0%'}">0%</span>
+            </div>
+            <div class="resistance-box">
+                <span class="res-label">Stagger Resistance</span>
+                <span class="res-val" th:text="${enemy.staggerResistance != null ? enemy.staggerResistance + '%' : '0%'}">0%</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Locations -->
+    <div th:if="${enemy.locations != null and !enemy.locations.isEmpty()}" style="margin-bottom: 1rem;">
+        <h4 style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--wf-text-muted); margin-bottom: 0.35rem;">Known Locations</h4>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+            <span th:each="loc : ${enemy.locations}"
+                  class="location-chip"
+                  th:text="${loc}">Island of the Damned</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

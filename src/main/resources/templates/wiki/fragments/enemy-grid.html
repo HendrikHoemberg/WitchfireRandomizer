@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="enemyGrid" id="bestiary-enemies-grid" class="bestiary-grid">
+    <div th:if="${#lists.isEmpty(enemies)}" class="empty-state texture-box" style="grid-column: 1 / -1; padding: 3rem; text-align: center;">
+        <h3 style="color: var(--wf-gold); font-size: 1.25rem; margin-bottom: 0.5rem;">No Enemies Found</h3>
+        <p style="color: #9ca3af; font-size: 0.95rem;">Try adjusting your search criteria, Gnosis level, or rank filter.</p>
+    </div>
+
+    <div th:each="enemy : ${enemies}"
+         class="enemy-card texture-box"
+         th:id="${enemy.id}"
+         @click="openEnemyModal($el.getAttribute('data-enemy-id'))"
+         th:data-enemy-id="${enemy.id}"
+         style="cursor: pointer;">
+        <div class="enemy-card-header">
+            <div class="enemy-portrait-box">
+                <img th:src="${enemy.iconUrl}" th:alt="${enemy.name}" loading="lazy" />
+            </div>
+            <div style="flex-grow: 1; min-width: 0;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.25rem;">
+                    <h3 class="enemy-card-title" th:text="${enemy.name}">Enemy Name</h3>
+                    <span th:if="${enemy.gnosis != null}"
+                          class="gnosis-badge"
+                          th:text="'Gnosis ' + ${enemy.gnosis}">Gnosis 0</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                    <span class="rank-badge" th:text="${enemy.rank}">Rank</span>
+                    <span th:if="${enemy.health != null and enemy.health > 0}"
+                          class="health-chip"
+                          th:text="'HP: ' + ${#numbers.formatInteger(enemy.health, 1, 'COMMA')}">HP: 1,200</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="enemy-card-body">
+            <p class="enemy-desc" th:text="${enemy.description != null and !enemy.description.isBlank() ? enemy.description : 'A denizen of the Witch domain.'}">Enemy description</p>
+
+            <!-- Elemental Resistances & Weaknesses Badges (Clean UI, No Emojis) -->
+            <div class="resistance-badges-container">
+                <span th:if="${enemy.fireResistance != null and enemy.fireResistance < 0}" class="res-badge weak-fire" th:text="'Fire: ' + ${enemy.fireResistance} + '%'">Fire: -50%</span>
+                <span th:if="${enemy.fireResistance != null and enemy.fireResistance > 20}" class="res-badge res-fire" th:text="'Fire: +' + ${enemy.fireResistance} + '%'">Fire: +75%</span>
+
+                <span th:if="${enemy.shockResistance != null and enemy.shockResistance < 0}" class="res-badge weak-shock" th:text="'Shock: ' + ${enemy.shockResistance} + '%'">Shock: -50%</span>
+                <span th:if="${enemy.shockResistance != null and enemy.shockResistance > 20}" class="res-badge res-shock" th:text="'Shock: +' + ${enemy.shockResistance} + '%'">Shock: +35%</span>
+
+                <span th:if="${enemy.freezeResistance != null and enemy.freezeResistance < 0}" class="res-badge weak-freeze" th:text="'Freeze: ' + ${enemy.freezeResistance} + '%'">Freeze: -50%</span>
+                <span th:if="${enemy.freezeResistance != null and enemy.freezeResistance > 20}" class="res-badge res-freeze" th:text="'Freeze: +' + ${enemy.freezeResistance} + '%'">Freeze: +50%</span>
+
+                <span th:if="${enemy.decayResistance != null and enemy.decayResistance < 0}" class="res-badge weak-decay" th:text="'Decay: ' + ${enemy.decayResistance} + '%'">Decay: -100%</span>
+                <span th:if="${enemy.decayResistance != null and enemy.decayResistance > 20}" class="res-badge res-decay" th:text="'Decay: +' + ${enemy.decayResistance} + '%'">Decay: +50%</span>
+            </div>
+
+            <!-- Locations summary -->
+            <div th:if="${enemy.locations != null and !enemy.locations.isEmpty()}" style="margin-top: 0.5rem;">
+                <span style="font-size: 0.75rem; color: #9ca3af;" th:text="${#strings.arrayJoin(enemy.locations, ' • ')}">Locations</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
