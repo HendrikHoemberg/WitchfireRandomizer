@@ -53,7 +53,7 @@
 
         <!-- Search and Filters Box -->
         <div class="wiki-filter-box texture-box">
-            <div class="search-input-wrapper" style="position: relative; margin-bottom: 1.25rem;">
+            <div class="search-input-wrapper">
                 <input type="text"
                        class="wiki-search-input"
                        placeholder="Search items..."
@@ -63,7 +63,6 @@
                         x-show="searchQuery.length > 0"
                         @click="searchQuery = ''; updateFilters()"
                         class="search-clear-btn"
-                        style="position: absolute; right: 0.75rem; top: 35%; transform: translateY(-50%); background: none; border: none; color: #9ca3af; font-size: 1.25rem; cursor: pointer;"
                         title="Clear search">
                     &times;
                 </button>
@@ -119,6 +118,16 @@
                         </button>
                     </div>
                 </div>
+            </div>
+
+            <!-- Reset Filters Button -->
+            <div style="display: flex; justify-content: flex-end; margin-top: 1rem;"
+                 x-show="selectedCategory || selectedElement || noElement || searchQuery">
+                <button type="button"
+                        class="filter-pill-btn filter-reset-btn"
+                        @click="clearAllFilters()">
+                    Reset Filters
+                </button>
             </div>
         </div>
 

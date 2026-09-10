@@ -964,9 +964,14 @@ input:checked + .slider:before {
   z-index: 1;
 }
 
+.search-input-wrapper {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+
 .wiki-search-input {
   width: 100%;
-  padding: 0.5rem 0.75rem;
+  padding: 0.55rem 2.25rem 0.55rem 0.85rem;
   background-color: rgba(48, 48, 48, 0.44);
   border: 1px solid var(--wf-border);
   border-radius: 0.375rem;
@@ -976,6 +981,55 @@ input:checked + .slider:before {
 }
 .wiki-search-input:focus {
   border-color: var(--wf-gold-accent);
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--wf-text-muted);
+  font-size: 1.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+  line-height: 1;
+  transition: color 0.15s;
+}
+.search-clear-btn:hover {
+  color: #ffffff;
+}
+
+.wiki-results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.results-counter {
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.filter-reset-btn {
+  font-size: 0.8rem;
+  color: #f87171 !important;
+  border: 1px solid rgba(239, 68, 68, 0.4) !important;
+  background: rgba(239, 68, 68, 0.08) !important;
+  padding: 0.3rem 0.75rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.filter-reset-btn:hover {
+  background: rgba(239, 68, 68, 0.18) !important;
+  border-color: rgba(239, 68, 68, 0.7) !important;
 }
 
 .filter-section-title {
@@ -1009,14 +1063,27 @@ input:checked + .slider:before {
   background-color: var(--wf-gold-accent);
 }
 
+.wiki-cards-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .wiki-cards-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 .wiki-item-card {
   background-color: #1A1A1A;
   border: 1px solid var(--wf-border);
   border-radius: 0.5rem;
   overflow: hidden;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0;
   position: relative;
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 .wiki-item-card:hover {
   border-color: var(--wf-gold-accent);
@@ -1024,11 +1091,11 @@ input:checked + .slider:before {
 
 .wiki-card-header {
   padding: 1rem;
-  background-color: rgba(92, 91, 91, 0.72);
+  background-color: rgba(0, 0, 0, 0.35);
   display: flex;
   align-items: center;
   gap: 1rem;
-  min-height: 6rem;
+  min-height: 5.5rem;
   position: relative;
   z-index: 1;
 }
@@ -1046,7 +1113,7 @@ input:checked + .slider:before {
 }
 
 .wiki-card-title {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: #fff;
 }
@@ -1088,18 +1155,21 @@ input:checked + .slider:before {
 }
 .wiki-mysterium-level-header {
   padding: 0.5rem 0.75rem;
-  background-color: var(--wf-gold-accent);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--wf-border-subtle);
   border-radius: 0.375rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  color: #ffffff;
-  font-weight: 500;
-  transition: background 0.15s;
+  color: #e5e7eb;
+  font-weight: 600;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
 }
 .wiki-mysterium-level-header:hover {
-  background-color: var(--wf-gold);
+  background: rgba(var(--wf-gold-rgb), 0.1);
+  border-color: var(--wf-gold-accent);
+  color: #ffffff;
 }
 .wiki-mysterium-level-body {
   margin-top: 0.5rem;

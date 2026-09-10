@@ -182,6 +182,18 @@ class WikiDesignConsistencyTest {
                 .andExpect(content().string(not(containsString(">Shock<"))))
                 .andExpect(content().string(not(containsString("Neutral"))));
     }
+
+    @Test
+    void shouldStyleEquipmentInTwoColumnGridAndDarkGlassMysterium() throws Exception {
+        String css = mainCss();
+        String listRule = cssRule(css, ".wiki-cards-list");
+        assertThat(listRule).contains("display: grid");
+        assertThat(listRule).contains("repeat(2, 1fr)");
+
+        String mystRule = cssRule(css, ".wiki-mysterium-level-header");
+        assertThat(mystRule).doesNotContain("background-color: var(--wf-gold-accent)");
+        assertThat(mystRule).contains("background: rgba(0, 0, 0,");
+    }
 }
 
 
