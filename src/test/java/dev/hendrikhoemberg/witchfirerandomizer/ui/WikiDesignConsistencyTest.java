@@ -164,5 +164,24 @@ class WikiDesignConsistencyTest {
                 .andExpect(content().string(containsString("custom-select")))
                 .andExpect(content().string(containsString("All Categories")));
     }
+
+    @Test
+    void shouldDefineOpaqueModalBackgroundToken() throws Exception {
+        String css = mainCss();
+        assertThat(css).contains("--wf-modal-bg:");
+        assertThat(css).contains("background: var(--wf-modal-bg);");
+    }
+
+    @Test
+    void shouldNotRenderZeroPercentResistancesInEnemyModal() throws Exception {
+        mockMvc.perform(get("/wiki/bestiary/enemy/enemy-anointer"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("Fire")))
+                .andExpect(content().string(containsString("Freeze")))
+                .andExpect(content().string(containsString("Decay")))
+                .andExpect(content().string(not(containsString(">Shock<"))))
+                .andExpect(content().string(not(containsString("Neutral"))));
+    }
 }
+
 

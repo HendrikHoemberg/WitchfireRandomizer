@@ -46,74 +46,90 @@
             <span style="font-size: 0.72rem; color: #9ca3af;">Negative = Vulnerable | Positive = Resistant</span>
         </div>
 
-        <!-- Elemental Grid -->
+        <!-- Elemental Grid (only displays active non-zero resistances/vulnerabilities) -->
         <div class="resistance-cards-grid">
             <!-- Fire -->
-            <div class="res-card" th:classappend="${enemy.fireResistance != null and enemy.fireResistance < 0 ? 'res-vulnerable' : (enemy.fireResistance != null and enemy.fireResistance > 0 ? 'res-resistant' : 'res-neutral')}">
+            <div th:if="${enemy.fireResistance != null and enemy.fireResistance != 0}"
+                 class="res-card" th:classappend="${enemy.fireResistance < 0 ? 'res-vulnerable' : 'res-resistant'}">
                 <div class="res-card-name">Fire</div>
-                <div class="res-card-value" th:text="${enemy.fireResistance != null ? (enemy.fireResistance > 0 ? '+' : '') + enemy.fireResistance + '%' : '0%'}">0%</div>
-                <div class="res-card-status" th:text="${enemy.fireResistance != null and enemy.fireResistance < 0 ? 'Vulnerable' : (enemy.fireResistance != null and enemy.fireResistance > 0 ? 'Resistant' : 'Neutral')}">Neutral</div>
+                <div class="res-card-value" th:text="${(enemy.fireResistance > 0 ? '+' : '') + enemy.fireResistance + '%'}">+75%</div>
+                <div class="res-card-status" th:text="${enemy.fireResistance < 0 ? 'Vulnerable' : 'Resistant'}">Resistant</div>
             </div>
 
             <!-- Shock -->
-            <div class="res-card" th:classappend="${enemy.shockResistance != null and enemy.shockResistance < 0 ? 'res-vulnerable' : (enemy.shockResistance != null and enemy.shockResistance > 0 ? 'res-resistant' : 'res-neutral')}">
+            <div th:if="${enemy.shockResistance != null and enemy.shockResistance != 0}"
+                 class="res-card" th:classappend="${enemy.shockResistance < 0 ? 'res-vulnerable' : 'res-resistant'}">
                 <div class="res-card-name">Shock</div>
-                <div class="res-card-value" th:text="${enemy.shockResistance != null ? (enemy.shockResistance > 0 ? '+' : '') + enemy.shockResistance + '%' : '0%'}">0%</div>
-                <div class="res-card-status" th:text="${enemy.shockResistance != null and enemy.shockResistance < 0 ? 'Vulnerable' : (enemy.shockResistance != null and enemy.shockResistance > 0 ? 'Resistant' : 'Neutral')}">Neutral</div>
+                <div class="res-card-value" th:text="${(enemy.shockResistance > 0 ? '+' : '') + enemy.shockResistance + '%'}">+35%</div>
+                <div class="res-card-status" th:text="${enemy.shockResistance < 0 ? 'Vulnerable' : 'Resistant'}">Resistant</div>
             </div>
 
             <!-- Freeze -->
-            <div class="res-card" th:classappend="${enemy.freezeResistance != null and enemy.freezeResistance < 0 ? 'res-vulnerable' : (enemy.freezeResistance != null and enemy.freezeResistance > 0 ? 'res-resistant' : 'res-neutral')}">
+            <div th:if="${enemy.freezeResistance != null and enemy.freezeResistance != 0}"
+                 class="res-card" th:classappend="${enemy.freezeResistance < 0 ? 'res-vulnerable' : 'res-resistant'}">
                 <div class="res-card-name">Freeze</div>
-                <div class="res-card-value" th:text="${enemy.freezeResistance != null ? (enemy.freezeResistance > 0 ? '+' : '') + enemy.freezeResistance + '%' : '0%'}">0%</div>
-                <div class="res-card-status" th:text="${enemy.freezeResistance != null and enemy.freezeResistance < 0 ? 'Vulnerable' : (enemy.freezeResistance != null and enemy.freezeResistance > 0 ? 'Resistant' : 'Neutral')}">Neutral</div>
+                <div class="res-card-value" th:text="${(enemy.freezeResistance > 0 ? '+' : '') + enemy.freezeResistance + '%'}">+50%</div>
+                <div class="res-card-status" th:text="${enemy.freezeResistance < 0 ? 'Vulnerable' : 'Resistant'}">Resistant</div>
             </div>
 
             <!-- Decay -->
-            <div class="res-card" th:classappend="${enemy.decayResistance != null and enemy.decayResistance < 0 ? 'res-vulnerable' : (enemy.decayResistance != null and enemy.decayResistance > 0 ? 'res-resistant' : 'res-neutral')}">
+            <div th:if="${enemy.decayResistance != null and enemy.decayResistance != 0}"
+                 class="res-card" th:classappend="${enemy.decayResistance < 0 ? 'res-vulnerable' : 'res-resistant'}">
                 <div class="res-card-name">Decay</div>
-                <div class="res-card-value" th:text="${enemy.decayResistance != null ? (enemy.decayResistance > 0 ? '+' : '') + enemy.decayResistance + '%' : '0%'}">0%</div>
-                <div class="res-card-status" th:text="${enemy.decayResistance != null and enemy.decayResistance < 0 ? 'Vulnerable' : (enemy.decayResistance != null and enemy.decayResistance > 0 ? 'Resistant' : 'Neutral')}">Neutral</div>
+                <div class="res-card-value" th:text="${(enemy.decayResistance > 0 ? '+' : '') + enemy.decayResistance + '%'}">-100%</div>
+                <div class="res-card-status" th:text="${enemy.decayResistance < 0 ? 'Vulnerable' : 'Resistant'}">Vulnerable</div>
             </div>
 
-            <!-- Air (if present) -->
-            <div th:if="${enemy.airResistance != null}" class="res-card" th:classappend="${enemy.airResistance < 0 ? 'res-vulnerable' : (enemy.airResistance > 0 ? 'res-resistant' : 'res-neutral')}">
+            <!-- Air -->
+            <div th:if="${enemy.airResistance != null and enemy.airResistance != 0}"
+                 class="res-card" th:classappend="${enemy.airResistance < 0 ? 'res-vulnerable' : 'res-resistant'}">
                 <div class="res-card-name">Air</div>
-                <div class="res-card-value" th:text="${(enemy.airResistance > 0 ? '+' : '') + enemy.airResistance + '%'}">0%</div>
-                <div class="res-card-status" th:text="${enemy.airResistance < 0 ? 'Vulnerable' : (enemy.airResistance > 0 ? 'Resistant' : 'Neutral')}">Neutral</div>
+                <div class="res-card-value" th:text="${(enemy.airResistance > 0 ? '+' : '') + enemy.airResistance + '%'}">+35%</div>
+                <div class="res-card-status" th:text="${enemy.airResistance < 0 ? 'Vulnerable' : 'Resistant'}">Resistant</div>
             </div>
 
-            <!-- Earth (if present) -->
-            <div th:if="${enemy.earthResistance != null}" class="res-card" th:classappend="${enemy.earthResistance < 0 ? 'res-vulnerable' : (enemy.earthResistance > 0 ? 'res-resistant' : 'res-neutral')}">
+            <!-- Earth -->
+            <div th:if="${enemy.earthResistance != null and enemy.earthResistance != 0}"
+                 class="res-card" th:classappend="${enemy.earthResistance < 0 ? 'res-vulnerable' : 'res-resistant'}">
                 <div class="res-card-name">Earth</div>
-                <div class="res-card-value" th:text="${(enemy.earthResistance > 0 ? '+' : '') + enemy.earthResistance + '%'}">0%</div>
-                <div class="res-card-status" th:text="${enemy.earthResistance < 0 ? 'Vulnerable' : (enemy.earthResistance > 0 ? 'Resistant' : 'Neutral')}">Neutral</div>
+                <div class="res-card-value" th:text="${(enemy.earthResistance > 0 ? '+' : '') + enemy.earthResistance + '%'}">+20%</div>
+                <div class="res-card-status" th:text="${enemy.earthResistance < 0 ? 'Vulnerable' : 'Resistant'}">Resistant</div>
             </div>
 
-            <!-- Water (if present) -->
-            <div th:if="${enemy.waterResistance != null}" class="res-card" th:classappend="${enemy.waterResistance < 0 ? 'res-vulnerable' : (enemy.waterResistance > 0 ? 'res-resistant' : 'res-neutral')}">
+            <!-- Water -->
+            <div th:if="${enemy.waterResistance != null and enemy.waterResistance != 0}"
+                 class="res-card" th:classappend="${enemy.waterResistance < 0 ? 'res-vulnerable' : 'res-resistant'}">
                 <div class="res-card-name">Water</div>
-                <div class="res-card-value" th:text="${(enemy.waterResistance > 0 ? '+' : '') + enemy.waterResistance + '%'}">0%</div>
-                <div class="res-card-status" th:text="${enemy.waterResistance < 0 ? 'Vulnerable' : (enemy.waterResistance > 0 ? 'Resistant' : 'Neutral')}">Neutral</div>
+                <div class="res-card-value" th:text="${(enemy.waterResistance > 0 ? '+' : '') + enemy.waterResistance + '%'}">+20%</div>
+                <div class="res-card-status" th:text="${enemy.waterResistance < 0 ? 'Vulnerable' : 'Resistant'}">Resistant</div>
             </div>
 
-            <!-- Burn (if present) -->
-            <div th:if="${enemy.burnResistance != null}" class="res-card" th:classappend="${enemy.burnResistance < 0 ? 'res-vulnerable' : (enemy.burnResistance > 0 ? 'res-resistant' : 'res-neutral')}">
+            <!-- Burn -->
+            <div th:if="${enemy.burnResistance != null and enemy.burnResistance != 0}"
+                 class="res-card" th:classappend="${enemy.burnResistance < 0 ? 'res-vulnerable' : 'res-resistant'}">
                 <div class="res-card-name">Burn</div>
-                <div class="res-card-value" th:text="${(enemy.burnResistance > 0 ? '+' : '') + enemy.burnResistance + '%'}">0%</div>
-                <div class="res-card-status" th:text="${enemy.burnResistance < 0 ? 'Vulnerable' : (enemy.burnResistance > 0 ? 'Resistant' : 'Neutral')}">Neutral</div>
+                <div class="res-card-value" th:text="${(enemy.burnResistance > 0 ? '+' : '') + enemy.burnResistance + '%'}">+20%</div>
+                <div class="res-card-status" th:text="${enemy.burnResistance < 0 ? 'Vulnerable' : 'Resistant'}">Vulnerable</div>
             </div>
         </div>
 
+        <!-- Fallback if enemy has standard affinities (no resistances or vulnerabilities) -->
+        <p th:if="${(enemy.fireResistance == null or enemy.fireResistance == 0) and (enemy.shockResistance == null or enemy.shockResistance == 0) and (enemy.freezeResistance == null or enemy.freezeResistance == 0) and (enemy.decayResistance == null or enemy.decayResistance == 0) and (enemy.airResistance == null or enemy.airResistance == 0) and (enemy.earthResistance == null or enemy.earthResistance == 0) and (enemy.waterResistance == null or enemy.waterResistance == 0) and (enemy.burnResistance == null or enemy.burnResistance == 0)}"
+           style="font-size: 0.85rem; color: #9ca3af; font-style: italic; margin: 0 0 0.5rem 0;">
+            Standard elemental affinities (no special resistances or vulnerabilities).
+        </p>
+
         <!-- Physical / Stance Resistances -->
-        <div class="physical-res-row">
-            <div class="physical-res-pill">
+        <div class="physical-res-row"
+             th:if="${(enemy.stunResistance != null and enemy.stunResistance != 0) or (enemy.staggerResistance != null and enemy.staggerResistance != 0)}"
+             style="margin-top: 0.6rem;">
+            <div th:if="${enemy.stunResistance != null and enemy.stunResistance != 0}" class="physical-res-pill">
                 <span class="physical-res-label">Stun Resistance</span>
-                <span class="physical-res-val" th:text="${enemy.stunResistance != null ? enemy.stunResistance + '%' : '0%'}">0%</span>
+                <span class="physical-res-val" th:text="${enemy.stunResistance + '%'}">0%</span>
             </div>
-            <div class="physical-res-pill">
+            <div th:if="${enemy.staggerResistance != null and enemy.staggerResistance != 0}" class="physical-res-pill">
                 <span class="physical-res-label">Stagger Resistance</span>
-                <span class="physical-res-val" th:text="${enemy.staggerResistance != null ? enemy.staggerResistance + '%' : '0%'}">0%</span>
+                <span class="physical-res-val" th:text="${enemy.staggerResistance + '%'}">0%</span>
             </div>
         </div>
     </div>

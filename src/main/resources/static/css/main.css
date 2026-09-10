@@ -15,6 +15,7 @@
   --wf-text: #ededed;
   --wf-text-muted: #9ca3af;
   --wf-overlay-dark: rgba(22, 19, 15, 0.7);
+  --wf-modal-bg: rgba(20, 18, 16, 0.95);
   --wf-font: Arial, Helvetica, sans-serif;
 }
 
@@ -1111,8 +1112,8 @@ input:checked + .slider:before {
 .detail-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(4px);
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1125,6 +1126,8 @@ input:checked + .slider:before {
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
+  background: var(--wf-modal-bg);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85);
 }
 
 /* The catalog modals need more room than the randomizer's detail modal. */
