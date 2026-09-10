@@ -431,7 +431,11 @@ class WikiDesignConsistencyTest {
                 .andExpect(status().isOk())
                 .andExpect(content().string(not(containsString("location-chip-more"))));
 
-        assertThat(cssRule(mainCss(), "button.location-chip-more")).contains("cursor: pointer");
+        // The toggle must read as a control, not as one more territory chip.
+        String toggleRule = cssRule(mainCss(), "button.location-chip-more");
+        assertThat(toggleRule).contains("cursor: pointer");
+        assertThat(toggleRule).contains("color: var(--wf-gold)");
+        assertThat(toggleRule).contains("border-style: dashed");
     }
 
     @Test

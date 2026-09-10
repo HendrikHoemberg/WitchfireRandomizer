@@ -1712,10 +1712,14 @@ input:checked + .slider:before {
   border-color: rgba(var(--wf-gold-rgb), 0.35);
 }
 
-/* The overflow chip is a button: it reveals the locations the card has not shown yet. */
+/* The overflow chip is a button: it reveals the locations the card has not shown yet.
+   Must be more specific than .location-chip, which is defined later in this file. */
 button.location-chip-more {
   font-family: inherit;
   cursor: pointer;
+  color: var(--wf-gold);
+  border-color: rgba(var(--wf-gold-rgb), 0.45);
+  border-style: dashed;
   background: rgba(0, 0, 0, 0.35);
 }
 
