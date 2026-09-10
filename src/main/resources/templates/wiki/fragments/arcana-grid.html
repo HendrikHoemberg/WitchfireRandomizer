@@ -8,11 +8,11 @@
     </div>
 
     <div th:each="card : ${cards}"
-         class="arcana-card texture-box"
+         class="arcana-card texture-box is-clickable"
          th:id="${card.id}"
          @click="openArcanaModal($el.getAttribute('data-card-id'))"
          th:data-card-id="${card.id}"
-         style="cursor: pointer;">
+         >
         <div class="arcana-card-header">
             <div class="arcana-icon-box">
                 <img th:src="${card.iconUrl}" th:alt="${card.name}" loading="lazy" />
@@ -20,10 +20,10 @@
             <div style="flex-grow: 1; min-width: 0;">
                 <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.25rem;">
                     <h3 class="arcana-card-title" th:text="${card.name}">Card Name</h3>
-                    <span th:if="${card.element != null}"
-                          class="element-badge"
-                          th:style="'border-color: ' + ${card.element.color} + '; color: ' + ${card.element.color} + ';'"
-                          th:text="${card.element.name()}">Fire</span>
+                    <span th:if="${card.element != null}" class="element-pill">
+                        <span class="element-dot" th:style="'background-color: ' + ${card.element.color}"></span>
+                        <span th:style="'color: ' + ${card.element.color}" th:text="${card.element.name()}">Fire</span>
+                    </span>
                 </div>
                 <div class="arcana-tags-row">
                     <span th:each="ptype : ${card.prophecyTypes}"

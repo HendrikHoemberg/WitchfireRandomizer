@@ -65,7 +65,7 @@
         <!-- Mode Toggle & Filter Box -->
         <div class="wiki-filter-box texture-box">
             <!-- Mode Switcher -->
-            <div style="display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--wf-border); padding-bottom: 1rem;">
+            <div style="display: flex; justify-content: center; gap: 0.5rem;">
                 <button type="button"
                         class="filter-pill-btn"
                         :class="viewMode === 'cards' ? 'active' : ''"
@@ -81,7 +81,8 @@
             </div>
 
             <!-- Filters (Active when viewMode is cards) -->
-            <div x-show="viewMode === 'cards'">
+            <div x-show="viewMode === 'cards'"
+                 style="margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--wf-border);">
                 <div class="search-input-wrapper" style="position: relative; margin-bottom: 1.25rem;">
                     <input type="text"
                            class="wiki-search-input"
@@ -173,7 +174,7 @@
              x-cloak
              @click="showModal = false"
              @keydown.escape.window="showModal = false">
-            <div class="detail-modal-box texture-box"
+            <div class="detail-modal-box wiki-modal-box texture-box"
                  style="position: relative;"
                  @click.stop>
                 <button type="button"
@@ -192,17 +193,6 @@
         </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="/privacy">Privacy Policy</a>
-                <span class="footer-separator">•</span>
-                <a href="/impressum">Impressum</a>
-            </div>
-            <p class="footer-copy">&copy; Witchfire Randomizer 1.0.0</p>
-            <p class="footer-disclaimer">I am not affiliated with The Astronauts or Witchfire in any way.</p>
-            <p class="footer-credits">All image rights belong to Witchfire and The Astronauts.</p>
-        </div>
-    </footer>
+    <div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>

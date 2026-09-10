@@ -146,6 +146,14 @@
             </div>
         </div>
 
+        <!-- Results Header -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <div style="font-size: 0.95rem; color: #ffffff;">
+                Showing <span th:text="${#lists.size(enemies)}">0</span>
+                <span th:text="${#lists.size(enemies) == 1 ? 'enemy' : 'enemies'}">enemies</span>
+            </div>
+        </div>
+
         <!-- Enemy Grid -->
         <div th:replace="~{wiki/fragments/enemy-grid :: enemyGrid}"></div>
 
@@ -155,7 +163,7 @@
              x-cloak
              @click="showModal = false"
              @keydown.escape.window="showModal = false">
-            <div class="detail-modal-box texture-box"
+            <div class="detail-modal-box wiki-modal-box texture-box"
                  style="position: relative;"
                  @click.stop>
                 <button type="button"
@@ -174,17 +182,6 @@
         </div>
     </main>
 
-    <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="/privacy">Privacy Policy</a>
-                <span class="footer-separator">•</span>
-                <a href="/impressum">Impressum</a>
-            </div>
-            <p class="footer-copy">&copy; Witchfire Randomizer 1.0.0</p>
-            <p class="footer-disclaimer">I am not affiliated with The Astronauts or Witchfire in any way.</p>
-            <p class="footer-credits">All image rights belong to Witchfire and The Astronauts.</p>
-        </div>
-    </footer>
+    <div th:replace="~{fragments/footer :: footer}"></div>
 </body>
 </html>

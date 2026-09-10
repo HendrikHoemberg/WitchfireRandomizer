@@ -4,15 +4,15 @@
 <div th:fragment="enemyGrid" id="bestiary-enemies-grid" class="bestiary-grid">
     <div th:if="${#lists.isEmpty(enemies)}" class="empty-state texture-box" style="grid-column: 1 / -1; padding: 3rem; text-align: center;">
         <h3 style="color: var(--wf-gold); font-size: 1.25rem; margin-bottom: 0.5rem;">No Enemies Found</h3>
-        <p style="color: #9ca3af; font-size: 0.95rem;">Try adjusting your search criteria, Gnosis level, or rank filter.</p>
+        <p style="color: #9ca3af; font-size: 0.95rem;">Try adjusting your search criteria or Gnosis level.</p>
     </div>
 
     <div th:each="enemy : ${enemies}"
-         class="enemy-card texture-box"
+         class="enemy-card texture-box is-clickable"
          th:id="${enemy.id}"
          @click="openEnemyModal($el.getAttribute('data-enemy-id'))"
          th:data-enemy-id="${enemy.id}"
-         style="cursor: pointer;">
+         >
         <div class="enemy-card-header">
             <div class="enemy-portrait-box">
                 <img th:src="${enemy.iconUrl}" th:alt="${enemy.name}" loading="lazy" />

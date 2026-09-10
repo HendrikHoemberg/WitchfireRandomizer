@@ -11,10 +11,10 @@
         <div class="wiki-modal-header-info">
             <div class="wiki-modal-title-row">
                 <h2 class="wiki-modal-title" th:text="${card.name}">Card Name</h2>
-                <span th:if="${card.element != null}"
-                      class="element-badge"
-                      th:style="'border-color: ' + ${card.element.color} + '; color: ' + ${card.element.color} + '; background-color: ' + ${card.element.color} + '18;'"
-                      th:text="${card.element.name()}">Fire</span>
+                <span th:if="${card.element != null}" class="element-pill">
+                    <span class="element-dot" th:style="'background-color: ' + ${card.element.color}"></span>
+                    <span th:style="'color: ' + ${card.element.color}" th:text="${card.element.name()}">Fire</span>
+                </span>
             </div>
             <div class="arcana-category-pills" th:if="${card.prophecyTypes != null and !card.prophecyTypes.isEmpty()}">
                 <span th:each="ptype : ${card.prophecyTypes}"
@@ -30,7 +30,7 @@
     <!-- Description / Lore Section -->
     <div class="wiki-modal-section">
         <h4 class="wiki-modal-section-title">Card Description</h4>
-        <div class="arcana-lore-box">
+        <div class="wiki-note-box">
             <p class="arcana-lore-text" th:text="${card.description}">Burning enemies receive even more damage.</p>
         </div>
     </div>

@@ -6,6 +6,7 @@
   --wf-slot-bg: #505050;
   --wf-slot-empty: rgba(48, 48, 48, 0.25);
   --wf-gold: #ddaf7a;
+  --wf-gold-rgb: 221, 175, 122;
   --wf-gold-accent: #ddaf7aa6;
   --wf-gold-hover: #ddaf7ada;
   --wf-gold-bright: #ffcb8a;
@@ -13,6 +14,7 @@
   --wf-gray-btn-hover: #7a7a7a;
   --wf-text: #ededed;
   --wf-text-muted: #9ca3af;
+  --wf-overlay-dark: rgba(22, 19, 15, 0.7);
   --wf-font: Arial, Helvetica, sans-serif;
 }
 
@@ -970,7 +972,6 @@ input:checked + .slider:before {
   color: #fff;
   font-size: 0.95rem;
   outline: none;
-  margin-bottom: 1.25rem;
 }
 .wiki-search-input:focus {
   border-color: var(--wf-gold-accent);
@@ -1119,15 +1120,16 @@ input:checked + .slider:before {
   z-index: 1000;
 }
 .detail-modal-box {
-  max-width: 620px;
+  max-width: 500px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   position: relative;
-  background-color: #141210;
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.9), 0 0 25px rgba(0, 0, 0, 0.95);
-  border-radius: 0.5rem;
+}
+
+/* The catalog modals need more room than the randomizer's detail modal. */
+.detail-modal-box.wiki-modal-box {
+  max-width: 620px;
 }
 
 .modal-close-btn {
@@ -1203,46 +1205,44 @@ input:checked + .slider:before {
 }
 
 /* ==========================================================================
-   Wiki Sub-Navigation Tabs (Clean typography, dark-fantasy aesthetic, no emojis)
+   Wiki Sub-Navigation Tabs (same underline-tab idiom as the exclude tabs)
    ========================================================================== */
 .wiki-subnav-container {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .wiki-subnav-tabs {
-  display: inline-flex;
-  background: rgba(18, 16, 14, 0.85);
-  border: 1px solid var(--wf-border);
-  border-radius: 9999px;
-  padding: 0.35rem;
+  display: flex;
+  align-items: center;
   gap: 0.25rem;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  overflow-x: auto;
+  border-bottom: 1px solid var(--wf-border-subtle);
 }
 
 .wiki-tab-link {
-  padding: 0.5rem 1.25rem;
-  border-radius: 9999px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #9ca3af;
+  flex: 0 0 auto;
+  padding: 0.5rem 1rem;
+  white-space: nowrap;
+  color: #d1d5db;
+  font-size: 0.95rem;
+  font-weight: 500;
   text-decoration: none;
-  transition: all 0.2s ease;
+  border-bottom: 2px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
 }
 
 .wiki-tab-link:hover {
-  color: #f3f4f6;
-  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
 }
 
 .wiki-tab-link.active {
-  color: var(--wf-gold);
-  background: rgba(212, 175, 55, 0.15);
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+  color: #ffffff;
+  border-bottom-color: var(--wf-gold-accent);
+}
+
+/* Shared helper for interactive catalog cards */
+.is-clickable {
+  cursor: pointer;
 }
 
 /* ==========================================================================
@@ -1257,7 +1257,6 @@ input:checked + .slider:before {
 
 .arcana-card {
   border: 1px solid var(--wf-border);
-  background: #141210;
   border-radius: 0.5rem;
   padding: 1.15rem;
   display: flex;
@@ -1268,7 +1267,7 @@ input:checked + .slider:before {
 
 .arcana-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(212, 175, 55, 0.4);
+  border-color: rgba(var(--wf-gold-rgb), 0.4);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
@@ -1282,7 +1281,7 @@ input:checked + .slider:before {
 .arcana-icon-box {
   width: 3.25rem;
   height: 3.25rem;
-  background: #0a0908;
+  background: #000;
   border: 1px solid var(--wf-border);
   border-radius: 0.375rem;
   padding: 0.25rem;
@@ -1298,11 +1297,12 @@ input:checked + .slider:before {
   object-fit: contain;
 }
 
-.arcana-card-title {
-  font-family: var(--font-gothic, serif);
-  font-size: 1.1rem;
-  color: var(--wf-gold);
-  font-weight: 600;
+.arcana-card-title,
+.enemy-card-title,
+.prophecy-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
   margin: 0;
   line-height: 1.25;
 }
@@ -1317,22 +1317,11 @@ input:checked + .slider:before {
 .arcana-tag {
   font-size: 0.7rem;
   padding: 0.15rem 0.45rem;
-  background: #1f1b17;
-  border: 1px solid #3d352c;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--wf-border-subtle);
   border-radius: 0.25rem;
   color: #d1d5db;
   font-weight: 500;
-}
-
-.element-badge {
-  font-size: 0.7rem;
-  padding: 0.15rem 0.5rem;
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid;
-  border-radius: 0.25rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
 }
 
 .arcana-desc {
@@ -1343,8 +1332,8 @@ input:checked + .slider:before {
 }
 
 .arcana-effect-tier {
-  background: rgba(212, 175, 55, 0.06);
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--wf-border-subtle);
   border-radius: 0.35rem;
   padding: 0.5rem 0.65rem;
   font-size: 0.8rem;
@@ -1376,7 +1365,6 @@ input:checked + .slider:before {
 
 .prophecy-card {
   border: 1px solid var(--wf-border);
-  background: #141210;
   border-radius: 0.5rem;
   padding: 1.25rem;
   display: flex;
@@ -1393,7 +1381,7 @@ input:checked + .slider:before {
 .prophecy-icon-box {
   width: 3.5rem;
   height: 3.5rem;
-  background: #0a0908;
+  background: #000;
   border: 1px solid var(--wf-border);
   border-radius: 0.375rem;
   padding: 0.25rem;
@@ -1407,14 +1395,6 @@ input:checked + .slider:before {
   width: 100%;
   height: 100%;
   object-fit: contain;
-}
-
-.prophecy-title {
-  font-family: var(--font-gothic, serif);
-  font-size: 1.15rem;
-  color: var(--wf-gold);
-  font-weight: 600;
-  margin: 0;
 }
 
 .omen-warning-box {
@@ -1437,7 +1417,6 @@ input:checked + .slider:before {
 
 .enemy-card {
   border: 1px solid var(--wf-border);
-  background: #141210;
   border-radius: 0.5rem;
   padding: 1.15rem;
   display: flex;
@@ -1448,7 +1427,7 @@ input:checked + .slider:before {
 
 .enemy-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(212, 175, 55, 0.4);
+  border-color: rgba(var(--wf-gold-rgb), 0.4);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
@@ -1462,7 +1441,7 @@ input:checked + .slider:before {
 .enemy-portrait-box {
   width: 3.5rem;
   height: 3.5rem;
-  background: #0a0908;
+  background: #000;
   border: 1px solid var(--wf-border);
   border-radius: 0.375rem;
   padding: 0.2rem;
@@ -1480,22 +1459,14 @@ input:checked + .slider:before {
   border-radius: 0.25rem;
 }
 
-.enemy-card-title {
-  font-family: var(--font-gothic, serif);
-  font-size: 1.1rem;
-  color: var(--wf-gold);
-  font-weight: 600;
-  margin: 0;
-}
-
 .gnosis-badge {
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   padding: 0.15rem 0.5rem;
-  background: rgba(212, 175, 55, 0.12);
-  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: rgba(var(--wf-gold-rgb), 0.12);
+  border: 1px solid rgba(var(--wf-gold-rgb), 0.35);
   color: var(--wf-gold);
   border-radius: 0.25rem;
 }
@@ -1503,8 +1474,8 @@ input:checked + .slider:before {
 .rank-badge {
   font-size: 0.7rem;
   padding: 0.15rem 0.5rem;
-  background: #1f1b17;
-  border: 1px solid #3d352c;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--wf-border-subtle);
   color: #d1d5db;
   border-radius: 0.25rem;
   font-weight: 500;
@@ -1623,35 +1594,45 @@ input:checked + .slider:before {
 }
 
 .wiki-modal-title {
-  font-family: var(--font-gothic, serif);
-  font-size: 1.65rem;
-  color: var(--wf-gold);
+  font-size: 1.5rem;
+  color: #fff;
   font-weight: 700;
   margin: 0;
   line-height: 1.2;
-  letter-spacing: 0.02em;
 }
 
+/* Sections are separated by a single hairline, like .wiki-desc-section. */
 .wiki-modal-section {
-  margin-top: 1.25rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--wf-border);
+}
+
+.wiki-modal-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
 .wiki-modal-section-title {
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--wf-gold);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
   margin: 0 0 0.5rem 0;
+}
+
+/* Quoted lore / overview text: one shared note treatment. */
+.wiki-note-box {
+  border-left: 2px solid var(--wf-border);
+  padding-left: 0.85rem;
+  font-size: 0.95rem;
+  color: #d1d5db;
 }
 
 /* Arcana Modal Specifics */
 .arcana-modal-icon-frame {
   width: 5.5rem;
   height: 5.5rem;
-  background: radial-gradient(circle, #201c17 0%, #0d0b09 100%);
-  border: 1px solid rgba(212, 175, 55, 0.45);
-  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.85), 0 3px 10px rgba(0, 0, 0, 0.6);
+  background: #000;
+  border: 1px solid var(--wf-border);
   border-radius: 0.5rem;
   padding: 0.5rem;
   flex-shrink: 0;
@@ -1668,7 +1649,6 @@ input:checked + .slider:before {
 }
 
 .arcana-modal-icon-fallback {
-  font-family: var(--font-gothic, serif);
   font-size: 2.25rem;
   color: var(--wf-gold);
 }
@@ -1680,16 +1660,6 @@ input:checked + .slider:before {
   margin-top: 0.35rem;
 }
 
-.arcana-lore-box {
-  background: rgba(22, 19, 15, 0.7);
-  border-left: 3px solid var(--wf-gold-accent);
-  padding: 0.85rem 1.15rem;
-  border-radius: 0 0.375rem 0.375rem 0;
-  border-top: 1px solid var(--wf-border-subtle);
-  border-right: 1px solid var(--wf-border-subtle);
-  border-bottom: 1px solid var(--wf-border-subtle);
-}
-
 .arcana-lore-text {
   color: #f3f4f6;
   font-size: 1.05rem;
@@ -1699,9 +1669,7 @@ input:checked + .slider:before {
 }
 
 .arcana-scaling-card {
-  background: linear-gradient(180deg, rgba(28, 24, 18, 0.9) 0%, rgba(14, 12, 10, 0.95) 100%);
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  box-shadow: inset 0 1px 0 rgba(212, 175, 55, 0.2);
+  border: 1px solid var(--wf-border-subtle);
   border-radius: 0.375rem;
   overflow: hidden;
 }
@@ -1711,16 +1679,14 @@ input:checked + .slider:before {
   justify-content: space-between;
   align-items: center;
   padding: 0.45rem 0.85rem;
-  background: rgba(212, 175, 55, 0.1);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  background: rgba(0, 0, 0, 0.35);
+  border-bottom: 1px solid var(--wf-border-subtle);
 }
 
 .arcana-scaling-badge {
   font-size: 0.72rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--wf-gold);
+  font-weight: 600;
+  color: #d1d5db;
 }
 
 .arcana-scaling-stat-label {
@@ -1735,18 +1701,17 @@ input:checked + .slider:before {
 }
 
 .arcana-scaling-effect {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: #fef08a;
-  letter-spacing: 0.01em;
+  color: var(--wf-gold-bright);
 }
 
 /* Enemy Modal Specifics */
 .enemy-modal-portrait-frame {
   width: 5.5rem;
   height: 5.5rem;
-  background: #0a0908;
-  border: 1px solid rgba(212, 175, 55, 0.4);
+  background: #000;
+  border: 1px solid rgba(var(--wf-gold-rgb), 0.4);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
   border-radius: 0.5rem;
   padding: 0.2rem;
@@ -1765,7 +1730,6 @@ input:checked + .slider:before {
 }
 
 .enemy-modal-portrait-fallback {
-  font-family: var(--font-gothic, serif);
   font-size: 2.25rem;
   color: var(--wf-gold);
 }
@@ -1828,16 +1792,6 @@ input:checked + .slider:before {
 
 .stat-chip-value {
   font-weight: 700;
-}
-
-.enemy-overview-box {
-  background: rgba(22, 19, 15, 0.6);
-  border-left: 3px solid #6b7280;
-  padding: 0.75rem 1rem;
-  border-radius: 0 0.375rem 0.375rem 0;
-  border-top: 1px solid var(--wf-border-subtle);
-  border-right: 1px solid var(--wf-border-subtle);
-  border-bottom: 1px solid var(--wf-border-subtle);
 }
 
 .enemy-overview-text {
@@ -1918,7 +1872,7 @@ input:checked + .slider:before {
 
 /* Neutral state */
 .res-card.res-neutral {
-  background: #171512;
+  background: rgba(0, 0, 0, 0.35);
   border: 1px solid var(--wf-border);
 }
 .res-card.res-neutral .res-card-name {
@@ -1938,7 +1892,7 @@ input:checked + .slider:before {
 }
 
 .physical-res-pill {
-  background: #171512;
+  background: rgba(0, 0, 0, 0.35);
   border: 1px solid var(--wf-border);
   border-radius: 0.375rem;
   padding: 0.5rem 0.85rem;
@@ -1967,8 +1921,8 @@ input:checked + .slider:before {
 
 .location-chip {
   font-size: 0.75rem;
-  background: #1f1b17;
-  border: 1px solid #3d352c;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--wf-border-subtle);
   color: #d1d5db;
   padding: 0.25rem 0.55rem;
   border-radius: 0.25rem;
