@@ -27,6 +27,7 @@
                 </div>
                 <div class="arcana-tags-row">
                     <span th:each="ptype : ${card.prophecyTypes}"
+                          th:if="${card.element == null or (!ptype.equalsIgnoreCase(card.element.name()) and !ptype.equalsIgnoreCase(card.element.name() + ' Element'))}"
                           class="arcana-tag"
                           th:text="${ptype}">Type</span>
                 </div>

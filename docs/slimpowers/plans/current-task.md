@@ -60,3 +60,19 @@ Plan: `docs/slimpowers/plans/2026-09-10-wiki-ui-harmonization.md`
   - [x] Step 1: `./mvnw test` → 79 tests, 0 failures
   - [x] Step 2: Re-capture screenshots (`target/ui-review/shots-after/`) and layout probe
   - [x] Step 3: Commit
+
+---
+
+# Current Task: Wiki UI Refinements (De-cluttering & Color Calming)
+
+Plan: `docs/slimpowers/plans/2026-09-10-wiki-ui-refinements.md`
+
+- [x] Task 1: Refinement regression tests (`WikiDesignConsistencyTest`)
+  - [x] Step 1: Write failing tests
+  - [x] Step 2: Run tests — verify FAIL
+  - [x] Step 3: Commit
+- [x] Task 2: Bestiary card de-cluttering & palette calming
+- [x] Task 3: Bestiary modal harmonization (Gothic compendium aesthetic)
+- [x] Task 4: Arcana filter streamlining & tag deduplication
+- [x] Task 5: Full verification & screenshot re-capture
+

@@ -1485,9 +1485,9 @@ input:checked + .slider:before {
   font-size: 0.75rem;
   font-weight: 600;
   padding: 0.15rem 0.5rem;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  color: #34d399;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--wf-border-subtle);
+  color: #d1d5db;
   border-radius: 0.25rem;
 }
 
@@ -1496,71 +1496,6 @@ input:checked + .slider:before {
   font-size: 0.85rem;
   line-height: 1.45;
   margin: 0 0 0.75rem 0;
-}
-
-.resistance-badges-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  margin-top: 0.5rem;
-}
-
-.res-badge {
-  font-size: 0.7rem;
-  padding: 0.15rem 0.45rem;
-  border-radius: 0.25rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-}
-
-/* Weaknesses (green / cyan / high sensitivity) */
-.weak-fire {
-  border: 1px solid #ff4d4d;
-  color: #ff9999;
-  background: rgba(255, 77, 77, 0.1);
-}
-
-.weak-shock {
-  border: 1px solid #ffcc00;
-  color: #ffe066;
-  background: rgba(255, 204, 0, 0.1);
-}
-
-.weak-freeze {
-  border: 1px solid #4da6ff;
-  color: #99ccff;
-  background: rgba(77, 166, 255, 0.1);
-}
-
-.weak-decay {
-  border: 1px solid #66cc66;
-  color: #a3e6a3;
-  background: rgba(102, 204, 102, 0.1);
-}
-
-/* Resistances (shielded / dampened) */
-.res-fire {
-  border: 1px solid rgba(255, 77, 77, 0.4);
-  color: #fca5a5;
-  background: rgba(127, 29, 29, 0.2);
-}
-
-.res-shock {
-  border: 1px solid rgba(255, 204, 0, 0.4);
-  color: #fef08a;
-  background: rgba(161, 98, 7, 0.2);
-}
-
-.res-freeze {
-  border: 1px solid rgba(77, 166, 255, 0.4);
-  color: #bfdbfe;
-  background: rgba(30, 58, 138, 0.2);
-}
-
-.res-decay {
-  border: 1px solid rgba(102, 204, 102, 0.4);
-  color: #bbf7d0;
-  background: rgba(20, 83, 45, 0.2);
 }
 
 /* ==========================================================================
@@ -1668,38 +1603,6 @@ input:checked + .slider:before {
   font-style: italic;
 }
 
-.arcana-scaling-card {
-  border: 1px solid var(--wf-border-subtle);
-  border-radius: 0.375rem;
-  overflow: hidden;
-}
-
-.arcana-scaling-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.45rem 0.85rem;
-  background: rgba(0, 0, 0, 0.35);
-  border-bottom: 1px solid var(--wf-border-subtle);
-}
-
-.arcana-scaling-badge {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #d1d5db;
-}
-
-.arcana-scaling-stat-label {
-  font-size: 0.72rem;
-  color: #9ca3af;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.arcana-scaling-body {
-  padding: 0.85rem 1rem;
-}
-
 .arcana-scaling-effect {
   font-size: 1rem;
   font-weight: 600;
@@ -1745,9 +1648,9 @@ input:checked + .slider:before {
 .variant-badge {
   font-size: 0.7rem;
   padding: 0.15rem 0.5rem;
-  background: rgba(168, 85, 247, 0.15);
-  border: 1px solid rgba(168, 85, 247, 0.4);
-  color: #c084fc;
+  background: rgba(var(--wf-gold-rgb), 0.12);
+  border: 1px solid rgba(var(--wf-gold-rgb), 0.35);
+  color: var(--wf-gold);
   border-radius: 0.25rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -1769,18 +1672,17 @@ input:checked + .slider:before {
   border-radius: 0.3rem;
   font-size: 0.85rem;
   font-weight: 600;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--wf-border-subtle);
+  color: #d1d5db;
 }
 
 .enemy-stat-chip.health-chip {
-  background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(16, 185, 129, 0.35);
-  color: #34d399;
+  color: #fff;
 }
 
 .enemy-stat-chip.attack-chip {
-  background: rgba(245, 158, 11, 0.12);
-  border: 1px solid rgba(245, 158, 11, 0.35);
-  color: #fbbf24;
+  color: var(--wf-gold-bright);
 }
 
 .stat-chip-label {
@@ -1803,15 +1705,17 @@ input:checked + .slider:before {
 
 .resistance-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(115px, 1fr));
-  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 0.5rem;
   margin-bottom: 0.75rem;
 }
 
 .res-card {
   border-radius: 0.375rem;
-  padding: 0.6rem 0.5rem;
+  padding: 0.55rem 0.4rem;
   text-align: center;
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid var(--wf-border-subtle);
   transition: border-color 0.15s;
   display: flex;
   flex-direction: column;
@@ -1823,63 +1727,62 @@ input:checked + .slider:before {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  margin-bottom: 0.2rem;
+  color: #9ca3af;
+  margin-bottom: 0.15rem;
 }
 
 .res-card-value {
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.2;
+  color: #e5e7eb;
 }
 
 .res-card-status {
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  font-weight: 700;
-  margin-top: 0.25rem;
+  font-weight: 600;
+  margin-top: 0.2rem;
 }
 
-/* Vulnerable state (takes extra damage - weakness!) */
+/* Vulnerable state (weakness - muted coral) */
 .res-card.res-vulnerable {
-  background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(16, 185, 129, 0.4);
+  border-color: rgba(248, 113, 113, 0.4);
 }
 .res-card.res-vulnerable .res-card-name {
-  color: #6ee7b7;
-}
-.res-card.res-vulnerable .res-card-value {
-  color: #34d399;
-}
-.res-card.res-vulnerable .res-card-status {
-  color: #10b981;
-}
-
-/* Resistant state (reduces damage taken) */
-.res-card.res-resistant {
-  background: rgba(239, 68, 68, 0.12);
-  border: 1px solid rgba(239, 68, 68, 0.4);
-}
-.res-card.res-resistant .res-card-name {
   color: #fca5a5;
 }
-.res-card.res-resistant .res-card-value {
+.res-card.res-vulnerable .res-card-value {
   color: #f87171;
 }
-.res-card.res-resistant .res-card-status {
-  color: #ef4444;
+.res-card.res-vulnerable .res-card-status {
+  color: #f87171;
 }
 
-/* Neutral state */
+/* Resistant state (shielded - muted slate) */
+.res-card.res-resistant {
+  border-color: rgba(148, 163, 184, 0.4);
+}
+.res-card.res-resistant .res-card-name {
+  color: #cbd5e1;
+}
+.res-card.res-resistant .res-card-value {
+  color: #94a3b8;
+}
+.res-card.res-resistant .res-card-status {
+  color: #94a3b8;
+}
+
+/* Neutral state (muted gray) */
 .res-card.res-neutral {
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid var(--wf-border);
+  border-color: var(--wf-border-subtle);
 }
 .res-card.res-neutral .res-card-name {
-  color: #9ca3af;
+  color: #6b7280;
 }
 .res-card.res-neutral .res-card-value {
-  color: #d1d5db;
+  color: #9ca3af;
 }
 .res-card.res-neutral .res-card-status {
   color: #6b7280;

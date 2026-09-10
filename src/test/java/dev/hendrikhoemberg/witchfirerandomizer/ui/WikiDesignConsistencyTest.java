@@ -134,4 +134,35 @@ class WikiDesignConsistencyTest {
                 .andExpect(content().string(containsString("wiki-subnav-tabs")))
                 .andExpect(content().string(containsString("wiki-tab-link active")));
     }
+
+    @Test
+    void shouldNotUseSaturatedNeonColorsInCss() throws Exception {
+        String css = mainCss();
+        assertThat(css).doesNotContain("#34d399");
+        assertThat(css).doesNotContain("16, 185, 129");
+        assertThat(css).doesNotContain("#c084fc");
+    }
+
+    @Test
+    void shouldNotRenderResistanceBadgesOnEnemyCards() throws Exception {
+        mockMvc.perform(get("/wiki/bestiary/enemies"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(not(containsString("resistance-badges-container"))));
+    }
+
+    @Test
+    void shouldNotRenderVerboseLocationStringsOnEnemyCards() throws Exception {
+        mockMvc.perform(get("/wiki/bestiary/enemies"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(not(containsString(" • Irongate Castle"))));
+    }
+
+    @Test
+    void shouldRenderDropdownForArcanaProphecyCategories() throws Exception {
+        mockMvc.perform(get("/wiki/arcana"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("custom-select")))
+                .andExpect(content().string(containsString("All Categories")));
+    }
 }
+

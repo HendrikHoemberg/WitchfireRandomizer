@@ -18,6 +18,7 @@
             </div>
             <div class="arcana-category-pills" th:if="${card.prophecyTypes != null and !card.prophecyTypes.isEmpty()}">
                 <span th:each="ptype : ${card.prophecyTypes}"
+                      th:if="${card.element == null or (!ptype.equalsIgnoreCase(card.element.name()) and !ptype.equalsIgnoreCase(card.element.name() + ' Element'))}"
                       class="arcana-tag"
                       th:text="${ptype}">Fire Element</span>
             </div>
@@ -38,15 +39,9 @@
     <!-- Manifestation Scaling Section -->
     <div th:if="${card.effects != null and !card.effects.isBlank()}" class="wiki-modal-section">
         <h4 class="wiki-modal-section-title">Manifestation Scaling</h4>
-        <div class="arcana-scaling-card">
-            <div class="arcana-scaling-header">
-                <span class="arcana-scaling-badge">Enchantment Tiers</span>
-                <span class="arcana-scaling-stat-label">Manifestation Power</span>
-            </div>
-            <div class="arcana-scaling-body">
-                <div class="arcana-scaling-effect" th:text="${card.effects}">
-                    Damage to burning enemies: +15% / +25%
-                </div>
+        <div class="wiki-note-box">
+            <div class="arcana-scaling-effect" th:text="${card.effects}">
+                Damage to burning enemies: +15% / +25%
             </div>
         </div>
     </div>

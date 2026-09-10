@@ -36,24 +36,9 @@
         <div class="enemy-card-body">
             <p class="enemy-desc" th:text="${enemy.description != null and !enemy.description.isBlank() ? enemy.description : 'A denizen of the Witch domain.'}">Enemy description</p>
 
-            <!-- Elemental Resistances & Weaknesses Badges (Clean UI, No Emojis) -->
-            <div class="resistance-badges-container">
-                <span th:if="${enemy.fireResistance != null and enemy.fireResistance < 0}" class="res-badge weak-fire" th:text="'Fire: ' + ${enemy.fireResistance} + '%'">Fire: -50%</span>
-                <span th:if="${enemy.fireResistance != null and enemy.fireResistance > 20}" class="res-badge res-fire" th:text="'Fire: +' + ${enemy.fireResistance} + '%'">Fire: +75%</span>
-
-                <span th:if="${enemy.shockResistance != null and enemy.shockResistance < 0}" class="res-badge weak-shock" th:text="'Shock: ' + ${enemy.shockResistance} + '%'">Shock: -50%</span>
-                <span th:if="${enemy.shockResistance != null and enemy.shockResistance > 20}" class="res-badge res-shock" th:text="'Shock: +' + ${enemy.shockResistance} + '%'">Shock: +35%</span>
-
-                <span th:if="${enemy.freezeResistance != null and enemy.freezeResistance < 0}" class="res-badge weak-freeze" th:text="'Freeze: ' + ${enemy.freezeResistance} + '%'">Freeze: -50%</span>
-                <span th:if="${enemy.freezeResistance != null and enemy.freezeResistance > 20}" class="res-badge res-freeze" th:text="'Freeze: +' + ${enemy.freezeResistance} + '%'">Freeze: +50%</span>
-
-                <span th:if="${enemy.decayResistance != null and enemy.decayResistance < 0}" class="res-badge weak-decay" th:text="'Decay: ' + ${enemy.decayResistance} + '%'">Decay: -100%</span>
-                <span th:if="${enemy.decayResistance != null and enemy.decayResistance > 20}" class="res-badge res-decay" th:text="'Decay: +' + ${enemy.decayResistance} + '%'">Decay: +50%</span>
-            </div>
-
-            <!-- Locations summary -->
-            <div th:if="${enemy.locations != null and !enemy.locations.isEmpty()}" style="margin-top: 0.5rem;">
-                <span style="font-size: 0.75rem; color: #9ca3af;" th:text="${#strings.arrayJoin(enemy.locations, ' • ')}">Locations</span>
+            <!-- Locations summary (Clean single-line indicator; full territory details in modal) -->
+            <div th:if="${enemy.locations != null and !enemy.locations.isEmpty()}" style="margin-top: 0.5rem; font-size: 0.75rem; color: #9ca3af;">
+                <span th:text="${#lists.size(enemy.locations) == 1 ? enemy.locations[0] : enemy.locations[0] + ' (+' + (#lists.size(enemy.locations) - 1) + ')'}">Location</span>
             </div>
         </div>
     </div>

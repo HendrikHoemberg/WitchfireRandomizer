@@ -125,22 +125,16 @@
                     <!-- Prophecy Type Filter -->
                     <div>
                         <h3 class="filter-section-title">Filter by Category / Prophecy</h3>
-                        <div class="filter-pills-row">
-                            <button type="button"
-                                    class="filter-pill-btn"
-                                    :class="selectedProphecyType === '' ? 'active' : ''"
-                                    @click="selectedProphecyType = ''; updateFilters()">
-                                All Categories
-                            </button>
-                            <button th:each="ptype : ${prophecyTypes}"
-                                    type="button"
-                                    class="filter-pill-btn"
-                                    th:data-ptype="${ptype}"
-                                    th:text="${ptype}"
-                                    :class="selectedProphecyType === $el.dataset.ptype ? 'active' : ''"
-                                    @click="selectedProphecyType = $el.dataset.ptype; updateFilters()">
-                                Type
-                            </button>
+                        <div style="margin-top: 0.25rem;">
+                            <select class="custom-select"
+                                    style="background: #201d19; color: #e5e7eb; border: 1px solid var(--wf-border); border-radius: 0.375rem; padding: 0.45rem 0.85rem; font-size: 0.85rem; width: 100%; max-width: 320px;"
+                                    x-model="selectedProphecyType"
+                                    @change="updateFilters()">
+                                <option value="">All Categories</option>
+                                <option th:each="ptype : ${prophecyTypes}"
+                                        th:value="${ptype}"
+                                        th:text="${ptype}">Type</option>
+                            </select>
                         </div>
                     </div>
                 </div>
