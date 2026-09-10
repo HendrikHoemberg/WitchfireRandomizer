@@ -1,42 +1,42 @@
 # Current Task: Arcana, Prophecies & Bestiary Wiki Expansion
 
-- [ ] Task 1: Data Ingestion & Scraper Extension (Arcana, Prophecies, Enemies)
-  - [ ] Step 1: Write test validation script
-  - [ ] Step 2: Run validation script — verify it FAILS
-  - [ ] Step 3: Implement scraper logic and download data/icons
-  - [ ] Step 4: Run validation script — verify it PASSES
-  - [ ] Step 5: Commit
-- [ ] Task 2: Arcana & Prophecy Domain Models and ArcanaRepository
-  - [ ] Step 1: Write failing test (`ArcanaRepositoryTest`)
-  - [ ] Step 2: Run test — verify it FAILS
-  - [ ] Step 3: Implement `Arcana`, `Prophecy`, and `ArcanaRepository`
-  - [ ] Step 4: Run test — verify it PASSES
-  - [ ] Step 5: Commit
-- [ ] Task 3: Enemy Domain Model and EnemyRepository
-  - [ ] Step 1: Write failing test (`EnemyRepositoryTest`)
-  - [ ] Step 2: Run test — verify it FAILS
-  - [ ] Step 3: Implement `Enemy` and `EnemyRepository`
-  - [ ] Step 4: Run test — verify it PASSES
-  - [ ] Step 5: Commit
-- [ ] Task 4: Wiki Sub-Navigation Bar & Sidebar Drawer Update
-  - [ ] Step 1: Write failing test (`WikiNavigationTest`)
-  - [ ] Step 2: Run test — verify it FAILS
-  - [ ] Step 3: Implement sub-nav fragment and update navigation
-  - [ ] Step 4: Run test — verify it PASSES
-  - [ ] Step 5: Commit
-- [ ] Task 5: Arcana & Prophecies View and Controller Endpoints
-  - [ ] Step 1: Write failing test (`ArcanaWikiControllerTest`)
-  - [ ] Step 2: Run test — verify it FAILS
-  - [ ] Step 3: Implement controller and templates
-  - [ ] Step 4: Run test — verify it PASSES
-  - [ ] Step 5: Commit
-- [ ] Task 6: Bestiary View and Controller Endpoints
-  - [ ] Step 1: Write failing test (`BestiaryWikiControllerTest`)
-  - [ ] Step 2: Run test — verify it FAILS
-  - [ ] Step 3: Implement controller and templates
-  - [ ] Step 4: Run test — verify it PASSES
-  - [ ] Step 5: Commit
-- [ ] Task 7: CSS Styling Polish & Full Suite Verification
-  - [ ] Step 1: Add dark-fantasy styles in `main.css` (no simple emojis)
-  - [ ] Step 2: Run full verification `./mvnw test`
-  - [ ] Step 3: Commit
+- [x] Task 1: Data Ingestion & Scraper Extension (Arcana, Prophecies, Enemies)
+  - [x] Step 1: Write test validation script
+  - [x] Step 2: Run validation script — verify it FAILS
+  - [x] Step 3: Implement scraper logic and download data/icons
+  - [x] Step 4: Run validation script — verify it PASSES
+  - [x] Step 5: Commit
+- [x] Task 2: Arcana & Prophecy Domain Models and ArcanaRepository
+  - [x] Step 1: Write failing test (`ArcanaRepositoryTest`)
+  - [x] Step 2: Run test — verify it FAILS
+  - [x] Step 3: Implement `Arcana`, `Prophecy`, and `ArcanaRepository`
+  - [x] Step 4: Run test — verify it PASSES
+  - [x] Step 5: Commit
+- [x] Task 3: Enemy Domain Model and EnemyRepository
+  - [x] Step 1: Write failing test (`EnemyRepositoryTest`)
+  - [x] Step 2: Run test — verify it FAILS
+  - [x] Step 3: Implement `Enemy` and `EnemyRepository`
+  - [x] Step 4: Run test — verify it PASSES
+  - [x] Step 5: Commit
+- [x] Task 4: Wiki Sub-Navigation Bar & Sidebar Drawer Update
+  - [x] Step 1: Write failing test (`WikiNavigationTest`)
+  - [x] Step 2: Run test — verify it FAILS
+  - [x] Step 3: Implement sub-nav fragment and update navigation
+  - [x] Step 4: Run test — verify it PASSES
+  - [x] Step 5: Commit
+- [x] Task 5: Arcana & Prophecies View and Controller Endpoints
+  - [x] Step 1: Write failing test (`ArcanaWikiControllerTest`)
+  - [x] Step 2: Run test — verify it FAILS
+  - [x] Step 3: Implement controller and templates
+  - [x] Step 4: Run test — verify it PASSES
+  - [x] Step 5: Commit
+- [x] Task 6: Bestiary View and Controller Endpoints
+  - [x] Step 1: Write failing test (`BestiaryWikiControllerTest`)
+  - [x] Step 2: Run test — verify it FAILS
+  - [x] Step 3: Implement controller and templates
+  - [x] Step 4: Run test — verify it PASSES
+  - [x] Step 5: Commit
+- [x] Task 7: CSS Styling Polish & Full Suite Verification
+  - [x] Step 1: Add dark-fantasy styles in `main.css` (no simple emojis)
+  - [x] Step 2: Run full verification `./mvnw test`
+  - [x] Step 3: Commit
