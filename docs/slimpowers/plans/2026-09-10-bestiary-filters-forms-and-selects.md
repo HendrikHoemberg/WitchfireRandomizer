@@ -13,7 +13,8 @@ Alpine.js only handles the per-card territory expand toggle (local state, no req
 
 **Spec:** User request of 2026-09-10 (items 1–5) plus approved mockups
 `target/ui-review/mockup-forms.html` (Option A) and `target/ui-review/mockup-locations.html`
-(Filter 3 + Territory T2).
+(Filter 3 + Territory T2). Those mockups lived in the gitignored `target/` tree and are gone after
+the next `mvn clean`; the decisions they represented are recorded in the table below.
 
 ## Global Constraints
 

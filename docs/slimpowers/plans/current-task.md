@@ -164,3 +164,35 @@ Plan: `docs/slimpowers/plans/2026-09-10-bestiary-portrait-dossier-and-webp.md`
   - [x] All 62 cards checked: 47 ledger, 15 explicit empty state, 0 with both/neither
 
 
+
+---
+
+# 2026-09-10 — Bestiary filters, alternate forms & shared selects
+
+Plan: `docs/slimpowers/plans/2026-09-10-bestiary-filters-forms-and-selects.md`
+
+- [x] Task 1: `Enemy.getVariantForms()` splits "Elite / Ascended" into labels
+  - [x] `EnemyTest` written first and watched to fail (compile error), then green
+- [x] Task 2: Location becomes the real filter (repository + controller)
+  - [x] Gnosis filter parameter deleted from `search(...)` and both controller endpoints
+  - [x] Location matching is now **exact** — `Outskirts` no longer drags in 13 Vault-only
+        enemies (`Irongate Castle` was pulling in 4)
+  - [x] Search matches name, **attack range and location** (it claimed to, but only searched
+        name + the always-empty description)
+  - [x] `getLocationGroups()` → Regions / Vaults / Summoned (`Summoned by ` stripped for display)
+- [x] Task 3: Prominent rank badge + labelled `FORMS` section (mockup Option A)
+  - [x] Gnosis badge + `.gnosis-badge` CSS deleted (card and the dead modal); page renders
+        zero occurrences of "gnosis"
+- [x] Task 4: Every territory reachable behind a `+N more` toggle (mockup Territory T2)
+  - [x] All chips stay in the DOM; the 4th onward carry `x-show="expanded"`
+  - [x] Verified in a real browser: 7-location card goes 4 → 8 visible chips, label toggles
+        to "Show fewer" and back
+- [x] Task 5: One `.wiki-select` for all four pages (mockup Filter 3)
+  - [x] Replaced `custom-select`, `wiki-sort-select` and Arcana's inline style attribute
+  - [x] Equipment sort moved into its filter box, out of the swapped fragment
+- [x] Task 6 (extra): result counters moved into the swapped fragments, so they stop going stale
+  - [x] Verified live: filtering by `Outskirts` shows "Showing 6 enemies" with 6 cards
+- [x] Task 7: Verification
+  - [x] From-scratch build: `./mvnw clean test` → **123 tests, 0 failures, BUILD SUCCESS**
+  - [x] CDP probe on the real page: `appearance: none`, bg `#201d19`, groups
+        Regions/Vaults/Summoned, 18 options, **0 "gnosis" occurrences**
