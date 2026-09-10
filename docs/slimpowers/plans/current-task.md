@@ -76,3 +76,35 @@ Plan: `docs/slimpowers/plans/2026-09-10-wiki-ui-refinements.md`
 - [x] Task 4: Arcana filter streamlining & tag deduplication
 - [x] Task 5: Full verification & screenshot re-capture
 
+---
+
+# Current Task: Wiki Layout Harmonization & Bestiary Redesign
+
+Plan: `docs/slimpowers/plans/2026-09-10-wiki-layout-harmonization-and-bestiary-redesign.md`
+
+- [x] Task 1: Navigation & Controller Routing Expansion (4 Direct Tabs)
+  - [x] Created `PropheciesWikiController` (`/wiki/prophecies`, `/wiki/prophecies/list`)
+  - [x] Sub-nav and sidebar drawer updated to 4 tabs: Equipment, Arcana, Prophecies, Bestiary
+  - [x] Created dedicated `templates/wiki/prophecies.html`
+  - [x] Tests passing & committed (`ec3d493`)
+- [x] Task 2: Equipment 2-Column Grid & Mysterium Polish
+  - [x] 2-column grid (`repeat(2, 1fr)`) on desktop, 1-column mobile
+  - [x] Dark-glass Mysterium level header styling with gold accent
+  - [x] Centered search clear button and added Reset Filters button
+  - [x] Tests passing & committed (`a0980cf`)
+- [x] Task 3: Self-Contained 3-Column Arcana & Refined Prophecies
+  - [x] 3-column responsive grid (`minmax(340px, 1fr)`)
+  - [x] Self-contained cards (manifestation scaling + description directly visible)
+  - [x] Hollow modal removed; dedicated Prophecies view with direct links to Arcana
+  - [x] Tests passing & committed (`1323a70`)
+- [x] Task 4: Bestiary 2-Column Quick-Glance Combat Cards
+  - [x] 2-column desktop / 1-column mobile grid
+  - [x] Combat stats strip (HP, ATK), active resistance pills, territory chips
+  - [x] Omitted scraped placeholder filler text
+  - [x] Removed redundant modal overlay; aligned Sort By to results header
+  - [x] Tests passing & committed (`0b5b64b`)
+- [x] Task 5: Visual Verification & Test Suite Verification
+  - [x] Captured fresh full-page and mobile screenshots across all 4 tabs
+  - [x] Full test suite verified: `./mvnw test` (90 tests passed, 0 failures)
+
+
