@@ -339,17 +339,28 @@ class WikiDesignConsistencyTest {
     }
 
     @Test
-    void shouldCondenseEnemyTerritoriesWithAnOverflowChip() throws Exception {
-        // Arcabusier lists 4 territories; the card shows 3 plus an overflow indicator.
-        mockMvc.perform(get("/wiki/bestiary/enemies").param("search", "Arcabusier"))
+    void shouldRenderEveryTerritoryWithAnExpandToggle() throws Exception {
+        // Blunderbusser lists 7 territories: all 7 chips are in the DOM, the last 4 start hidden.
+        String card = mockMvc.perform(get("/wiki/bestiary/enemies").param("search", "Blunderbusser"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("location-chip-more")))
-                .andExpect(content().string(containsString("+1 more")));
+                .andReturn().getResponse().getContentAsString();
 
-        // Anointer lists 1 territory; no overflow chip.
+        assertThat(card).contains("x-data=\"{ expanded: false }\"");
+        assertThat(card).contains(">Outskirts Vault<");
+        assertThat(card).contains(">Velmorne Vault<");
+        assertThat(card).contains(">Witch Mountain<");
+        assertThat(card).contains("location-chip-more");
+        assertThat(card).contains("+4 more");
+        assertThat(card).contains("expanded = !expanded");
+        // The hidden chips carry the toggle binding; the first three do not.
+        assertThat(card.split("x-show=\"expanded\"", -1).length - 1).isEqualTo(4);
+
+        // Anointer lists a single territory: no toggle.
         mockMvc.perform(get("/wiki/bestiary/enemies").param("search", "Anointer"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(not(containsString("location-chip-more"))));
+
+        assertThat(cssRule(mainCss(), "button.location-chip-more")).contains("cursor: pointer");
     }
 
     @Test

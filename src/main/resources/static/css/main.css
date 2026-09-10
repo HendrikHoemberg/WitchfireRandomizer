@@ -1666,6 +1666,17 @@ input:checked + .slider:before {
   border-color: rgba(var(--wf-gold-rgb), 0.35);
 }
 
+/* The overflow chip is a button: it reveals the locations the card has not shown yet. */
+button.location-chip-more {
+  font-family: inherit;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+button.location-chip-more:hover {
+  background: rgba(var(--wf-gold-rgb), 0.16);
+}
+
 .enemy-card {
   border: 1px solid var(--wf-border);
   border-radius: 0.5rem;

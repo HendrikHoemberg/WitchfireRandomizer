@@ -97,17 +97,24 @@
                 </p>
             </div>
 
-            <!-- Territory footer, clamped to three locations -->
-            <div th:if="${enemy.locations != null and !enemy.locations.isEmpty()}" class="enemy-locations-row">
+            <!-- Territory: every location is in the DOM; the overflow ones expand in place. -->
+            <div th:if="${enemy.locations != null and !enemy.locations.isEmpty()}"
+                 class="enemy-locations-row"
+                 x-data="{ expanded: false }"
+                 th:with="hiddenCount=${enemy.locations.size() - 3}">
                 <span class="enemy-locations-label">Territory</span>
                 <div class="locations-chips-row">
                     <span th:each="loc, iter : ${enemy.locations}"
-                          th:if="${iter.index < 3}"
                           class="location-chip"
+                          th:attr="x-show=${iter.index >= 3} ? 'expanded' : null"
                           th:text="${loc}">Irongate Castle</span>
-                    <span th:if="${enemy.locations.size() > 3}"
-                          class="location-chip location-chip-more"
-                          th:text="|+${enemy.locations.size() - 3} more|">+2 more</span>
+                    <button th:if="${hiddenCount > 0}"
+                            type="button"
+                            class="location-chip location-chip-more"
+                            th:data-more="|+${hiddenCount} more|"
+                            th:text="|+${hiddenCount} more|"
+                            @click="expanded = !expanded"
+                            x-text="expanded ? 'Show fewer' : $el.dataset.more">+1 more</button>
                 </div>
             </div>
         </div>
