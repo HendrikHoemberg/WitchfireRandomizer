@@ -15,7 +15,6 @@
 
     <main class="container" x-data="{
         searchQuery: '',
-        selectedGnosis: '',
         selectedLocation: '',
         sortCriteria: 'name',
         updateFilters() {
@@ -24,7 +23,6 @@
                 swap: 'outerHTML',
                 values: {
                     search: this.searchQuery,
-                    gnosis: this.selectedGnosis,
                     location: this.selectedLocation,
                     sort: this.sortCriteria
                 }
@@ -32,7 +30,6 @@
         },
         clearAllFilters() {
             this.searchQuery = '';
-            this.selectedGnosis = '';
             this.selectedLocation = '';
             this.sortCriteria = 'name';
             this.updateFilters();
@@ -54,7 +51,7 @@
             <div class="search-input-wrapper">
                 <input type="text"
                        class="wiki-search-input"
-                       placeholder="Search enemies by name, attack, or location..."
+                       placeholder="Search enemies by name, location, or attack..."
                        x-model="searchQuery"
                        @input.debounce.300ms="updateFilters()" />
                 <button type="button"
@@ -64,28 +61,6 @@
                         title="Clear search">
                     &times;
                 </button>
-            </div>
-
-            <!-- Gnosis Level Filter -->
-            <div style="margin-bottom: 0.5rem;">
-                <h3 class="filter-section-title">Filter by Gnosis</h3>
-                <div class="filter-pills-row">
-                    <button type="button"
-                            class="filter-pill-btn"
-                            :class="selectedGnosis === '' ? 'active' : ''"
-                            @click="selectedGnosis = ''; updateFilters()">
-                        All Gnosis
-                    </button>
-                    <button th:each="g : ${gnosisLevels}"
-                            type="button"
-                            class="filter-pill-btn"
-                            th:data-gnosis="${g}"
-                            th:text="'Gnosis ' + ${g}"
-                            :class="selectedGnosis === $el.dataset.gnosis ? 'active' : ''"
-                            @click="selectedGnosis = $el.dataset.gnosis; updateFilters()">
-                        Gnosis 0
-                    </button>
-                </div>
             </div>
 
             <!-- Secondary Filters: Location & Reset -->
@@ -102,7 +77,7 @@
                 </div>
 
                 <!-- Reset Filters Button -->
-                <div x-show="searchQuery || selectedGnosis !== '' || selectedLocation || sortCriteria !== 'name'">
+                <div x-show="searchQuery || selectedLocation || sortCriteria !== 'name'">
                     <button type="button"
                             class="filter-pill-btn filter-reset-btn"
                             @click="clearAllFilters()">
@@ -127,7 +102,6 @@
                         @change="updateFilters()">
                     <option value="name">Name (A-Z)</option>
                     <option value="health">Health (High to Low)</option>
-                    <option value="gnosis">Gnosis (Low to High)</option>
                 </select>
             </div>
         </div>

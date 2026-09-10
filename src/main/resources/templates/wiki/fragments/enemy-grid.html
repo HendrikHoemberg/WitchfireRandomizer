@@ -4,7 +4,7 @@
 <div th:fragment="enemyGrid" id="bestiary-enemies-grid" class="bestiary-grid">
     <div th:if="${#lists.isEmpty(enemies)}" class="empty-state texture-box" style="grid-column: 1 / -1; padding: 3rem; text-align: center;">
         <h3 style="color: var(--wf-gold); font-size: 1.25rem; margin-bottom: 0.5rem;">No Enemies Found</h3>
-        <p style="color: #9ca3af; font-size: 0.95rem;">Try adjusting your search criteria or Gnosis level.</p>
+        <p style="color: #9ca3af; font-size: 0.95rem;">Try adjusting your search or location filter.</p>
     </div>
 
     <article th:each="enemy : ${enemies}"
@@ -20,22 +20,14 @@
         </div>
 
         <div class="enemy-card-dossier">
-            <!-- Header: name, rank/variant tags, gnosis seal -->
+            <!-- Header: name with the rank badge in the card's top-right slot -->
             <header class="enemy-card-header">
                 <div class="enemy-card-heading">
                     <div class="enemy-card-title-row">
                         <h3 class="enemy-card-title" th:text="${enemy.name}">Enemy Name</h3>
-                        <span th:if="${enemy.gnosis != null}"
-                              class="gnosis-badge"
-                              th:text="'Gnosis ' + ${enemy.gnosis}">Gnosis 0</span>
-                    </div>
-                    <div class="enemy-tags-row">
                         <span th:if="${enemy.rank != null and !enemy.rank.isBlank() and !enemy.rank.equalsIgnoreCase(enemy.name)}"
-                              class="arcana-tag enemy-rank-tag"
+                              class="enemy-rank-tag"
                               th:text="${enemy.rank}">Rank</span>
-                        <span th:if="${enemy.variants != null and !enemy.variants.isBlank()}"
-                              class="arcana-tag enemy-variant-tag"
-                              th:text="${enemy.variants}">Elite</span>
                     </div>
                 </div>
             </header>
@@ -51,6 +43,14 @@
                     <span class="enemy-stat-label">Attack</span>
                     <span class="enemy-stat-value"
                           th:text="${enemy.damage != null and !enemy.damage.isBlank() ? enemy.damage : '—'}">4 - 35</span>
+                </div>
+            </div>
+
+            <!-- Alternate forms: the upgraded variants this enemy also appears as -->
+            <div th:if="${!enemy.variantForms.isEmpty()}" class="enemy-forms-row">
+                <span class="enemy-forms-label">Forms</span>
+                <div class="enemy-forms-chips">
+                    <span th:each="form : ${enemy.variantForms}" class="enemy-form-chip" th:text="${form}">Elite</span>
                 </div>
             </div>
 

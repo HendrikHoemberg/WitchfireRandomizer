@@ -365,6 +365,58 @@ class WikiDesignConsistencyTest {
                 .andExpect(content().string(containsString("enemy-rank-tag")))
                 .andExpect(content().string(containsString(">Faithful<")));
     }
+
+    @Test
+    void shouldGiveTheEnemyRankTheProminentTitleSlotLeftByGnosis() throws Exception {
+        String card = mockMvc.perform(get("/wiki/bestiary/enemies").param("search", "Anointer"))
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString();
+
+        assertThat(card).contains("enemy-card-title-row");
+        assertThat(card).contains("enemy-rank-tag");
+        assertThat(card).contains(">Faithful<");
+        assertThat(card).doesNotContain("gnosis-badge");
+        // The badge sits in the title row, ahead of the stat block.
+        assertThat(card.indexOf("enemy-card-title-row")).isLessThan(card.indexOf("enemy-rank-tag"));
+        assertThat(card.indexOf("enemy-rank-tag")).isLessThan(card.indexOf("enemy-stat-grid"));
+    }
+
+    @Test
+    void shouldNotMentionGnosisAnywhereInTheBestiary() throws Exception {
+        String page = mockMvc.perform(get("/wiki/bestiary"))
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString();
+
+        assertThat(page.toLowerCase()).doesNotContain("gnosis");
+        assertThat(mainCss()).doesNotContain(".gnosis-badge");
+    }
+
+    @Test
+    void shouldGiveAlternateFormsTheirOwnLabelledSection() throws Exception {
+        // Axeman exists as Elite and Ascended.
+        String card = mockMvc.perform(get("/wiki/bestiary/enemies").param("search", "Axeman"))
+                .andExpect(status().isOk())
+                .andReturn().getResponse().getContentAsString();
+
+        assertThat(card).contains("enemy-forms-row");
+        assertThat(card).contains("enemy-forms-label");
+        assertThat(card).contains("Forms");
+        assertThat(card).contains("enemy-form-chip");
+        assertThat(card).contains(">Elite<");
+        assertThat(card).contains(">Ascended<");
+        assertThat(card).doesNotContain("enemy-variant-tag");
+    }
+
+    @Test
+    void shouldHideTheFormsSectionForEnemiesWithoutAlternateForms() throws Exception {
+        // Anointer has no Elite/Ascended forms (Assassin does, despite the name).
+        mockMvc.perform(get("/wiki/bestiary/enemies").param("search", "Anointer"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(not(containsString("enemy-forms-row"))));
+
+        // The styling for a section that can be absent must still exist.
+        assertThat(cssRule(mainCss(), ".enemy-form-chip")).contains("text-transform: uppercase");
+    }
 }
 
 

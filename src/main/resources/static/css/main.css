@@ -1736,37 +1736,55 @@ input:checked + .slider:before {
   margin-bottom: 0.4rem;
 }
 
-.enemy-tags-row {
+/* Rank owns the card's top-right badge slot: the one chrome badge on the card. */
+.enemy-rank-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  padding: 0.22rem 0.6rem;
+  flex-shrink: 0;
+  white-space: nowrap;
+  background: rgba(var(--wf-gold-rgb), 0.12);
+  border: 1px solid rgba(var(--wf-gold-rgb), 0.38);
+  color: var(--wf-gold);
+  border-radius: 0.25rem;
+}
+
+/* Alternate forms: labelled, so the chips cannot be mistaken for a second rank. */
+.enemy-forms-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  margin-bottom: 0.9rem;
+}
+
+.enemy-forms-label {
+  flex: 0 0 4.75rem;
+  padding-top: 0.2rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--wf-gold);
+}
+
+.enemy-forms-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 0.3rem;
 }
 
-.enemy-rank-tag {
-  color: #d1d5db;
-}
-
-.enemy-variant-tag {
-  color: var(--wf-gold);
-  background: rgba(var(--wf-gold-rgb), 0.12);
-  border-color: rgba(var(--wf-gold-rgb), 0.35);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 600;
-}
-
-.gnosis-badge {
-  font-size: 0.7rem;
+.enemy-form-chip {
+  font-size: 0.72rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 0.15rem 0.5rem;
-  background: rgba(var(--wf-gold-rgb), 0.12);
-  border: 1px solid rgba(var(--wf-gold-rgb), 0.35);
-  color: var(--wf-gold);
+  letter-spacing: 0.07em;
+  padding: 0.2rem 0.55rem;
   border-radius: 0.25rem;
-  flex-shrink: 0;
-  white-space: nowrap;
+  color: var(--wf-resist-bright);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(203, 195, 178, 0.35);
 }
 
 .rank-badge {

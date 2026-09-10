@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
 <div th:fragment="enemyModalContent" th:if="${enemy != null}" class="wiki-modal-container">
-    <!-- Header with portrait, name, rank, gnosis, stats -->
+    <!-- Header with portrait, name, rank, stats -->
     <div class="wiki-modal-header">
         <div class="enemy-modal-portrait-frame">
             <img th:if="${enemy.iconUrl != null}" th:src="${enemy.iconUrl}" th:alt="${enemy.name}" />
@@ -14,7 +14,6 @@
             </div>
             <div class="enemy-modal-badges-row">
                 <span th:if="${enemy.rank != null and !enemy.rank.isBlank()}" class="rank-badge" th:text="${enemy.rank}">Rank</span>
-                <span th:if="${enemy.gnosis != null}" class="gnosis-badge" th:text="'Gnosis ' + ${enemy.gnosis}">Gnosis 0</span>
                 <span th:if="${enemy.variants != null and !enemy.variants.isBlank()}" class="variant-badge" th:text="${enemy.variants}">Elite</span>
             </div>
             <!-- Combat Stats Strip -->
