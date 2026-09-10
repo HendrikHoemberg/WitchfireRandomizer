@@ -80,13 +80,6 @@
             </div>
         </div>
 
-        <!-- Results Header -->
-        <div class="wiki-results-header">
-            <div class="results-counter">
-                Showing <span th:text="${#lists.size(prophecies)}">18</span> prophecies
-            </div>
-        </div>
-
         <!-- Prophecies Grid -->
         <div th:replace="~{wiki/fragments/prophecy-list :: prophecyList}"></div>
     </main>

@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<div th:fragment="arcanaGrid" id="arcana-cards-grid" class="arcana-grid">
+<div th:fragment="arcanaGrid" id="arcana-cards-grid">
+    <div class="wiki-results-header">
+        <div class="results-counter">
+            Showing <span th:text="${#lists.size(cards)}">0</span> Arcana cards
+        </div>
+    </div>
+
+    <div class="arcana-grid">
     <div th:if="${#lists.isEmpty(cards)}" class="empty-state texture-box" style="grid-column: 1 / -1; padding: 3rem; text-align: center;">
         <h3 style="color: var(--wf-gold); font-size: 1.25rem; margin-bottom: 0.5rem;">No Arcana Cards Found</h3>
         <p style="color: #9ca3af; font-size: 0.95rem;">Try adjusting your search query or elemental filter.</p>
@@ -40,6 +47,7 @@
                 <span class="tier-value" th:text="${card.effects}">+15% / +25%</span>
             </div>
         </div>
+    </div>
     </div>
 </div>
 </body>

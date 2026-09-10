@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<div th:fragment="enemyGrid" id="bestiary-enemies-grid" class="bestiary-grid">
+<div th:fragment="enemyGrid" id="bestiary-enemies-grid">
+    <div class="wiki-results-header">
+        <div class="results-counter">
+            Showing <span th:text="${#lists.size(enemies)}">0</span>
+            <span th:text="${#lists.size(enemies) == 1 ? 'enemy' : 'enemies'}">enemies</span>
+        </div>
+    </div>
+
+    <div class="bestiary-grid">
     <div th:if="${#lists.isEmpty(enemies)}" class="empty-state texture-box" style="grid-column: 1 / -1; padding: 3rem; text-align: center;">
         <h3 style="color: var(--wf-gold); font-size: 1.25rem; margin-bottom: 0.5rem;">No Enemies Found</h3>
         <p style="color: #9ca3af; font-size: 0.95rem;">Try adjusting your search or location filter.</p>
@@ -119,6 +127,7 @@
             </div>
         </div>
     </article>
+    </div>
 </div>
 </body>
 </html>

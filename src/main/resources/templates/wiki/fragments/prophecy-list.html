@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-<div th:fragment="prophecyList" id="prophecy-list-container" class="prophecy-grid">
+<div th:fragment="prophecyList" id="prophecy-list-container">
+    <div class="wiki-results-header">
+        <div class="results-counter">
+            Showing <span th:text="${#lists.size(prophecies)}">0</span> prophecies
+        </div>
+    </div>
+
+    <div class="prophecy-grid">
     <div th:each="p : ${prophecies}" class="prophecy-card texture-box">
         <div class="prophecy-header">
             <div class="prophecy-icon-box">
@@ -36,6 +43,7 @@
                 View Related Arcana &rarr;
             </a>
         </div>
+    </div>
     </div>
 </div>
 </body>

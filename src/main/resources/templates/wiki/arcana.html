@@ -112,13 +112,6 @@
             </div>
         </div>
 
-        <!-- Results Header -->
-        <div class="wiki-results-header">
-            <div class="results-counter">
-                Showing <span th:text="${#lists.size(cards)}">121</span> Arcana cards
-            </div>
-        </div>
-
         <!-- Cards View -->
         <div th:replace="~{wiki/fragments/arcana-grid :: arcanaGrid}"></div>
     </main>

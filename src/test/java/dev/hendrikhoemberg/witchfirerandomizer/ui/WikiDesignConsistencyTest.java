@@ -199,6 +199,31 @@ class WikiDesignConsistencyTest {
     }
 
     @Test
+    void shouldRefreshTheResultCounterWithTheSwappedFragment() throws Exception {
+        mockMvc.perform(get("/wiki/bestiary/enemies"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("results-counter")));
+
+        mockMvc.perform(get("/wiki/arcana/cards"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("results-counter")));
+
+        mockMvc.perform(get("/wiki/prophecies/list"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("results-counter")));
+
+        mockMvc.perform(get("/wiki/items"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("results-counter")));
+
+        // The counter must live inside the swapped container, not beside it.
+        String page = mockMvc.perform(get("/wiki/bestiary"))
+                .andReturn().getResponse().getContentAsString();
+        assertThat(page.indexOf("results-counter"))
+                .isGreaterThan(page.indexOf("id=\"bestiary-enemies-grid\""));
+    }
+
+    @Test
     void shouldKeepTheEquipmentSortControlInsideTheFilterBox() throws Exception {
         String page = mockMvc.perform(get("/wiki"))
                 .andExpect(status().isOk())
