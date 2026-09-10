@@ -184,11 +184,10 @@ class WikiDesignConsistencyTest {
     }
 
     @Test
-    void shouldStyleEquipmentInTwoColumnGridAndDarkGlassMysterium() throws Exception {
+    void shouldStyleEquipmentInOneColumnAndDarkGlassMysterium() throws Exception {
         String css = mainCss();
         String listRule = cssRule(css, ".wiki-cards-list");
-        assertThat(listRule).contains("display: grid");
-        assertThat(listRule).contains("repeat(2, 1fr)");
+        assertThat(listRule).doesNotContain("repeat(2, 1fr)");
 
         String mystRule = cssRule(css, ".wiki-mysterium-level-header");
         assertThat(mystRule).doesNotContain("background-color: var(--wf-gold-accent)");

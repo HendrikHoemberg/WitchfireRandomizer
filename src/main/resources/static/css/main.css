@@ -1064,16 +1064,9 @@ input:checked + .slider:before {
 }
 
 .wiki-cards-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.25rem;
-  align-items: start;
-}
-
-@media (max-width: 900px) {
-  .wiki-cards-list {
-    grid-template-columns: 1fr;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .wiki-item-card {
@@ -1081,7 +1074,6 @@ input:checked + .slider:before {
   border: 1px solid var(--wf-border);
   border-radius: 0.5rem;
   overflow: hidden;
-  margin-bottom: 0;
   position: relative;
   transition: border-color 0.15s, box-shadow 0.15s;
 }
@@ -1095,7 +1087,7 @@ input:checked + .slider:before {
   display: flex;
   align-items: center;
   gap: 1rem;
-  min-height: 5.5rem;
+  min-height: 6rem;
   position: relative;
   z-index: 1;
 }
@@ -1113,7 +1105,7 @@ input:checked + .slider:before {
 }
 
 .wiki-card-title {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: #fff;
 }
