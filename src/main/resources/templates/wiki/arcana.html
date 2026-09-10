@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcana &amp; Prophecies - Witchfire Companion</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/main.css">
+    <script src="/js/htmx.min.js"></script>
+    <script defer src="/js/alpine.min.js"></script>
+</head>
+<body>
+    <div th:replace="~{fragments/navigation :: navbar('arcana')}"></div>
+
+    <main class="container" x-data="{
+        viewMode: 'cards',
+        searchQuery: '',
+        selectedElement: '',
+        selectedProphecyType: '',
+        showModal: false,
+        updateFilters() {
+            htmx.ajax('GET', '/wiki/arcana/cards', {
+                target: '#arcana-cards-grid',
+                swap: 'outerHTML',
+                values: {
+                    search: this.searchQuery,
+                    element: this.selectedElement,
+                    prophecyType: this.selectedProphecyType
+                }
+            });
+        },
+        clearAllFilters() {
+            this.searchQuery = '';
+            this.selectedElement = '';
+            this.selectedProphecyType = '';
+            this.updateFilters();
+        },
+        openArcanaModal(cardId) {
+            this.showModal = true;
+            htmx.ajax('GET', '/wiki/arcana/card/' + cardId, {
+                target: '#arcana-modal-dialog',
+                swap: 'innerHTML'
+            });
+        }
+    }">
+        <!-- Centered Witchfire Logo -->
+        <div class="logo-container">
+            <a href="/">
+                <img src="/images/wf-logo2.webP" alt="Witchfire" class="page-logo">
+            </a>
+        </div>
+
+        <!-- Wiki Sub-Navigation Tabs -->
+        <div th:replace="~{wiki/fragments/wiki-nav :: wikiNav('arcana')}"></div>
+
+        <!-- Mode Toggle & Filter Box -->
+        <div class="wiki-filter-box texture-box">
+            <!-- Mode Switcher -->
+            <div style="display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--wf-border); padding-bottom: 1rem;">
+                <button type="button"
+                        class="filter-pill-btn"
+                        :class="viewMode === 'cards' ? 'active' : ''"
+                        @click="viewMode = 'cards'">
+                    Arcana Cards (<span th:text="${#lists.size(cards)}">121</span>)
+                </button>
+                <button type="button"
+                        class="filter-pill-btn"
+                        :class="viewMode === 'prophecies' ? 'active' : ''"
+                        @click="viewMode = 'prophecies'">
+                    Prophecies &amp; Omens (<span th:text="${#lists.size(prophecies)}">18</span>)
+                </button>
+            </div>
+
+            <!-- Filters (Active when viewMode is cards) -->
+            <div x-show="viewMode === 'cards'">
+                <div class="search-input-wrapper" style="position: relative; margin-bottom: 1.25rem;">
+                    <input type="text"
+                           class="wiki-search-input"
+                           placeholder="Search Arcana by name, description, or effects..."
+                           x-model="searchQuery"
+                           @input.debounce.300ms="updateFilters()" />
+                    <button type="button"
+                            x-show="searchQuery.length > 0"
+                            @click="searchQuery = ''; updateFilters()"
+                            class="search-clear-btn"
+                            style="position: absolute; right: 0.75rem; top: 35%; transform: translateY(-50%); background: none; border: none; color: #9ca3af; font-size: 1.25rem; cursor: pointer;"
+                            title="Clear search">
+                        &times;
+                    </button>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                    <!-- Element Filter -->
+                    <div>
+                        <h3 class="filter-section-title">Filter by Element</h3>
+                        <div class="filter-pills-row">
+                            <button type="button"
+                                    class="filter-pill-btn"
+                                    :class="selectedElement === '' ? 'active' : ''"
+                                    @click="selectedElement = ''; updateFilters()">
+                                All Elements
+                            </button>
+                            <button th:each="elem : ${elements}"
+                                    type="button"
+                                    class="filter-pill-btn"
+                                    th:data-elem="${elem.name()}"
+                                    th:text="${elem.name()}"
+                                    :class="selectedElement === $el.dataset.elem ? 'active' : ''"
+                                    @click="selectedElement = $el.dataset.elem; updateFilters()">
+                                Element
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Prophecy Type Filter -->
+                    <div>
+                        <h3 class="filter-section-title">Filter by Category / Prophecy</h3>
+                        <div class="filter-pills-row">
+                            <button type="button"
+                                    class="filter-pill-btn"
+                                    :class="selectedProphecyType === '' ? 'active' : ''"
+                                    @click="selectedProphecyType = ''; updateFilters()">
+                                All Categories
+                            </button>
+                            <button th:each="ptype : ${prophecyTypes}"
+                                    type="button"
+                                    class="filter-pill-btn"
+                                    th:data-ptype="${ptype}"
+                                    th:text="${ptype}"
+                                    :class="selectedProphecyType === $el.dataset.ptype ? 'active' : ''"
+                                    @click="selectedProphecyType = $el.dataset.ptype; updateFilters()">
+                                Type
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reset Filters Button -->
+                <div style="display: flex; justify-content: flex-end; margin-top: 1rem;"
+                     x-show="searchQuery || selectedElement || selectedProphecyType">
+                    <button type="button"
+                            class="filter-pill-btn"
+                            style="font-size: 0.8rem; color: #f87171; border-color: rgba(239, 68, 68, 0.4);"
+                            @click="clearAllFilters()">
+                        Reset Filters
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cards View -->
+        <div x-show="viewMode === 'cards'">
+            <div th:replace="~{wiki/fragments/arcana-grid :: arcanaGrid}"></div>
+        </div>
+
+        <!-- Prophecies View -->
+        <div x-show="viewMode === 'prophecies'" x-cloak>
+            <div th:replace="~{wiki/fragments/prophecy-list :: prophecyList}"></div>
+        </div>
+
+        <!-- Detail Modal Overlay -->
+        <div class="detail-modal-overlay"
+             x-show="showModal"
+             x-cloak
+             @click="showModal = false"
+             @keydown.escape.window="showModal = false">
+            <div class="detail-modal-box texture-box"
+                 style="position: relative;"
+                 @click.stop>
+                <button type="button"
+                        @click="showModal = false"
+                        style="position: absolute; top: 0.75rem; right: 0.75rem; background: none; border: none; font-size: 1.75rem; color: #9ca3af; cursor: pointer; z-index: 20;"
+                        title="Close">
+                    &times;
+                </button>
+                <div id="arcana-modal-dialog">
+                    <p style="padding: 2rem; text-align: center; color: #9ca3af;">Loading details...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/privacy">Privacy Policy</a>
+                <span class="footer-separator">•</span>
+                <a href="/impressum">Impressum</a>
+            </div>
+            <p class="footer-copy">&copy; Witchfire Randomizer 1.0.0</p>
+            <p class="footer-disclaimer">I am not affiliated with The Astronauts or Witchfire in any way.</p>
+            <p class="footer-credits">All image rights belong to Witchfire and The Astronauts.</p>
+        </div>
+    </footer>
+</body>
+</html>

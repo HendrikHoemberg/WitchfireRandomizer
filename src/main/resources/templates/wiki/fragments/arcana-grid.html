@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="arcanaGrid" id="arcana-cards-grid" class="arcana-grid">
+    <div th:if="${#lists.isEmpty(cards)}" class="empty-state texture-box" style="grid-column: 1 / -1; padding: 3rem; text-align: center;">
+        <h3 style="color: var(--wf-gold); font-size: 1.25rem; margin-bottom: 0.5rem;">No Arcana Cards Found</h3>
+        <p style="color: #9ca3af; font-size: 0.95rem;">Try adjusting your search query or elemental filter.</p>
+    </div>
+
+    <div th:each="card : ${cards}"
+         class="arcana-card texture-box"
+         th:id="${card.id}"
+         @click="openArcanaModal($el.getAttribute('data-card-id'))"
+         th:data-card-id="${card.id}"
+         style="cursor: pointer;">
+        <div class="arcana-card-header">
+            <div class="arcana-icon-box">
+                <img th:src="${card.iconUrl}" th:alt="${card.name}" loading="lazy" />
+            </div>
+            <div style="flex-grow: 1; min-width: 0;">
+                <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.25rem;">
+                    <h3 class="arcana-card-title" th:text="${card.name}">Card Name</h3>
+                    <span th:if="${card.element != null}"
+                          class="element-badge"
+                          th:style="'border-color: ' + ${card.element.color} + '; color: ' + ${card.element.color} + ';'"
+                          th:text="${card.element.name()}">Fire</span>
+                </div>
+                <div class="arcana-tags-row">
+                    <span th:each="ptype : ${card.prophecyTypes}"
+                          class="arcana-tag"
+                          th:text="${ptype}">Type</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="arcana-card-body">
+            <p class="arcana-desc" th:text="${card.description}">Card description text</p>
+            <div th:if="${card.effects != null and !card.effects.isBlank()}" class="arcana-effect-tier">
+                <span class="tier-label">Effect:</span>
+                <span class="tier-value" th:text="${card.effects}">+15% / +25%</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

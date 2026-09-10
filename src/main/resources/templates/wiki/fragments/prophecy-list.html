@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="prophecyList" id="prophecy-list-container" class="prophecy-grid">
+    <div th:each="p : ${prophecies}" class="prophecy-card texture-box">
+        <div class="prophecy-header">
+            <div class="prophecy-icon-box">
+                <img th:src="${p.iconUrl}" th:alt="${p.name}" loading="lazy" />
+            </div>
+            <div style="flex-grow: 1;">
+                <h3 class="prophecy-title" th:text="${p.name}">Prophecy of Fire</h3>
+                <div style="display: flex; gap: 0.5rem; align-items: center; margin-top: 0.25rem;">
+                    <span class="arcana-tag" th:text="${p.arcanaType}">Fire Element</span>
+                    <span th:if="${p.location != null and !p.location.isBlank()}"
+                          style="font-size: 0.75rem; color: #9ca3af;"
+                          th:text="${p.location}">Location</span>
+                </div>
+            </div>
+        </div>
+
+        <p style="color: #d1d5db; font-size: 0.9rem; line-height: 1.5; margin: 0.75rem 0;" th:text="${p.description}">Description</p>
+
+        <!-- Omen Warning Box -->
+        <div th:if="${p.omenName != null and !p.omenName.isBlank()}" class="omen-warning-box">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem;">
+                <span style="font-size: 0.75rem; text-transform: uppercase; font-weight: 700; color: #f87171; letter-spacing: 0.05em;">Imposed Omen</span>
+                <span style="font-size: 0.8rem; font-weight: 600; color: #fca5a5;" th:text="${p.omenName}">Omen of the Raven</span>
+            </div>
+            <p style="color: #e5e7eb; font-size: 0.85rem; line-height: 1.4; margin: 0;" th:text="${p.omenEffect}">Omen effect description</p>
+        </div>
+
+        <div style="margin-top: 1rem; display: flex; justify-content: flex-end;">
+            <button type="button"
+                    class="filter-pill-btn"
+                    style="font-size: 0.8rem; padding: 0.35rem 0.85rem;"
+                    th:data-type="${p.arcanaType}"
+                    @click="selectedProphecyType = $el.dataset.type; viewMode = 'cards'; updateFilters()">
+                View Related Arcana
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
