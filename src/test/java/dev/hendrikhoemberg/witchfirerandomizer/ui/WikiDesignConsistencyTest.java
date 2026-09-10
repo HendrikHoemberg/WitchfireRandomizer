@@ -194,6 +194,15 @@ class WikiDesignConsistencyTest {
         assertThat(mystRule).doesNotContain("background-color: var(--wf-gold-accent)");
         assertThat(mystRule).contains("background: rgba(0, 0, 0,");
     }
+
+    @Test
+    void shouldRenderSelfContainedArcanaGridWithoutModalTrigger() throws Exception {
+        mockMvc.perform(get("/wiki/arcana"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("arcana-grid")))
+                .andExpect(content().string(containsString("Showing")))
+                .andExpect(content().string(not(containsString("openArcanaModal"))));
+    }
 }
 
 

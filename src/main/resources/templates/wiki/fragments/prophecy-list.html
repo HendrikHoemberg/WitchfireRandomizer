@@ -30,13 +30,11 @@
         </div>
 
         <div style="margin-top: 1rem; display: flex; justify-content: flex-end;">
-            <button type="button"
-                    class="filter-pill-btn"
-                    style="font-size: 0.8rem; padding: 0.35rem 0.85rem;"
-                    th:data-type="${p.arcanaType}"
-                    @click="selectedProphecyType = $el.dataset.type; viewMode = 'cards'; updateFilters()">
-                View Related Arcana
-            </button>
+            <a th:href="@{/wiki/arcana(prophecyType=${p.arcanaType})}"
+               class="filter-pill-btn"
+               style="font-size: 0.8rem; padding: 0.35rem 0.85rem; text-decoration: none; display: inline-block;">
+                View Related Arcana &rarr;
+            </a>
         </div>
     </div>
 </div>

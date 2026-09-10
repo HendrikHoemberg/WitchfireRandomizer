@@ -8,11 +8,8 @@
     </div>
 
     <div th:each="card : ${cards}"
-         class="arcana-card texture-box is-clickable"
-         th:id="${card.id}"
-         @click="openArcanaModal($el.getAttribute('data-card-id'))"
-         th:data-card-id="${card.id}"
-         >
+         class="arcana-card texture-box"
+         th:id="${card.id}">
         <div class="arcana-card-header">
             <div class="arcana-icon-box">
                 <img th:src="${card.iconUrl}" th:alt="${card.name}" loading="lazy" />
@@ -30,6 +27,8 @@
                           th:if="${card.element == null or (!ptype.equalsIgnoreCase(card.element.name()) and !ptype.equalsIgnoreCase(card.element.name() + ' Element'))}"
                           class="arcana-tag"
                           th:text="${ptype}">Type</span>
+                    <span th:if="${card.element == null and (card.prophecyTypes == null or card.prophecyTypes.isEmpty())}"
+                          class="arcana-tag" style="color: #9ca3af;">Neutral</span>
                 </div>
             </div>
         </div>

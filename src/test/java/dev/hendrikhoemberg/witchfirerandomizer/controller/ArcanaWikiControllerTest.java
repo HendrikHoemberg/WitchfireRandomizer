@@ -22,10 +22,9 @@ class ArcanaWikiControllerTest {
         mockMvc.perform(get("/wiki/arcana"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("wiki/arcana"))
-                .andExpect(model().attributeExists("cards", "prophecies", "prophecyTypes", "elements"))
-                .andExpect(content().string(containsString("Arcana &amp; Prophecies")))
-                .andExpect(content().string(containsString("Accelerant")))
-                .andExpect(content().string(containsString("Prophecy of Fire")));
+                .andExpect(model().attributeExists("cards", "prophecyTypes", "elements"))
+                .andExpect(content().string(containsString("Arcana")))
+                .andExpect(content().string(containsString("Accelerant")));
     }
 
     @Test
