@@ -1170,3 +1170,46 @@ input:checked + .slider:before {
 .footer-separator {
   color: var(--wf-border);
 }
+
+/* ==========================================================================
+   Wiki Sub-Navigation Tabs (Clean typography, dark-fantasy aesthetic, no emojis)
+   ========================================================================== */
+.wiki-subnav-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.wiki-subnav-tabs {
+  display: inline-flex;
+  background: rgba(18, 16, 14, 0.85);
+  border: 1px solid var(--wf-border);
+  border-radius: 9999px;
+  padding: 0.35rem;
+  gap: 0.25rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.wiki-tab-link {
+  padding: 0.5rem 1.25rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #9ca3af;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.wiki-tab-link:hover {
+  color: #f3f4f6;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.wiki-tab-link.active {
+  color: var(--wf-gold);
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
+}

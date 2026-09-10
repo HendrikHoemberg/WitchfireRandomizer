@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<div th:fragment="wikiNav(activeSection)" class="wiki-subnav-container">
+    <nav class="wiki-subnav-tabs" aria-label="Wiki navigation">
+        <a href="/wiki" class="wiki-tab-link" th:classappend="${activeSection == 'equipment' ? 'active' : ''}">Equipment</a>
+        <a href="/wiki/arcana" class="wiki-tab-link" th:classappend="${activeSection == 'arcana' ? 'active' : ''}">Arcana &amp; Prophecies</a>
+        <a href="/wiki/bestiary" class="wiki-tab-link" th:classappend="${activeSection == 'bestiary' ? 'active' : ''}">Bestiary</a>
+    </nav>
+</div>
+</body>
+</html>

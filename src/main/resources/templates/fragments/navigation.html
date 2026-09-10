@@ -33,8 +33,22 @@
                 <li>
                     <a href="/wiki"
                        class="sidebar-link"
-                       th:classappend="${activeTab == 'wiki' ? 'active' : ''}">
+                       th:classappend="${activeTab == 'wiki' || activeTab == 'equipment' ? 'active' : ''}">
                         Item Wiki
+                    </a>
+                </li>
+                <li>
+                    <a href="/wiki/arcana"
+                       class="sidebar-link"
+                       th:classappend="${activeTab == 'arcana' ? 'active' : ''}">
+                        Arcana &amp; Prophecies
+                    </a>
+                </li>
+                <li>
+                    <a href="/wiki/bestiary"
+                       class="sidebar-link"
+                       th:classappend="${activeTab == 'bestiary' ? 'active' : ''}">
+                        Bestiary
                     </a>
                 </li>
             </ul>
