@@ -107,4 +107,30 @@ Plan: `docs/slimpowers/plans/2026-09-10-wiki-layout-harmonization-and-bestiary-r
   - [x] Captured fresh full-page and mobile screenshots across all 4 tabs
   - [x] Full test suite verified: `./mvnw test` (90 tests passed, 0 failures)
 
+---
+
+# Current Task: Bestiary Catalog Overhaul
+
+Plan: `docs/slimpowers/plans/2026-09-10-bestiary-card-overhaul.md`
+
+- [x] Task 1: Regression tests for the harmonized bestiary card anatomy
+  - [x] Added 5 tests to `WikiDesignConsistencyTest` (stat block, affinity groups,
+        no-affinity empty state, territory overflow, rank dedup)
+  - [x] Verified RED: 23 tests, exactly the 5 new ones failing
+- [x] Task 2: Rebuilt enemy cards with the shared catalog card anatomy
+  - [x] `enemy-grid.html`: header (portrait/title/rank+variant tags/gnosis seal) →
+        labeled HEALTH/ATTACK stat block → grouped `RESISTS` / `VULNERABLE` rows with an
+        explicit `No elemental resistances or weaknesses.` state → bottom-anchored
+        `TERRITORY` footer clamped to 3 locations + `+N more`
+  - [x] `main.css`: `align-items: stretch`, new card classes, removed dead
+        `.enemy-combat-stats-row` / `.enemy-affinity-strip` / `.enemy-desc`
+  - [x] Verified GREEN: `WikiDesignConsistencyTest` 23/23
+- [x] Task 3: Page-level filter row harmonization
+  - [x] `bestiary.html` inline-styled Location row → shared `.filter-secondary-row`
+- [x] Task 4: Verification
+  - [x] Full suite: `./mvnw test` → 95 tests, 0 failures, BUILD SUCCESS
+  - [x] Re-captured screenshots (`target/ui-review/shots-current/`) incl. long-name and
+        max-affinity edge cases; territory footers verified bottom-anchored at a uniform
+        19.4px gap via computed-style probe
+
 

@@ -7,94 +7,115 @@
         <p style="color: #9ca3af; font-size: 0.95rem;">Try adjusting your search criteria or Gnosis level.</p>
     </div>
 
-    <div th:each="enemy : ${enemies}"
-         class="enemy-card texture-box"
-         th:id="${enemy.id}">
-        <!-- Header -->
-        <div class="enemy-card-header">
+    <article th:each="enemy : ${enemies}"
+             class="enemy-card texture-box"
+             th:id="${enemy.id}"
+             th:with="hasResistance=${(enemy.fireResistance != null and enemy.fireResistance > 0)
+                     or (enemy.shockResistance != null and enemy.shockResistance > 0)
+                     or (enemy.freezeResistance != null and enemy.freezeResistance > 0)
+                     or (enemy.decayResistance != null and enemy.decayResistance > 0)
+                     or (enemy.airResistance != null and enemy.airResistance > 0)
+                     or (enemy.earthResistance != null and enemy.earthResistance > 0)
+                     or (enemy.waterResistance != null and enemy.waterResistance > 0)
+                     or (enemy.burnResistance != null and enemy.burnResistance > 0)
+                     or (enemy.staggerResistance != null and enemy.staggerResistance > 0)
+                     or (enemy.stunResistance != null and enemy.stunResistance > 0)},
+                     hasVulnerability=${(enemy.fireResistance != null and enemy.fireResistance < 0)
+                     or (enemy.shockResistance != null and enemy.shockResistance < 0)
+                     or (enemy.freezeResistance != null and enemy.freezeResistance < 0)
+                     or (enemy.decayResistance != null and enemy.decayResistance < 0)
+                     or (enemy.airResistance != null and enemy.airResistance < 0)
+                     or (enemy.earthResistance != null and enemy.earthResistance < 0)
+                     or (enemy.waterResistance != null and enemy.waterResistance < 0)
+                     or (enemy.burnResistance != null and enemy.burnResistance < 0)}">
+        <!-- Header: portrait, name, rank/variant tags, gnosis seal -->
+        <header class="enemy-card-header">
             <div class="enemy-portrait-box">
-                <img th:src="${enemy.iconUrl}" th:alt="${enemy.name}" loading="lazy" />
+                <img th:if="${enemy.iconUrl != null}" th:src="${enemy.iconUrl}" th:alt="${enemy.name}" loading="lazy" />
             </div>
-            <div style="flex-grow: 1; min-width: 0;">
-                <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.35rem;">
+            <div class="enemy-card-heading">
+                <div class="enemy-card-title-row">
                     <h3 class="enemy-card-title" th:text="${enemy.name}">Enemy Name</h3>
                     <span th:if="${enemy.gnosis != null}"
                           class="gnosis-badge"
                           th:text="'Gnosis ' + ${enemy.gnosis}">Gnosis 0</span>
                 </div>
-                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-                    <span class="rank-badge" th:text="${enemy.rank}">Rank</span>
+                <div class="enemy-tags-row">
+                    <span th:if="${enemy.rank != null and !enemy.rank.isBlank() and !enemy.rank.equalsIgnoreCase(enemy.name)}"
+                          class="arcana-tag enemy-rank-tag"
+                          th:text="${enemy.rank}">Rank</span>
                     <span th:if="${enemy.variants != null and !enemy.variants.isBlank()}"
-                          class="variant-badge"
+                          class="arcana-tag enemy-variant-tag"
                           th:text="${enemy.variants}">Elite</span>
                 </div>
             </div>
-        </div>
+        </header>
 
-        <!-- Combat Stats & Resistances Body -->
+        <!-- Body: labeled combat stat block, grouped affinities, territory footer -->
         <div class="enemy-card-body">
-            <!-- Combat Strip: Health & Attack -->
-            <div class="enemy-combat-stats-row">
-                <div th:if="${enemy.health != null and enemy.health > 0}" class="enemy-stat-chip health-chip">
-                    <span class="stat-chip-label">HP</span>
-                    <span class="stat-chip-value" th:text="${#numbers.formatInteger(enemy.health, 1, 'COMMA')}">1,200</span>
+            <div class="enemy-stat-grid">
+                <div class="enemy-stat">
+                    <span class="enemy-stat-label">Health</span>
+                    <span class="enemy-stat-value"
+                          th:text="${enemy.health != null and enemy.health > 0 ? #numbers.formatInteger(enemy.health, 1, 'COMMA') : '—'}">2,600</span>
                 </div>
-                <div th:if="${enemy.damage != null and !enemy.damage.isBlank()}" class="enemy-stat-chip attack-chip">
-                    <span class="stat-chip-label">ATK</span>
-                    <span class="stat-chip-value" th:text="${enemy.damage}">4 - 35</span>
+                <div class="enemy-stat">
+                    <span class="enemy-stat-label">Attack</span>
+                    <span class="enemy-stat-value"
+                          th:text="${enemy.damage != null and !enemy.damage.isBlank() ? enemy.damage : '—'}">4 - 35</span>
                 </div>
             </div>
 
-            <!-- Elemental Resistances / Vulnerabilities Strip -->
-            <div class="enemy-affinity-strip"
-                 th:if="${(enemy.fireResistance != null and enemy.fireResistance != 0) or (enemy.shockResistance != null and enemy.shockResistance != 0) or (enemy.freezeResistance != null and enemy.freezeResistance != 0) or (enemy.decayResistance != null and enemy.decayResistance != 0) or (enemy.airResistance != null and enemy.airResistance != 0) or (enemy.earthResistance != null and enemy.earthResistance != 0) or (enemy.waterResistance != null and enemy.waterResistance != 0) or (enemy.burnResistance != null and enemy.burnResistance != 0) or (enemy.staggerResistance != null and enemy.staggerResistance != 0) or (enemy.stunResistance != null and enemy.stunResistance != 0)}">
-                <span th:if="${enemy.fireResistance != null and enemy.fireResistance != 0}"
-                      class="affinity-pill" th:classappend="${enemy.fireResistance < 0 ? 'aff-vulnerable' : 'aff-resistant'}"
-                      th:text="'Fire ' + ${(enemy.fireResistance > 0 ? '+' : '') + enemy.fireResistance + '%'}">Fire +75%</span>
-                <span th:if="${enemy.shockResistance != null and enemy.shockResistance != 0}"
-                      class="affinity-pill" th:classappend="${enemy.shockResistance < 0 ? 'aff-vulnerable' : 'aff-resistant'}"
-                      th:text="'Shock ' + ${(enemy.shockResistance > 0 ? '+' : '') + enemy.shockResistance + '%'}">Shock +35%</span>
-                <span th:if="${enemy.freezeResistance != null and enemy.freezeResistance != 0}"
-                      class="affinity-pill" th:classappend="${enemy.freezeResistance < 0 ? 'aff-vulnerable' : 'aff-resistant'}"
-                      th:text="'Freeze ' + ${(enemy.freezeResistance > 0 ? '+' : '') + enemy.freezeResistance + '%'}">Freeze +50%</span>
-                <span th:if="${enemy.decayResistance != null and enemy.decayResistance != 0}"
-                      class="affinity-pill" th:classappend="${enemy.decayResistance < 0 ? 'aff-vulnerable' : 'aff-resistant'}"
-                      th:text="'Decay ' + ${(enemy.decayResistance > 0 ? '+' : '') + enemy.decayResistance + '%'}">Decay -100%</span>
-                <span th:if="${enemy.airResistance != null and enemy.airResistance != 0}"
-                      class="affinity-pill" th:classappend="${enemy.airResistance < 0 ? 'aff-vulnerable' : 'aff-resistant'}"
-                      th:text="'Air ' + ${(enemy.airResistance > 0 ? '+' : '') + enemy.airResistance + '%'}">Air +35%</span>
-                <span th:if="${enemy.earthResistance != null and enemy.earthResistance != 0}"
-                      class="affinity-pill" th:classappend="${enemy.earthResistance < 0 ? 'aff-vulnerable' : 'aff-resistant'}"
-                      th:text="'Earth ' + ${(enemy.earthResistance > 0 ? '+' : '') + enemy.earthResistance + '%'}">Earth +20%</span>
-                <span th:if="${enemy.waterResistance != null and enemy.waterResistance != 0}"
-                      class="affinity-pill" th:classappend="${enemy.waterResistance < 0 ? 'aff-vulnerable' : 'aff-resistant'}"
-                      th:text="'Water ' + ${(enemy.waterResistance > 0 ? '+' : '') + enemy.waterResistance + '%'}">Water +20%</span>
-                <span th:if="${enemy.burnResistance != null and enemy.burnResistance != 0}"
-                      class="affinity-pill" th:classappend="${enemy.burnResistance < 0 ? 'aff-vulnerable' : 'aff-resistant'}"
-                      th:text="'Burn ' + ${(enemy.burnResistance > 0 ? '+' : '') + enemy.burnResistance + '%'}">Burn +20%</span>
-                <span th:if="${enemy.staggerResistance != null and enemy.staggerResistance != 0}"
-                      class="affinity-pill aff-physical"
-                      th:text="'Stagger ' + ${enemy.staggerResistance + '%'}">Stagger 80%</span>
-                <span th:if="${enemy.stunResistance != null and enemy.stunResistance != 0}"
-                      class="affinity-pill aff-physical"
-                      th:text="'Stun ' + ${enemy.stunResistance + '%'}">Stun 50%</span>
+            <div class="enemy-affinity-block">
+                <div class="enemy-affinity-row" th:if="${hasResistance}">
+                    <span class="enemy-affinity-label">Resists</span>
+                    <div class="enemy-affinity-pills">
+                        <span th:if="${enemy.fireResistance != null and enemy.fireResistance > 0}" class="affinity-pill aff-resistant" th:text="'Fire +' + ${enemy.fireResistance} + '%'">Fire +75%</span>
+                        <span th:if="${enemy.shockResistance != null and enemy.shockResistance > 0}" class="affinity-pill aff-resistant" th:text="'Shock +' + ${enemy.shockResistance} + '%'">Shock +35%</span>
+                        <span th:if="${enemy.freezeResistance != null and enemy.freezeResistance > 0}" class="affinity-pill aff-resistant" th:text="'Freeze +' + ${enemy.freezeResistance} + '%'">Freeze +50%</span>
+                        <span th:if="${enemy.decayResistance != null and enemy.decayResistance > 0}" class="affinity-pill aff-resistant" th:text="'Decay +' + ${enemy.decayResistance} + '%'">Decay +100%</span>
+                        <span th:if="${enemy.airResistance != null and enemy.airResistance > 0}" class="affinity-pill aff-resistant" th:text="'Air +' + ${enemy.airResistance} + '%'">Air +35%</span>
+                        <span th:if="${enemy.earthResistance != null and enemy.earthResistance > 0}" class="affinity-pill aff-resistant" th:text="'Earth +' + ${enemy.earthResistance} + '%'">Earth +20%</span>
+                        <span th:if="${enemy.waterResistance != null and enemy.waterResistance > 0}" class="affinity-pill aff-resistant" th:text="'Water +' + ${enemy.waterResistance} + '%'">Water +20%</span>
+                        <span th:if="${enemy.burnResistance != null and enemy.burnResistance > 0}" class="affinity-pill aff-resistant" th:text="'Burn +' + ${enemy.burnResistance} + '%'">Burn +20%</span>
+                        <span th:if="${enemy.staggerResistance != null and enemy.staggerResistance > 0}" class="affinity-pill aff-physical" th:text="'Stagger ' + ${enemy.staggerResistance} + '%'">Stagger 80%</span>
+                        <span th:if="${enemy.stunResistance != null and enemy.stunResistance > 0}" class="affinity-pill aff-physical" th:text="'Stun ' + ${enemy.stunResistance} + '%'">Stun 50%</span>
+                    </div>
+                </div>
+
+                <div class="enemy-affinity-row is-vulnerable" th:if="${hasVulnerability}">
+                    <span class="enemy-affinity-label">Vulnerable</span>
+                    <div class="enemy-affinity-pills">
+                        <span th:if="${enemy.fireResistance != null and enemy.fireResistance < 0}" class="affinity-pill aff-vulnerable" th:text="'Fire ' + ${enemy.fireResistance} + '%'">Fire -50%</span>
+                        <span th:if="${enemy.shockResistance != null and enemy.shockResistance < 0}" class="affinity-pill aff-vulnerable" th:text="'Shock ' + ${enemy.shockResistance} + '%'">Shock -50%</span>
+                        <span th:if="${enemy.freezeResistance != null and enemy.freezeResistance < 0}" class="affinity-pill aff-vulnerable" th:text="'Freeze ' + ${enemy.freezeResistance} + '%'">Freeze -50%</span>
+                        <span th:if="${enemy.decayResistance != null and enemy.decayResistance < 0}" class="affinity-pill aff-vulnerable" th:text="'Decay ' + ${enemy.decayResistance} + '%'">Decay -100%</span>
+                        <span th:if="${enemy.airResistance != null and enemy.airResistance < 0}" class="affinity-pill aff-vulnerable" th:text="'Air ' + ${enemy.airResistance} + '%'">Air -50%</span>
+                        <span th:if="${enemy.earthResistance != null and enemy.earthResistance < 0}" class="affinity-pill aff-vulnerable" th:text="'Earth ' + ${enemy.earthResistance} + '%'">Earth -50%</span>
+                        <span th:if="${enemy.waterResistance != null and enemy.waterResistance < 0}" class="affinity-pill aff-vulnerable" th:text="'Water ' + ${enemy.waterResistance} + '%'">Water -50%</span>
+                        <span th:if="${enemy.burnResistance != null and enemy.burnResistance < 0}" class="affinity-pill aff-vulnerable" th:text="'Burn ' + ${enemy.burnResistance} + '%'">Burn -50%</span>
+                    </div>
+                </div>
+
+                <p th:if="${!hasResistance and !hasVulnerability}" class="enemy-affinity-none">
+                    No elemental resistances or weaknesses.
+                </p>
             </div>
 
-            <!-- Custom Lore Description (omitted if generic filler) -->
-            <p th:if="${enemy.description != null and !enemy.description.isBlank() and !enemy.description.contains('A denizen of the Witch domain') and !enemy.description.contains('A denizen under the Witch command')}"
-               class="enemy-desc"
-               th:text="${enemy.description}">
-                Unique enemy description text.
-            </p>
-
-            <!-- Territory Locations -->
-            <div th:if="${enemy.locations != null and !enemy.locations.isEmpty()}" class="locations-chips-row" style="margin-top: 0.75rem;">
-                <span th:each="loc : ${enemy.locations}"
-                      class="location-chip"
-                      th:text="${loc}">Irongate Castle</span>
+            <div th:if="${enemy.locations != null and !enemy.locations.isEmpty()}" class="enemy-locations-row">
+                <span class="enemy-locations-label">Territory</span>
+                <div class="locations-chips-row">
+                    <span th:each="loc, iter : ${enemy.locations}"
+                          th:if="${iter.index < 3}"
+                          class="location-chip"
+                          th:text="${loc}">Irongate Castle</span>
+                    <span th:if="${enemy.locations.size() > 3}"
+                          class="location-chip location-chip-more"
+                          th:text="|+${enemy.locations.size() - 3} more|">+2 more</span>
+                </div>
             </div>
         </div>
-    </div>
+    </article>
 </div>
 </body>
 </html>

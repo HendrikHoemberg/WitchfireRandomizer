@@ -216,6 +216,65 @@ class WikiDesignConsistencyTest {
                 .andExpect(content().string(containsString("enemy-card")))
                 .andExpect(content().string(not(containsString("openEnemyModal"))));
     }
+
+    @Test
+    void shouldRenderALabeledCombatStatBlockOnEnemyCards() throws Exception {
+        mockMvc.perform(get("/wiki/bestiary/enemies"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("enemy-stat-grid")))
+                .andExpect(content().string(containsString("enemy-stat-label")))
+                .andExpect(content().string(containsString(">Health<")))
+                .andExpect(content().string(containsString(">Attack<")))
+                .andExpect(content().string(not(containsString("enemy-combat-stats-row"))));
+    }
+
+    @Test
+    void shouldGroupEnemyAffinitiesIntoResistsAndVulnerabilities() throws Exception {
+        // Anointer resists Fire/Freeze/Air/Stagger and is vulnerable to Decay.
+        mockMvc.perform(get("/wiki/bestiary/enemies").param("search", "Anointer"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("enemy-affinity-label")))
+                .andExpect(content().string(containsString(">Resists<")))
+                .andExpect(content().string(containsString(">Vulnerable<")))
+                .andExpect(content().string(containsString("enemy-affinity-row is-vulnerable")))
+                .andExpect(content().string(not(containsString("enemy-affinity-strip"))));
+    }
+
+    @Test
+    void shouldRenderAnExplicitEmptyStateForEnemiesWithoutAffinities() throws Exception {
+        // Assassin has no elemental resistances and no vulnerabilities.
+        mockMvc.perform(get("/wiki/bestiary/enemies").param("search", "Assassin"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("No elemental resistances or weaknesses.")));
+    }
+
+    @Test
+    void shouldCondenseEnemyTerritoriesWithAnOverflowChip() throws Exception {
+        // Arcabusier lists 4 territories; the card shows 3 plus an overflow indicator.
+        mockMvc.perform(get("/wiki/bestiary/enemies").param("search", "Arcabusier"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("location-chip-more")))
+                .andExpect(content().string(containsString("+1 more")));
+
+        // Anointer lists 1 territory; no overflow chip.
+        mockMvc.perform(get("/wiki/bestiary/enemies").param("search", "Anointer"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(not(containsString("location-chip-more"))));
+    }
+
+    @Test
+    void shouldNotDuplicateTheRankTagOnUniqueEnemies() throws Exception {
+        // "Sepulcher" is both the enemy name and its rank label.
+        mockMvc.perform(get("/wiki/bestiary/enemies").param("search", "Sepulcher"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(not(containsString("enemy-rank-tag"))));
+
+        // Regular ranks still render their tag.
+        mockMvc.perform(get("/wiki/bestiary/enemies").param("search", "Anointer"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("enemy-rank-tag")))
+                .andExpect(content().string(containsString(">Faithful<")));
+    }
 }
 
 
