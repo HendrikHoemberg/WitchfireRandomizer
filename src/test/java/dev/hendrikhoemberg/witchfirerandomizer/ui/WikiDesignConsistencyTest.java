@@ -503,6 +503,48 @@ class WikiDesignConsistencyTest {
         // The styling for a section that can be absent must still exist.
         assertThat(cssRule(mainCss(), ".enemy-form-chip")).contains("text-transform: uppercase");
     }
+
+    @Test
+    void shouldRenderEquipmentCardsWithPortraitPlateAndDossier() throws Exception {
+        String css = mainCss();
+        String cardRule = cssRule(css, ".wiki-item-card");
+        assertThat(cardRule).contains("grid-template-columns");
+
+        mockMvc.perform(get("/wiki/items"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("wiki-item-portrait-plate")))
+                .andExpect(content().string(containsString("wiki-item-dossier")))
+                .andExpect(content().string(containsString("equipment-category-tag")));
+    }
+
+    @Test
+    void shouldRenderEquipmentStatsInBestiaryStyleGrid() throws Exception {
+        mockMvc.perform(get("/wiki/items").param("search", "All-Seeing Eye"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("equipment-stat-grid")))
+                .andExpect(content().string(containsString("equipment-stat-label")))
+                .andExpect(content().string(containsString(">DAMAGE<")))
+                .andExpect(content().string(containsString(">STUN<")));
+    }
+
+    @Test
+    void shouldStackEquipmentCardsInRandomizerModal() throws Exception {
+        String css = mainCss();
+        String modalCardRule = cssRule(css, ".detail-modal-box .wiki-item-card");
+        assertThat(modalCardRule).contains("grid-template-columns: 1fr");
+
+        String modalPlateRule = cssRule(css, ".detail-modal-box .wiki-item-portrait-plate");
+        assertThat(modalPlateRule).contains("border-right: none");
+    }
+
+    @Test
+    void shouldPreserveMysteriumEffectAndRequirementStyling() throws Exception {
+        mockMvc.perform(get("/wiki/items").param("search", "All-Seeing Eye"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("wiki-mysterium-original-content")))
+                .andExpect(content().string(containsString("Effect:")))
+                .andExpect(content().string(containsString("Requirements:")));
+    }
 }
 
 

@@ -196,3 +196,27 @@ Plan: `docs/slimpowers/plans/2026-09-10-bestiary-filters-forms-and-selects.md`
   - [x] From-scratch build: `./mvnw clean test` → **123 tests, 0 failures, BUILD SUCCESS**
   - [x] CDP probe on the real page: `appearance: none`, bg `#201d19`, groups
         Regions/Vaults/Summoned, 18 options, **0 "gnosis" occurrences**
+
+---
+
+# 2026-09-11 — Equipment Wiki Coherent Side-by-Side Cards & Modal Layout
+
+- [x] Task 1: Write regression tests in `WikiDesignConsistencyTest`
+  - [x] Step 1: Add tests for `.wiki-item-portrait-plate`, `.equipment-category-tag`, and `.detail-modal-box .wiki-item-card` stacked layout
+  - [x] Step 2: Run tests and verify failure (RED watched — 4 failures)
+- [x] Task 2: Implement Option B Refined in `item-card.html`
+  - [x] Side-by-side portrait plate (210px) + dossier
+  - [x] Header with item name, element pill, and top-right category badge
+  - [x] 4-column structured combat stats with gold uppercase tracking labels
+  - [x] Description paragraph
+  - [x] Mysterium accordion with original Effect/Requirements/Charismata layout inside `.opt-b-tier-body`
+  - [x] Bead requirements chips
+- [x] Task 3: Implement CSS in `main.css`
+  - [x] Card layout, portrait plate, dossier, category badge, stats grid, and tier box styling
+  - [x] Responsive stack `@media (max-width: 640px)`
+  - [x] Force stacked layout in `.detail-modal-box .wiki-item-card`
+- [x] Task 4: Clean up temporary prototype files
+  - [x] Removed `prototype.html`
+- [x] Task 5: Verification
+  - [x] Run full test suite: `./mvnw test` (127 tests passed, 0 failures)
+  - [x] Captured fresh screenshots of `/wiki`, expanded Mysterium, mobile view, and randomizer item modal
